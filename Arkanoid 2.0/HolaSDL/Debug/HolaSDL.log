@@ -1,0 +1,10 @@
+﻿  Dog.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+C:\Users\witiz\Documents\UCM\TPV1\SDL\ProyectosSDL\HolaSDL\Dog.cpp(8,40): error C2660: 'Texture::renderFrame': function does not take 2 arguments
+C:\Users\witiz\Documents\UCM\TPV1\SDL\ProyectosSDL\HolaSDL\Texture.h(39,10): message : see declaration of 'Texture::renderFrame'
+  Game.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+  Texture.cpp
+  Generating Code...
