@@ -5,23 +5,6 @@
 
 using namespace std;
 
-BlocksMap::BlocksMap(int mW, int mH, Texture* t, Game* g)
-{
-	rows = 0;
-	cols = 0;
-
-	mapW = mW;
-	mapH = mH;
-
-	cellW = 0;
-	cellH = 0;
-
-	texture = t;
-	game = g;
-
-	gameMap = nullptr;
-}
-
 BlocksMap::~BlocksMap()
 {
 	for (int i = 0; i < rows; ++i) {
@@ -45,8 +28,8 @@ void BlocksMap::loadMap(const string& file)
 		rows = r;
 		cols = c;
 
-		cellW = mapW / cols;
-		cellH = mapH / rows;
+		cellW = w / cols;
+		cellH = h / rows;
 
 		int color;
 		gameMap = new Block * *[rows];
@@ -103,7 +86,7 @@ bool BlocksMap::collides(SDL_Rect ballRect, Vector2D& collisionVector, Vector2D 
 	while (n < rows && !collide) {
 		int m = 0;
 		while (m < cols && !collide) {
-			if (isBlock(n, m) && SDL_IntersectRect(&gameMap[n][m]->getDestRect(), &ballRect, &result)) {
+			if (isBlock(n, m) && SDL_IntersectRect(&gameMap[n][m]->getRect(), &ballRect, &result)) {
 				collisionVector = collision(result, ballRect, gameMap[n][m], dir);
 				collide = true;
 				gameMap[n][m]->deleteBlock();
@@ -118,28 +101,16 @@ bool BlocksMap::collides(SDL_Rect ballRect, Vector2D& collisionVector, Vector2D 
 }
 Vector2D BlocksMap::collision(const SDL_Rect& result, const SDL_Rect& ballRect, Block* b, Vector2D dir)
 {
-	Vector2D colVect;
-	colVect.setX(0); colVect.setY(0);
-
+	Vector2D colVect = Vector2D(0, 0);
+	SDL_Rect blockPos = b->getRect();
 	if (result.h < result.w) {
-		if (dir.getY() < 0 && result.y < b->getPos().getY() + b->getHeight()) { colVect = Vector2D(0, 1); }
-		if (dir.getY() > 0 && result.y <= b->getPos().getY()) { colVect = Vector2D(0, -1); }
+		if (dir.getY() < 0 && result.y < blockPos.x + blockPos.h) { colVect = Vector2D(0, 1); }
+		if (dir.getY() > 0 && result.y <= blockPos.y) { colVect = Vector2D(0, -1); }
 	}
 	else {
-		if (dir.getX() < 0 && result.x <= b->getPos().getX() + b->getWidth() && result.x >= b->getPos().getX()) { colVect = Vector2D(1, 0); }
-		if (dir.getX() > 0 && result.x >= b->getPos().getX() && result.x + result.w <= b->getPos().getX() + b->getWidth()) { colVect = Vector2D(-1, 0); }
+		if (dir.getX() < 0 && result.x <= blockPos.x + blockPos.w && result.x >= blockPos.x) { colVect = Vector2D(1, 0); }
+		if (dir.getX() > 0 && result.x >= blockPos.x && result.x + result.w <= blockPos.x + blockPos.w) { colVect = Vector2D(-1, 0); }
 	}
-
-	//float ballCenterX = ballRect.x + (0.5f * ballRect.w);
-	//float ballCenterY = ballRect.y + (0.5f * ballRect.h);
-
-	//float aux1 = ballRect.y + ballRect.h;
-	//float aux2 = ballRect.x + ballRect.w;
-
-	//if ((ballCenterX < b->getPos().getX()) /*&& ((aux1) > b->getPos().getY()) && ((ballRect.y) < (b->getPos().getY() + b->getHeight()))*/) colVect = Vector2D(1, 0);
-	//else if ((ballCenterY > b->getPos().getY()) /* && ((aux2) > b->getPos().getX()) && ((ballRect.x) < (b->getPos().getX() + b->getWidth()))*/) colVect = Vector2D(0, 1);
-	//else if ((ballCenterX > b->getPos().getX() + b->getWidth()) /* && ((aux1) > b->getPos().getY()) && ((ballRect.y) < (b->getPos().getY() + b->getHeight()))*/) colVect = Vector2D(-1, 0);
-	//else if ((ballCenterY < (b->getPos().getY() + b->getHeight())) /* && ((aux2) > b->getPos().getX()) && ((ballRect.x) < (b->getPos().getX() + b->getWidth())) */ ) colVect = Vector2D(0, -1);
 
 	return colVect;
 }

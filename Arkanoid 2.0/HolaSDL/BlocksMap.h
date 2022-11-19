@@ -3,11 +3,12 @@
 #include"Block.h"
 #include<fstream>
 #include <string>
+#include "ArkanoidObject.h"
 
 using namespace std;
 
 class Game;
-class BlocksMap
+class BlocksMap : public ArkanoidObject
 {
 private:
 	Block*** gameMap;
@@ -18,8 +19,8 @@ private:
 	Game* game;
 
 public:
-	BlocksMap() : gameMap(nullptr), rows(0), cols(0), cellW(0), cellH(0), texture(nullptr), game(nullptr) {};
-	BlocksMap(int mW, int mH, Texture* t, Game* g);
+
+	BlocksMap(int mW, int mH, Texture* t, Game* g) : ArkanoidObject(Vector2D(0, 0), mH, mW, t), gameMap(nullptr), rows(0), cols(0), cellW(0), cellH(0), game(g) {};
 	void loadMap(const string& file);
 	~BlocksMap();
 	void render() const;

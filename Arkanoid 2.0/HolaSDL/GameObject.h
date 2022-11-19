@@ -5,8 +5,8 @@ class GameObject
 {
 public:
 
-	virtual void render()const;
-	virtual void update();
+	virtual void render()const{}
+	virtual void update(){}
 	void handleEvent()const;
 
 };

@@ -12,11 +12,11 @@ protected:
 	Vector2D pos;
 	int h;
 	int w;
-	Texture texture;
+	Texture* texture;
 
 public:
 	//Constructora y destructora
-	ArkanoidObject(Vector2D position, int height, int width, Texture _texture) : GameObject(), pos(position), h(height), w(width), texture(_texture) {};
+	ArkanoidObject(Vector2D position, int height, int width, Texture* _texture) : GameObject(), pos(position), h(height), w(width), texture(_texture) {};
 	~ArkanoidObject();
 
 	// Métodos

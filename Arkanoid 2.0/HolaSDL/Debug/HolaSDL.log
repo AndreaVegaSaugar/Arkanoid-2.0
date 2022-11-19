@@ -1,29 +1,65 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: El directorio intermedio (Debug\) contiene archivos compartidos de otro proyecto (HolaSDL.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
-  ArkanoidError.cpp
   ArkanoidObject.cpp
-  Ball.cpp
-  Block.cpp
   BlocksMap.cpp
-  FileFormatError.cpp
-  FileNotFoundError.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(23,11): error C2664: 'ArkanoidObject::ArkanoidObject(Vector2D,int,int,Texture)': el argumento 4 no puede convertirse de 'Texture *' a 'Texture'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(23,11): message : Ningún constructor ha podido aceptar el tipo de origen o bien la resolución de sobrecarga del constructor era ambigua
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(19,2): message : vea la declaración de 'ArkanoidObject::ArkanoidObject'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(9,1): error C2084: la función 'BlocksMap::BlocksMap(int,int,Texture *,Game *)' ya tiene un cuerpo
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(23): message : vea la definición anterior de '{ctor}'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(9,1): error C2512: 'ArkanoidObject': no hay disponible un constructor predeterminado adecuado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(8,7): message : vea la declaración de 'ArkanoidObject'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(13,2): error C2065: 'mapW': identificador no declarado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(14,2): error C2065: 'mapH': identificador no declarado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(19,13): error C2679: '=' binario: no se encontró un operador que adopte un operando en la parte derecha de tipo 'Texture *' (o bien no existe una conversión aceptable)
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Texture.h(37,1): message : puede ser 'Texture &Texture::operator =(const Texture &)'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(19,13): message : al hacer coincidir la lista de argumentos '(Texture, Texture *)'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(48,11): error C2065: 'mapW': identificador no declarado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(49,11): error C2065: 'mapH': identificador no declarado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(60,81): error C2661: 'Block::Block': ninguna función sobrecargada acepta 6 argumentos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(75,19): error C2039: "render": no es un miembro de "Block"
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(2): message : vea la declaración de 'Block'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(95,24): error C2039: "getColor": no es un miembro de "Block"
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(2): message : vea la declaración de 'Block'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(106,59): error C2039: "getDestRect": no es un miembro de "Block"
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(2): message : vea la declaración de 'Block'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(109,20): error C2039: "deleteBlock": no es un miembro de "Block"
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(2): message : vea la declaración de 'Block'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(125,39): error C2039: "getPos": no es un miembro de "Block"
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(2): message : vea la declaración de 'Block'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(125,60): error C2039: "getHeight": no es un miembro de "Block"
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(2): message : vea la declaración de 'Block'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(126,40): error C2039: "getPos": no es un miembro de "Block"
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(2): message : vea la declaración de 'Block'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(129,40): error C2039: "getPos": no es un miembro de "Block"
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(2): message : vea la declaración de 'Block'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(129,61): error C2039: "getWidth": no es un miembro de "Block"
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(2): message : vea la declaración de 'Block'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(129,90): error C2039: "getPos": no es un miembro de "Block"
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(2): message : vea la declaración de 'Block'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(130,40): error C2039: "getPos": no es un miembro de "Block"
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(2): message : vea la declaración de 'Block'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(130,85): error C2039: "getPos": no es un miembro de "Block"
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(2): message : vea la declaración de 'Block'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.cpp(130,106): error C2039: "getWidth": no es un miembro de "Block"
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(2): message : vea la declaración de 'Block'
   Game.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(41,9): error C3646: 'filename': especificador de invalidación desconocido
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(41,17): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(61,9): error C3646: 'levels': especificador de invalidación desconocido
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(61,15): error C2143: error de sintaxis: falta ',' delante de '['
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(61,30): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(23,11): error C2664: 'ArkanoidObject::ArkanoidObject(Vector2D,int,int,Texture)': el argumento 4 no puede convertirse de 'Texture *' a 'Texture'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(23,11): message : Ningún constructor ha podido aceptar el tipo de origen o bien la resolución de sobrecarga del constructor era ambigua
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(19,2): message : vea la declaración de 'ArkanoidObject::ArkanoidObject'
   GameObject.cpp
   main.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
-  MovingObject.cpp
-  Paddle.cpp
-  Reward.cpp
-  SDLError.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(23,11): error C2664: 'ArkanoidObject::ArkanoidObject(Vector2D,int,int,Texture)': el argumento 4 no puede convertirse de 'Texture *' a 'Texture'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(23,11): message : Ningún constructor ha podido aceptar el tipo de origen o bien la resolución de sobrecarga del constructor era ambigua
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(19,2): message : vea la declaración de 'ArkanoidObject::ArkanoidObject'
   Texture.cpp
   Time.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(23,11): error C2664: 'ArkanoidObject::ArkanoidObject(Vector2D,int,int,Texture)': el argumento 4 no puede convertirse de 'Texture *' a 'Texture'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(23,11): message : Ningún constructor ha podido aceptar el tipo de origen o bien la resolución de sobrecarga del constructor era ambigua
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(19,2): message : vea la declaración de 'ArkanoidObject::ArkanoidObject'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.cpp(57,23): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.cpp(58,23): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
   Vector2D.cpp
   Wall.cpp
   Generando código...

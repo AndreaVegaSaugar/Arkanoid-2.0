@@ -1,4 +1,10 @@
 #include "ArkanoidObject.h"
-//ArkanoidObject(Vector2D position, int height, int width, Texture* _texture) {
-//
-//}
+SDL_Rect ArkanoidObject::getRect()const {
+	SDL_Rect destRect;
+	destRect.w = w;
+	destRect.h = h;
+	destRect.x = (pos.getX() * w);
+	destRect.y = (pos.getY() * h);
+
+	return destRect;
+}

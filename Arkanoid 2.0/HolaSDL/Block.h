@@ -1,5 +1,24 @@
 #pragma once
-class Block
-{
-};
+#include "checkML.h"
+#include "Vector2D.h"
+#include "Texture.h"
+#include "ArkanoidObject.h"
 
+
+using namespace std;
+class Game;
+class Block : public ArkanoidObject
+{
+private:
+	int color;
+	int row;
+	int col;
+	Game* game;
+
+public:
+	Block(Vector2D p, int w, int h, int c, Texture* t, Game* g);
+	void render() const;
+	int getColor() { return color; };
+	void deleteBlock() { color = 0; };
+	
+};
