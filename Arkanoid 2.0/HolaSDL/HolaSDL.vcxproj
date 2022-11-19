@@ -82,6 +82,9 @@
     <ClCompile Include="Paddle.cpp" />
     <ClCompile Include="Reward.cpp" />
     <ClCompile Include="SDLError.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Time.cpp" />
+    <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +101,9 @@
     <ClInclude Include="Paddle.h" />
     <ClInclude Include="Reward.h" />
     <ClInclude Include="SDLError.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="Time.h" />
+    <ClInclude Include="Vector2D.h" />
     <ClInclude Include="Wall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

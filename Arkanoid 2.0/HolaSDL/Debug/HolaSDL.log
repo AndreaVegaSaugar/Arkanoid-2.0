@@ -1,10 +1,29 @@
-﻿  Dog.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
-C:\Users\witiz\Documents\UCM\TPV1\SDL\ProyectosSDL\HolaSDL\Dog.cpp(8,40): error C2660: 'Texture::renderFrame': function does not take 2 arguments
-C:\Users\witiz\Documents\UCM\TPV1\SDL\ProyectosSDL\HolaSDL\Texture.h(39,10): message : see declaration of 'Texture::renderFrame'
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: El directorio intermedio (Debug\) contiene archivos compartidos de otro proyecto (HolaSDL.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
+  ArkanoidError.cpp
+  ArkanoidObject.cpp
+  Ball.cpp
+  Block.cpp
+  BlocksMap.cpp
+  FileFormatError.cpp
+  FileNotFoundError.cpp
   Game.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(41,9): error C3646: 'filename': especificador de invalidación desconocido
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(41,17): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(61,9): error C3646: 'levels': especificador de invalidación desconocido
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(61,15): error C2143: error de sintaxis: falta ',' delante de '['
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(61,30): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
+  GameObject.cpp
+  main.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
+  MovingObject.cpp
+  Paddle.cpp
+  Reward.cpp
+  SDLError.cpp
   Texture.cpp
-  Generating Code...
+  Time.cpp
+  Vector2D.cpp
+  Wall.cpp
+  Generando código...
