@@ -20,8 +20,8 @@ public:
 	~ArkanoidObject();
 
 	// Métodos
-	void loadFromFile();
-	void saveToFile();
+	virtual void loadFromFile();
+	virtual void saveToFile();
 	SDL_Rect getRect()const;
 };
 
