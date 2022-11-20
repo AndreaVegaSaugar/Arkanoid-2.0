@@ -15,7 +15,8 @@ public:
 	Wall(Vector2D p, int h, int w, Texture* t, Vector2D cVect) : ArkanoidObject(p, h, w, t), colVector(cVect) {};
 
 	// Metodos publicos de la clase
-	void render() const;
+	void render() const override;
+	void update() {};
 	bool collides(SDL_Rect ballRect, Vector2D& collisonVector);
 };
 
