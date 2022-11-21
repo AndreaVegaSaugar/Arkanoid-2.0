@@ -20,7 +20,7 @@ private:
 
 public:
 
-	BlocksMap(int mW, int mH, Texture* t, Game* g) : ArkanoidObject(Vector2D(0, 0), mH, mW, t), gameMap(nullptr), rows(0), cols(0), cellW(0), cellH(0), game(g) {};
+	BlocksMap(int mW, int mH, Texture* t, Game* g) : ArkanoidObject(), gameMap(nullptr), rows(0), cols(0), cellW(0), cellH(0), game(g) { texture = t; };
 	void loadMap(const string& file);
 	virtual ~BlocksMap();
 	virtual void render() const;
