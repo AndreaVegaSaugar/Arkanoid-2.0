@@ -17,7 +17,9 @@ private:
 
 public:
 	Block(Vector2D p, int w, int h, int c, Texture* t, Game* g);
-	void render() const;
+	virtual void render() const;
+	virtual void loadFromFile() {};
+	virtual void saveToFile() {};
 	int getColor() { return color; };
 	void deleteBlock() { color = 0; };
 	

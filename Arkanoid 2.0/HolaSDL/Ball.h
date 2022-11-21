@@ -13,8 +13,9 @@ private:
 
 public:
 	Ball(Vector2D p, int size, Vector2D d, Texture* t, Game* g) : MovingObject(p, size, size, t, d), game(g) {};
-	void render() const override;
-    void update() override;
+    virtual void update();
+	virtual void loadFromFile() {};
+	virtual void saveToFile() {};
 	Vector2D getDir() { return dir; }
 
 };

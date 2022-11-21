@@ -8,7 +8,7 @@ protected:
 
 public:
 	MovingObject(Vector2D pos, int h, int w, Texture* texture, Vector2D d): ArkanoidObject(pos,h,w,texture), dir(d){};
-	virtual void loadFromFile();
-	virtual void saveToFile();
+	virtual void loadFromFile() {};
+	virtual void saveToFile() {};
 };
 

@@ -12,11 +12,6 @@ Paddle::Paddle(Vector2D p, int w, int h, Texture* t, Game* g, int s, int rL, int
 	leftLimit = lL;
 }
 
-void Paddle::render() const
-{
-	SDL_Rect destRect = getRect();
-	texture->render(destRect);
-}
 
 void Paddle::update()
 {
@@ -49,7 +44,7 @@ bool Paddle::collides(SDL_Rect ballRect, Vector2D& collisionVector) {
 	SDL_Rect col;
 	bool collide = false;
 
-	if (SDL_IntersectRect(&ballRect, &getDestRect(), &col)) {
+	if (SDL_IntersectRect(&ballRect, &getRect(), &col)) {
 		collisionVector = collision(ballRect, col);
 		collide = true;
 	}

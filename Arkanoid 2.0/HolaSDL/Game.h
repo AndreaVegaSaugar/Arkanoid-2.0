@@ -9,6 +9,7 @@
 #include "checkML.h"
 #include "Time.h"
 #include <string>
+#include <list>
 using namespace std;
 using uint = unsigned int;
 
@@ -59,11 +60,14 @@ private:
 							{"../images/topside.png", 1, 1}, {"../images/youwin.png", 1, 1} };
 
 	string levels[NUM_LEVELS] = { { "level01.txt" }, { "level02.txt" }, { "level03.txt" } };
-	// Punteros a todos los GameObjects
+	// Lista de todos los GameObjects
+	list<ArkanoidObject*> gameObjects;
 	Texture* textures[NUM_TEXTURES];
 	Ball* ball = nullptr;
 	Paddle* paddle = nullptr;
-	Wall wall[3];
+	Wall* topWall;
+	Wall* leftWall;
+	Wall* rightWall;
 	BlocksMap* map = nullptr;
 	Time time;
 

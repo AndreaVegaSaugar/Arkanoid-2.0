@@ -15,9 +15,10 @@ private:
 	Game* game;
 
 public:
-	Paddle(Vector2D p, int w, int h, Texture* t, Game* g, int d, int rL, int lL);
-	void render() const;
-	void update();
+	Paddle(Vector2D p, int w, int h, Texture* t, Game* g, int s, int rL, int lL);
+	virtual void update();
+	virtual void loadFromFile() {};
+	virtual void saveToFile() {};
 	void handleEvents(SDL_Event event);
 	SDL_Rect getDestRect()const;
 	bool collides(SDL_Rect ballRect, Vector2D& collisionVector);

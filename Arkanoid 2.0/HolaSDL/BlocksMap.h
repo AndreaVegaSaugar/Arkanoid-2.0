@@ -22,9 +22,10 @@ public:
 
 	BlocksMap(int mW, int mH, Texture* t, Game* g) : ArkanoidObject(Vector2D(0, 0), mH, mW, t), gameMap(nullptr), rows(0), cols(0), cellW(0), cellH(0), game(g) {};
 	void loadMap(const string& file);
-	~BlocksMap();
-	void render() const override;
-	void update();
+	virtual ~BlocksMap();
+	virtual void render() const;
+	virtual void loadFromFile() {};
+	virtual void saveToFile() {};
 	int getNumBlocks();
 	bool collides(SDL_Rect ballRect, Vector2D& collisonVector, Vector2D dir);
 	bool isBlock(int i, int j);

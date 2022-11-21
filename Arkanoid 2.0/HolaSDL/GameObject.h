@@ -4,10 +4,10 @@
 class GameObject
 {
 public:
-
+ 
 	virtual void render()const = 0;
-	virtual void update() = 0;
-	void handleEvent()const;
+	virtual void update() {};
+	void handleEvent()const {};
 
 };
 

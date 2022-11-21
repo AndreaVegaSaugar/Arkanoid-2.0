@@ -15,13 +15,18 @@ protected:
 	Texture* texture;
 
 public:
-	//Constructora y destructora
+	//Constructora y destructora uwu ladrame como se hace un metodo virtual mejor
+	ArkanoidObject() :GameObject() {};
 	ArkanoidObject(Vector2D position, int height, int width, Texture* _texture) : GameObject(), pos(position), h(height), w(width), texture(_texture) {};
-	~ArkanoidObject();
+	//virtual ~ArkanoidObject();
 
 	// Métodos
-	virtual void loadFromFile(){}
-	virtual void saveToFile(){}
-	SDL_Rect getRect()const;
+	virtual void loadFromFile() = 0;
+	virtual void saveToFile() = 0;
+	virtual void render() const {
+		texture->render(getRect());
+	}
+	SDL_Rect getRect()const ;
 };
 
+// todo metodo destructor tiene que ser virtual

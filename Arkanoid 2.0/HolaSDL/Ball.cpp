@@ -2,13 +2,6 @@
 #include "Ball.h"
 #include "Game.h"
 
-void Ball::render() const 
-{
-	SDL_Rect destRect = getRect();
-	texture->render(destRect);
-
-}
-
  void Ball::update()
 {
 	Vector2D colVector;
