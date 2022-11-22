@@ -3,6 +3,7 @@
 #include "Vector2D.h"
 #include "Texture.h"
 #include "MovingObject.h"
+
 using namespace std;
 
 class Game;
@@ -15,11 +16,11 @@ private:
 	Game* game;
 
 public:
-	Paddle(Vector2D p, int h, int w, Texture* t, Game* g, int s, int rL, int lL);
+	Paddle(Vector2D p, int h, int w, Texture* t, Game* g, Vector2D d, int s, int rL, int lL) : MovingObject(p, h, w, t, d), game(g), speed(s), rightLimit(rL), leftLimit(lL) {};
 	virtual void update();
 	virtual void loadFromFile() {};
 	virtual void saveToFile() {};
-	void handleEvents(SDL_Event event);
+	void handleEvents(SDL_Event event); // cambiar a singular
 	SDL_Rect getDestRect()const;
 	bool collides(SDL_Rect ballRect, Vector2D& collisionVector);
 	void setPos(Vector2D p) { pos = p; };

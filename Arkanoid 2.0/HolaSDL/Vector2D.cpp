@@ -8,9 +8,10 @@ double Vector2D::module()
 	return sqrt((pow(x, 2) + (pow(y, 2))));
 }
 
-Vector2D Vector2D::normalize()
+void Vector2D::normalize()
 {
-	return Vector2D(x / module(), y / module());
+	x = x / module();
+	y = y / module();
 }
 
 Vector2D Vector2D::operator+(const Vector2D& v1) const

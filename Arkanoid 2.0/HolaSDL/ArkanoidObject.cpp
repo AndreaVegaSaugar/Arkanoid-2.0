@@ -4,9 +4,7 @@ SDL_Rect ArkanoidObject::getRect()const {
 	destRect.w = w;
 	destRect.h = h;
 	destRect.x = pos.getX();
-	//destRect.x = (pos.getX() * w);
 	destRect.y = pos.getY();
-	//destRect.y = (pos.getY() * h);
-
+	
 	return destRect;
 }

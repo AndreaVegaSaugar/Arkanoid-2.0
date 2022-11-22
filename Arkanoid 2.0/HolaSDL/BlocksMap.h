@@ -27,11 +27,10 @@ public:
 	virtual void loadFromFile() {};
 	virtual void saveToFile() {};
 	int getNumBlocks();
-	bool collides(SDL_Rect ballRect, Vector2D& collisonVector, Vector2D dir);
-	bool isBlock(int i, int j);
+	bool collides(SDL_Rect ballRect, Vector2D& collisonVector, const Vector2D dir);
 
 protected:
-	Vector2D collision(const SDL_Rect& result, const SDL_Rect& ballRect, Block* b, Vector2D dir);
+	Vector2D collision(const SDL_Rect& result, const SDL_Rect& ballRect, Block* b, const Vector2D dir);
 
 };
 

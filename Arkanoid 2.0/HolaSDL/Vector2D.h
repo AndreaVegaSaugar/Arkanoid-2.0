@@ -19,7 +19,7 @@ public:
 	void addX(int n) { x += n; }
 	void addY(int n) { y += n; }
 	double module();
-	Vector2D normalize();
+	void normalize();
 
 	Vector2D operator+(const Vector2D& v) const;
 	Vector2D operator-(const Vector2D& v) const;

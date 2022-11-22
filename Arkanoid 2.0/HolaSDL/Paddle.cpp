@@ -4,15 +4,6 @@
 #include <iostream>
 using namespace std;
 
-Paddle::Paddle(Vector2D p, int h, int w, Texture* t, Game* g, int s, int rL, int lL) : MovingObject(p, h, w, t, Vector2D(0,0))
-{
-	game = g;
-	speed = s;
-	rightLimit = rL;
-	leftLimit = lL;
-}
-
-
 void Paddle::update()
 {
 	if (pos.getX() + w > leftLimit && pos.getX() < rightLimit) {
@@ -27,7 +18,7 @@ void Paddle::update()
 	}
 }
 
-void Paddle::handleEvents(SDL_Event event)
+void Paddle::handleEvents(SDL_Event event) // cambiar a singular
 {
 	if (event.type == SDL_KEYDOWN) {
 		cout << "Key down" << endl;
