@@ -2,7 +2,7 @@
 #include "Ball.h"
 #include "Game.h"
 
- void Ball::update()
+void Ball::update()
 {
 	Vector2D colVector;
 	if (game->collides(getRect(), colVector))

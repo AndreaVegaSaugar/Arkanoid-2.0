@@ -1,16 +1,5 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: El directorio intermedio (Debug\) contiene archivos compartidos de otro proyecto (HolaSDL.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
-  Ball.cpp
-  Block.cpp
-  BlocksMap.cpp
-  Game.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (HolaSDL.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Paddle.cpp
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.cpp(61,22): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.cpp(62,22): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-  Time.cpp
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.cpp(57,23): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.cpp(58,23): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-  main.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
-  Generando código...
-  HolaSDL.vcxproj -> C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\bin\Arkanoid 2.0Debug.exe
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.cpp(62,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.cpp(63,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  HolaSDL.vcxproj -> C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\bin\Arkanoid 2.0Debug.exe

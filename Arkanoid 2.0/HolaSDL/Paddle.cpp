@@ -46,6 +46,7 @@ bool Paddle::collides(SDL_Rect ballRect, Vector2D& collisionVector) {
 
 	if (SDL_IntersectRect(&ballRect, &getRect(), &col)) {
 		collisionVector = collision(ballRect, col);
+		collisionVector.normalize();
 		collide = true;
 	}
 	return collide;
@@ -67,6 +68,7 @@ Vector2D Paddle::collision(const SDL_Rect& ballRect, const SDL_Rect& collision) 
 	}
 	else if (ballCenterX < pos.getX()) colVect = Vector2D(-1, 0);
 	else if (ballCenterX > (pos.getX() + w)) colVect = Vector2D(1, 0);
+	else colVect = Vector2D(0, -1);
 
 	return colVect;
 

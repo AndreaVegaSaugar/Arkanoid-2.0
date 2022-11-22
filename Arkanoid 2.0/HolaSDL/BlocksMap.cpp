@@ -74,10 +74,6 @@ int BlocksMap::getNumBlocks()
 	return cont;
 }
 
-bool BlocksMap::isBlock(int i, int j) {
-	return gameMap[i][j]->getColor() != 0;
-}
-
 bool BlocksMap::collides(SDL_Rect ballRect, Vector2D& collisionVector, Vector2D dir)
 {
 	bool collide = false;
