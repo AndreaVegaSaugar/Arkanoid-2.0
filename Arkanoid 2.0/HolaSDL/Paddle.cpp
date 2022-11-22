@@ -21,7 +21,6 @@ void Paddle::update()
 void Paddle::handleEvents(SDL_Event event) // cambiar a singular
 {
 	if (event.type == SDL_KEYDOWN) {
-		cout << "Key down" << endl;
 		if (event.key.keysym.sym == SDLK_LEFT) dir = Vector2D(-1, 0);
 		else if (event.key.keysym.sym == SDLK_RIGHT)dir = Vector2D(1, 0);
 	}

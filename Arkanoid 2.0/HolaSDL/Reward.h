@@ -13,8 +13,8 @@ private:
 	int col;
 
 public:
-	Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, int tipo) : MovingObject(p, h, w, t, d);
-	virtual void update();
+	Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, int tipo);
+	//virtual void update();
 	virtual void loadFromFile() {};
 	virtual void saveToFile() {};
 	Vector2D getDir() { return dir; }
