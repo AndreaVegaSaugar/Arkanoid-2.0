@@ -51,7 +51,7 @@ Game::Game() {
 	}
 
 	//Creamos timer
-	time = Time(Vector2D(WALL_WIDTH, WIN_HEIGHT - 50), TIME_HEIGHT, TIME_WIDTH, textures[NumsTx], this);
+	//time = Time(Vector2D(WALL_WIDTH, WIN_HEIGHT - 50), TIME_HEIGHT, TIME_WIDTH, textures[NumsTx], this);
 }
 Game::~Game() {
 	for (uint i = 0; i < NUM_TEXTURES; ++i) delete textures[i];
@@ -67,20 +67,11 @@ void Game::run() {
 	uint frames = 0;
 	while (!exit && !gameOver && !win)
 	{
-		uint32_t startTime, frameTime, deltaTime, timeStart;
+		uint32_t startTime, frameTime;
 		startTime = SDL_GetTicks();
-		timeStart = SDL_GetTicks();
-		int seconds = 0;
 		while (!exit && !gameOver && !win) { // Bucle del juego
 			handleEvents();
 			frameTime = SDL_GetTicks() - startTime; // Tiempo desde última actualización
-			deltaTime = SDL_GetTicks() - timeStart;
-			// Cada vez que pase un segundo se llamará al update de la clase time, al cual le 
-			// pasaremos los segundos transcurridos actuales. Cuando pasen 999 segundos el juego terminará 
-			if (deltaTime >= 1000) {
-				time.update(++seconds);
-				timeStart = SDL_GetTicks();
-			}
 			if (frameTime >= FRAME_RATE) {
 				update(); // Actualiza el estado de todos los objetos del juego
 				startTime = SDL_GetTicks();
@@ -106,7 +97,6 @@ void Game::render() {
 	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
 		(*it)->render();
 	}
-	time.render();
 	SDL_RenderPresent(renderer);
 }
 void Game::handleEvents() {
