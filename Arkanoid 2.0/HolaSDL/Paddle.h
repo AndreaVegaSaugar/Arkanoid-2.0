@@ -15,7 +15,7 @@ private:
 	Game* game;
 
 public:
-	Paddle(Vector2D p, int w, int h, Texture* t, Game* g, int s, int rL, int lL);
+	Paddle(Vector2D p, int h, int w, Texture* t, Game* g, int s, int rL, int lL);
 	virtual void update();
 	virtual void loadFromFile() {};
 	virtual void saveToFile() {};

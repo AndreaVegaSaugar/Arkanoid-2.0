@@ -30,10 +30,10 @@ Game::Game() {
 	ball = new Ball(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT / 2), BALL_SIZE, Vector2D(1, -1), textures[BallTx], this);
 
 	//Creamos el paddle
-	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_WIDTH, PADDLE_HEIGHT, textures[PaddleTx], this, 2, MAP_WIDTH + WALL_WIDTH, WALL_WIDTH);
+	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, 2, MAP_WIDTH + WALL_WIDTH, WALL_WIDTH);
 
 	//Creamos el mapa
-	map = new BlocksMap(MAP_WIDTH, MAP_HEIGHT, textures[BrickTx], this);
+	map = new BlocksMap( MAP_HEIGHT, MAP_WIDTH, textures[BrickTx], this);
 
 	//Insertamos gameObjects a la lista
 	gameObjects.push_back(rightWall);

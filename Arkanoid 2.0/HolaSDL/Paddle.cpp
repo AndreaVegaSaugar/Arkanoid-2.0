@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-Paddle::Paddle(Vector2D p, int w, int h, Texture* t, Game* g, int s, int rL, int lL) : MovingObject(p, h, w, t, Vector2D(0,0))
+Paddle::Paddle(Vector2D p, int h, int w, Texture* t, Game* g, int s, int rL, int lL) : MovingObject(p, h, w, t, Vector2D(0,0))
 {
 	game = g;
 	speed = s;

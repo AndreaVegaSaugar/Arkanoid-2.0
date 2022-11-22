@@ -16,7 +16,7 @@ private:
 	Game* game;
 
 public:
-	Block(Vector2D p, int w, int h, int c, Texture* t, Game* g);
+	Block(Vector2D p, int h, int w, int c, Texture* t, Game* g);
 	virtual void render() const;
 	virtual void loadFromFile() {};
 	virtual void saveToFile() {};

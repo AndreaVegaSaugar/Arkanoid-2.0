@@ -3,7 +3,7 @@
 #include "Game.h"
 using namespace std;
 
-Block::Block(Vector2D p, int w, int h, int c, Texture* t, Game* g) : ArkanoidObject(p, w, h, t)
+Block::Block(Vector2D p, int h, int w, int c, Texture* t, Game* g) : ArkanoidObject(p, h, w, t)
 {
 	color = c;
 	game = g;
@@ -21,7 +21,7 @@ Block::Block(Vector2D p, int w, int h, int c, Texture* t, Game* g) : ArkanoidObj
 void Block::render() const
 {
 	SDL_Rect destRect = getRect();
-	destRect.x += game->getWallSize();
-	destRect.y += game->getWallSize();
+	destRect.x = (destRect.x* w) + game->getWallSize();
+	destRect.y = (destRect.y * h) + game->getWallSize();
 	texture->renderFrame(destRect, row, col);
 }
