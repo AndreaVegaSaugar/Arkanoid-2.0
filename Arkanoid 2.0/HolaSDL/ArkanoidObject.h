@@ -4,6 +4,8 @@
 #include "checkML.h"
 #include "Vector2D.h"
 #include "Texture.h"
+#include <iostream>
+#include <fstream>
 
 class ArkanoidObject : public GameObject
 {

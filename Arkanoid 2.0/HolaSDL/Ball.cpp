@@ -13,3 +13,15 @@ void Ball::update()
 	pos = pos + dir;
 }
 
+void Ball::loadFromFile()
+{
+	ofstream saveFile;
+	saveFile.open("saveFile", std::ios::app);
+
+	saveFile.close();
+}
+
+void Ball::saveToFile() 
+{
+
+}
