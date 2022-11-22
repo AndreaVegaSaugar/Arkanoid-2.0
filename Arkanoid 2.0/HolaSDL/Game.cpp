@@ -34,7 +34,7 @@ Game::Game() {
 	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, Vector2D(0, 0), 2, MAP_WIDTH + WALL_WIDTH, WALL_WIDTH);
 
 	//Creamos el mapa
-	map = new BlocksMap( MAP_HEIGHT, MAP_WIDTH, textures[BrickTx], this);
+	map = new BlocksMap(MAP_HEIGHT, MAP_WIDTH, textures[BrickTx], this);
 
 	//Insertamos gameObjects a la lista
 	gameObjects.push_back(rightWall);

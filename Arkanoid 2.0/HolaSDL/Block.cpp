@@ -1,6 +1,7 @@
 #include "checkML.h"
 #include "Block.h"
 #include "Game.h"
+
 using namespace std;
 
 Block::Block(Vector2D p, int h, int w, int c, Texture* t, Game* g) : ArkanoidObject(p, h, w, t)
@@ -20,8 +21,16 @@ Block::Block(Vector2D p, int h, int w, int c, Texture* t, Game* g) : ArkanoidObj
 
 void Block::render() const
 {
-	SDL_Rect destRect = getRect();
-	destRect.x = (destRect.x* w) + game->getWallSize();
-	destRect.y = (destRect.y * h) + game->getWallSize();
-	texture->renderFrame(destRect, row, col);
+	texture->renderFrame(getRect(), row, col);
+}
+
+SDL_Rect Block::getRect() const
+{
+	SDL_Rect destRect;
+	destRect.w = w;
+	destRect.h = h;
+	destRect.x = (pos.getX() * w) + game->getWallSize();
+	destRect.y = (pos.getY() * h) + game->getWallSize();
+
+	return destRect;
 }

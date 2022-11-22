@@ -22,5 +22,5 @@ public:
 	virtual void saveToFile() {};
 	int getColor() { return color; };
 	void deleteBlock() { color = 0; };
-	
+	SDL_Rect getRect()const;
 };

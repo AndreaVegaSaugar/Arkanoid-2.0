@@ -39,7 +39,6 @@ void Time::render()
 	destRectS1 = destRectS2 = destRect = getDestRect();
 	destRectS1.x = destRect.x + width;
 	destRectS2.x = destRectS1.x + width;
-	cout << deltaTime << endl;
 	convertSeconds(deltaTime / 100, secondsRow_C, secondsCol_C);
 	convertSeconds((deltaTime / 10) % 10, secondsRow_D, secondsCol_D);
 	convertSeconds(deltaTime % 10, secondsRow_U, secondsCol_U);
