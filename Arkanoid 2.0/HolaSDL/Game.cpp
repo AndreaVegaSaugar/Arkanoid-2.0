@@ -33,6 +33,7 @@ Game::Game() {
 
 	//Creamos el paddle
 	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, Vector2D(0, 0), 2, MAP_WIDTH + WALL_WIDTH, WALL_WIDTH);
+	//paddle->loadFromFile();
 
 	//Creamos el mapa
 	map = new BlocksMap(MAP_HEIGHT, MAP_WIDTH, textures[BrickTx], this);
@@ -45,10 +46,11 @@ Game::Game() {
 	gameObjects.push_back(paddle);
 	gameObjects.push_back(map);
 
-	rewardIterator = --gameObjects.end();
+	rewardIterator = gameObjects.end(); // RECUERDA PONER --
 	
 	try {
 		map->loadMap(levels[level]);
+		//map->loadFromFile();
 	}
 	catch (string e) {
 		throw e;
@@ -83,7 +85,9 @@ void Game::run() {
 			render(); // Renderiza todos los objetos del juego
 		}
 	}
-	ball->saveToFile();
+	//ball->saveToFile();
+	//paddle->saveToFile();
+	//map->saveToFile();
 }
 void Game::update() 
 {
@@ -205,7 +209,6 @@ void Game::generateRewards(Vector2D posAux) {
 		rewards = new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'S', textures[Rewards]->getNumCols());
 	}
 	gameObjects.push_back(rewards);
-
 }
 
 void Game::instanciateReward(char tipo) {

@@ -42,7 +42,7 @@ void Ball::loadFromFile()
 void Ball::saveToFile() 
 {
 	ofstream saveFile;
-	saveFile.open("saveFile"/*, std::ios::app*/);
+	saveFile.open("saveFile", std::ios::app);
 	saveFile << "Ball " << pos.getX() << " " << pos.getY() << " " << dir.getX() << " " << dir.getY() << endl;
 	saveFile.close();
 }

@@ -24,8 +24,8 @@ public:
 	void loadMap(const string& file);
 	virtual ~BlocksMap();
 	virtual void render() const;
-	virtual void loadFromFile() {};
-	virtual void saveToFile() {};
+	virtual void loadFromFile();
+	virtual void saveToFile();
 	int getNumBlocks();
 	bool collides(SDL_Rect ballRect, Vector2D& collisonVector, const Vector2D dir, Vector2D& pos);
 
