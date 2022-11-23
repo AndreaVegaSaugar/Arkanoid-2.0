@@ -17,13 +17,23 @@ void Ball::loadFromFile()
 {
 	ifstream saveFile;
 	saveFile.open("saveFile");
-	string id, info;
+	string id, info1, info2;
+	int aux1, aux2;
 	while (id != "Ball") saveFile >> id;
 	if (id == "Ball")
 	{
-		getline(saveFile, info);
-		pos = Vector2D((int)info[3], (int)info[5]);
-		dir = Vector2D((int)info[7], (int)info[9]);
+		//char c;
+		//while (c != '\n') 
+		{
+			//getline(saveFile, info);
+			saveFile >> info1 >> info2;
+			aux1 = stoi(info1); aux2 = stoi(info2);
+			pos = Vector2D(aux1, aux2);
+			saveFile >> info1 >> info2;
+			aux1 = stoi(info1); aux2 = stoi(info2);
+			dir = Vector2D(aux1, aux2);
+			//c = getchar();
+		}
 	}
 	saveFile.close();
 }
@@ -32,7 +42,7 @@ void Ball::loadFromFile()
 void Ball::saveToFile() 
 {
 	ofstream saveFile;
-	saveFile.open("saveFile", std::ios::app);
+	saveFile.open("saveFile"/*, std::ios::app*/);
 	saveFile << "Ball " << pos.getX() << " " << pos.getY() << " " << dir.getX() << " " << dir.getY() << endl;
 	saveFile.close();
 }
