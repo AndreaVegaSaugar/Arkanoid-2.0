@@ -9,7 +9,7 @@ BlocksMap::~BlocksMap()
 {
 	for (int i = 0; i < rows; ++i) {
 		for (int j = 0; j < cols; ++j) {
-			delete[] gameMap[i][j];
+			if (gameMap[i][j] != nullptr) delete[] gameMap[i][j];
 		}
 		delete gameMap[i];
 	}

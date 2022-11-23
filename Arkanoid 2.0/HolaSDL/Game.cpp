@@ -29,6 +29,7 @@ Game::Game() {
 
 	//Creamos la bola
 	ball = new Ball(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT / 2), BALL_SIZE, Vector2D(1, -1), textures[BallTx], this);
+	//ball->loadFromFile();
 
 	//Creamos el paddle
 	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, Vector2D(0, 0), 2, MAP_WIDTH + WALL_WIDTH, WALL_WIDTH);
@@ -82,6 +83,7 @@ void Game::run() {
 			render(); // Renderiza todos los objetos del juego
 		}
 	}
+	ball->saveToFile();
 }
 void Game::update() 
 {
