@@ -21,9 +21,9 @@ public:
 	virtual void loadFromFile();
 	virtual void saveToFile();
 	void handleEvents(SDL_Event event); // cambiar a singular
-	SDL_Rect getDestRect()const;
 	bool collides(SDL_Rect ballRect, Vector2D& collisionVector);
 	void setPos(Vector2D p) { pos = p; };
+	void setWidth(int width) { w = width; }
 
 protected:
 	Vector2D collision(const SDL_Rect& ballRect, const SDL_Rect& collision);

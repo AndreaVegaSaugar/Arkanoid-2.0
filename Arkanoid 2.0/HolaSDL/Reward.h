@@ -22,5 +22,4 @@ public:
 	Vector2D getDir() { return dir; }
 	char getTipe() { return tipeReward; }
 	bool collides(SDL_Rect ballRect, Vector2D& collisionVector);
-	void movingAnimation();
 };

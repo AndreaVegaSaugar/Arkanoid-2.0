@@ -76,7 +76,7 @@ private:
 	Wall* rightWall;
 	BlocksMap* map = nullptr;
 	//Time time;
-	Reward* rewards;
+	
 	// Ints de control de juego
 	int level = 0;
 	int lives = NUM_LIVES;
