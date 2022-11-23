@@ -147,8 +147,9 @@ void Game::nextLevel()
 
 void Game::load()
 {
-	map->~BlocksMap();
-	map->loadMap(levels[level]);
+	//esta feo segun roi y david, cambiar
+	/*map->~BlocksMap();
+	map->loadMap(levels[level]);*/
 	ball->restartBall();
 	paddle->setPos(Vector2D((double)((WIN_WIDTH / 2) - 50), (double)WIN_HEIGHT - 100));
 }
@@ -165,52 +166,55 @@ bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 	if (paddle->collides((rectBall), colVector)) return true;
 	if (map->collides((rectBall), colVector, ball->getDir(), posAux)){
 		generateRewards(posAux);
-		winLevel();  return true; 
+		winLevel(); 
+		return true; 
 	}
 	if (rectBall.y + rectBall.h >= WIN_HEIGHT) gameOver = true;
-
-	for (auto it = rewardIterator; it != gameObjects.end();) {
+	auto it = rewardIterator;
+	++it;
+	for (; it != gameObjects.end();) {
 		if (static_cast<Reward*>(*it)->collides(paddle->getRect(), colVector)) {
 			cout << "Entre weon" << endl;
 			instanciateReward(static_cast<Reward*>(*it)->getTipe());
 			delete* it;
 			*it = nullptr;
 			it = gameObjects.erase(it);
+			
 		}
-		/*else if ((static_cast<Reward*>(*it)->getRect().y + static_cast<Reward*>(*it)->getRect().h) >= WIN_HEIGHT) {
+		else if ((static_cast<Reward*>(*it)->getRect().y + static_cast<Reward*>(*it)->getRect().h) >= WIN_HEIGHT) {
+			cout << "borrado" << endl;
 			delete* it;
 			*it = nullptr;
 			it = gameObjects.erase(it);
-		}*/
+		}
 		else ++it;
 	}
 	return false;
 }
 
 void Game::generateRewards(Vector2D posAux) {
-	int num = rand() % 41;
+	int num = rand() % 41; 
 	cout << num << endl;
 	if (num < 10) {
-		rewards = new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols());
+		gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols()));
 	}
 	else if (num < 20) {
-		rewards = new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'E', textures[Rewards]->getNumCols());
-	}
+		gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'E', textures[Rewards]->getNumCols()));
+		}
 	else if (num < 30) {
-		rewards = new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'C', textures[Rewards]->getNumCols());
+		gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'R', textures[Rewards]->getNumCols()));
 	}
 	else if (num < 40) {
-		rewards = new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'S', textures[Rewards]->getNumCols());
+		gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'S', textures[Rewards]->getNumCols()));
 	}
-	gameObjects.push_back(rewards);
 
 }
 
 void Game::instanciateReward(char tipo) {
 	switch (tipo) {
-	case 'L': {cout << "Reward tipo L" << endl; }break;
+	case 'L': {cout << "Reward tipo L" << endl; paddle->setWidth(paddle->getRect().w * 2); }break;
 	case 'E': { cout << "Reward tipo E" << endl; }break;
-	case 'C': {cout << "Reward tipo C" << endl; }break;
+	case 'R': {cout << "Reward tipo R" << endl; }break;
 	case 'S': {cout << "Reward tipo S" << endl; }break;
 	}
 }
