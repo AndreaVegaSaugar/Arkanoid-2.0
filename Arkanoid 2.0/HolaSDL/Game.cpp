@@ -28,7 +28,8 @@ Game::Game() {
 
 	//Creamos la bola
 	ball = new Ball(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT / 2), BALL_SIZE, Vector2D(1, -1), textures[BallTx], this);
-
+	//ball->loadFromFile();
+	
 	//Creamos el paddle
 	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, Vector2D(0, 0), 2, MAP_WIDTH + WALL_WIDTH, WALL_WIDTH);
 
@@ -65,11 +66,11 @@ Game::~Game() {
 void Game::run() {
 
 	uint frames = 0;
-	while (!exit && !gameOver && !win)
+	while (!exit)
 	{
 		uint32_t startTime, frameTime;
 		startTime = SDL_GetTicks();
-		while (!exit && !gameOver && !win) { // Bucle del juego
+		while (!exit) { // Bucle del juego
 			handleEvents();
 			frameTime = SDL_GetTicks() - startTime; // Tiempo desde última actualización
 			if (frameTime >= FRAME_RATE) {
@@ -80,13 +81,13 @@ void Game::run() {
 			render(); // Renderiza todos los objetos del juego
 		}
 	}
-	if (win && level < (NUM_LEVELS - 1)) nextLevel();
-	else if (win && level >= (NUM_LEVELS - 1)) youWin();
-	else if (gameOver && lives > 1) restartLevel();
-	else if (gameOver && lives <= 1) GameOver();
+	//ball->saveToFile();
 }
-void Game::update() {
-	
+void Game::update()
+{
+	if (win && level < (NUM_LEVELS - 1)) nextLevel();
+	else if (gameOver && lives > 1) restartLevel();
+
 	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
 		(*it)->update();
 	}
@@ -94,11 +95,29 @@ void Game::update() {
 }
 void Game::render() {
 	SDL_RenderClear(renderer); 
-	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
-		(*it)->render();
+	if (win && level >= (NUM_LEVELS - 1))
+	{
+		SDL_Rect rect;
+		rect.x = 0; rect.y = 0;
+		rect.w = WIN_WIDTH; rect.h = WIN_HEIGHT;
+		textures[YouWinTx]->render(rect);
+	}
+	else if (gameOver && lives <= 1)
+	{
+		SDL_Rect rect;
+		rect.x = 0; rect.y = 0;
+		rect.w = WIN_WIDTH; rect.h = WIN_HEIGHT;
+		textures[GameOverTx]->render(rect);
+	}
+	else
+	{
+		for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
+			(*it)->render();
+		}
 	}
 	SDL_RenderPresent(renderer);
 }
+
 void Game::handleEvents() {
 	SDL_Event event;
 	while (SDL_PollEvent(&event) && !exit) {
@@ -106,58 +125,35 @@ void Game::handleEvents() {
 		paddle->handleEvents(event);
 	}
 }
+
 void Game::winLevel() {
 	if (map->getNumBlocks() <= 0) win = true;
 }
+
 void Game::restartLevel()
 {
 	gameOver = false;
 	--lives;
 	cout << "Te quedan " << lives << " vida(s)" << endl;
-	//loadLevel();
+	load();
 }
-void Game::GameOver()
-{
-	SDL_Rect rect;
-	rect.x = 0; rect.y = 0;
-	rect.w = WIN_WIDTH; rect.h = WIN_HEIGHT;
 
-	while (!exit)
-	{
-		handleEvents();
-		SDL_RenderClear(renderer);
-		textures[GameOverTx]->render(rect);
-		SDL_RenderPresent(renderer);
-	}
-}
-void Game::youWin()
-{
-	SDL_Rect rect;
-	rect.x = 0; rect.y = 0;
-	rect.w = WIN_WIDTH; rect.h = WIN_HEIGHT;
-
-	while (!exit)
-	{
-		handleEvents();
-		SDL_RenderClear(renderer);
-		textures[YouWinTx]->render(rect);
-		SDL_RenderPresent(renderer);
-	}
-}
 void Game::nextLevel()
 {
 	win = false;
 	++level;
-	//loadLevel();
+	load();
 
 }
-//void Game::loadLevel() {
-//	map->loadMap(levels[level]);
-//	ball->setPos(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT / 2));
-//	ball->setDir(Vector2D(1, -1));
-//	paddle->setPos(Vector2D(350, 550));
-//	run();
-//}
+
+void Game::load()
+{
+	map->~BlocksMap();
+	map->loadMap(levels[level]);
+	ball->RestartBall();
+	paddle->setPos(Vector2D((double)((WIN_WIDTH / 2) - 50), (double)WIN_HEIGHT - 100));
+}
+
 bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 {
 	if (topWall->collides((rectBall), colVector)) return true;

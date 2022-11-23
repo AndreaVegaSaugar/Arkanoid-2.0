@@ -6,6 +6,7 @@
 #include "Texture.h"
 #include <iostream>
 #include <fstream>
+#include <string>
 
 class ArkanoidObject : public GameObject
 {
