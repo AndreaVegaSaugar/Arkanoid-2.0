@@ -1,8 +1,9 @@
 #include "Reward.h"
 
-Reward::Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo) : MovingObject(p, h, w, t, d)
+Reward::Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int tC) : MovingObject(p, h, w, t, d)
 {
 	tipeReward = tipo;
+	totalCol = tC;
 
 	switch (tipeReward) {
 		case 'L': { row = 0; col = 0; }break;
@@ -22,6 +23,7 @@ void Reward::movingAnimation() {
 }
 void Reward::update() {
 	pos = pos + dir;
+	col = int(((SDL_GetTicks() / 100) % totalCol));
 }
 bool Reward::collides(SDL_Rect ballRect, Vector2D& collisionVector) {
 	SDL_Rect col;

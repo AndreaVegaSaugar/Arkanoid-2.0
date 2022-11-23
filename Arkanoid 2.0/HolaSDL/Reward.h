@@ -11,9 +11,10 @@ private:
 	char tipeReward;
 	int row;
 	int col;
+	int totalCol;
 
 public:
-	Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo);
+	Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int tC);
 	virtual void update();
 	virtual void render() const;
 	virtual void loadFromFile() {};

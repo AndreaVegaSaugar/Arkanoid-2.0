@@ -179,6 +179,11 @@ bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 			*it = nullptr;
 			it = gameObjects.erase(it);
 		}
+		/*else if ((static_cast<Reward*>(*it)->getRect().y + static_cast<Reward*>(*it)->getRect().h) >= WIN_HEIGHT) {
+			delete* it;
+			*it = nullptr;
+			it = gameObjects.erase(it);
+		}*/
 		else ++it;
 	}
 	return false;
@@ -188,16 +193,16 @@ void Game::generateRewards(Vector2D posAux) {
 	int num = rand() % 41;
 	cout << num << endl;
 	if (num < 10) {
-		rewards = new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L');
+		rewards = new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols());
 	}
 	else if (num < 20) {
-		rewards = new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'E');
+		rewards = new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'E', textures[Rewards]->getNumCols());
 	}
 	else if (num < 30) {
-		rewards = new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'C');
+		rewards = new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'C', textures[Rewards]->getNumCols());
 	}
 	else if (num < 40) {
-		rewards = new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'S');
+		rewards = new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'S', textures[Rewards]->getNumCols());
 	}
 	gameObjects.push_back(rewards);
 
