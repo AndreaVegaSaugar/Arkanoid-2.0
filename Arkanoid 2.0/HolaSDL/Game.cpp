@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <iostream>
 #include "checkML.h"
+
 using namespace std;
 Game::Game() {
 	// We first initialize SDL
@@ -28,8 +29,7 @@ Game::Game() {
 
 	//Creamos la bola
 	ball = new Ball(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT / 2), BALL_SIZE, Vector2D(1, -1), textures[BallTx], this);
-	//ball->loadFromFile();
-	
+
 	//Creamos el paddle
 	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, Vector2D(0, 0), 2, MAP_WIDTH + WALL_WIDTH, WALL_WIDTH);
 
@@ -76,18 +76,16 @@ void Game::run() {
 			if (frameTime >= FRAME_RATE) {
 				update(); // Actualiza el estado de todos los objetos del juego
 				startTime = SDL_GetTicks();
-
 			}
 			render(); // Renderiza todos los objetos del juego
 		}
 	}
-	//ball->saveToFile();
 }
-void Game::update()
+void Game::update() 
 {
 	if (win && level < (NUM_LEVELS - 1)) nextLevel();
 	else if (gameOver && lives > 1) restartLevel();
-
+	
 	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
 		(*it)->update();
 	}
@@ -143,25 +141,48 @@ void Game::nextLevel()
 	win = false;
 	++level;
 	load();
-
 }
 
 void Game::load()
 {
 	map->~BlocksMap();
 	map->loadMap(levels[level]);
-	ball->RestartBall();
+	ball->restartBall();
 	paddle->setPos(Vector2D((double)((WIN_WIDTH / 2) - 50), (double)WIN_HEIGHT - 100));
 }
 
 bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 {
-	if (topWall->collides((rectBall), colVector)) return true;
-	if (rightWall->collides((rectBall), colVector)) return true;
-	if (leftWall->collides((rectBall), colVector)) return true;
+	if (topWall->collides((rectBall), colVector)) {
+		if (rand() % 5 == 1) {
+			rewards = new Reward(colVector, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], rand() % 11);
+			gameObjects.push_back(rewards);
+		}
+		return true;
+	}
+	if (rightWall->collides((rectBall), colVector)) {
+		if (rand() % 5 == 1) {
+			rewards = new Reward(colVector, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], rand() % 11);
+			gameObjects.push_back(rewards);
+		}
+		return true;
+	}
+	if (leftWall->collides((rectBall), colVector)) {
+		if (rand() % 5 == 1) {
+			rewards = new Reward(colVector, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], rand() % 11);
+			gameObjects.push_back(rewards);
+		}
+		return true;
+	}
 
 	if (paddle->collides((rectBall), colVector)) return true;
-	if (map->collides((rectBall), colVector, ball->getDir())) { winLevel();  return true; }
+	if (map->collides((rectBall), colVector, ball->getDir())){
+		/*if (rand() % 5 == 1) {
+			rewards = new Reward(colVector, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], rand() % 11);
+			gameObjects.push_back(rewards);
+		}*/
+		winLevel();  return true; 
+	}
 	if (rectBall.y + rectBall.h >= WIN_HEIGHT) gameOver = true;
 
 	return false;
