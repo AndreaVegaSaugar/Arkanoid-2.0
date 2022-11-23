@@ -43,7 +43,7 @@ void Time::render()
 	convertSeconds((deltaTime / 10) % 10, secondsRow_D, secondsCol_D);
 	convertSeconds(deltaTime % 10, secondsRow_U, secondsCol_U);
 
-	if (deltaTime == 999) game->GameOver();
+	if (deltaTime == 999) //game->GameOver();
 	texture->renderFrame(destRect, secondsRow_C, secondsCol_C);
 	texture->renderFrame(destRectS1, secondsRow_D, secondsCol_D);
 	texture->renderFrame(destRectS2, secondsRow_U, secondsCol_U);

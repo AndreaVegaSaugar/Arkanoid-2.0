@@ -91,17 +91,14 @@ public:
 	void handleEvents();
 	void update();
 	bool collides(SDL_Rect destRect, Vector2D& colVector);
-	void GameOver();
-
 
 	int getWallSize() { return WALL_WIDTH; }
 
 protected:
 	void winLevel();
-	void youWin();
 	void nextLevel();
 	void restartLevel();
-	void loadLevel();
+	void load();
 
 };
 
