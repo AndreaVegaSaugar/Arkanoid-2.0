@@ -74,7 +74,7 @@ int BlocksMap::getNumBlocks()
 	return cont;
 }
 
-bool BlocksMap::collides(SDL_Rect ballRect, Vector2D& collisionVector, const Vector2D dir)
+bool BlocksMap::collides(SDL_Rect ballRect, Vector2D& collisionVector, const Vector2D dir, Vector2D& pos)
 {
 	bool collide = false;
 	int n = 0;
@@ -83,7 +83,8 @@ bool BlocksMap::collides(SDL_Rect ballRect, Vector2D& collisionVector, const Vec
 		int m = 0;
 		while (m < cols && !collide) {
 			if ((gameMap[n][m] != nullptr) && SDL_IntersectRect(&gameMap[n][m]->getRect(), &ballRect, &result))
-			{
+			{				
+				pos = Vector2D(gameMap[n][m]->getRect().x, gameMap[n][m]->getRect().y);
 				collisionVector = collision(result, ballRect, gameMap[n][m], dir);
 				collide = true;
 				gameMap[n][m] = nullptr;

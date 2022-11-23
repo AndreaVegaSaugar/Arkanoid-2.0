@@ -27,7 +27,7 @@ public:
 	virtual void loadFromFile() {};
 	virtual void saveToFile() {};
 	int getNumBlocks();
-	bool collides(SDL_Rect ballRect, Vector2D& collisonVector, const Vector2D dir);
+	bool collides(SDL_Rect ballRect, Vector2D& collisonVector, const Vector2D dir, Vector2D& pos);
 
 protected:
 	Vector2D collision(const SDL_Rect& result, const SDL_Rect& ballRect, Block* b, const Vector2D dir);

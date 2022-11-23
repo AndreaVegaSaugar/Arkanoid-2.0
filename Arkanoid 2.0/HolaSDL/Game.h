@@ -40,6 +40,7 @@ const enum TextureNames {
 	GameOverTx = 4, SideWallTx = 5, TopWallTx = 6, YouWinTx = 7, Rewards = 8
 };
 
+
 // Estructura que contiene variables para el nombre de las imagenes de la textura y su numero de filas y columnas
 struct Textures
 {
@@ -66,6 +67,7 @@ private:
 	string levels[NUM_LEVELS] = { { "level01.txt" }, { "level02.txt" }, { "level03.txt" } };
 	// Lista de todos los GameObjects
 	list<ArkanoidObject*> gameObjects;
+	list<ArkanoidObject*>::iterator rewardIterator;
 	Texture* textures[NUM_TEXTURES];
 	Ball* ball = nullptr;
 	Paddle* paddle = nullptr;
@@ -98,7 +100,13 @@ protected:
 	void winLevel();
 	void nextLevel();
 	void restartLevel();
+<<<<<<< Updated upstream
 	void load();
+=======
+	void loadLevel();
+	void generateRewards(Vector2D posAux);
+	void instanciateReward(char tipo);
+>>>>>>> Stashed changes
 
 };
 

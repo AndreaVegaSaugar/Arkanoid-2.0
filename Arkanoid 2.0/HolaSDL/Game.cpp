@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <iostream>
 #include "checkML.h"
-
+#include <time.h>
 using namespace std;
 Game::Game() {
 	// We first initialize SDL
@@ -43,6 +43,8 @@ Game::Game() {
 	gameObjects.push_back(ball);
 	gameObjects.push_back(paddle);
 	gameObjects.push_back(map);
+
+	rewardIterator = --gameObjects.end();
 	
 	try {
 		map->loadMap(levels[level]);
@@ -153,37 +155,57 @@ void Game::load()
 
 bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 {
-	if (topWall->collides((rectBall), colVector)) {
-		if (rand() % 5 == 1) {
-			rewards = new Reward(colVector, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], rand() % 11);
-			gameObjects.push_back(rewards);
-		}
-		return true;
-	}
-	if (rightWall->collides((rectBall), colVector)) {
-		if (rand() % 5 == 1) {
-			rewards = new Reward(colVector, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], rand() % 11);
-			gameObjects.push_back(rewards);
-		}
-		return true;
-	}
-	if (leftWall->collides((rectBall), colVector)) {
-		if (rand() % 5 == 1) {
-			rewards = new Reward(colVector, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], rand() % 11);
-			gameObjects.push_back(rewards);
-		}
-		return true;
-	}
+	Vector2D posAux;
+	if (topWall->collides((rectBall), colVector)) return true;
+	if (rightWall->collides((rectBall), colVector)) return true;
+	
+	if (leftWall->collides((rectBall), colVector)) return true;
+	
 
 	if (paddle->collides((rectBall), colVector)) return true;
-	if (map->collides((rectBall), colVector, ball->getDir())){
-		/*if (rand() % 5 == 1) {
-			rewards = new Reward(colVector, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], rand() % 11);
-			gameObjects.push_back(rewards);
-		}*/
+	if (map->collides((rectBall), colVector, ball->getDir(), posAux)){
+		generateRewards(posAux);
 		winLevel();  return true; 
 	}
 	if (rectBall.y + rectBall.h >= WIN_HEIGHT) gameOver = true;
 
+	for (auto it = rewardIterator; it != gameObjects.end();) {
+		if (static_cast<Reward*>(*it)->collides(paddle->getRect(), colVector)) {
+			cout << "Entre weon" << endl;
+			instanciateReward(static_cast<Reward*>(*it)->getTipe());
+			delete* it;
+			*it = nullptr;
+			it = gameObjects.erase(it);
+		}
+		else ++it;
+	}
 	return false;
+}
+
+void Game::generateRewards(Vector2D posAux) {
+	int num = rand() % 41;
+	cout << num << endl;
+	if (num < 10) {
+		rewards = new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L');
+	}
+	else if (num < 20) {
+		rewards = new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'E');
+	}
+	else if (num < 30) {
+		rewards = new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'C');
+	}
+	else if (num < 40) {
+		rewards = new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'S');
+	}
+	gameObjects.push_back(rewards);
+
+}
+
+void Game::instanciateReward(char tipo) {
+	switch (tipo) {
+	case 'L': {cout << "Reward tipo L" << endl; }break;
+	case 'E': { cout << "Reward tipo E" << endl; }break;
+	case 'C': {cout << "Reward tipo C" << endl; }break;
+	case 'S': {cout << "Reward tipo S" << endl; }break;
+	}
 }
