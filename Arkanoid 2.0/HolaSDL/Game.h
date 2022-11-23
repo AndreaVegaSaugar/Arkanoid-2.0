@@ -100,13 +100,9 @@ protected:
 	void winLevel();
 	void nextLevel();
 	void restartLevel();
-<<<<<<< Updated upstream
 	void load();
-=======
-	void loadLevel();
 	void generateRewards(Vector2D posAux);
 	void instanciateReward(char tipo);
->>>>>>> Stashed changes
 
 };
 
