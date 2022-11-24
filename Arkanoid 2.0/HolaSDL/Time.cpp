@@ -2,19 +2,20 @@
 #include "Time.h"
 #include <iostream>
 #include "Game.h"
-Time::Time(Vector2D p, int h, int w, Texture* t, Game* g) {
-	pos = p;
-	height = h;
-	width = w;
-	texture = t;
-	game = g;
-}
+
 
 Time:: ~Time() {
 
 }
-void Time::update(int deltaTime) {
-	this->deltaTime = deltaTime;
+void Time::update() {
+
+	uint frames = 0;
+		uint32_t startTime, frameTime;
+		deltaTime = SDL_GetTicks() / 1000;
+		convertSeconds(deltaTime / 100, secondsRow_C, secondsCol_C);
+		convertSeconds((deltaTime / 10) % 10, secondsRow_D, secondsCol_D);
+		convertSeconds(deltaTime % 10, secondsRow_U, secondsCol_U);
+		render(); // Renderiza todos los objetos del juego
 }
 
 void Time::convertSeconds(int sec, int& row, int& col) {
@@ -32,29 +33,18 @@ void Time::convertSeconds(int sec, int& row, int& col) {
 	}
 }
 
-void Time::render()
+void Time::render() const
 {
 	SDL_Rect destRect; SDL_Rect destRectS1; SDL_Rect destRectS2;
 
-	destRectS1 = destRectS2 = destRect = getDestRect();
-	destRectS1.x = destRect.x + width;
-	destRectS2.x = destRectS1.x + width;
-	convertSeconds(deltaTime / 100, secondsRow_C, secondsCol_C);
-	convertSeconds((deltaTime / 10) % 10, secondsRow_D, secondsCol_D);
-	convertSeconds(deltaTime % 10, secondsRow_U, secondsCol_U);
+	destRectS1 = destRectS2 = destRect = getRect();
+	destRectS1.x = destRect.x + w;
+	destRectS2.x = destRectS1.x + w;
 
-	if (deltaTime == 999) //game->GameOver();
+	//if (deltaTime == 999) //game->GameOver();
 	texture->renderFrame(destRect, secondsRow_C, secondsCol_C);
 	texture->renderFrame(destRectS1, secondsRow_D, secondsCol_D);
 	texture->renderFrame(destRectS2, secondsRow_U, secondsCol_U);
 
 }
-SDL_Rect Time::getDestRect() const {
-	SDL_Rect destRect;
-	destRect.w = width;
-	destRect.h = height;
-	destRect.x = pos.getX();
-	destRect.y = pos.getY();
 
-	return destRect;
-}

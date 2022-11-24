@@ -2,15 +2,12 @@
 #include "checkML.h"
 #include "Vector2D.h"
 #include "Texture.h"
+#include "ArkanoidObject.h"
 
 class Game;
-class Time
+class Time: public ArkanoidObject
 {
 private:
-	Vector2D pos;
-	unsigned int height = 0;
-	unsigned int width = 0;
-	Texture* texture = nullptr;
 	int deltaTime = 0;
 	int secondsRow_C = 0;
 	int secondsCol_C = 0;
@@ -21,13 +18,13 @@ private:
 	Game* game;
 
 public:
-	Time() {};
-	Time(Vector2D p, int h, int w, Texture* t, Game* g);
+	Time(Vector2D p, int h, int w, Texture* t, Game* g):ArkanoidObject(p, h, w, t), game(g){}
 
-	void render();
-	void update(int dT);
+	virtual void render() const;
+	virtual void update();
 	void convertSeconds(int sec, int& row, int& col);
-	SDL_Rect Time::getDestRect() const;
+	virtual void loadFromFile() {};
+	virtual void saveToFile() {};
 	~Time();
 
 };

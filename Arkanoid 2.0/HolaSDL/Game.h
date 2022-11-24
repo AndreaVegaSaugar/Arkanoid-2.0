@@ -75,7 +75,7 @@ private:
 	Wall* leftWall;
 	Wall* rightWall;
 	BlocksMap* map = nullptr;
-	//Time time;
+	Time* time;
 	
 	// Ints de control de juego
 	int level = 0;

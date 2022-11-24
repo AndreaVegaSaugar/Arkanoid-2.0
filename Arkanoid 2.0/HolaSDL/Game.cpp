@@ -38,6 +38,9 @@ Game::Game() {
 	//Creamos el mapa
 	map = new BlocksMap(MAP_HEIGHT, MAP_WIDTH, textures[BrickTx], this);
 
+	//Creamos timer
+	time = new Time(Vector2D(WALL_WIDTH, WIN_HEIGHT - 50), TIME_HEIGHT, TIME_WIDTH, textures[NumsTx], this);
+	
 	//Insertamos gameObjects a la lista
 	gameObjects.push_back(rightWall);
 	gameObjects.push_back(leftWall);
@@ -45,8 +48,9 @@ Game::Game() {
 	gameObjects.push_back(ball);
 	gameObjects.push_back(paddle);
 	gameObjects.push_back(map);
+	gameObjects.push_back(time);
 
-	rewardIterator = gameObjects.end(); // RECUERDA PONER --
+	rewardIterator = --gameObjects.end(); 
 	
 	try {
 		map->loadMap(levels[level]);
@@ -56,8 +60,6 @@ Game::Game() {
 		throw e;
 	}
 
-	//Creamos timer
-	//time = Time(Vector2D(WALL_WIDTH, WIN_HEIGHT - 50), TIME_HEIGHT, TIME_WIDTH, textures[NumsTx], this);
 }
 Game::~Game() {
 	for (uint i = 0; i < NUM_TEXTURES; ++i) delete textures[i];
@@ -180,7 +182,6 @@ bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 	++it;
 	for (; it != gameObjects.end();) {
 		if (static_cast<Reward*>(*it)->collides(paddle->getRect(), colVector)) {
-			cout << "Entre weon" << endl;
 			instanciateReward(static_cast<Reward*>(*it)->getTipe());
 			delete* it;
 			*it = nullptr;
@@ -188,7 +189,6 @@ bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 			
 		}
 		else if ((static_cast<Reward*>(*it)->getRect().y + static_cast<Reward*>(*it)->getRect().h) >= WIN_HEIGHT) {
-			cout << "borrado" << endl;
 			delete* it;
 			*it = nullptr;
 			it = gameObjects.erase(it);
@@ -200,7 +200,6 @@ bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 
 void Game::generateRewards(Vector2D posAux) {
 	int num = rand() % 41; 
-	cout << num << endl;
 	if (num < 10) {
 		gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols()));
 	}
@@ -218,9 +217,9 @@ void Game::generateRewards(Vector2D posAux) {
 
 void Game::instanciateReward(char tipo) {
 	switch (tipo) {
-	case 'L': {cout << "Reward tipo L" << endl; paddle->setWidth(paddle->getRect().w * 2); }break;
-	case 'E': { cout << "Reward tipo E" << endl; }break;
-	case 'R': {cout << "Reward tipo R" << endl; }break;
-	case 'S': {cout << "Reward tipo S" << endl; }break;
+	case 'L': { }break;
+	case 'E': {  paddle->setWidth(paddle->getRect().w * 1.2);  }break;
+	case 'R': { ++lives; cout << "Vida extra:" << endl; cout << "Te quedan " << lives << " vida(s)" << endl; }break;
+	case 'S': {paddle->setWidth(paddle->getRect().w * 0.7); }break;
 	}
 }
