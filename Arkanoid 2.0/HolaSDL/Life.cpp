@@ -1,10 +1,37 @@
 #include "Life.h"
 
-Life::Life(Vector2D p, int h, int w, Texture* t, int l, Texture* he, Texture* x) : ArkanoidObject(p, h, w, t)
+Life::Life(Vector2D p, int s, Texture* t, int l, Texture* n, Texture* x)
 {
 	life = l;
-	heart = he;
-	this->x = x;
+	pos = p;
+	row = 0; col = 0;
+	size = s;
+
+	//texturas
+	heart = t; number = n; this->x = x;
+}
+void Life::render() const
+{
+	SDL_Rect destRectHeart, destRectNumber, destRectX;
+	
+	destRectHeart.w = size;
+	destRectHeart.h = size;
+	destRectHeart.x = pos.getX();
+	destRectHeart.y = pos.getY();
+	heart->render(destRectHeart);
+
+	destRectX = destRectHeart;
+	destRectX.x = pos.getX() + size;
+	x->render(destRectX);
+
+	destRectNumber = destRectHeart;
+	destRectNumber.x = pos.getX()+ (size*2);
+	number->renderFrame(destRectNumber, row, col);
+
+}
+
+void Life::update(int l) {
+	life = l;
 	switch (life) {
 	case 0: row = 0; col = 0; break;
 	case 1: row = 0; col = 1; break;
@@ -17,11 +44,4 @@ Life::Life(Vector2D p, int h, int w, Texture* t, int l, Texture* he, Texture* x)
 	case 8: row = 2; col = 0; break;
 	case 9: row = 2; col = 1; break;
 	}
-}
-void Life::render() const
-{
-	heart->render(getRect());
-	x->render(getRect());
-	texture->renderFrame(getRect(), row, col);
-
 }

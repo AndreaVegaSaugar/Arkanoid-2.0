@@ -11,12 +11,13 @@
 #include "Time.h"
 #include <string>
 #include <list>
+#include "Life.h"
 using namespace std;
 using uint = unsigned int;
 
 
 //Constantes del juego
-const uint NUM_TEXTURES = 9;
+const uint NUM_TEXTURES = 11;
 const uint WIN_WIDTH = 800;
 const uint WIN_HEIGHT = 600;
 const uint WALL_WIDTH = 14;
@@ -32,12 +33,15 @@ const uint NUM_LIVES = 3;
 const uint NUM_LEVELS = 3;
 const uint REWARD_HEIGHT = 20;
 const uint REWARD_WIDTH = 40;
+const uint UI_POS_X = WIN_WIDTH - WALL_WIDTH - 80;
+const uint UI_SIZE = 25;
+
 
 
 // Enumerado con el nombre de las texturas del juego
 const enum TextureNames {
 	BallTx = 0, PaddleTx = 1, BrickTx = 2, NumsTx = 3,
-	GameOverTx = 4, SideWallTx = 5, TopWallTx = 6, YouWinTx = 7, Rewards = 8
+	GameOverTx = 4, SideWallTx = 5, TopWallTx = 6, YouWinTx = 7, Rewards = 8, Heart = 9, Cross = 10
 };
 
 // Enumerado de estados de juego
@@ -65,7 +69,8 @@ private:
 	// Array estatico de tipo estructura para guardar informacion de las texturas
 	Textures texture[NUM_TEXTURES] = { {"../images/ball2.png", 1, 1}, {"../images/paddle2.png", 1, 1}, {"../images/bricks2.png", 2, 3},
 									 {"../images/digits2.jpeg", 3, 4},{"../images/gameover1.png", 1, 1}, {"../images/side2.png", 1, 1},
-									 {"../images/topside.png", 1, 1}, {"../images/youwin.png", 1, 1} , {"../images/rewards.png", 10, 8} };
+									 {"../images/topside.png", 1, 1}, {"../images/youwin.png", 1, 1} , {"../images/rewards.png", 10, 8},
+									 {"../images/heart.png", 1, 1} , {"../images/cross.png", 1, 1} };
 
 	string levels[NUM_LEVELS] = { { "level01.txt" }, { "level02.txt" }, { "level03.txt" } };
 	// Lista de todos los GameObjects
@@ -79,7 +84,7 @@ private:
 	Wall* rightWall;
 	BlocksMap* map = nullptr;
 	Time* time;
-	
+	Life life;
 	// Ints de control de juego
 	int level = 0;
 	int lives = NUM_LIVES;

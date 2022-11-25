@@ -42,6 +42,9 @@ Game::Game() {
 
 	//Creamos timer
 	time = new Time(Vector2D(WALL_WIDTH, WIN_HEIGHT - 50), TIME_HEIGHT, TIME_WIDTH, textures[NumsTx], this);
+
+	//Creamos vidas
+	life = Life(Vector2D(UI_POS_X, WIN_HEIGHT - 50), UI_SIZE, textures[Heart], lives, textures[NumsTx], textures[Cross]);
 	
 	//Insertamos gameObjects a la lista
 	gameObjects.push_back(rightWall);
@@ -101,6 +104,7 @@ void Game::update()
 	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
 		(*it)->update();
 	}
+	life.update(lives);
 
 }
 void Game::render() {
@@ -125,6 +129,7 @@ void Game::render() {
 			(*it)->render();
 		}
 	}
+	life.render();
 	SDL_RenderPresent(renderer);
 }
 
