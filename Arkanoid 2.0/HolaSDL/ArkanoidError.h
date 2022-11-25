@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class ArkanoidError : public logic_error
+class ArkanoidError 
 {
 };
 
