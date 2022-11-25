@@ -1,5 +1,6 @@
 #pragma once
-class ArkanoidError
+
+class ArkanoidError : public logic_error
 {
 };
 
