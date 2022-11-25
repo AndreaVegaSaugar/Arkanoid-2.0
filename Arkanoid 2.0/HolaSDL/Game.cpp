@@ -143,7 +143,8 @@ void Game::restartLevel()
 	gameOver = false;
 	--lives;
 	cout << "Te quedan " << lives << " vida(s)" << endl;
-	load();
+	ball->restartBall();
+	paddle->setPos(Vector2D((double)((WIN_WIDTH / 2) - 50), (double)WIN_HEIGHT - 100));
 }
 
 void Game::nextLevel()
@@ -155,9 +156,8 @@ void Game::nextLevel()
 
 void Game::load()
 {
-	//esta feo segun roi y david, cambiar
-	/*map->~BlocksMap();
-	map->loadMap(levels[level]);*/
+	map->~BlocksMap();
+	map->loadMap(levels[level]);
 	ball->restartBall();
 	paddle->setPos(Vector2D((double)((WIN_WIDTH / 2) - 50), (double)WIN_HEIGHT - 100));
 }
