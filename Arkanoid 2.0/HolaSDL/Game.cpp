@@ -158,6 +158,7 @@ void Game::nextLevel()
 
 void Game::load()
 {
+	time->resetTime();
 	map->~BlocksMap();
 	map->loadMap(levels[level]);
 	ball->restartBall();

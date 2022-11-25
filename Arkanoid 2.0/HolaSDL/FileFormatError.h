@@ -1,5 +1,7 @@
 #pragma once
-class FileFormatError
+#include "ArkanoidError.h"
+
+class FileFormatError : public ArkanoidError
 {
 };
 

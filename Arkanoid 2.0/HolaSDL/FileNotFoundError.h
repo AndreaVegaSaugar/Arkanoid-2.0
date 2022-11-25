@@ -1,5 +1,7 @@
 #pragma once
-class FileNotFoundError
+#include "ArkanoidError.h"
+
+class FileNotFoundError : public ArkanoidError
 {
 };
 
