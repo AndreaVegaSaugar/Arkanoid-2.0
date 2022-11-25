@@ -2,7 +2,9 @@
 #include <iostream>
 #include "checkML.h"
 #include <time.h>
+
 using namespace std;
+
 Game::Game() {
 	// We first initialize SDL
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -93,8 +95,8 @@ void Game::run() {
 }
 void Game::update() 
 {
-	if (win && level < (NUM_LEVELS - 1)) nextLevel();
-	else if (gameOver && lives > 1) restartLevel();
+	if (CurrentState == win && level < (NUM_LEVELS - 1)) nextLevel();
+	else if (CurrentState == lose && lives > 1) restartLevel();
 	
 	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
 		(*it)->update();
@@ -103,14 +105,14 @@ void Game::update()
 }
 void Game::render() {
 	SDL_RenderClear(renderer); 
-	if (win && level >= (NUM_LEVELS - 1))
+	if (CurrentState == win && level >= (NUM_LEVELS - 1))
 	{
 		SDL_Rect rect;
 		rect.x = 0; rect.y = 0;
 		rect.w = WIN_WIDTH; rect.h = WIN_HEIGHT;
 		textures[YouWinTx]->render(rect);
 	}
-	else if (gameOver && lives <= 1)
+	else if (CurrentState == lose && lives <= 1)
 	{
 		SDL_Rect rect;
 		rect.x = 0; rect.y = 0;
@@ -135,29 +137,29 @@ void Game::handleEvents() {
 }
 
 void Game::winLevel() {
-	if (map->getNumBlocks() <= 0) win = true;
+	if (map->getNumBlocks() <= 0) CurrentState = win;
 }
 
 void Game::restartLevel()
 {
-	gameOver = false;
+	CurrentState = play;
 	--lives;
 	cout << "Te quedan " << lives << " vida(s)" << endl;
-	load();
+	ball->restartBall();
+	paddle->setPos(Vector2D((double)((WIN_WIDTH / 2) - 50), (double)WIN_HEIGHT - 100));
 }
 
 void Game::nextLevel()
 {
-	win = false;
+	CurrentState = play;
 	++level;
 	load();
 }
 
 void Game::load()
 {
-	//esta feo segun roi y david, cambiar
-	/*map->~BlocksMap();
-	map->loadMap(levels[level]);*/
+	map->~BlocksMap();
+	map->loadMap(levels[level]);
 	ball->restartBall();
 	paddle->setPos(Vector2D((double)((WIN_WIDTH / 2) - 50), (double)WIN_HEIGHT - 100));
 }
@@ -177,7 +179,7 @@ bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 		winLevel(); 
 		return true; 
 	}
-	if (rectBall.y + rectBall.h >= WIN_HEIGHT) gameOver = true;
+	if (rectBall.y + rectBall.h >= WIN_HEIGHT) CurrentState = lose;
 	auto it = rewardIterator;
 	++it;
 	for (; it != gameObjects.end();) {
