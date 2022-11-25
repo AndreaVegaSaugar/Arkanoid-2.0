@@ -40,6 +40,8 @@ const enum TextureNames {
 	GameOverTx = 4, SideWallTx = 5, TopWallTx = 6, YouWinTx = 7, Rewards = 8
 };
 
+// Enumerado de estados de juego
+enum GameStates {play, lose, win};
 
 // Estructura que contiene variables para el nombre de las imagenes de la textura y su numero de filas y columnas
 struct Textures
@@ -48,21 +50,22 @@ struct Textures
 	int rows;
 	int cols;
 };
+
 class Game {
 private:
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 
-	// Booleanos de control del juego
+	// Estado actual del juego
+	int CurrentState = play;
+
+	// Booleano de control del juego
 	bool exit = false;
-	bool gameOver = false;
-	bool win = false;
 
 	// Array estatico de tipo estructura para guardar informacion de las texturas
-	Textures texture[NUM_TEXTURES] = { {"../images/ball2.png", 1, 1}, {"../images/paddle2.png", 1, 1},
-							{"../images/bricks2.png", 2, 3}, {"../images/digits2.jpeg", 3, 4},
-							{"../images/gameover1.png", 1, 1}, {"../images/side2.png", 1, 1},
-							{"../images/topside.png", 1, 1}, {"../images/youwin.png", 1, 1} , {"../images/rewards.png", 10, 8} };
+	Textures texture[NUM_TEXTURES] = { {"../images/ball2.png", 1, 1}, {"../images/paddle2.png", 1, 1}, {"../images/bricks2.png", 2, 3},
+									 {"../images/digits2.jpeg", 3, 4},{"../images/gameover1.png", 1, 1}, {"../images/side2.png", 1, 1},
+									 {"../images/topside.png", 1, 1}, {"../images/youwin.png", 1, 1} , {"../images/rewards.png", 10, 8} };
 
 	string levels[NUM_LEVELS] = { { "level01.txt" }, { "level02.txt" }, { "level03.txt" } };
 	// Lista de todos los GameObjects
