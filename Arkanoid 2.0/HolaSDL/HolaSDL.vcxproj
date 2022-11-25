@@ -77,6 +77,7 @@
     <ClCompile Include="FileNotFoundError.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Life.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MovingObject.cpp" />
     <ClCompile Include="Paddle.cpp" />
@@ -97,6 +98,7 @@
     <ClInclude Include="FileNotFoundError.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Life.h" />
     <ClInclude Include="MovingObject.h" />
     <ClInclude Include="Paddle.h" />
     <ClInclude Include="Reward.h" />

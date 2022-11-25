@@ -217,7 +217,7 @@ void Game::generateRewards(Vector2D posAux) {
 
 void Game::instanciateReward(char tipo) {
 	switch (tipo) {
-	case 'L': { }break;
+	case 'L': { nextLevel(); }break;
 	case 'E': {  paddle->setWidth(paddle->getRect().w * 1.2);  }break;
 	case 'R': { ++lives; cout << "Vida extra:" << endl; cout << "Te quedan " << lives << " vida(s)" << endl; }break;
 	case 'S': {paddle->setWidth(paddle->getRect().w * 0.7); }break;
