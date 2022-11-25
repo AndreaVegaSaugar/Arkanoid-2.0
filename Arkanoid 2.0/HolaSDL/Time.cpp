@@ -7,6 +7,18 @@
 Time:: ~Time() {
 
 }
+
+void Time::resetTime()
+{
+	deltaTime = 0;
+	secondsRow_U = 0;
+	secondsCol_U = 0;
+	secondsRow_D = 0;
+	secondsCol_D = 0;
+	secondsRow_C = 0;
+	secondsCol_C = 0;
+}
+
 void Time::update() {
 
 	uint frames = 0;

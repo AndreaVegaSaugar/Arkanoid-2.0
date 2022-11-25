@@ -20,6 +20,7 @@ private:
 public:
 	Time(Vector2D p, int h, int w, Texture* t, Game* g):ArkanoidObject(p, h, w, t), game(g){}
 
+	void resetTime();
 	virtual void render() const;
 	virtual void update();
 	void convertSeconds(int sec, int& row, int& col);
