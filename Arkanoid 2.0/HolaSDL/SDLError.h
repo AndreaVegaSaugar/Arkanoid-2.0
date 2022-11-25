@@ -1,5 +1,7 @@
 #pragma once
-class SDLError
+#include "ArkanoidError.h"
+
+class SDLError : public ArkanoidError
 {
 };
 
