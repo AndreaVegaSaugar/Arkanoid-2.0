@@ -83,7 +83,7 @@ private:
 	Wall* leftWall;
 	Wall* rightWall;
 	BlocksMap* map = nullptr;
-	Time* time;
+	Time* timer;
 	Life* life;
 	// Ints de control de juego
 	int level = 0;
