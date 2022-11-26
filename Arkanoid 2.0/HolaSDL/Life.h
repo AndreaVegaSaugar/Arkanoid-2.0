@@ -31,7 +31,7 @@ public:
 	Life(Vector2D p, int s, Texture* t, Texture* n, int l, Texture* x);
 	virtual void render() const;
 	virtual void update();
-	virtual void loadFromFile() {};
+	virtual void loadFromFile(string file) {};
 	virtual void saveToFile() {};
 
 };

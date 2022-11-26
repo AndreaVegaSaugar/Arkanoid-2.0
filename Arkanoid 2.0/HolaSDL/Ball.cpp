@@ -13,7 +13,7 @@ void Ball::update()
 	pos = pos + dir * 1.3;
 }
 
-void Ball::loadFromFile()
+void Ball::loadFromFile(string file)
 {
 	ifstream saveFile;
 	saveFile.open("saveFile");

@@ -24,7 +24,7 @@ public:
 	virtual void render() const;
 	virtual void update();
 	void convertSeconds(int sec, int& row, int& col);
-	virtual void loadFromFile() {};
+	virtual void loadFromFile(string file) {};
 	virtual void saveToFile() {};
 	~Time();
 

@@ -13,6 +13,7 @@
 #include <list>
 #include "Life.h"
 
+
 using namespace std;
 
 using uint = unsigned int;
@@ -21,7 +22,8 @@ using uint = unsigned int;
 // Enumerado con el nombre de las texturas del juego
 const enum TextureNames {
 	BallTx = 0, PaddleTx = 1, BrickTx = 2, NumsTx = 3,
-	GameOverTx = 4, SideWallTx = 5, TopWallTx = 6, YouWinTx = 7, Rewards = 8, Heart = 9, Cross = 10
+	GameOverTx = 4, SideWallTx = 5, TopWallTx = 6, YouWinTx = 7, Rewards = 8, Heart = 9, Cross = 10, 
+	Title = 11, Start = 12, Load = 13
 };
 
 // Enumerado de estados de juego
@@ -50,7 +52,8 @@ private:
 	Textures texture[NUM_TEXTURES] = { {"../images/ball2.png", 1, 1}, {"../images/paddle2.png", 1, 1}, {"../images/bricks2.png", 2, 3},
 									 {"../images/digits2.jpeg", 3, 4},{"../images/gameover1.png", 1, 1}, {"../images/side2.png", 1, 1},
 									 {"../images/topside.png", 1, 1}, {"../images/youwin.png", 1, 1} , {"../images/rewards.png", 10, 8},
-									 {"../images/heart.png", 1, 1} , {"../images/cross.png", 1, 1} };
+									 {"../images/heart.png", 1, 1} , {"../images/cross.png", 1, 1},  {"../images/Title.png", 1, 1},
+									 {"../images/Load.png", 1, 1} , {"../images/Start.png", 1,1}, };
 
 	string levels[NUM_LEVELS] = { { "level01.txt" }, { "level02.txt" }, { "level03.txt" } };
 	// Lista de todos los GameObjects
@@ -90,7 +93,8 @@ protected:
 	void load();
 	void generateRewards(Vector2D posAux);
 	void instanciateReward(char tipo);
-
+	void loadFromFile(string nameFile);
+	void menuWindow();
 };
 
 

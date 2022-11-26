@@ -237,3 +237,63 @@ void Game::instanciateReward(char tipo) {
 	case 'S': {paddle->setWidth(paddle->getRect().w * 0.7); }break;
 	}
 }
+
+void Game::loadFromFile(string nameFile) {
+	ifstream loadFile(nameFile);
+	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
+		string type;
+		loadFile >> type;
+		if (type == "MAP") map->loadFromFile(nameFile);
+		else if (type == "BALL")ball->loadFromFile(nameFile);
+		else if (type == "PADDLE")paddle->loadFromFile(nameFile);
+		else if (type == "LIFE")life->loadFromFile(nameFile);
+		else if (type == "TIME")timer->loadFromFile(nameFile);
+		else if (type == "REWARDS") {
+			Vector2D posAux;
+			char tipo = 'L';
+			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], tipo, textures[Rewards]->getNumCols()));
+
+		}
+	}
+	loadFile.close();
+}
+void Game::menuWindow() {
+	SDL_Event event;
+	int xMouse, yMouse;
+
+	bool click = false;
+	while (SDL_PollEvent(&event) && !click) {
+		SDL_Rect rectTitle;
+		rectTitle.x = 0; rectTitle.y = 0;
+		rectTitle.w = WIN_WIDTH; rectTitle.h = WIN_HEIGHT;
+		textures[Title]->render(rectTitle);
+
+		SDL_Rect rectStart;
+		rectStart.x = 0; rectStart.y = 0;
+		rectStart.w = 100; rectStart.h = 50;
+		textures[Title]->render(rectStart);
+
+		SDL_Rect rectLoad;
+		rectLoad.x = 0; rectLoad.y = 0;
+		rectLoad.w = 100; rectLoad.h = 50;
+		textures[Title]->render(rectLoad);
+
+		SDL_Point mousePos;
+		mousePos.x = xMouse;
+		mousePos.y = yMouse;
+		SDL_RenderClear(renderer);
+		if (event.type == SDL_MOUSEMOTION)
+		{
+			SDL_GetGlobalMouseState(&xMouse, &yMouse);
+		}
+		if (event.type == SDL_QUIT) click = true;
+		if (SDL_PointInRect(&mousePos, &rectStart) && event.type == SDL_MOUSEBUTTONDOWN) {
+			cout << "hola";
+		}
+		
+		//manejar eventos, si se hace click a uno de los botonees se
+		// sale del bucle
+		SDL_RenderPresent(renderer);
+	}
+	
+}

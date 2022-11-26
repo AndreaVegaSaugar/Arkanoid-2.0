@@ -64,7 +64,7 @@ Vector2D Paddle::collision(const SDL_Rect& ballRect, const SDL_Rect& collision) 
 
 }
 
-void Paddle::loadFromFile()
+void Paddle::loadFromFile(string file)
 {
 	ifstream saveFile;
 	saveFile.open("saveFile");

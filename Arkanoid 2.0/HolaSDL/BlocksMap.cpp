@@ -113,7 +113,7 @@ Vector2D BlocksMap::collision(const SDL_Rect& result, const SDL_Rect& ballRect, 
 	return colVect;
 }
 
-void BlocksMap::loadFromFile()
+void BlocksMap::loadFromFile(string file)
 {
 	ifstream saveFile;
 	saveFile.open("saveFile");
