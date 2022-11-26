@@ -15,7 +15,7 @@ private:
 	int secondsCol_D = 0;
 	int secondsRow_U = 0;
 	int secondsCol_U = 0;
-	Game* game;
+	Game* game = nullptr;
 
 public:
 	Time(Vector2D p, int h, int w, Texture* t, Game* g):ArkanoidObject(p, h, w, t), game(g){}

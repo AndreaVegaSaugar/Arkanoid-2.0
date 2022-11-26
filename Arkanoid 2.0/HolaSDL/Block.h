@@ -10,10 +10,10 @@ class Game;
 class Block : public ArkanoidObject
 {
 private:
-	int color;
-	int row;
-	int col;
-	Game* game;
+	int color = 0;
+	int row = 0;
+	int col = 0;
+	Game* game = nullptr;
 
 public:
 	Block(Vector2D p, int h, int w, int c, Texture* t, Game* g);

@@ -52,7 +52,7 @@ Vector2D Paddle::collision(const SDL_Rect& ballRect, const SDL_Rect& collision) 
 	float paddleCenterX = pos.getX() + (w / 2);
 	float paddleCenterY = pos.getY() + (h / 2);
 
-	if (ballCenterY < paddleCenterY) {
+	if (ballCenterY < paddleCenterY && ball->getDir().getY() > 0) {
 		colVect = Vector2D(-(collision.x - pos.getX() - (w / 2)) / (w / 2), 2.5);
 		colVect.normalize();
 	}

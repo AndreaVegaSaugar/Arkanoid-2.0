@@ -12,11 +12,11 @@ class BlocksMap : public ArkanoidObject
 {
 private:
 	Block*** gameMap;
-	int rows;
-	int cols;
-	int cellW;
-	int cellH;
-	Game* game;
+	int rows = 0;
+	int cols = 0;
+	int cellW = 0;
+	int cellH = 0;
+	Game* game = 0;
 
 public:
 

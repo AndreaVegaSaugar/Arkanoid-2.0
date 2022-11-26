@@ -8,8 +8,8 @@ using namespace std;
 class Vector2D
 {
 private:
-	double x;
-	double y;
+	double x = 0;
+	double y = 0;
 
 public:
 	Vector2D() : x(0), y(0) {};

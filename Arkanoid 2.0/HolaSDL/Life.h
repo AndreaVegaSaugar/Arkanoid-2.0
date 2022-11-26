@@ -13,13 +13,13 @@ public:
 private:
 	Vector2D pos;
 
-	Texture* heart;
-	int size;
+	Texture* heart = nullptr;
+	int size = 0;
 
-	Texture* x;
+	Texture* x = nullptr;
 	
 
-	Texture* number;
+	Texture* number = nullptr;
 	
 	int row = 0;
 	int col = 0;

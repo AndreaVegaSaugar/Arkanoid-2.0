@@ -2,6 +2,7 @@
 #include "checkML.h"
 #include "Vector2D.h"
 #include "Texture.h"
+#include "Ball.h"
 #include "MovingObject.h"
 
 using namespace std;
@@ -10,10 +11,11 @@ class Game;
 class Paddle : public MovingObject
 {
 private:
-	int rightLimit;
-	int leftLimit;
-	int speed;
-	Game* game;
+	int rightLimit = 0;
+	int leftLimit = 0;
+	int speed = 0;
+	Game* game = nullptr;
+	Ball* ball = nullptr;
 
 public:
 	Paddle(Vector2D p, int h, int w, Texture* t, Game* g, Vector2D d, int s, int rL, int lL) : MovingObject(p, h, w, t, d), game(g), speed(s), rightLimit(rL), leftLimit(lL) {};

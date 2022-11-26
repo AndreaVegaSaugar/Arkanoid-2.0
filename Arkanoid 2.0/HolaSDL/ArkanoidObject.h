@@ -13,9 +13,9 @@ class ArkanoidObject : public GameObject
 protected:
 	// Argumentos de la clase
 	Vector2D pos;
-	int h;
-	int w;
-	Texture* texture;
+	int h = 0;
+	int w = 0;
+	Texture* texture = nullptr;
 
 public:
 	//Constructora y destructora uwu ladrame como se hace un metodo virtual mejor

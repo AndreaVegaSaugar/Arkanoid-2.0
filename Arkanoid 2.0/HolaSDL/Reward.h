@@ -9,9 +9,9 @@ class Reward : public MovingObject
 {
 private:
 	char tipeReward;
-	int row;
-	int col;
-	int totalCol;
+	int row = 0;
+	int col = 0;
+	int totalCol = 0;
 
 public:
 	Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int tC);

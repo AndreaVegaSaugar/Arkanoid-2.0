@@ -59,12 +59,12 @@ private:
 	Texture* textures[NUM_TEXTURES];
 	Ball* ball = nullptr;
 	Paddle* paddle = nullptr;
-	Wall* topWall;
-	Wall* leftWall;
-	Wall* rightWall;
+	Wall* topWall = nullptr;
+	Wall* leftWall = nullptr;
+	Wall* rightWall = nullptr;
 	BlocksMap* map = nullptr;
-	Time* timer;
-	Life* life;
+	Time* timer = nullptr;
+	Life* life = nullptr;
 	// Ints de control de juego
 	int level = 0;
 

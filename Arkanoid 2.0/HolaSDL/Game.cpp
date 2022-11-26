@@ -35,7 +35,7 @@ Game::Game() {
 	//ball->loadFromFile();
 
 	//Creamos el paddle
-	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, Vector2D(0, 0), 2, MAP_WIDTH + WALL_WIDTH, WALL_WIDTH);
+	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, Vector2D(0, 0), 2.7, MAP_WIDTH + WALL_WIDTH, WALL_WIDTH);
 	//paddle->loadFromFile();
 
 	//Creamos el mapa
@@ -214,7 +214,7 @@ void Game::generateRewards(Vector2D posAux) {
 		int num2 = rand() % 300;
 		cout << num2 << endl;
 		if (num2 < 20) {
-			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols()));
+			if(level < 2) gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols()));
 		}
 		else if (num2 < 100) {
 			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'R', textures[Rewards]->getNumCols()));
