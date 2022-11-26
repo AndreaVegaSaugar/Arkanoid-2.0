@@ -44,7 +44,7 @@ Game::Game() {
 	time = new Time(Vector2D(WALL_WIDTH, WIN_HEIGHT - 50), TIME_HEIGHT, TIME_WIDTH, textures[NumsTx], this);
 
 	//Creamos vidas
-	life = new Life(Vector2D(UI_POS_X, WIN_HEIGHT - 50), UI_SIZE, textures[Heart], lives, textures[NumsTx], textures[Cross]);
+	life = new Life(Vector2D(UI_POS_X, WIN_HEIGHT - 50), UI_SIZE, textures[Heart], textures[NumsTx], NUM_LIVES, textures[Cross]);
 	
 	//Insertamos gameObjects a la lista
 	gameObjects.push_back(rightWall);
@@ -100,13 +100,10 @@ void Game::run() {
 void Game::update() 
 {
 	if (CurrentState == win && level < (NUM_LEVELS - 1)) nextLevel();
-	else if (CurrentState == lose && lives > 1) restartLevel();
+	else if (CurrentState == lose && life->lives > 1) restartLevel();
 	
 	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
-		if (static_cast<Life*>(*it)) {
-			life->update(lives);
-		}
-		else (*it)->update();
+		(*it)->update();
 	}
 	
 }
@@ -119,7 +116,7 @@ void Game::render() {
 		rect.w = WIN_WIDTH; rect.h = WIN_HEIGHT;
 		textures[YouWinTx]->render(rect);
 	}
-	else if (CurrentState == lose && lives <= 1)
+	else if (CurrentState == lose && life->lives <= 1)
 	{
 		SDL_Rect rect;
 		rect.x = 0; rect.y = 0;
@@ -150,7 +147,7 @@ void Game::winLevel() {
 void Game::restartLevel()
 {
 	CurrentState = play;
-	--lives;
+	--life->lives;
 	ball->restartBall();
 	paddle->setPos(Vector2D((double)((WIN_WIDTH / 2) - 50), (double)WIN_HEIGHT - 100));
 }
@@ -228,7 +225,7 @@ void Game::instanciateReward(char tipo) {
 	switch (tipo) {
 	case 'L': { nextLevel(); }break;
 	case 'E': {  paddle->setWidth(paddle->getRect().w * 1.2);  }break;
-	case 'R': { ++lives; cout << "Vida extra:" << endl; cout << "Te quedan " << lives << " vida(s)" << endl; }break;
+	case 'R': { ++life->lives; }break;
 	case 'S': {paddle->setWidth(paddle->getRect().w * 0.7); }break;
 	}
 }
