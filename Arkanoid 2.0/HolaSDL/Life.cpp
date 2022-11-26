@@ -1,8 +1,8 @@
 #include "Life.h"
 
-Life::Life(Vector2D p, int s, Texture* t, int l, Texture* n, Texture* x)
+Life::Life(Vector2D p, int s, Texture* t, Texture* n, int l, Texture* x)
 {
-	life = l;
+	lives = l;
 	pos = p;
 	row = 0; col = 0;
 	size = s;
@@ -30,9 +30,8 @@ void Life::render() const
 
 }
 
-void Life::update(int l) {
-	life = l;
-	switch (life) {
+void Life::update() {
+	switch (lives) {
 	case 0: row = 0; col = 0; break;
 	case 1: row = 0; col = 1; break;
 	case 2: row = 0; col = 2; break;

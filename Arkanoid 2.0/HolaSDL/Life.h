@@ -7,12 +7,14 @@
 
 class Life :public ArkanoidObject
 {
+public: 
+	int lives = 3;
+
 private:
 	Vector2D pos;
 
 	Texture* heart;
 	int size;
-	int life = 0;
 
 	Texture* x;
 	
@@ -26,10 +28,11 @@ private:
 
 public:
 	Life(){}
-	Life(Vector2D p, int s, Texture* t, int l, Texture* n, Texture* x);
+	Life(Vector2D p, int s, Texture* t, Texture* n, int l, Texture* x);
 	virtual void render() const;
-	virtual void update(int l);
+	virtual void update();
 	virtual void loadFromFile() {};
 	virtual void saveToFile() {};
+
 };
 
