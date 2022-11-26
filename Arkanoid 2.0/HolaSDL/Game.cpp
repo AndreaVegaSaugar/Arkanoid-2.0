@@ -2,6 +2,7 @@
 #include <iostream>
 #include "checkML.h"
 #include <time.h>
+#include <random>
 
 using namespace std;
 
@@ -41,7 +42,7 @@ Game::Game() {
 	map = new BlocksMap(MAP_HEIGHT, MAP_WIDTH, textures[BrickTx], this);
 
 	//Creamos timer
-	time = new Time(Vector2D(WALL_WIDTH, WIN_HEIGHT - 50), TIME_HEIGHT, TIME_WIDTH, textures[NumsTx], this);
+	timer = new Time(Vector2D(WALL_WIDTH, WIN_HEIGHT - 50), TIME_HEIGHT, TIME_WIDTH, textures[NumsTx], this);
 
 	//Creamos vidas
 	life = new Life(Vector2D(UI_POS_X, WIN_HEIGHT - 50), UI_SIZE, textures[Heart], textures[NumsTx], NUM_LIVES, textures[Cross]);
@@ -53,7 +54,7 @@ Game::Game() {
 	gameObjects.push_back(ball);
 	gameObjects.push_back(paddle);
 	gameObjects.push_back(map);
-	gameObjects.push_back(time);
+	gameObjects.push_back(timer);
 	gameObjects.push_back(life);
 
 	rewardIterator = --gameObjects.end(); 
@@ -161,7 +162,7 @@ void Game::nextLevel()
 
 void Game::load()
 {
-	time->resetTime();
+	timer->resetTime();
 	map->~BlocksMap();
 	map->loadMap(levels[level]);
 	ball->restartBall();
@@ -205,18 +206,25 @@ bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 }
 
 void Game::generateRewards(Vector2D posAux) {
-	int num = rand() % 41; 
-	if (num < 10) {
-		gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols()));
-	}
-	else if (num < 20) {
-		gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'E', textures[Rewards]->getNumCols()));
+
+	srand(time(0));
+
+	int num = rand() % 3; 
+	if (num == 1) {
+		int num2 = rand() % 300;
+		cout << num2 << endl;
+		if (num2 < 20) {
+			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols()));
 		}
-	else if (num < 30) {
-		gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'R', textures[Rewards]->getNumCols()));
-	}
-	else if (num < 40) {
-		gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'S', textures[Rewards]->getNumCols()));
+		else if (num2 < 100) {
+			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'R', textures[Rewards]->getNumCols()));
+			}
+		else if (num2 < 200) {
+			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'S', textures[Rewards]->getNumCols()));
+		}
+		else if (num2 < 300) {
+			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'E', textures[Rewards]->getNumCols()));
+		}
 	}
 
 }
