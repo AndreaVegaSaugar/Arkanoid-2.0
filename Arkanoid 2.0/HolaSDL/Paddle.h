@@ -18,7 +18,7 @@ private:
 	Ball* ball = nullptr;
 
 public:
-	Paddle(Vector2D p, int h, int w, Texture* t, Game* g, Vector2D d, int s, int rL, int lL) : MovingObject(p, h, w, t, d), game(g), speed(s), rightLimit(rL), leftLimit(lL) {};
+	Paddle(Vector2D p, int h, int w, Texture* t, Game* g, Ball* b, Vector2D d, int s, int rL, int lL) : MovingObject(p, h, w, t, d), game(g), ball(b), speed(s), rightLimit(rL), leftLimit(lL) {};
 	virtual void update();
 	virtual void loadFromFile(string file);
 	virtual void saveToFile();
