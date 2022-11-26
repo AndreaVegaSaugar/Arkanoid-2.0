@@ -18,6 +18,5 @@ public:
 	virtual void saveToFile();
 	Vector2D getDir() { return dir; }
 	Vector2D getPos() { return pos; }
-	// Cambiar por constantes o algo
-	void restartBall() { pos = (Vector2D(800 / 2, 600 / 2)); dir = (Vector2D(1, -1)); }
+	void restartBall() { pos = (Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 2)); dir = (Vector2D(1, -1)); }
 };

@@ -24,6 +24,7 @@ public:
 	bool collides(SDL_Rect ballRect, Vector2D& collisionVector);
 	void setPos(Vector2D p) { pos = p; };
 	void setWidth(int width) { w = width; }
+	void restartPaddle() { pos = Vector2D((double)((WIN_WIDTH / 2) - 50), (double)WIN_HEIGHT - 100); w = PADDLE_WIDTH; h = PADDLE_HEIGHT; };
 
 protected:
 	Vector2D collision(const SDL_Rect& ballRect, const SDL_Rect& collision);

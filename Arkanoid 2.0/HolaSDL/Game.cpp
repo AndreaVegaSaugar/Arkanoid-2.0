@@ -149,24 +149,24 @@ void Game::restartLevel()
 {
 	CurrentState = play;
 	--life->lives;
-	ball->restartBall();
-	paddle->setPos(Vector2D((double)((WIN_WIDTH / 2) - 50), (double)WIN_HEIGHT - 100));
+	load();
 }
 
 void Game::nextLevel()
 {
 	CurrentState = play;
+	if (life->lives > 3) life->lives = 3;
 	++level;
+	timer->resetTime();
+	map->~BlocksMap();
+	map->loadMap(levels[level]);
 	load();
 }
 
 void Game::load()
 {
-	timer->resetTime();
-	map->~BlocksMap();
-	map->loadMap(levels[level]);
 	ball->restartBall();
-	paddle->setPos(Vector2D((double)((WIN_WIDTH / 2) - 50), (double)WIN_HEIGHT - 100));
+	paddle->restartPaddle();
 }
 
 bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
@@ -207,7 +207,7 @@ bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 
 void Game::generateRewards(Vector2D posAux) {
 
-	srand(time(0));
+	srand(time(NULL) * _getpid() * rand());
 
 	int num = rand() % 3; 
 	if (num == 1) {
@@ -231,9 +231,9 @@ void Game::generateRewards(Vector2D posAux) {
 
 void Game::instanciateReward(char tipo) {
 	switch (tipo) {
-	case 'L': { nextLevel(); }break;
+	case 'L': { CurrentState = win;  nextLevel(); }break;
 	case 'E': {  paddle->setWidth(paddle->getRect().w * 1.2);  }break;
-	case 'R': { ++life->lives; }break;
+	case 'R': {if(life->lives < 9) ++life->lives; }break;
 	case 'S': {paddle->setWidth(paddle->getRect().w * 0.7); }break;
 	}
 }

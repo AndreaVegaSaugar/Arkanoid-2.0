@@ -10,7 +10,7 @@ void Ball::update()
 		colVector.normalize();
 		dir = dir - colVector * (2 * (dir * colVector));
 	}
-	pos = pos + dir;
+	pos = pos + dir * 1.3;
 }
 
 void Ball::loadFromFile()
