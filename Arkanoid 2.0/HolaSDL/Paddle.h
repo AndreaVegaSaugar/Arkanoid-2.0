@@ -24,7 +24,8 @@ public:
 	void handleEvents(SDL_Event event); // cambiar a singular
 	bool collides(SDL_Rect ballRect, Vector2D& collisionVector, const Vector2D& dir);
 	void setPos(Vector2D p) { pos = p; };
-	void setWidth(int width) { w = width; }
+	int getWidth() { return w; };
+	void setWidth(int width) { w = width; };
 	void restartPaddle() { pos = Vector2D((double)((WIN_WIDTH / 2) - 50), (double)WIN_HEIGHT - 100); w = PADDLE_WIDTH; h = PADDLE_HEIGHT; };
 
 protected:
