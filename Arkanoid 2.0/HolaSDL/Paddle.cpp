@@ -67,29 +67,25 @@ Vector2D Paddle::collision(const SDL_Rect& ballRect, const SDL_Rect& collision) 
 void Paddle::loadFromFile(string file)
 {
 	ifstream saveFile;
-	saveFile.open("saveFile");
+	saveFile.open(file);
 	string id, info1, info2;
 	int aux1, aux2;
 	while (id != "Paddle") saveFile >> id;
 	if (id == "Paddle")
 	{
-		{
-			saveFile >> info1 >> info2;
-			aux1 = stoi(info1); aux2 = stoi(info2);
-			pos = Vector2D(aux1, aux2);
-			saveFile >> info1 >> info2;
-			aux1 = stoi(info1); aux2 = stoi(info2);
-			h = aux1; w = aux2;
-		}
+		saveFile >> info1 >> info2;
+		aux1 = stoi(info1); aux2 = stoi(info2);
+		pos = Vector2D(aux1, aux2);
+		saveFile >> info1 >> info2;
+		aux1 = stoi(info1); aux2 = stoi(info2);
+		h = aux1; w = aux2;
 	}
 	saveFile.close();
 }
 
 //Paddle, posx, posy, h, w
-void Paddle::saveToFile()
+void Paddle::saveToFile(ofstream& saveFile)
 {
-	ofstream saveFile;
-	saveFile.open("saveFile", std::ios::app);
 	saveFile << "Paddle " << pos.getX() << " " << pos.getY() << " " << h << " " << w << endl;
-	saveFile.close();
+	
 }

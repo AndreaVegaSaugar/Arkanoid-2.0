@@ -10,39 +10,31 @@ void Ball::update()
 		colVector.normalize();
 		dir = dir - colVector * (2 * (dir * colVector));
 	}
-	pos = pos + dir * 1.3;
+	pos = pos + dir ;
 }
 
 void Ball::loadFromFile(string file)
 {
 	ifstream saveFile;
-	saveFile.open("saveFile");
+	saveFile.open(file);
 	string id, info1, info2;
 	int aux1, aux2;
 	while (id != "Ball") saveFile >> id;
 	if (id == "Ball")
 	{
-		//char c;
-		//while (c != '\n') 
-		{
-			//getline(saveFile, info);
-			saveFile >> info1 >> info2;
-			aux1 = stoi(info1); aux2 = stoi(info2);
-			pos = Vector2D(aux1, aux2);
-			saveFile >> info1 >> info2;
-			aux1 = stoi(info1); aux2 = stoi(info2);
-			dir = Vector2D(aux1, aux2);
-			//c = getchar();
-		}
+		saveFile >> info1 >> info2;
+		aux1 = stoi(info1); aux2 = stoi(info2);
+		pos = Vector2D(aux1, aux2);
+		saveFile >> info1 >> info2;
+		aux1 = stoi(info1); aux2 = stoi(info2);
+		dir = Vector2D(aux1, aux2);
 	}
 	saveFile.close();
 }
 
 //Ball, posx, posy, dirx, diry
-void Ball::saveToFile() 
+void Ball::saveToFile(ofstream& saveFile)
 {
-	ofstream saveFile;
-	saveFile.open("saveFile", std::ios::app);
 	saveFile << "Ball " << pos.getX() << " " << pos.getY() << " " << dir.getX() << " " << dir.getY() << endl;
-	saveFile.close();
+	
 }

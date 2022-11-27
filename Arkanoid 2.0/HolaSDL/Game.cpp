@@ -48,14 +48,14 @@ Game::Game() {
 	life = new Life(Vector2D(UI_POS_X, WIN_HEIGHT - 50), UI_SIZE, textures[Heart], textures[NumsTx], NUM_LIVES, textures[Cross]);
 	
 	//Insertamos gameObjects a la lista
+	gameObjects.push_back(life);
+	gameObjects.push_back(timer);
 	gameObjects.push_back(rightWall);
 	gameObjects.push_back(leftWall);
 	gameObjects.push_back(topWall);
 	gameObjects.push_back(ball);
 	gameObjects.push_back(paddle);
 	gameObjects.push_back(map);
-	gameObjects.push_back(timer);
-	gameObjects.push_back(life);
 
 	rewardIterator = --gameObjects.end(); 
 	
@@ -81,22 +81,23 @@ void Game::run() {
 
 	uint frames = 0;
 	while (!exit)
-	{
-		uint32_t startTime, frameTime;
-		startTime = SDL_GetTicks();
-		while (!exit) { // Bucle del juego
-			handleEvents();
-			frameTime = SDL_GetTicks() - startTime; // Tiempo desde última actualización
-			if (frameTime >= FRAME_RATE) {
-				update(); // Actualiza el estado de todos los objetos del juego
-				startTime = SDL_GetTicks();
+	{ 
+		if (CurrentState == menu) menuWindow();
+		else {
+			uint32_t startTime, frameTime;
+			startTime = SDL_GetTicks();
+			while (!exit) { // Bucle del juego
+				handleEvents();
+				frameTime = SDL_GetTicks() - startTime; // Tiempo desde última actualización
+				if (frameTime >= FRAME_RATE) {
+					update(); // Actualiza el estado de todos los objetos del juego
+					startTime = SDL_GetTicks();
+				}
+				render(); // Renderiza todos los objetos del juego
 			}
-			render(); // Renderiza todos los objetos del juego
 		}
 	}
-	//ball->saveToFile();
-	//paddle->saveToFile();
-	//map->saveToFile();
+
 }
 void Game::update() 
 {
@@ -137,6 +138,11 @@ void Game::handleEvents() {
 	SDL_Event event;
 	while (SDL_PollEvent(&event) && !exit) {
 		if (event.type == SDL_QUIT) exit = true;
+		if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_s) {
+			string saveCode;
+			cin >> saveCode;
+			saveToFile(saveCode);
+		}
 		paddle->handleEvents(event);
 	}
 }
@@ -238,62 +244,73 @@ void Game::instanciateReward(char tipo) {
 	}
 }
 
-void Game::loadFromFile(string nameFile) {
+void Game::loadGame(string nameFile) {
 	ifstream loadFile(nameFile);
 	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
 		string type;
 		loadFile >> type;
-		if (type == "MAP") map->loadFromFile(nameFile);
-		else if (type == "BALL")ball->loadFromFile(nameFile);
-		else if (type == "PADDLE")paddle->loadFromFile(nameFile);
-		else if (type == "LIFE")life->loadFromFile(nameFile);
-		else if (type == "TIME")timer->loadFromFile(nameFile);
-		else if (type == "REWARDS") {
+		if (type == "Rewards") {
 			Vector2D posAux;
 			char tipo = 'L';
 			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], tipo, textures[Rewards]->getNumCols()));
-
 		}
+		else (*it)->loadFromFile(nameFile);
 	}
 	loadFile.close();
 }
+
+void Game::saveToFile(string code) {
+	int cont = 0;
+	ofstream saveFile;
+	saveFile.open(code);
+	saveFile << "Level " << level << endl;
+	auto aux = rewardIterator;
+	++aux;
+	for (auto it = gameObjects.begin(); it != aux; ++it) {
+		(*it)->saveToFile(saveFile);
+		++cont;
+	}
+
+	saveFile << gameObjects.size()-cont << endl;
+	auto it = rewardIterator;
+	++it;
+	for (; it != gameObjects.end();++it) {
+		(*it)->saveToFile(saveFile);
+	}
+	saveFile.close();
+}
 void Game::menuWindow() {
 	SDL_Event event;
-	int xMouse, yMouse;
-
+	string file = " ";
 	bool click = false;
-	while (SDL_PollEvent(&event) && !click) {
-		SDL_Rect rectTitle;
-		rectTitle.x = 0; rectTitle.y = 0;
-		rectTitle.w = WIN_WIDTH; rectTitle.h = WIN_HEIGHT;
+	while (SDL_PollEvent(&event) || !click) {
+		SDL_RenderClear(renderer);
+		SDL_Rect rectTitle, rectStart, rectLoad;
+
+		rectTitle.x = 0; rectTitle.y = 0; rectTitle.w = WIN_WIDTH; rectTitle.h = WIN_HEIGHT;
 		textures[Title]->render(rectTitle);
 
-		SDL_Rect rectStart;
-		rectStart.x = 0; rectStart.y = 0;
-		rectStart.w = 100; rectStart.h = 50;
-		textures[Title]->render(rectStart);
+		rectStart.x = 245; rectStart.y = 350; rectStart.w = 300; rectStart.h = 200;
+		textures[Start]->render(rectStart);
 
-		SDL_Rect rectLoad;
-		rectLoad.x = 0; rectLoad.y = 0;
-		rectLoad.w = 100; rectLoad.h = 50;
-		textures[Title]->render(rectLoad);
+		rectLoad.x = 230; rectLoad.y = 200; rectLoad.w = 330; rectLoad.h = 200;
+		textures[Load]->render(rectLoad);
 
 		SDL_Point mousePos;
-		mousePos.x = xMouse;
-		mousePos.y = yMouse;
-		SDL_RenderClear(renderer);
-		if (event.type == SDL_MOUSEMOTION)
-		{
-			SDL_GetGlobalMouseState(&xMouse, &yMouse);
+	    SDL_GetMouseState(&mousePos.x, &mousePos.y);
+		if (SDL_PointInRect(&mousePos, &rectStart) && event.type == SDL_MOUSEBUTTONDOWN) {
+			click = true;
+		}
+		if (SDL_PointInRect(&mousePos, &rectLoad) && event.type == SDL_MOUSEBUTTONDOWN) {
+			cout << "Introduce code of your last game: ";
+			cin >> file;
+			loadGame(file);
+			click = true;
+
 		}
 		if (event.type == SDL_QUIT) click = true;
-		if (SDL_PointInRect(&mousePos, &rectStart) && event.type == SDL_MOUSEBUTTONDOWN) {
-			cout << "hola";
-		}
-		
-		//manejar eventos, si se hace click a uno de los botonees se
-		// sale del bucle
 		SDL_RenderPresent(renderer);
 	}
+	CurrentState = play;
 	
 }

@@ -17,7 +17,7 @@ public:
 
 	// Metodos publicos de la clase
 	virtual void loadFromFile(string file) {};
-	virtual void saveToFile() {};
+	virtual void saveToFile(ofstream& saveFile) {};
 	bool collides(SDL_Rect ballRect, Vector2D& collisonVector);
 };
 

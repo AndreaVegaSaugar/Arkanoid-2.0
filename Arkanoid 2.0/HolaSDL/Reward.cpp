@@ -26,3 +26,9 @@ bool Reward::collides(SDL_Rect ballRect, Vector2D& collisionVector) {
 	SDL_Rect col;
 	return SDL_IntersectRect(&ballRect, &getRect(), &col);
 }
+
+void Reward::saveToFile(ofstream& saveFile)
+{
+	saveFile << "Reward " << pos.getX() << " " << pos.getY() << " " << tipeReward<< endl;
+
+}

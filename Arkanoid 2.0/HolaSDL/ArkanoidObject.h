@@ -25,7 +25,7 @@ public:
 
 	// Métodos
 	virtual void loadFromFile(string file) = 0;
-	virtual void saveToFile() = 0;
+	virtual void saveToFile(ofstream& saveFile) = 0;
 	virtual void render() const;
 	SDL_Rect getRect()const ;
 };

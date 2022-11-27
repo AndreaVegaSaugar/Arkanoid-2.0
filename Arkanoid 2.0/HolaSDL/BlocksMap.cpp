@@ -149,10 +149,8 @@ void BlocksMap::loadFromFile(string file)
 }
 
 //Ball, posx, posy, dirx, diry
-void BlocksMap::saveToFile()
+void BlocksMap::saveToFile(ofstream& saveFile)
 {
-	ofstream saveFile;
-	saveFile.open("saveFile", std::ios::app);
 	saveFile << "BlocksMap " << rows << " " << cols << " " << cellH << " " << cellW << endl;
 
 	for (int i = 0; i < rows; i++)
@@ -164,5 +162,5 @@ void BlocksMap::saveToFile()
 		}
 		saveFile << endl;
 	}
-	saveFile.close();
+
 }

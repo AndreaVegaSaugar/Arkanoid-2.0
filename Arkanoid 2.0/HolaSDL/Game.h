@@ -27,7 +27,7 @@ const enum TextureNames {
 };
 
 // Enumerado de estados de juego
-enum GameStates {play, lose, win};
+enum GameStates {play, lose, win, menu};
 
 // Estructura que contiene variables para el nombre de las imagenes de la textura y su numero de filas y columnas
 struct Textures
@@ -43,7 +43,7 @@ private:
 	SDL_Renderer* renderer = nullptr;
 
 	// Estado actual del juego
-	int CurrentState = play;
+	int CurrentState = menu;
 
 	// Booleano de control del juego
 	bool exit = false;
@@ -53,7 +53,7 @@ private:
 									 {"../images/digits2.jpeg", 3, 4},{"../images/gameover1.png", 1, 1}, {"../images/side2.png", 1, 1},
 									 {"../images/topside.png", 1, 1}, {"../images/youwin.png", 1, 1} , {"../images/rewards.png", 10, 8},
 									 {"../images/heart.png", 1, 1} , {"../images/cross.png", 1, 1},  {"../images/Title.png", 1, 1},
-									 {"../images/Load.png", 1, 1} , {"../images/Start.png", 1,1}, };
+									 {"../images/Start.png", 1,1}, { "../images/Load.png", 1, 1 }};
 
 	string levels[NUM_LEVELS] = { { "level01.txt" }, { "level02.txt" }, { "level03.txt" } };
 	// Lista de todos los GameObjects
@@ -83,6 +83,8 @@ public:
 	void handleEvents();
 	void update();
 	bool collides(SDL_Rect destRect, Vector2D& colVector);
+	void menuWindow();
+	void loadGame(string nameFile);
 
 	int getWallSize() { return WALL_WIDTH; }
 
@@ -93,8 +95,7 @@ protected:
 	void load();
 	void generateRewards(Vector2D posAux);
 	void instanciateReward(char tipo);
-	void loadFromFile(string nameFile);
-	void menuWindow();
+	void saveToFile(string code);
 };
 
 

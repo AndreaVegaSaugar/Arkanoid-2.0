@@ -18,7 +18,7 @@ public:
 	virtual void update();
 	virtual void render() const;
 	virtual void loadFromFile(string file) {};
-	virtual void saveToFile() {};
+	virtual void saveToFile(ofstream& saveFile);
 	Vector2D getDir() { return dir; }
 	char getTipe() { return tipeReward; }
 	bool collides(SDL_Rect ballRect, Vector2D& collisionVector);
