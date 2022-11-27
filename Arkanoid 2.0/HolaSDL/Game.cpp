@@ -198,14 +198,15 @@ bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 	auto it = rewardIterator;
 	++it;
 	for (; it != gameObjects.end();) {
-		if (static_cast<Reward*>(*it)->collides(paddle->getRect(), colVector)) {
-			instanciateReward(static_cast<Reward*>(*it)->getTipe());
+		Reward* reward = static_cast<Reward*>(*it);
+		if (reward->collides(paddle->getRect(), colVector)) {
+			rewardType(reward->getTipe());
 			delete* it;
 			*it = nullptr;
 			it = gameObjects.erase(it);
 			
 		}
-		else if ((static_cast<Reward*>(*it)->getRect().y + static_cast<Reward*>(*it)->getRect().h) >= WIN_HEIGHT) {
+		else if ((reward->getRect().y + reward->getRect().h) >= WIN_HEIGHT) {
 			delete* it;
 			*it = nullptr;
 			it = gameObjects.erase(it);
@@ -222,7 +223,7 @@ void Game::generateRewards(Vector2D posAux) {
 	int num = rand() % 3; 
 	if (num == 1) {
 		int num2 = rand() % 300;
-		cout << num2 << endl;
+
 		if (num2 < 20) {
 			if(level < 2) gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols()));
 		}
@@ -239,13 +240,14 @@ void Game::generateRewards(Vector2D posAux) {
 
 }
 
-void Game::instanciateReward(char tipo) {
+void Game::rewardType(char tipo) {
 	switch (tipo) {
 	case 'L': { CurrentState = win;  nextLevel(); }break;
-	case 'E': {  paddle->setWidth(paddle->getRect().w * 1.2);  }break;
-	case 'R': {if(life->lives < 9) ++life->lives; }break;
-	case 'S': {paddle->setWidth(paddle->getRect().w * 0.7); }break;
+	case 'E': { if(paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 1.3); else paddle->setWidth(PADDLE_WIDTH); }break;
+	case 'R': { if(life->lives < 9) ++life->lives; }break;
+	case 'S': { if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 0.7); else paddle->setWidth(PADDLE_WIDTH); }break;
 	}
+	cout << paddle->getWidth() << endl;
 }
 
 void Game::loadGame(string nameFile) {

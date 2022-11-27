@@ -95,7 +95,7 @@ protected:
 	void restartLevel();
 	void load();
 	void generateRewards(Vector2D posAux);
-	void instanciateReward(char tipo);
+	void rewardType(char tipo);
 	void saveToFile(string code);
 };
 
