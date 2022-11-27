@@ -10,7 +10,10 @@ void Ball::update()
 		colVector.normalize();
 		dir = dir - colVector * (2 * (dir * colVector));
 	}
-	pos = pos + dir * 1.3;
+	pos = pos + dir * 1.2;
+
+	if (dir == Vector2D(1, 0)) dir = Vector2D(1, 1);
+	else if(dir == Vector2D(-1, 0)) dir = Vector2D(-1, 1);
 }
 
 void Ball::loadFromFile()
@@ -22,18 +25,12 @@ void Ball::loadFromFile()
 	while (id != "Ball") saveFile >> id;
 	if (id == "Ball")
 	{
-		//char c;
-		//while (c != '\n') 
-		{
-			//getline(saveFile, info);
-			saveFile >> info1 >> info2;
-			aux1 = stoi(info1); aux2 = stoi(info2);
-			pos = Vector2D(aux1, aux2);
-			saveFile >> info1 >> info2;
-			aux1 = stoi(info1); aux2 = stoi(info2);
-			dir = Vector2D(aux1, aux2);
-			//c = getchar();
-		}
+		saveFile >> info1 >> info2;
+		aux1 = stoi(info1); aux2 = stoi(info2);
+		pos = Vector2D(aux1, aux2);
+		saveFile >> info1 >> info2;
+		aux1 = stoi(info1); aux2 = stoi(info2);
+		dir = Vector2D(aux1, aux2);
 	}
 	saveFile.close();
 }

@@ -35,7 +35,7 @@ Game::Game() {
 	//ball->loadFromFile();
 
 	//Creamos el paddle
-	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, ball, Vector2D(0, 0), 2.7, MAP_WIDTH + WALL_WIDTH, WALL_WIDTH);
+	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, Vector2D(0, 0), 2.7, MAP_WIDTH + WALL_WIDTH, WALL_WIDTH);
 	//paddle->loadFromFile();
 
 	//Creamos el mapa
@@ -66,7 +66,7 @@ Game::Game() {
 	catch (string e) {
 		throw e;
 	}
-
+	
 }
 Game::~Game() {
 	for (uint i = 0; i < NUM_TEXTURES; ++i) delete textures[i];
@@ -172,14 +172,18 @@ void Game::load()
 bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 {
 	Vector2D posAux;
-	if (topWall->collides((rectBall), colVector)) return true;
-	if (rightWall->collides((rectBall), colVector)) return true;
-	
-	if (leftWall->collides((rectBall), colVector)) return true;
-	
 
-	if (paddle->collides((rectBall), colVector)) return true;
+	if (topWall->collides((rectBall), colVector)) { canCollide = true; return true; }
+	if (rightWall->collides((rectBall), colVector)) { canCollide = true; return true; }
+	
+	if (leftWall->collides((rectBall), colVector)) { canCollide = true; return true; }
+
+	if (canCollide) {
+		if (paddle->collides((rectBall), colVector, ball->getDir())) { canCollide = false;  return true; }
+	}
+
 	if (map->collides((rectBall), colVector, ball->getDir(), posAux)){
+		canCollide = true;
 		generateRewards(posAux);
 		winLevel(); 
 		return true; 

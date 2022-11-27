@@ -67,6 +67,7 @@ private:
 	Life* life = nullptr;
 	// Ints de control de juego
 	int level = 0;
+	bool canCollide = true;
 
 
 public:

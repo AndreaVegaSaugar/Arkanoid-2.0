@@ -3,6 +3,7 @@
 #include "Texture.h"
 
 //Constantes del juego
+
 static const uint NUM_TEXTURES = 11;
 static const uint WIN_WIDTH = 800;
 static const uint WIN_HEIGHT = 600;

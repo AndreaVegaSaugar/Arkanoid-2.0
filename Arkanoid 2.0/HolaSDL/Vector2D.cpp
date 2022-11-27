@@ -33,3 +33,8 @@ double Vector2D::operator*(const Vector2D& v1) const
 {
 	return (v1.x * x + v1.y * y);
 }
+
+bool Vector2D::operator==(const Vector2D& v1) const
+{
+	return(v1.x == x && v1.y == y);
+}
