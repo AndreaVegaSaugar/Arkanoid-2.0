@@ -30,19 +30,19 @@ void Paddle::handleEvents(SDL_Event event) // cambiar a singular
 }
 
 
-bool Paddle::collides(SDL_Rect ballRect, Vector2D& collisionVector) {
-	SDL_Rect col;
+bool Paddle::collides(SDL_Rect ballRect, Vector2D& collisionVector, const Vector2D& dir) {
+	SDL_Rect result;
 	bool collide = false;
-
-	if (SDL_IntersectRect(&ballRect, &getRect(), &col)) {
-		collisionVector = collision(ballRect, col);
+	
+	if (SDL_IntersectRect(&ballRect, &getRect(), &result)) {
+		collisionVector = collision(ballRect, result, dir);
 		collisionVector.normalize();
 		collide = true;
 	}
 	return collide;
 }
 
-Vector2D Paddle::collision(const SDL_Rect& ballRect, const SDL_Rect& collision) {
+Vector2D Paddle::collision(const SDL_Rect& ballRect, const SDL_Rect& result, const Vector2D& dir) {
 
 	Vector2D colVect = Vector2D(0, 0);
 
@@ -52,14 +52,17 @@ Vector2D Paddle::collision(const SDL_Rect& ballRect, const SDL_Rect& collision) 
 	float paddleCenterX = pos.getX() + (w / 2);
 	float paddleCenterY = pos.getY() + (h / 2);
 
-	if (ballCenterY < paddleCenterY && ball->getDir().getY() > 0) {
-		colVect = Vector2D(-(collision.x - pos.getX() - (w / 2)) / (w / 2), 2.5);
-		colVect.normalize();
+	if (result.h < result.w && dir.getY() > 0) 
+	{
+		colVect = Vector2D(-(result.x - pos.getX() - (w / 2)) / (w / 2), 2.5);
 	}
-	else if (ballCenterX < pos.getX()) colVect = Vector2D(-1, 0);
-	else if (ballCenterX > (pos.getX() + w)) colVect = Vector2D(1, 0);
-	else colVect = Vector2D(0, -1);
+	else {
+		if (ballCenterX < pos.getX() && dir.getY() > 0) { colVect = Vector2D(-1, -1); }
+		else if ( ballCenterX > (pos.getX() + w) && dir.getY() > 0) { colVect = Vector2D(1, -1); }
+		else colVect = Vector2D(0, -1);
+	}
 
+	colVect.normalize();
 	return colVect;
 
 }

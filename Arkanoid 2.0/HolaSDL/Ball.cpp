@@ -10,7 +10,10 @@ void Ball::update()
 		colVector.normalize();
 		dir = dir - colVector * (2 * (dir * colVector));
 	}
-	pos = pos + dir ;
+	pos = pos + dir * 1.2;
+
+	if (dir == Vector2D(1, 0)) dir = Vector2D(1, 1);
+	else if(dir == Vector2D(-1, 0)) dir = Vector2D(-1, 1);
 }
 
 void Ball::loadFromFile(string file)
