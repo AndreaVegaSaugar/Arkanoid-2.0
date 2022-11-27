@@ -32,7 +32,7 @@ public:
 	virtual void render() const;
 	virtual void update();
 	virtual void loadFromFile(string file) {};
-	virtual void saveToFile(ofstream& saveFile) {};
+	virtual void saveToFile(ofstream& saveFile);
 
 };
 

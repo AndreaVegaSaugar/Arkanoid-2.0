@@ -59,4 +59,8 @@ void Time::render() const
 	texture->renderFrame(destRectS2, secondsRow_U, secondsCol_U);
 
 }
+void Time::saveToFile(ofstream& saveFile)
+{
+	saveFile << "Time " << deltaTime << endl;
 
+}

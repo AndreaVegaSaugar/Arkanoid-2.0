@@ -25,7 +25,7 @@ public:
 	virtual void update();
 	void convertSeconds(int sec, int& row, int& col);
 	virtual void loadFromFile(string file) {};
-	virtual void saveToFile(ofstream& saveFile) {};
+	virtual void saveToFile(ofstream& saveFile);
 	~Time();
 
 };
