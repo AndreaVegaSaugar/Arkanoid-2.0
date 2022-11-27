@@ -24,7 +24,7 @@ public:
 	//virtual ~ArkanoidObject();
 
 	// Métodos
-	virtual void loadFromFile(string file) = 0;
+	virtual void loadFromFile(ifstream& loadFile) = 0;
 	virtual void saveToFile(ofstream& saveFile) = 0;
 	virtual void render() const;
 	SDL_Rect getRect()const ;

@@ -19,12 +19,12 @@ private:
 	Game* game = 0;
 
 public:
-
+	BlocksMap() {};
 	BlocksMap(int mW, int mH, Texture* t, Game* g) : ArkanoidObject(), gameMap(nullptr), rows(0), cols(0), cellW(0), cellH(0), game(g) { texture = t; h = mH; w = mW; };
 	void loadMap(const string& file);
 	virtual ~BlocksMap();
 	virtual void render() const;
-	virtual void loadFromFile(string file);
+	virtual void loadFromFile(ifstream& loadFile);
 	virtual void saveToFile(ofstream& saveFile);
 	int getNumBlocks();
 	bool collides(SDL_Rect ballRect, Vector2D& collisonVector, const Vector2D dir, Vector2D& pos);

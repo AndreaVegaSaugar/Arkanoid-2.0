@@ -85,7 +85,7 @@ public:
 	bool collides(SDL_Rect destRect, Vector2D& colVector);
 	void menuWindow();
 	void loadGame(string nameFile);
-
+	void newGame();
 	int getWallSize() { return WALL_WIDTH; }
 
 protected:

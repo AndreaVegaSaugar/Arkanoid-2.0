@@ -32,14 +32,9 @@ Game::Game() {
 
 	//Creamos la bola
 	ball = new Ball(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT / 2), BALL_SIZE, Vector2D(1, -1), textures[BallTx], this);
-	//ball->loadFromFile();
 
 	//Creamos el paddle
 	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, ball, Vector2D(0, 0), 2.7, MAP_WIDTH + WALL_WIDTH, WALL_WIDTH);
-	//paddle->loadFromFile();
-
-	//Creamos el mapa
-	map = new BlocksMap(MAP_HEIGHT, MAP_WIDTH, textures[BrickTx], this);
 
 	//Creamos timer
 	timer = new Time(Vector2D(WALL_WIDTH, WIN_HEIGHT - 50), TIME_HEIGHT, TIME_WIDTH, textures[NumsTx], this);
@@ -47,6 +42,9 @@ Game::Game() {
 	//Creamos vidas
 	life = new Life(Vector2D(UI_POS_X, WIN_HEIGHT - 50), UI_SIZE, textures[Heart], textures[NumsTx], NUM_LIVES, textures[Cross]);
 	
+	//Crear mapa vacio
+	map = new BlocksMap(MAP_HEIGHT, MAP_WIDTH, textures[BrickTx], this);
+
 	//Insertamos gameObjects a la lista
 	gameObjects.push_back(life);
 	gameObjects.push_back(timer);
@@ -58,14 +56,6 @@ Game::Game() {
 	gameObjects.push_back(map);
 
 	rewardIterator = --gameObjects.end(); 
-	
-	try {
-		map->loadMap(levels[level]);
-		//map->loadFromFile();
-	}
-	catch (string e) {
-		throw e;
-	}
 
 }
 Game::~Game() {
@@ -243,18 +233,48 @@ void Game::instanciateReward(char tipo) {
 	case 'S': {paddle->setWidth(paddle->getRect().w * 0.7); }break;
 	}
 }
+void Game:: newGame() {
+	try {
+		map->loadMap(levels[level]);
+	}
+	catch (string e) {
+		throw e;
+	}
 
+}
 void Game::loadGame(string nameFile) {
 	ifstream loadFile(nameFile);
 	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
 		string type;
 		loadFile >> type;
-		if (type == "Rewards") {
-			Vector2D posAux;
-			char tipo = 'L';
+		if (type == "Level") {
+			int l;
+			loadFile >> l;
+			level = l;
+		}
+		else if (type == "Life") {
+			life->loadFromFile(loadFile);
+		}
+		else if (type == "Time") {
+			timer->loadFromFile(loadFile);
+		}
+		else if (type == "Ball") {
+			ball->loadFromFile(loadFile);
+		}
+		else if (type == "Paddle") {
+			paddle->loadFromFile(loadFile);
+		}
+		else if (type == "BlocksMap") {
+			map->loadFromFile(loadFile);
+		}
+		else if (type == "Reward") {
+			int x, y;
+			loadFile >> x >> y;;
+			Vector2D posAux = Vector2D(x, y);
+			char tipo;
+			loadFile >> tipo;
 			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], tipo, textures[Rewards]->getNumCols()));
 		}
-		else (*it)->loadFromFile(nameFile);
 	}
 	loadFile.close();
 }
@@ -279,8 +299,9 @@ void Game::saveToFile(string code) {
 	}
 	saveFile.close();
 }
+
 void Game::menuWindow() {
-	SDL_Event event;
+	SDL_Event event; 
 	string file = " ";
 	bool click = false;
 	while (SDL_PollEvent(&event) || !click) {
@@ -299,12 +320,14 @@ void Game::menuWindow() {
 		SDL_Point mousePos;
 	    SDL_GetMouseState(&mousePos.x, &mousePos.y);
 		if (SDL_PointInRect(&mousePos, &rectStart) && event.type == SDL_MOUSEBUTTONDOWN) {
+			newGame();
 			click = true;
 		}
 		if (SDL_PointInRect(&mousePos, &rectLoad) && event.type == SDL_MOUSEBUTTONDOWN) {
 			cout << "Introduce code of your last game: ";
 			cin >> file;
 			loadGame(file);
+			timer->changeTime(SDL_GetTicks() / 1000);
 			click = true;
 
 		}

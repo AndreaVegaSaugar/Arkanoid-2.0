@@ -9,6 +9,7 @@ class Time: public ArkanoidObject
 {
 private:
 	int deltaTime = 0;
+	int extra = 0;
 	int secondsRow_C = 0;
 	int secondsCol_C = 0;
 	int secondsRow_D = 0;
@@ -24,8 +25,9 @@ public:
 	virtual void render() const;
 	virtual void update();
 	void convertSeconds(int sec, int& row, int& col);
-	virtual void loadFromFile(string file) {};
-	virtual void saveToFile(ofstream& saveFile) {};
+	virtual void loadFromFile(ifstream& loadFile);
+	virtual void saveToFile(ofstream& saveFile);
+	void changeTime(int time);
 	~Time();
 
 };

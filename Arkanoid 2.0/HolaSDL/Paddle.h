@@ -20,7 +20,7 @@ private:
 public:
 	Paddle(Vector2D p, int h, int w, Texture* t, Game* g, Ball* b, Vector2D d, int s, int rL, int lL) : MovingObject(p, h, w, t, d), game(g), ball(b), speed(s), rightLimit(rL), leftLimit(lL) {};
 	virtual void update();
-	virtual void loadFromFile(string file);
+	virtual void loadFromFile(ifstream& loadFile);
 	virtual void saveToFile(ofstream& saveFile);
 	void handleEvents(SDL_Event event); // cambiar a singular
 	bool collides(SDL_Rect ballRect, Vector2D& collisionVector);
