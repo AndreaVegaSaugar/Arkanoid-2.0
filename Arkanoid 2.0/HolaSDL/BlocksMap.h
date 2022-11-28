@@ -11,7 +11,7 @@ class Game;
 class BlocksMap : public ArkanoidObject
 {
 private:
-	Block*** gameMap;
+	Block*** gameMap = nullptr;
 	int rows = 0;
 	int cols = 0;
 	int cellW = 0;
