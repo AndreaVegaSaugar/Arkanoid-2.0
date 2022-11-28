@@ -30,23 +30,27 @@ void BlocksMap::loadMap(const string& file)
 
 		cellW = w / cols;
 		cellH = h / rows;
-
-		int color;
-		gameMap = new Block * *[rows];
-		for (int i = 0; i < rows; ++i)
-		{
-			gameMap[i] = new Block * [cols];
-
-			for (int j = 0; j < cols; ++j)
-			{
-				map >> color;
-				if (color != 0) gameMap[i][j] = new Block(Vector2D(j, i), cellW, cellH, color, texture, game);
-				else gameMap[i][j] = nullptr;
-			}
-		}
+		
+		createMap(map);
 	}
 	else throw "Error loading level file from" + file;
 	map.close();
+}
+
+void BlocksMap::createMap(ifstream& map) {
+	int color;
+	gameMap = new Block * *[rows];
+	for (int i = 0; i < rows; ++i)
+	{
+		gameMap[i] = new Block * [cols];
+
+		for (int j = 0; j < cols; ++j)
+		{
+			map >> color;
+			if (color != 0) gameMap[i][j] = new Block(Vector2D(j, i), cellW, cellH, color, texture, game);
+			else gameMap[i][j] = nullptr;
+		}
+	}
 }
 
 void BlocksMap::render()const
@@ -113,45 +117,22 @@ Vector2D BlocksMap::collision(const SDL_Rect& result, const SDL_Rect& ballRect, 
 	return colVect;
 }
 
-void BlocksMap::loadFromFile(string file)
+void BlocksMap::loadFromFile(ifstream& loadFile)
 {
-	ifstream saveFile;
-	saveFile.open("saveFile");
 	string id, info1, info2;
 	int aux1, aux2;
-	while (id != "BlocksMap") saveFile >> id;
-	if (id == "BlocksMap")
-	{
-		{
-			saveFile >> info1 >> info2;
-			aux1 = stoi(info1); aux2 = stoi(info2);
-			rows = aux1; cols = aux2;
-			saveFile >> info1 >> info2;
-			aux1 = stoi(info1); aux2 = stoi(info2);
-			cellH = aux1; cellW = aux2;
-		}
-
-		int color;
-		gameMap = new Block * *[rows];
-		for (int i = 0; i < rows; ++i)
-		{
-			gameMap[i] = new Block * [cols];
-
-			for (int j = 0; j < cols; ++j)
-			{
-				saveFile >> color;
-				if (color != 0) gameMap[i][j] = new Block(Vector2D(j, i), cellW, cellH, color, texture, game);
-				else gameMap[i][j] = nullptr;
-			}
-		}
-	}
-	saveFile.close();
+	
+	loadFile >> info1 >> info2;
+	aux1 = stoi(info1); aux2 = stoi(info2);
+	rows = aux1; cols = aux2;
+	cellH = h/ aux1; cellW = w /aux2;
+	createMap(loadFile);
 }
 
 //Ball, posx, posy, dirx, diry
 void BlocksMap::saveToFile(ofstream& saveFile)
 {
-	saveFile << "BlocksMap " << rows << " " << cols << " " << cellH << " " << cellW << endl;
+	saveFile << "BlocksMap " << rows << " " << cols <<  endl;
 
 	for (int i = 0; i < rows; i++)
 	{

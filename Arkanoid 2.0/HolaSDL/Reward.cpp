@@ -32,3 +32,13 @@ void Reward::saveToFile(ofstream& saveFile)
 	saveFile << "Reward " << pos.getX() << " " << pos.getY() << " " << tipeReward<< endl;
 
 }
+void Reward::loadFromFile(ifstream& loadFile)
+{
+	int x, y;
+	loadFile >> x >> y;
+	pos = Vector2D(x, y);
+	char tipo;
+	loadFile >> tipo;
+	
+	
+}

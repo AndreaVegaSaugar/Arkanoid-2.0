@@ -23,7 +23,7 @@ void Time::update() {
 
 	uint frames = 0;
 		uint32_t startTime, frameTime;
-		deltaTime = SDL_GetTicks() / 1000;
+		deltaTime = (SDL_GetTicks() / 1000) + extra;
 		convertSeconds(deltaTime / 100, secondsRow_C, secondsCol_C);
 		convertSeconds((deltaTime / 10) % 10, secondsRow_D, secondsCol_D);
 		convertSeconds(deltaTime % 10, secondsRow_U, secondsCol_U);
@@ -62,5 +62,16 @@ void Time::render() const
 void Time::saveToFile(ofstream& saveFile)
 {
 	saveFile << "Time " << deltaTime << endl;
+
+}
+void Time::loadFromFile(ifstream& loadFile)
+{
+	int time;
+	loadFile >> time;
+	extra = time;
+}
+
+void Time::changeTime(int newTime) {
+	extra -= newTime;
 
 }

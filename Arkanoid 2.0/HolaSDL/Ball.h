@@ -14,7 +14,7 @@ private:
 public:
 	Ball(Vector2D p, int size, Vector2D d, Texture* t, Game* g) : MovingObject(p, size, size, t, d), game(g) {};
     virtual void update();
-	virtual void loadFromFile(string file);
+	virtual void loadFromFile(ifstream& loadFile);
 	virtual void saveToFile(ofstream& saveFile);
 	Vector2D getDir() { return dir; }
 	Vector2D getPos() { return pos; }

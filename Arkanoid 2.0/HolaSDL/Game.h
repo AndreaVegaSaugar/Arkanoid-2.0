@@ -12,6 +12,7 @@
 #include <string>
 #include <list>
 #include "Life.h"
+#include "Menu.h"
 
 
 using namespace std;
@@ -68,6 +69,7 @@ private:
 	BlocksMap* map = nullptr;
 	Time* timer = nullptr;
 	Life* life = nullptr;
+	Menu menuWindow;
 	// Ints de control de juego
 	int level = 0;
 	bool canCollide = true;
@@ -84,9 +86,9 @@ public:
 	void handleEvents();
 	void update();
 	bool collides(SDL_Rect destRect, Vector2D& colVector);
-	void menuWindow();
+	//void menuWindow();
 	void loadGame(string nameFile);
-
+	void newGame();
 	int getWallSize() { return WALL_WIDTH; }
 
 protected:

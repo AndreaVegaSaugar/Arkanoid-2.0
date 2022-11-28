@@ -17,7 +17,7 @@ public:
 	Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int tC);
 	virtual void update();
 	virtual void render() const;
-	virtual void loadFromFile(string file) {};
+	virtual void loadFromFile(ifstream& loadFile);
 	virtual void saveToFile(ofstream& saveFile);
 	Vector2D getDir() { return dir; }
 	char getTipe() { return tipeReward; }

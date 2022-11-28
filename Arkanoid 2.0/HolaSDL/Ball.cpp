@@ -16,23 +16,18 @@ void Ball::update()
 	else if(dir == Vector2D(-1, 0)) dir = Vector2D(-1, 1);
 }
 
-void Ball::loadFromFile(string file)
+void Ball::loadFromFile(ifstream& loadFile)
 {
-	ifstream saveFile;
-	saveFile.open(file);
 	string id, info1, info2;
 	int aux1, aux2;
-	while (id != "Ball") saveFile >> id;
-	if (id == "Ball")
-	{
-		saveFile >> info1 >> info2;
-		aux1 = stoi(info1); aux2 = stoi(info2);
-		pos = Vector2D(aux1, aux2);
-		saveFile >> info1 >> info2;
-		aux1 = stoi(info1); aux2 = stoi(info2);
-		dir = Vector2D(aux1, aux2);
-	}
-	saveFile.close();
+
+	loadFile >> info1 >> info2;
+	aux1 = stoi(info1); aux2 = stoi(info2);
+	pos = Vector2D(aux1, aux2);
+	loadFile >> info1 >> info2;
+	aux1 = stoi(info1); aux2 = stoi(info2);
+	dir = Vector2D(aux1, aux2);
+	
 }
 
 //Ball, posx, posy, dirx, diry

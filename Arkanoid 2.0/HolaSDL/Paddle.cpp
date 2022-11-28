@@ -67,23 +67,16 @@ Vector2D Paddle::collision(const SDL_Rect& ballRect, const SDL_Rect& result, con
 
 }
 
-void Paddle::loadFromFile(string file)
+void Paddle::loadFromFile(ifstream& loadFile)
 {
-	ifstream saveFile;
-	saveFile.open(file);
 	string id, info1, info2;
 	int aux1, aux2;
-	while (id != "Paddle") saveFile >> id;
-	if (id == "Paddle")
-	{
-		saveFile >> info1 >> info2;
-		aux1 = stoi(info1); aux2 = stoi(info2);
-		pos = Vector2D(aux1, aux2);
-		saveFile >> info1 >> info2;
-		aux1 = stoi(info1); aux2 = stoi(info2);
-		h = aux1; w = aux2;
-	}
-	saveFile.close();
+	loadFile >> info1 >> info2;
+	aux1 = stoi(info1); aux2 = stoi(info2);
+	pos = Vector2D(aux1, aux2);
+	loadFile >> info1 >> info2;
+	aux1 = stoi(info1); aux2 = stoi(info2);
+	h = aux1; w = aux2;
 }
 
 //Paddle, posx, posy, h, w

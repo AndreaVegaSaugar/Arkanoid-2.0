@@ -50,3 +50,11 @@ void Life::saveToFile(ofstream& saveFile)
 	saveFile << "Life " << lives << endl;
 
 }
+
+void Life::loadFromFile(ifstream& loadFile)
+{
+	int l;
+	loadFile >> l;
+	lives = l;
+
+}

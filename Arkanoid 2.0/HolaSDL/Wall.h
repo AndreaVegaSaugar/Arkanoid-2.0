@@ -16,7 +16,7 @@ public:
 	Wall(Vector2D p, int h, int w, Texture* t, Vector2D cVect) : ArkanoidObject(p, h, w, t), colVector(cVect) {};
 
 	// Metodos publicos de la clase
-	virtual void loadFromFile(string file) {};
+	virtual void loadFromFile(ifstream& loadFile) {};
 	virtual void saveToFile(ofstream& saveFile) {};
 	bool collides(SDL_Rect ballRect, Vector2D& collisonVector);
 };
