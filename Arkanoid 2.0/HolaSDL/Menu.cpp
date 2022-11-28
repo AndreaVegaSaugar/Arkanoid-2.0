@@ -29,12 +29,18 @@ void Menu::handleEvents(SDL_Event event, bool& click) {
 		click = true;
 	}
 	if (SDL_PointInRect(&mousePos, &rectLoad) && event.type == SDL_MOUSEBUTTONDOWN) {
-		cout << "Introduce code of your last game: ";;
-		string file;
-		cin >> file;
-		game->loadGame(file);
-		click = true;
-
+		cout << "Introduce code of your last game: ";
+		try
+		{
+			string file;
+			cin >> file;
+			game->loadGame(file);
+			click = true;
+		}
+		catch (exception)
+		{
+			throw("aaaaaaaaaaaaaa");  // PREGUNTAR EXCEPCIONES EN GENERAL
+		}
 	}
 	if (event.type == SDL_QUIT) click = true;
 }

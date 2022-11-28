@@ -146,6 +146,7 @@ void Game::handleEvents() {
 		if (event.type == SDL_QUIT) exit = true;
 		if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_s) {
 			string saveCode;
+			cout << "Introduce the code to save game: ";
 			cin >> saveCode;
 			saveToFile(saveCode);
 		}
@@ -206,6 +207,7 @@ bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 	}
 
 	if (map->collides((rectBall), colVector, ball->getDir(), posAux)){
+		canCollide = true;
 		generateRewards(posAux);
 		winLevel(); 
 		return true; 
