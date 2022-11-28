@@ -19,10 +19,8 @@ void Time::resetTime()
 	secondsCol_C = 0;
 }
 
-void Time::update() {
-
-	uint frames = 0;
-		uint32_t startTime, frameTime;
+void Time::update() 
+{
 		deltaTime = (SDL_GetTicks() / 1000) + extra;
 		convertSeconds(deltaTime / 100, secondsRow_C, secondsCol_C);
 		convertSeconds((deltaTime / 10) % 10, secondsRow_D, secondsCol_D);
