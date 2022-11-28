@@ -20,6 +20,6 @@ public:
 	virtual void loadFromFile(ifstream& loadFile);
 	virtual void saveToFile(ofstream& saveFile);
 	Vector2D getDir() { return dir; }
-	char getTipe() { return tipeReward; }
+	void getTipe(char& c) { c = tipeReward; }
 	bool collides(SDL_Rect ballRect, Vector2D& collisionVector);
 };

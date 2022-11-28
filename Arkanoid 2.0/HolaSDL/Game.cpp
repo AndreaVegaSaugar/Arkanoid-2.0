@@ -104,11 +104,12 @@ void Game::update()
 {
 	if (CurrentState == win && level < (NUM_LEVELS - 1)) nextLevel();
 	else if (CurrentState == lose && life->lives > 1) restartLevel();
-	
-	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
-		(*it)->update();
+	else if (CurrentState == play)
+	{
+		for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
+			(*it)->update();
+		}
 	}
-	
 }
 void Game::render() {
 	SDL_RenderClear(renderer); 
@@ -165,6 +166,18 @@ void Game::restartLevel()
 
 void Game::nextLevel()
 {
+	auto it = rewardIterator;
+	if (it != --gameObjects.end())
+	{
+		++it;
+		Reward* reward = static_cast<Reward*>(*it);
+		for (; it != gameObjects.end();) {
+			delete* it;
+			*it = nullptr;
+			it = gameObjects.erase(it);
+		}
+	}
+
 	CurrentState = play;
 	if (life->lives > 3) life->lives = 3;
 	++level;
@@ -182,12 +195,15 @@ void Game::load()
 
 bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 {
-	Vector2D posAux;
-	if (topWall->collides((rectBall), colVector)) return true;
-	if (rightWall->collides((rectBall), colVector)) return true;
-	
-	if (leftWall->collides((rectBall), colVector)) return true;
-	
+	Vector2D posAux; char type = ' ';
+
+	if (topWall->collides((rectBall), colVector)) { canCollide = true; return true; }
+	if (rightWall->collides((rectBall), colVector)) { canCollide = true; return true; }
+	if (leftWall->collides((rectBall), colVector)) { canCollide = true; return true; }
+
+	if (canCollide) {
+		if (paddle->collides((rectBall), colVector, ball->getDir())) { canCollide = false;  return true; }
+	}
 
 	if (paddle->collides((rectBall), colVector)) return true;
 	if (map->collides((rectBall), colVector, ball->getDir(), posAux)){
@@ -196,15 +212,21 @@ bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 		return true; 
 	}
 	if (rectBall.y + rectBall.h >= WIN_HEIGHT) CurrentState = lose;
+
 	auto it = rewardIterator;
 	++it;
-	for (; it != gameObjects.end();) {
-		if (static_cast<Reward*>(*it)->collides(paddle->getRect(), colVector)) {
-			instanciateReward(static_cast<Reward*>(*it)->getTipe());
-			delete* it;
-			*it = nullptr;
-			it = gameObjects.erase(it);
-			
+
+	while (type != 'L' && it != gameObjects.end()) {
+		Reward* reward = static_cast<Reward*>(*it);
+		if (reward->collides(paddle->getRect(), colVector)) {
+			reward->getTipe(type);
+			rewardType(type);
+			if (type != 'L')
+			{
+				delete* it;
+				*it = nullptr;
+				it = gameObjects.erase(it);
+			}
 		}
 		else if ((static_cast<Reward*>(*it)->getRect().y + static_cast<Reward*>(*it)->getRect().h) >= WIN_HEIGHT) {
 			delete* it;
