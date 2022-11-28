@@ -12,7 +12,7 @@ Game::Game() {
 	window = SDL_CreateWindow("Arkanoid", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
 		WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-	if (window == nullptr || renderer == nullptr) throw string("Error loading SDL window or renderer");
+	if (window == nullptr || renderer == nullptr) throw (SDLError("Error loading SDL window or renderer"));
 
 	//Nos creamos las texturas
 	for (uint i = 0; i < NUM_TEXTURES; ++i)
@@ -267,7 +267,7 @@ void Game::rewardType(char tipo) {
 	switch (tipo) {
 	case 'L': { CurrentState = win;  nextLevel(); }break;
 	case 'E': { if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 1.3); else paddle->setWidth(PADDLE_WIDTH); }break;
-	case 'R': { if (life->lives < 9) ++life->lives; }break;
+	case 'R': { if (life->lives < 9) paddle->setWidth(PADDLE_WIDTH); ++life->lives; }break;
 	case 'S': { if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 0.7); else paddle->setWidth(PADDLE_WIDTH); }break;
 	}
 }
