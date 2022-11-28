@@ -103,11 +103,12 @@ void Game::update()
 {
 	if (CurrentState == win && level < (NUM_LEVELS - 1)) nextLevel();
 	else if (CurrentState == lose && life->lives > 1) restartLevel();
-	
-	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
-		(*it)->update();
+	else if (CurrentState == play)
+	{
+		for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
+			(*it)->update();
+		}
 	}
-	
 }
 void Game::render() {
 	SDL_RenderClear(renderer); 
@@ -160,6 +161,18 @@ void Game::restartLevel()
 
 void Game::nextLevel()
 {
+	auto it = rewardIterator;
+	if (it != --gameObjects.end())
+	{
+		++it;
+		Reward* reward = static_cast<Reward*>(*it);
+		for (; it != gameObjects.end();) {
+			delete* it;
+			*it = nullptr;
+			it = gameObjects.erase(it);
+		}
+	}
+
 	CurrentState = play;
 	if (life->lives > 3) life->lives = 3;
 	++level;
@@ -177,11 +190,10 @@ void Game::load()
 
 bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 {
-	Vector2D posAux;
+	Vector2D posAux; char type = ' ';
 
 	if (topWall->collides((rectBall), colVector)) { canCollide = true; return true; }
 	if (rightWall->collides((rectBall), colVector)) { canCollide = true; return true; }
-	
 	if (leftWall->collides((rectBall), colVector)) { canCollide = true; return true; }
 
 	if (canCollide) {
@@ -195,16 +207,20 @@ bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 		return true; 
 	}
 	if (rectBall.y + rectBall.h >= WIN_HEIGHT) CurrentState = lose;
+
 	auto it = rewardIterator;
 	++it;
-	for (; it != gameObjects.end();) {
+	while (type != 'L' && it != gameObjects.end()) {
 		Reward* reward = static_cast<Reward*>(*it);
 		if (reward->collides(paddle->getRect(), colVector)) {
-			rewardType(reward->getTipe());
-			delete* it;
-			*it = nullptr;
-			it = gameObjects.erase(it);
-			
+			reward->getTipe(type);
+			rewardType(type);
+			if (type != 'L')
+			{
+				delete* it;
+				*it = nullptr;
+				it = gameObjects.erase(it);
+			}
 		}
 		else if ((reward->getRect().y + reward->getRect().h) >= WIN_HEIGHT) {
 			delete* it;
@@ -247,7 +263,6 @@ void Game::rewardType(char tipo) {
 	case 'R': { if(life->lives < 9) ++life->lives; }break;
 	case 'S': { if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 0.7); else paddle->setWidth(PADDLE_WIDTH); }break;
 	}
-	cout << paddle->getWidth() << endl;
 }
 
 void Game::loadGame(string nameFile) {
