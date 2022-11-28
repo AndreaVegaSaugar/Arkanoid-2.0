@@ -1,6 +1,10 @@
 #pragma once
 #include "Vector2D.h"
 #include "Texture.h"
+#include "ArkanoidError.h"
+#include "FileFormatError.h"
+#include "FileNotFoundError.h"
+#include "SDLError.h"
 
 //Constantes del juego
 static const uint NUM_TEXTURES = 14;

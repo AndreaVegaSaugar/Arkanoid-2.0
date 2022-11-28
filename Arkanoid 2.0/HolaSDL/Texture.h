@@ -3,6 +3,10 @@
 
 #include "SDL.h" // Windows
 #include "SDL_image.h" // Windows
+#include "ArkanoidError.h"
+#include "FileFormatError.h"
+#include "FileNotFoundError.h"
+#include "SDLError.h"
 #include <string>
 
 using namespace std;
