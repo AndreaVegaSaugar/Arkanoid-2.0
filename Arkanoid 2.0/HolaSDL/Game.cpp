@@ -33,8 +33,8 @@ Game::Game() {
 	//Creamos la bola
 	ball = new Ball(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT / 2), BALL_SIZE, Vector2D(1, -1), textures[BallTx], this);
 
-	//Creamos el paddle
-	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, ball, Vector2D(0, 0), 2.7, MAP_WIDTH + WALL_WIDTH, WALL_WIDTH);
+	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, Vector2D(0, 0), 2.7, MAP_WIDTH + WALL_WIDTH, WALL_WIDTH);
+	//paddle->loadFromFile();
 
 	//Creamos timer
 	timer = new Time(Vector2D(WALL_WIDTH, WIN_HEIGHT - 50), TIME_HEIGHT, TIME_WIDTH, textures[NumsTx], this);
@@ -205,7 +205,6 @@ bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 		if (paddle->collides((rectBall), colVector, ball->getDir())) { canCollide = false;  return true; }
 	}
 
-	if (paddle->collides((rectBall), colVector)) return true;
 	if (map->collides((rectBall), colVector, ball->getDir(), posAux)){
 		generateRewards(posAux);
 		winLevel(); 
@@ -262,14 +261,15 @@ void Game::generateRewards(Vector2D posAux) {
 
 }
 
-void Game::instanciateReward(char tipo) {
+void Game::rewardType(char tipo) {
 	switch (tipo) {
 	case 'L': { CurrentState = win;  nextLevel(); }break;
-	case 'E': {  paddle->setWidth(paddle->getRect().w * 1.2);  }break;
-	case 'R': {if(life->lives < 9) ++life->lives; }break;
-	case 'S': {paddle->setWidth(paddle->getRect().w * 0.7); }break;
+	case 'E': { if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 1.3); else paddle->setWidth(PADDLE_WIDTH); }break;
+	case 'R': { if (life->lives < 9) ++life->lives; }break;
+	case 'S': { if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 0.7); else paddle->setWidth(PADDLE_WIDTH); }break;
 	}
 }
+
 void Game:: newGame() {
 	try {
 		map->loadMap(levels[level]);
