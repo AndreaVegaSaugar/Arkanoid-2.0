@@ -28,7 +28,7 @@ const enum TextureNames {
 };
 
 // Enumerado de estados de juego
-enum GameStates {play, lose, win, menu};
+enum GameStates {play, lose, win, menu, pause};
 
 // Estructura que contiene variables para el nombre de las imagenes de la textura y su numero de filas y columnas
 struct Textures

@@ -86,19 +86,21 @@ void Game::run() {
 			else if (optionButton == 'l') loadGame(file);
 			timer->changeTime(SDL_GetTicks() / 1000);
 			CurrentState = play;
-		
 		}
 		else {
 			uint32_t startTime, frameTime;
 			startTime = SDL_GetTicks();
 			while (!exit) { // Bucle del juego
 				handleEvents();
-				frameTime = SDL_GetTicks() - startTime; // Tiempo desde última actualización
-				if (frameTime >= FRAME_RATE) {
-					update(); // Actualiza el estado de todos los objetos del juego
-					startTime = SDL_GetTicks();
+				if (CurrentState != pause) {
+
+					frameTime = SDL_GetTicks() - startTime; // Tiempo desde última actualización
+					if (frameTime >= FRAME_RATE) {
+						update(); // Actualiza el estado de todos los objetos del juego
+						startTime = SDL_GetTicks();
+					}
+					render(); // Renderiza todos los objetos del juego
 				}
-				render(); // Renderiza todos los objetos del juego
 			}
 		}
 	}
@@ -148,11 +150,15 @@ void Game::handleEvents() {
 	SDL_Event event;
 	while (SDL_PollEvent(&event) && !exit) {
 		if (event.type == SDL_QUIT) exit = true;
-		if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_s) {
-			string saveCode;
-			cout << "Introduce the code to save game: ";
-			cin >> saveCode;
-			saveToFile(saveCode);
+		if (event.type == SDL_KEYDOWN){
+			if (event.key.keysym.sym == SDLK_s) {
+				string saveCode;
+				cout << "Introduce the code to save game: ";
+				cin >> saveCode;
+				saveToFile(saveCode);
+			}
+			if (event.key.keysym.sym == SDLK_p && CurrentState != pause) CurrentState = pause;
+			else if (event.key.keysym.sym == SDLK_p && CurrentState == pause) CurrentState = play;
 		}
 		paddle->handleEvents(event);
 	}
