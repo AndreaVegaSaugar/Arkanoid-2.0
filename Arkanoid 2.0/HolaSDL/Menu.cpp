@@ -9,7 +9,7 @@ Menu::Menu(Texture* tTitle, Texture* tStart, Texture* tLoad, int w, int h, int b
 	textureLoad = tLoad;
 	rectTitle.x = 0; rectTitle.y = 0; rectTitle.w = w; rectTitle.h = h;
 	rectStart.x = 245; rectStart.y = 350; rectStart.w = bW; rectStart.h = bH;
-	rectLoad.x = 230; rectLoad.y = 200; rectLoad.w = bW; rectLoad.h = bH;
+	rectLoad.x = 245; rectLoad.y = 200; rectLoad.w = bW; rectLoad.h = bH;
 	game = g;
 	timer = t;
 }
