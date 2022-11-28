@@ -30,23 +30,27 @@ void BlocksMap::loadMap(const string& file)
 
 		cellW = w / cols;
 		cellH = h / rows;
-
-		int color;
-		gameMap = new Block * *[rows];
-		for (int i = 0; i < rows; ++i)
-		{
-			gameMap[i] = new Block * [cols];
-
-			for (int j = 0; j < cols; ++j)
-			{
-				map >> color;
-				if (color != 0) gameMap[i][j] = new Block(Vector2D(j, i), cellW, cellH, color, texture, game);
-				else gameMap[i][j] = nullptr;
-			}
-		}
+		
+		createMap(map);
 	}
 	else throw "Error loading level file from" + file;
 	map.close();
+}
+
+void BlocksMap::createMap(ifstream& map) {
+	int color;
+	gameMap = new Block * *[rows];
+	for (int i = 0; i < rows; ++i)
+	{
+		gameMap[i] = new Block * [cols];
+
+		for (int j = 0; j < cols; ++j)
+		{
+			map >> color;
+			if (color != 0) gameMap[i][j] = new Block(Vector2D(j, i), cellW, cellH, color, texture, game);
+			else gameMap[i][j] = nullptr;
+		}
+	}
 }
 
 void BlocksMap::render()const
@@ -121,24 +125,8 @@ void BlocksMap::loadFromFile(ifstream& loadFile)
 	loadFile >> info1 >> info2;
 	aux1 = stoi(info1); aux2 = stoi(info2);
 	rows = aux1; cols = aux2;
-	loadFile >> info1 >> info2;
-	aux1 = stoi(info1); aux2 = stoi(info2);
-	cellH = aux1; cellW = aux2;
-		
-
-	int color;
-	gameMap = new Block * *[rows];
-	for (int i = 0; i < rows; ++i)
-	{
-		gameMap[i] = new Block * [cols];
-
-		for (int j = 0; j < cols; ++j)
-		{
-			loadFile >> color;
-			if (color != 0) gameMap[i][j] = new Block(Vector2D(j, i), cellW, cellH, color, texture, game);
-			else gameMap[i][j] = nullptr;
-		}
-	}
+	cellH = h/ aux1; cellW = w /aux2;
+	createMap(loadFile);
 }
 
 //Ball, posx, posy, dirx, diry

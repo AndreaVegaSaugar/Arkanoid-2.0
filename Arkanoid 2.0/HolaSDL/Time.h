@@ -19,6 +19,7 @@ private:
 	Game* game = nullptr;
 
 public:
+	Time(){}
 	Time(Vector2D p, int h, int w, Texture* t, Game* g):ArkanoidObject(p, h, w, t), game(g){}
 
 	void resetTime();

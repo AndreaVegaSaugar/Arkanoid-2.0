@@ -6,9 +6,10 @@ C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(3
   BlocksMap.cpp
   Game.cpp
 C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(37,158): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(206,31): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(231,52): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(233,50): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(221,31): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(246,52): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(248,50): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+  Menu.cpp
   Paddle.cpp
 C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.cpp(52,22): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
 C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.cpp(53,22): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos

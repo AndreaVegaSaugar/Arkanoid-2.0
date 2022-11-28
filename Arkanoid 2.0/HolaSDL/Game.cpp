@@ -72,7 +72,18 @@ void Game::run() {
 	uint frames = 0;
 	while (!exit)
 	{ 
-		if (CurrentState == menu) menuWindow();
+		if (CurrentState == menu) {
+			menuWindow = Menu(textures[Title], textures[Start], textures[Load], WIN_WIDTH, WIN_HEIGHT, BUTTON_HEIGHT, BUTTON_WIDTH, this, timer);
+			SDL_Event event;
+			bool click = false;
+			while (SDL_PollEvent(&event) || !click) {
+				menuWindow.handleEvents(event, click);
+				render();
+			}
+			timer->changeTime(SDL_GetTicks() / 1000);
+			CurrentState = play;
+		
+		}
 		else {
 			uint32_t startTime, frameTime;
 			startTime = SDL_GetTicks();
@@ -101,6 +112,7 @@ void Game::update()
 }
 void Game::render() {
 	SDL_RenderClear(renderer); 
+
 	if (CurrentState == win && level >= (NUM_LEVELS - 1))
 	{
 		SDL_Rect rect;
@@ -114,6 +126,9 @@ void Game::render() {
 		rect.x = 0; rect.y = 0;
 		rect.w = WIN_WIDTH; rect.h = WIN_HEIGHT;
 		textures[GameOverTx]->render(rect);
+	}
+	else if (CurrentState == menu) {
+		menuWindow.render();
 	}
 	else
 	{
@@ -298,42 +313,4 @@ void Game::saveToFile(string code) {
 		(*it)->saveToFile(saveFile);
 	}
 	saveFile.close();
-}
-
-void Game::menuWindow() {
-	SDL_Event event; 
-	string file = " ";
-	bool click = false;
-	while (SDL_PollEvent(&event) || !click) {
-		SDL_RenderClear(renderer);
-		SDL_Rect rectTitle, rectStart, rectLoad;
-
-		rectTitle.x = 0; rectTitle.y = 0; rectTitle.w = WIN_WIDTH; rectTitle.h = WIN_HEIGHT;
-		textures[Title]->render(rectTitle);
-
-		rectStart.x = 245; rectStart.y = 350; rectStart.w = 300; rectStart.h = 200;
-		textures[Start]->render(rectStart);
-
-		rectLoad.x = 230; rectLoad.y = 200; rectLoad.w = 330; rectLoad.h = 200;
-		textures[Load]->render(rectLoad);
-
-		SDL_Point mousePos;
-	    SDL_GetMouseState(&mousePos.x, &mousePos.y);
-		if (SDL_PointInRect(&mousePos, &rectStart) && event.type == SDL_MOUSEBUTTONDOWN) {
-			newGame();
-			click = true;
-		}
-		if (SDL_PointInRect(&mousePos, &rectLoad) && event.type == SDL_MOUSEBUTTONDOWN) {
-			cout << "Introduce code of your last game: ";
-			cin >> file;
-			loadGame(file);
-			timer->changeTime(SDL_GetTicks() / 1000);
-			click = true;
-
-		}
-		if (event.type == SDL_QUIT) click = true;
-		SDL_RenderPresent(renderer);
-	}
-	CurrentState = play;
-	
 }

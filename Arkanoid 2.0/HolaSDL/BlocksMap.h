@@ -27,6 +27,7 @@ public:
 	virtual void loadFromFile(ifstream& loadFile);
 	virtual void saveToFile(ofstream& saveFile);
 	int getNumBlocks();
+	void createMap(ifstream& map);
 	bool collides(SDL_Rect ballRect, Vector2D& collisonVector, const Vector2D dir, Vector2D& pos);
 
 protected:
