@@ -22,7 +22,7 @@ static const uint REWARD_WIDTH = 40;
 static const uint UI_POS_X = WIN_WIDTH - WALL_WIDTH - 80;
 static const uint UI_SIZE = 25;
 static const uint BUTTON_WIDTH = 300;
-static const uint BUTTON_HEIGHT = 200;
+static const uint BUTTON_HEIGHT = 150;
 
 class GameObject
 {
