@@ -75,11 +75,15 @@ void Game::run() {
 		if (CurrentState == menu) {
 			menuWindow = Menu(textures[Title], textures[Start], textures[Load], WIN_WIDTH, WIN_HEIGHT, BUTTON_HEIGHT, BUTTON_WIDTH, this, timer);
 			SDL_Event event;
-			bool click = false;
+			bool click= false;
+			char optionButton = ' ';
+			string file;
 			while (SDL_PollEvent(&event) || !click) {
-				menuWindow.handleEvents(event, click);
+				menuWindow.handleEvents(event, click, exit, file, optionButton);
 				render();
 			}
+			if (optionButton == 'n') { cout << "entre";  newGame(); }
+			else if (optionButton == 'l') loadGame(file);
 			timer->changeTime(SDL_GetTicks() / 1000);
 			CurrentState = play;
 		

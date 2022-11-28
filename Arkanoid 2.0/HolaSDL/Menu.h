@@ -2,9 +2,10 @@
 #include "Texture.h"
 #include "Vector2D.h"
 #include "Time.h"
+#include "GameObject.h"
 
 class Game;
-class Menu
+class Menu: public GameObject
 {
 private:
 	Texture* textureTitle = nullptr;
@@ -20,9 +21,9 @@ private:
 
 
 public:
-	Menu(){}
+	Menu():GameObject(){}
 	Menu(Texture* tTitle, Texture* tStart, Texture* tLoad, int w, int h, int bH, int bW, Game* g, Time* t);
-	void render();
-	void handleEvents(SDL_Event event, bool& click);
+	virtual void render() const;
+	virtual void handleEvents(SDL_Event event, bool& click, bool& exit, string& file, char& optionButton);
 };
 

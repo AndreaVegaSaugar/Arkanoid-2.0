@@ -5,24 +5,17 @@ C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(3
 C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(33,32): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
   BlocksMap.cpp
   Game.cpp
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(38,158): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(216,31): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(241,52): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(243,50): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-  Life.cpp
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.cpp(19,28): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.cpp(20,28): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.cpp(24,27): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.cpp(28,31): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-  main.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(36,152): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(248,31): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(273,91): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(275,91): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+  Menu.cpp
   Paddle.cpp
 C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.cpp(52,22): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
 C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.cpp(53,22): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
   Time.cpp
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.cpp(25,23): warning C4101: 'frameTime': variable local sin referencia
-C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.cpp(25,12): warning C4101: 'startTime': variable local sin referencia
-  Wall.cpp
+  main.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
   Generando código...
   HolaSDL.vcxproj -> C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\bin\Arkanoid 2.0Debug.exe

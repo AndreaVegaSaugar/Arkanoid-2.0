@@ -2,7 +2,7 @@
 #include "Game.h"
 #include <iostream>
 
-Menu::Menu(Texture* tTitle, Texture* tStart, Texture* tLoad, int w, int h, int bH, int bW,  Game* g, Time* t) {
+Menu::Menu(Texture* tTitle, Texture* tStart, Texture* tLoad, int w, int h, int bH, int bW,  Game* g, Time* t): GameObject() {
 
 	textureTitle = tTitle;
 	textureStart = tStart;
@@ -13,7 +13,7 @@ Menu::Menu(Texture* tTitle, Texture* tStart, Texture* tLoad, int w, int h, int b
 	game = g;
 	timer = t;
 }
-void Menu::render(){
+void Menu::render() const {
 	
 	textureTitle->render(rectTitle);
 	textureStart->render(rectStart);
@@ -21,26 +21,26 @@ void Menu::render(){
 	
 }
 
-void Menu::handleEvents(SDL_Event event, bool& click) {
+void Menu::handleEvents(SDL_Event event, bool& click, bool& exit, string& file, char& optionButton) {
 	SDL_Point mousePos;
 	SDL_GetMouseState(&mousePos.x, &mousePos.y);
 	if (SDL_PointInRect(&mousePos, &rectStart) && event.type == SDL_MOUSEBUTTONDOWN) {
-		game->newGame();
-		click = true;
+		cout << "pulse start";
+		click= true;
+		optionButton = 'n';
 	}
 	if (SDL_PointInRect(&mousePos, &rectLoad) && event.type == SDL_MOUSEBUTTONDOWN) {
 		cout << "Introduce code of your last game: ";
 		try
 		{
-			string file;
 			cin >> file;
-			game->loadGame(file);
 			click = true;
+			optionButton = 'l';
 		}
 		catch (exception)
 		{
 			throw("aaaaaaaaaaaaaa");  // PREGUNTAR EXCEPCIONES EN GENERAL
 		}
 	}
-	if (event.type == SDL_QUIT) click = true;
+	if (event.type == SDL_QUIT) exit = true;
 }
