@@ -70,41 +70,24 @@ Game::~Game() {
 }
 void Game::run() {
 
-	
 	while (!exit)
-	{ 
-		if (CurrentState == menu) {
-			menuWindow = Menu(textures[Title], textures[Start], textures[Load], WIN_WIDTH, WIN_HEIGHT, BUTTON_HEIGHT, BUTTON_WIDTH, this, timer);
-			SDL_Event event;
-			bool click= false;
-			char optionButton = ' ';
-			string file;
-			while (SDL_PollEvent(&event) || !click) {
-				menuWindow.handleEvents(event, click, exit, file, optionButton);
-				render();
-			}
-			if (optionButton == 'n') { cout << "entre";  newGame(); }
-			else if (optionButton == 'l') loadGame(file);
-			timer->changeTime(SDL_GetTicks() / 1000);
-			CurrentState = play;
-		}
-		else {
-			uint32_t startTime, frameTime;
-			startTime = SDL_GetTicks();
-			while (!exit) { // Bucle del juego
-				handleEvents();
-				if (CurrentState != pause) {
+	{
+		uint32_t startTime, frameTime;
+		startTime = SDL_GetTicks();
+		while (!exit) { // Bucle del juego
+			handleEvents();
+			if (CurrentState != pause) {
 
-					frameTime = SDL_GetTicks() - startTime; // Tiempo desde última actualización
-					if (frameTime >= FRAME_RATE) {
-						update(); // Actualiza el estado de todos los objetos del juego
-						startTime = SDL_GetTicks();
-					}
-					render(); // Renderiza todos los objetos del juego
+				frameTime = SDL_GetTicks() - startTime; // Tiempo desde última actualización
+				if (frameTime >= FRAME_RATE) {
+					update(); // Actualiza el estado de todos los objetos del juego
+					startTime = SDL_GetTicks();
 				}
+				render(); // Renderiza todos los objetos del juego
 			}
 		}
 	}
+}
 
 void Game::update() 
 {
@@ -151,7 +134,7 @@ void Game::handleEvents() {
 	SDL_Event event;
 	while (SDL_PollEvent(&event) && !exit) {
 		if (event.type == SDL_QUIT) exit = true;
-		if ((CurrentState == play || CurrentState == pause)&& event.type == SDL_KEYDOWN){
+		if ((CurrentState == play || CurrentState == pause) && event.type == SDL_KEYDOWN) {
 			if (event.key.keysym.sym == SDLK_s) {
 				string saveCode;
 				cout << "Introduce the code to save game: ";
@@ -182,11 +165,14 @@ void Game::handleEvents() {
 					cout << "We couldn't find a save file with that name so we will start a new game for you";
 					newGame();
 				}
-			
+
+			}
+			paddle->handleEvents(event);
 		}
-		paddle->handleEvents(event);
 	}
 }
+
+
 
 void Game::winLevel() {
 	if (map->getNumBlocks() <= 0) CurrentState = win;

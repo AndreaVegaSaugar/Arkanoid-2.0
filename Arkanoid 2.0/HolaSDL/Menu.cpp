@@ -32,7 +32,6 @@ void Menu::handleEvents(SDL_Event event, string& file, char& optionButton) {
 	if (SDL_PointInRect(&mousePos, &rectLoad) && event.type == SDL_MOUSEBUTTONDOWN) {
 		cout << "Introduce code of your last game: ";
 		cin >> file;
-		click = true;
 		optionButton = 'l';
 	}
 }
