@@ -1,6 +1,7 @@
 #pragma once
 #include "Vector2D.h"
 #include "Texture.h"
+#include "checkML.h"
 #include "ArkanoidError.h"
 #include "FileFormatError.h"
 #include "FileNotFoundError.h"

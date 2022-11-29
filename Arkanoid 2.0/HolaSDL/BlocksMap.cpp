@@ -7,9 +7,11 @@ using namespace std;
 
 BlocksMap::~BlocksMap()
 {
-	for (int i = 0; i < rows; ++i) {
-		for (int j = 0; j < cols; ++j) {
-			if (gameMap[i][j] != nullptr) delete[] gameMap[i][j];
+	for (int i = 0; i < rows; ++i)
+	{
+		for (int j = 0; j < cols; ++j)
+		{
+			if (gameMap[i][j] != nullptr) delete gameMap[i][j];
 		}
 		delete gameMap[i];
 	}
@@ -93,6 +95,7 @@ bool BlocksMap::collides(SDL_Rect ballRect, Vector2D& collisionVector, const Vec
 				pos = Vector2D(gameMap[n][m]->getRect().x, gameMap[n][m]->getRect().y);
 				collisionVector = collision(result, ballRect, gameMap[n][m], dir);
 				collide = true;
+				delete gameMap[n][m];
 				gameMap[n][m] = nullptr;
 			}
 			++m;

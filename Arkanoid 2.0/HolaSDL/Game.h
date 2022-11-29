@@ -1,5 +1,6 @@
 #pragma once
 #include <SDL_image.h>
+#include "checkML.h"
 #include "Texture.h"
 #include "Ball.h"
 #include "Paddle.h"
@@ -7,7 +8,6 @@
 #include "BlocksMap.h"
 #include "Vector2D.h"
 #include "Reward.h"
-#include "checkML.h"
 #include "Time.h"
 #include <string>
 #include <list>
