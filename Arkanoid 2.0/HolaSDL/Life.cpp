@@ -25,7 +25,7 @@ void Life::render() const
 	x->render(destRectX);
 
 	destRectNumber = destRectHeart;
-	destRectNumber.x = pos.getX()+ (size*2);
+	destRectNumber.x = pos.getX() + (size*2);
 	number->renderFrame(destRectNumber, row, col);
 
 }
@@ -56,5 +56,5 @@ void Life::loadFromFile(ifstream& loadFile)
 	int l;
 	loadFile >> l;
 	lives = l;
-
+	if (loadFile.fail() || lives <= 0) throw (FileFormatError("Error in reading lives from save file"));
 }

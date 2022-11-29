@@ -10,24 +10,21 @@ void Ball::update()
 		colVector.normalize();
 		dir = dir - colVector * (2 * (dir * colVector));
 	}
-	pos = pos + dir * 1.2;
+	dir.normalize();
+	pos = pos + (dir * 1.5);
 
-	if (dir == Vector2D(1, 0)) dir = Vector2D(1, 1);
-	else if(dir == Vector2D(-1, 0)) dir = Vector2D(-1, 1);
 }
 
 void Ball::loadFromFile(ifstream& loadFile)
 {
-	string id, info1, info2;
-	int aux1, aux2;
+	double info1, info2;
 
 	loadFile >> info1 >> info2;
-	aux1 = stoi(info1); aux2 = stoi(info2);
-	pos = Vector2D(aux1, aux2);
+	pos = Vector2D(info1, info2);
+	if (loadFile.fail() || info1 < 0 || info2 < 0) throw (FileFormatError("Error in reading ball position from save file"));
 	loadFile >> info1 >> info2;
-	aux1 = stoi(info1); aux2 = stoi(info2);
-	dir = Vector2D(aux1, aux2);
-	
+	dir = Vector2D(info1, info2);
+	if (loadFile.fail()) throw (FileFormatError("Error in reading ball direction from save file"));
 }
 
 //Ball, posx, posy, dirx, diry
