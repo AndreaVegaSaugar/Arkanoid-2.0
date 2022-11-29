@@ -59,6 +59,7 @@ Game::Game() {
 	rewardIterator = --gameObjects.end(); 
 
 }
+
 Game::~Game() {
 	for (uint i = 0; i < NUM_TEXTURES; ++i) delete textures[i];
 	delete ball;
@@ -68,6 +69,7 @@ Game::~Game() {
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }
+
 void Game::run() {
 
 	while (!exit)
@@ -152,16 +154,13 @@ void Game::handleEvents() {
 			if (optionButton == 'n') newGame();
 			else if (optionButton == 'l')
 			{
-				try
-				{
+				try{
 					loadGame(file);
 				}
-				catch (FileFormatError e)
-				{
+				catch (FileFormatError e){
 					cout << e.what() << endl;
 				}
-				catch (FileNotFoundError e)
-				{
+				catch (FileNotFoundError e){
 					cout << e.what() << endl;
 					cout << "We couldn't find a save file with that name so we will start a new game for you";
 					newGame();
@@ -294,6 +293,7 @@ void Game:: newGame() {
 	CurrentState = play;
 	timer->changeTime(SDL_GetTicks() / 1000);
 }
+
 void Game::loadGame(string nameFile) {
 	ifstream loadFile(nameFile);
 	if (loadFile.is_open())
