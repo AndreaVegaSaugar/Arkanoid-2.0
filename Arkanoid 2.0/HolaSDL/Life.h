@@ -33,6 +33,7 @@ public:
 	virtual void update();
 	virtual void loadFromFile(ifstream& loadFile);
 	virtual void saveToFile(ofstream& saveFile);
+	void resetLife();
 
 };
 
