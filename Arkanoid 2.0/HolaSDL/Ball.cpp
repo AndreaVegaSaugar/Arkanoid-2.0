@@ -25,11 +25,14 @@ void Ball::loadFromFile(ifstream& loadFile)
 	loadFile >> info1 >> info2;
 	dir = Vector2D(info1, info2);
 	if (loadFile.fail()) throw (FileFormatError("Error in reading ball direction from save file"));
+	loadFile >> info1 >> info2;
+	w = info1; h = info2;
+	if (loadFile.fail() || info1 <= 0 || info2 <= 0) throw (FileFormatError("Error in reading ball size from save file"));
 }
 
 //Ball, posx, posy, dirx, diry
 void Ball::saveToFile(ofstream& saveFile)
 {
-	saveFile << "Ball " << pos.getX() << " " << pos.getY() << " " << dir.getX() << " " << dir.getY() << endl;
+	saveFile << "Ball " << pos.getX() << " " << pos.getY() << " " << dir.getX() << " " << dir.getY() << " " << w << " " << h << endl;
 	
 }

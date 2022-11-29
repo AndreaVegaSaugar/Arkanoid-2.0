@@ -251,7 +251,7 @@ void Game::generateRewards(Vector2D posAux) {
 	srand(time(NULL) * _getpid() * rand());
 	int num = rand() % 3; 
 	if (num == 1) {
-		int num2 = rand() % 300;
+		int num2 = rand() % 400;
 		cout << num2 << endl;
 		if (num2 < 20) {
 			if(level < 2) gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols(), this));
@@ -265,6 +265,9 @@ void Game::generateRewards(Vector2D posAux) {
 		else if (num2 < 300) {
 			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'E', textures[Rewards]->getNumCols(), this));
 		}
+		else if (num2 < 400) {
+			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'D', textures[Rewards]->getNumCols(), this));
+		}
 	}
 
 }
@@ -272,11 +275,12 @@ void Game::generateRewards(Vector2D posAux) {
 void Game::rewardType(char tipo) {
 	switch (tipo) {
 	case 'L': { CurrentState = win; }break;
-	case 'E': { if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 1.3); else paddle->setWidth(PADDLE_WIDTH); }break;
-	case 'R': { if (life->lives < 9) paddle->setWidth(PADDLE_WIDTH); ++life->lives; }break;
-	case 'S': { if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 0.7); else paddle->setWidth(PADDLE_WIDTH); }break;
+	case 'E': {  ball->setSize(BALL_SIZE); if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 1.3); else paddle->setWidth(PADDLE_WIDTH); }break;
+	case 'R': { if (life->lives < 9) paddle->setWidth(PADDLE_WIDTH); ball->setSize(BALL_SIZE); ++life->lives; }break;
+	case 'S': {  ball->setSize(BALL_SIZE); if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 0.7); else paddle->setWidth(PADDLE_WIDTH); }break;
 	case 'C': { }break;
 	case 'B': {  }break;
+	case 'D': { if(ball->getSize() == BALL_SIZE) ball->setSize(ball->getRect().w * 1.5); else ball->setSize(BALL_SIZE); }
 	}
 }
 

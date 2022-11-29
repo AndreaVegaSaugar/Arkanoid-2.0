@@ -91,6 +91,7 @@ public:
 	void newGame();
 	int getWallSize() { return WALL_WIDTH; }
 	void rewardType(char tipo);
+	void timeLimit() { CurrentState = lose; life->lives = 0; }
 
 protected:
 	void winLevel();

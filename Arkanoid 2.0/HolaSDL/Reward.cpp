@@ -10,6 +10,7 @@ void Reward::setFilCol()
 	case 'S': { row = 3; col = 0; }break;
 	case 'C': { row = 2; col = 0; }break;
 	case 'B': { row = 7; col = 0; }break;
+	case 'D': { row = 6; col = 0; }break;
 	}
 }
 
