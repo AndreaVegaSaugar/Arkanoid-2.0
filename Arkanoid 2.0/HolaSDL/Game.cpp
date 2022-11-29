@@ -73,6 +73,7 @@ void Game::run() {
 	while (!exit)
 	{
 		uint32_t startTime, frameTime;
+		menuWindow = Menu(textures[Title], textures[Start], textures[Load], WIN_WIDTH, WIN_HEIGHT, BUTTON_HEIGHT, BUTTON_WIDTH, this, timer);
 		startTime = SDL_GetTicks();
 		while (!exit) { // Bucle del juego
 			handleEvents();
@@ -167,8 +168,8 @@ void Game::handleEvents() {
 				}
 
 			}
-			paddle->handleEvents(event);
 		}
+		paddle->handleEvents(event);
 	}
 }
 
@@ -317,7 +318,7 @@ void Game::loadGame(string nameFile) {
 				map->loadFromFile(loadFile);
 			}
 			else if (type == "Reward") {
-				Reward* reward = new Reward(Vector2D(0, 0), REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols());
+				Reward* reward = new Reward(Vector2D(0, 0), REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols(), this);
 				reward->loadFromFile(loadFile);
 				gameObjects.push_back(reward);
 			}

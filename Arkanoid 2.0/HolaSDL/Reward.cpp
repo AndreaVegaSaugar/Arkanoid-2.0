@@ -18,13 +18,6 @@ Reward::Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int 
 	tipeReward = tipo;
 	totalCol = tC;
 	game = g;
-	
-}
-
-Reward::Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int tC) : MovingObject(p, h, w, t, d)
-{
-	tipeReward = tipo;
-	totalCol = tC;
 	setFilCol();
 }
 

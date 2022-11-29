@@ -19,7 +19,6 @@ void Menu::render() const {
 	textureTitle->render(rectTitle);
 	textureStart->render(rectStart);
 	textureLoad->render(rectLoad);
-	
 }
 
 void Menu::handleEvents(SDL_Event event, string& file, char& optionButton) {
