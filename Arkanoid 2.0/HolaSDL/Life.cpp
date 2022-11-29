@@ -1,5 +1,6 @@
 #include "Life.h"
 
+// Constructora de la clase
 Life::Life(Vector2D p, int s, Texture* t, Texture* n, int l, Texture* x)
 {
 	lives = l;
@@ -10,6 +11,8 @@ Life::Life(Vector2D p, int s, Texture* t, Texture* n, int l, Texture* x)
 	//texturas
 	heart = t; number = n; this->x = x;
 }
+
+// Renderiza las vidas en pantalla
 void Life::render() const
 {
 	SDL_Rect destRectHeart, destRectNumber, destRectX;
@@ -29,9 +32,13 @@ void Life::render() const
 	number->renderFrame(destRectNumber, row, col);
 
 }
+
+// Devuelve las vidas a su valor inicial
 void Life::resetLife() {
 	lives = 3;
 }
+
+// Actualiza el numero de vidas en pantalla
 void Life::update() {
 	switch (lives) {
 	case 0: row = 0; col = 0; break;
@@ -47,12 +54,14 @@ void Life::update() {
 	}
 }
 
+// Guarda los datos relevantes del objeto
 void Life::saveToFile(ofstream& saveFile)
 {
 	saveFile << "Life " << lives << endl;
 
 }
 
+// Lee de archivo los datos relevantes del objeto y los modifica
 void Life::loadFromFile(ifstream& loadFile)
 {
 	int l;

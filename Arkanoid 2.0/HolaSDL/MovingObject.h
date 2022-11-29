@@ -1,6 +1,8 @@
 #pragma once
 #include "ArkanoidObject.h"
 
+// Clase padre de BALL, PADDLE Y REWARD
+
 class MovingObject : public ArkanoidObject
 {
 protected:

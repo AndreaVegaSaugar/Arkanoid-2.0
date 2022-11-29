@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 
+// Actualiza la posicion del paddle
 void Paddle::update()
 {
 	if (pos.getX() + w > leftLimit && pos.getX() < rightLimit) {
@@ -18,6 +19,7 @@ void Paddle::update()
 	}
 }
 
+// Controla el input del teclado para el movimiento del paddle
 void Paddle::handleEvents(SDL_Event event) // cambiar a singular
 {
 	if (event.type == SDL_KEYDOWN) {
@@ -29,7 +31,7 @@ void Paddle::handleEvents(SDL_Event event) // cambiar a singular
 	}
 }
 
-
+// Controla las colisiones del paddle
 bool Paddle::collides(SDL_Rect ballRect, Vector2D& collisionVector, const Vector2D& dir) {
 	SDL_Rect result;
 	bool collide = false;
@@ -42,6 +44,7 @@ bool Paddle::collides(SDL_Rect ballRect, Vector2D& collisionVector, const Vector
 	return collide;
 }
 
+// Metodo auxiliar para controlar colisiones
 Vector2D Paddle::collision(const SDL_Rect& ballRect, const SDL_Rect& result, const Vector2D& dir) {
 
 	Vector2D colVect = Vector2D(0, 0);
@@ -67,6 +70,7 @@ Vector2D Paddle::collision(const SDL_Rect& ballRect, const SDL_Rect& result, con
 
 }
 
+// Lee de archivo los datos relevantes del objeto y los modifica
 void Paddle::loadFromFile(ifstream& loadFile)
 {
 	double info1, info2;
@@ -79,7 +83,7 @@ void Paddle::loadFromFile(ifstream& loadFile)
 	if (loadFile.fail() || h <= 0 || w <= 0) throw (FileFormatError("Error in reading paddle size from save file"));
 }
 
-//Paddle, posx, posy, h, w
+// Guarda los datos relevantes del objeto
 void Paddle::saveToFile(ofstream& saveFile)
 {
 	saveFile << "Paddle " << pos.getX() << " " << pos.getY() << " " << h << " " << w << endl;

@@ -80,13 +80,12 @@ public:
 	Game();
 	~Game();
 
-
+	// Metodos publicos de la clase
 	void run();
 	void render();
 	void handleEvents();
 	void update();
 	bool collides(SDL_Rect destRect, Vector2D& colVector);
-	//void menuWindow();
 	void loadGame(string nameFile);
 	void newGame();
 	int getWallSize() { return WALL_WIDTH; }

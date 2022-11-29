@@ -5,6 +5,8 @@
 
 using namespace std;
 
+// Clase proporcionada en los apuntes
+
 class Vector2D
 {
 private:

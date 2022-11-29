@@ -29,6 +29,6 @@ public:
 	virtual void loadFromFile(ifstream& loadFile);
 	virtual void saveToFile(ofstream& saveFile);
 	void changeTime(int time);
-	~Time();
+	~Time() {};
 
 };

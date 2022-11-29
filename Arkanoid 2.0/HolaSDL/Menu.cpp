@@ -2,6 +2,7 @@
 #include "Game.h"
 #include <iostream>
 
+// Constructora de la clase
 Menu::Menu(Texture* tTitle, Texture* tStart, Texture* tLoad, int w, int h, int bH, int bW,  Game* g, Time* t): GameObject() {
 
 	textureTitle = tTitle;
@@ -14,6 +15,7 @@ Menu::Menu(Texture* tTitle, Texture* tStart, Texture* tLoad, int w, int h, int b
 	timer = t;
 }
 
+// Renderiza los elementos del menu en pantalla
 void Menu::render() const {
 	
 	textureTitle->render(rectTitle);
@@ -21,6 +23,7 @@ void Menu::render() const {
 	textureLoad->render(rectLoad);
 }
 
+// Detecta los clicks del raton y si se producen en los botones
 void Menu::handleEvents(SDL_Event event, string& file, char& optionButton) {
 	SDL_Point mousePos;
 	SDL_GetMouseState(&mousePos.x, &mousePos.y);

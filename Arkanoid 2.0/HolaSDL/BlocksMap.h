@@ -27,10 +27,10 @@ public:
 	virtual void loadFromFile(ifstream& loadFile);
 	virtual void saveToFile(ofstream& saveFile);
 	int getNumBlocks();
-	void createMap(ifstream& map);
 	bool collides(SDL_Rect ballRect, Vector2D& collisonVector, const Vector2D dir, Vector2D& pos);
 
 protected:
+	void createMap(ifstream& map);
 	Vector2D collision(const SDL_Rect& result, const SDL_Rect& ballRect, Block* b, const Vector2D dir);
 
 };

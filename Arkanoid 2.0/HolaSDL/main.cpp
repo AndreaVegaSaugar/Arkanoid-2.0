@@ -7,6 +7,7 @@
 #undef main
 using namespace std;
 
+// Llama a la constructora de GAME, a su bucle principal y controla excepciones
 int main(int argc, char* argv[]) 
 {
 	

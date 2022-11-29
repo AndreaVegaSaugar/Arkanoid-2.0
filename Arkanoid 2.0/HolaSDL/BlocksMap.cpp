@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// Destructora de la clase
 BlocksMap::~BlocksMap()
 {
 	for (int i = 0; i < rows; ++i)
@@ -18,6 +19,7 @@ BlocksMap::~BlocksMap()
 	delete[] gameMap;
 }
 
+// Carga el mapa desde un archivo
 void BlocksMap::loadMap(const string& file)
 {
 	ifstream map;
@@ -39,6 +41,7 @@ void BlocksMap::loadMap(const string& file)
 	map.close();
 }
 
+// Crea el mapa
 void BlocksMap::createMap(ifstream& map) {
 	int color;
 	gameMap = new Block * *[rows];
@@ -57,6 +60,7 @@ void BlocksMap::createMap(ifstream& map) {
 	if(getNumBlocks() == 0) throw (FileFormatError("Incorrect map in level/save file"));
 }
 
+// Renderiza el mapa
 void BlocksMap::render()const
 {
 	for (int n = 0; n < rows; ++n)
@@ -68,6 +72,7 @@ void BlocksMap::render()const
 	}
 }
 
+// Devuelve el numero de bloques sin destruir del mapa
 int BlocksMap::getNumBlocks()
 {
 	int cont = 0;
@@ -82,6 +87,7 @@ int BlocksMap::getNumBlocks()
 	return cont;
 }
 
+// Controla las colisiones del mapa
 bool BlocksMap::collides(SDL_Rect ballRect, Vector2D& collisionVector, const Vector2D dir, Vector2D& pos)
 {
 	bool collide = false;
@@ -106,6 +112,7 @@ bool BlocksMap::collides(SDL_Rect ballRect, Vector2D& collisionVector, const Vec
 	return collide;
 }
 
+// Metodo auxiliar para controlar colisiones
 Vector2D BlocksMap::collision(const SDL_Rect& result, const SDL_Rect& ballRect, Block* b, const Vector2D dir)
 {
 	Vector2D colVect = Vector2D(0, 0);
@@ -122,6 +129,7 @@ Vector2D BlocksMap::collision(const SDL_Rect& result, const SDL_Rect& ballRect, 
 	return colVect;
 }
 
+// Lee de archivo los datos relevantes del objeto y los modifica
 void BlocksMap::loadFromFile(ifstream& loadFile)
 {
 	int info1, info2;
@@ -132,7 +140,7 @@ void BlocksMap::loadFromFile(ifstream& loadFile)
 	createMap(loadFile);
 }
 
-//Ball, posx, posy, dirx, diry
+// Guarda los datos relevantes del objeto
 void BlocksMap::saveToFile(ofstream& saveFile)
 {
 	saveFile << "BlocksMap " << rows << " " << cols <<  endl;

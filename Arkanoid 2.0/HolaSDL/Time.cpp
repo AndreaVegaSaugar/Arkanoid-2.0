@@ -3,11 +3,7 @@
 #include <iostream>
 #include "Game.h"
 
-
-Time:: ~Time() {
-
-}
-
+// Resetea el tiempo
 void Time::resetTime()
 {
 	deltaTime = 0;
@@ -19,6 +15,7 @@ void Time::resetTime()
 	secondsCol_C = 0;
 }
 
+// Actualiza el tiempo
 void Time::update() 
 {
 	if (deltaTime >= 999) game->timeLimit();
@@ -29,6 +26,7 @@ void Time::update()
 	render(); 
 }
 
+// Convierte en segundos
 void Time::convertSeconds(int sec, int& row, int& col) {
 	switch (sec) {
 	case 0: {row = 0; col = 0; }break;
@@ -44,6 +42,7 @@ void Time::convertSeconds(int sec, int& row, int& col) {
 	}
 }
 
+// Renderiza el tiempo
 void Time::render() const
 {
 	SDL_Rect destRect; SDL_Rect destRectS1; SDL_Rect destRectS2;
@@ -57,12 +56,14 @@ void Time::render() const
 	texture->renderFrame(destRectS2, secondsRow_U, secondsCol_U);
 }
 
+// Guarda los datos relevantes del objeto
 void Time::saveToFile(ofstream& saveFile)
 {
 	saveFile << "Time " << deltaTime << endl;
 
 }
 
+// Lee de archivo los datos relevantes del objeto y los modifica
 void Time::loadFromFile(ifstream& loadFile)
 {
 	int time;
@@ -71,7 +72,7 @@ void Time::loadFromFile(ifstream& loadFile)
 	if (loadFile.fail() || extra < 0) throw (FileFormatError("Error in reading time from save file"));
 }
 
+// Cambia el tiempo
 void Time::changeTime(int newTime) {
 	extra -= newTime;
-
 }

@@ -29,6 +29,7 @@ static const uint UI_SIZE = 25;
 static const uint BUTTON_WIDTH = 300;
 static const uint BUTTON_HEIGHT = 130;
 
+// Definicion clase padre GAMEOBJECT 
 class GameObject
 {
 public:

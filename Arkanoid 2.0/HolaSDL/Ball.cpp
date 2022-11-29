@@ -2,6 +2,7 @@
 #include "Ball.h"
 #include "Game.h"
 
+// Actualiza la posicion y direccion de la bola teniendo en cuenta sus colisiones
 void Ball::update()
 {
 	Vector2D colVector;
@@ -15,6 +16,7 @@ void Ball::update()
 
 }
 
+// Lee de archivo los datos relevantes del objeto y los modifica
 void Ball::loadFromFile(ifstream& loadFile)
 {
 	double info1, info2;
@@ -30,7 +32,7 @@ void Ball::loadFromFile(ifstream& loadFile)
 	if (loadFile.fail() || info1 <= 0 || info2 <= 0) throw (FileFormatError("Error in reading ball size from save file"));
 }
 
-//Ball, posx, posy, dirx, diry
+// Guarda los datos relevantes del objeto
 void Ball::saveToFile(ofstream& saveFile)
 {
 	saveFile << "Ball " << pos.getX() << " " << pos.getY() << " " << dir.getX() << " " << dir.getY() << " " << w << " " << h << endl;

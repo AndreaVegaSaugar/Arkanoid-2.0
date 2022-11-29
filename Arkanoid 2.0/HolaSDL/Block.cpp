@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// Constructora de la clase
 Block::Block(Vector2D p, int h, int w, int c, Texture* t, Game* g) : ArkanoidObject(p, h, w, t)
 {
 	color = c;
@@ -19,11 +20,13 @@ Block::Block(Vector2D p, int h, int w, int c, Texture* t, Game* g) : ArkanoidObj
 	}
 }
 
+// Renderiza el bloque segun su fila y columna
 void Block::render() const
 {
 	texture->renderFrame(getRect(), row, col);
 }
 
+// Devuelve el rectangulo destino del bloque
 SDL_Rect Block::getRect() const
 {
 	SDL_Rect destRect;

@@ -8,6 +8,8 @@
 #include <fstream>
 #include <string>
 
+// Clase padre junto con GAMEOBJECT de todos los gameObjects
+
 class ArkanoidObject : public GameObject
 {
 protected:
@@ -21,16 +23,14 @@ public:
 	//Constructora y destructora uwu ladrame como se hace un metodo virtual mejor
 	ArkanoidObject() {};
 	ArkanoidObject(Vector2D position, int height, int width, Texture* _texture) : GameObject(), pos(position), h(height), w(width), texture(_texture) {};
-	//virtual ~ArkanoidObject();
 
 	// Métodos
 	virtual void loadFromFile(ifstream& loadFile) = 0;
 	virtual void saveToFile(ofstream& saveFile) = 0;
 	virtual void render() const;
-
+	
+	// Destructora de la clase
 	virtual ~ArkanoidObject() {};
 
 	SDL_Rect getRect()const ;
 };
-
-// todo metodo destructor tiene que ser virtual

@@ -12,6 +12,8 @@
 
 using namespace std;
 
+// Clase proporcionada en los apuntes
+
 typedef unsigned int uint;
 
 class Texture {

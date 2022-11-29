@@ -12,19 +12,12 @@ public:
 
 private:
 	Vector2D pos;
-
 	Texture* heart = nullptr;
-	int size = 0;
-
 	Texture* x = nullptr;
-	
-
 	Texture* number = nullptr;
-	
+	int size = 0;
 	int row = 0;
 	int col = 0;
-
-
 
 public:
 	Life(){}
