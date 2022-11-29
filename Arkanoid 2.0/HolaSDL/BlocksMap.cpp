@@ -47,12 +47,12 @@ void BlocksMap::createMap(ifstream& map) {
 		for (int j = 0; j < cols; ++j)
 		{
 			map >> color;
-			if(map.fail() || color < 0 || color > 6) throw (FileFormatError("Error in reading map from file: "));
+			if(map.fail() || color < 0 || color > 6) throw (FileFormatError("Error in reading map from level/save file"));
 			if (color != 0) gameMap[i][j] = new Block(Vector2D(j, i), cellW, cellH, color, texture, game);
 			else gameMap[i][j] = nullptr;
 		}
 	}
-	if(getNumBlocks() == 0) throw (FileFormatError("Incorrect map in file: "));
+	if(getNumBlocks() == 0) throw (FileFormatError("Incorrect map in level/save file"));
 }
 
 void BlocksMap::render()const
@@ -121,13 +121,11 @@ Vector2D BlocksMap::collision(const SDL_Rect& result, const SDL_Rect& ballRect, 
 
 void BlocksMap::loadFromFile(ifstream& loadFile)
 {
-	string id, info1, info2;
-	int aux1, aux2;
-	
+	int info1, info2;
 	loadFile >> info1 >> info2;
-	aux1 = stoi(info1); aux2 = stoi(info2);
-	rows = aux1; cols = aux2;
-	cellH = h/ aux1; cellW = w /aux2;
+	rows = info1; cols = info2;
+	if (loadFile.fail() || info1 <= 0 || info2 <= 0) throw (FileFormatError("Error in reading map from save file"));
+	cellH = h/ info1; cellW = w /info2;
 	createMap(loadFile);
 }
 

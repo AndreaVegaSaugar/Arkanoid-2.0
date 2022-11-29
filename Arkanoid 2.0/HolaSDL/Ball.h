@@ -18,5 +18,7 @@ public:
 	virtual void saveToFile(ofstream& saveFile);
 	Vector2D getDir() { return dir; }
 	Vector2D getPos() { return pos; }
-	void restartBall() { pos = (Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 2)); dir = (Vector2D(1, -1)); }
+	int getSize() { return w; }
+	void setSize(int size) { w = size; h = size; };
+	void restartBall() { pos = (Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 2)); dir = (Vector2D(1, -1)); h = BALL_SIZE; w = BALL_SIZE; }
 };

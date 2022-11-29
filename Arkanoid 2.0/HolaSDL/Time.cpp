@@ -21,11 +21,12 @@ void Time::resetTime()
 
 void Time::update() 
 {
-		deltaTime = (SDL_GetTicks() / 1000) + extra;
-		convertSeconds(deltaTime / 100, secondsRow_C, secondsCol_C);
-		convertSeconds((deltaTime / 10) % 10, secondsRow_D, secondsCol_D);
-		convertSeconds(deltaTime % 10, secondsRow_U, secondsCol_U);
-		render(); // Renderiza todos los objetos del juego
+	if (deltaTime >= 999) game->timeLimit();
+	deltaTime = (SDL_GetTicks() / 1000) + extra;
+	convertSeconds(deltaTime / 100, secondsRow_C, secondsCol_C);
+	convertSeconds((deltaTime / 10) % 10, secondsRow_D, secondsCol_D);
+	convertSeconds(deltaTime % 10, secondsRow_U, secondsCol_U);
+	render(); 
 }
 
 void Time::convertSeconds(int sec, int& row, int& col) {
@@ -51,22 +52,23 @@ void Time::render() const
 	destRectS1.x = destRect.x + w;
 	destRectS2.x = destRectS1.x + w;
 
-	//if (deltaTime == 999) //game->GameOver();
 	texture->renderFrame(destRect, secondsRow_C, secondsCol_C);
 	texture->renderFrame(destRectS1, secondsRow_D, secondsCol_D);
 	texture->renderFrame(destRectS2, secondsRow_U, secondsCol_U);
-
 }
+
 void Time::saveToFile(ofstream& saveFile)
 {
 	saveFile << "Time " << deltaTime << endl;
 
 }
+
 void Time::loadFromFile(ifstream& loadFile)
 {
 	int time;
 	loadFile >> time;
 	extra = time;
+	if (loadFile.fail() || extra < 0) throw (FileFormatError("Error in reading time from save file"));
 }
 
 void Time::changeTime(int newTime) {

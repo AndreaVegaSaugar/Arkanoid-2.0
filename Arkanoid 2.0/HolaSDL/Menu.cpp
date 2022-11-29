@@ -13,12 +13,12 @@ Menu::Menu(Texture* tTitle, Texture* tStart, Texture* tLoad, int w, int h, int b
 	game = g;
 	timer = t;
 }
+
 void Menu::render() const {
 	
 	textureTitle->render(rectTitle);
 	textureStart->render(rectStart);
 	textureLoad->render(rectLoad);
-	
 }
 
 void Menu::handleEvents(SDL_Event event, string& file, char& optionButton) {
@@ -30,14 +30,7 @@ void Menu::handleEvents(SDL_Event event, string& file, char& optionButton) {
 	}
 	if (SDL_PointInRect(&mousePos, &rectLoad) && event.type == SDL_MOUSEBUTTONDOWN) {
 		cout << "Introduce code of your last game: ";
-		try
-		{
-			cin >> file;
-			optionButton = 'l';
-		}
-		catch (exception)
-		{
-			throw("aaaaaaaaaaaaaa");  // PREGUNTAR EXCEPCIONES EN GENERAL
-		}
+		cin >> file;
+		optionButton = 'l';
 	}
 }
