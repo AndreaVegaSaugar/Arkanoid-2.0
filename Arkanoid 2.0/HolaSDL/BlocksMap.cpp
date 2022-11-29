@@ -33,7 +33,7 @@ void BlocksMap::loadMap(const string& file)
 		
 		createMap(map);
 	}
-	else throw "Error loading level file from" + file;
+	else throw (FileNotFoundError("Error trying to open file: " + file));
 	map.close();
 }
 
@@ -47,10 +47,12 @@ void BlocksMap::createMap(ifstream& map) {
 		for (int j = 0; j < cols; ++j)
 		{
 			map >> color;
+			if(map.fail() || color < 0 || color > 6) throw (FileFormatError("Error in reading map from file: "));
 			if (color != 0) gameMap[i][j] = new Block(Vector2D(j, i), cellW, cellH, color, texture, game);
 			else gameMap[i][j] = nullptr;
 		}
 	}
+	if(getNumBlocks() == 0) throw (FileFormatError("Incorrect map in file: "));
 }
 
 void BlocksMap::render()const
