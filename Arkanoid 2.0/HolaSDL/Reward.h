@@ -24,4 +24,6 @@ public:
 	Vector2D getDir() { return dir; }
 	void getTipe(char& c) { c = tipeReward; }
 	bool collides(SDL_Rect ballRect);
+protected:
+	void setFilCol();
 };

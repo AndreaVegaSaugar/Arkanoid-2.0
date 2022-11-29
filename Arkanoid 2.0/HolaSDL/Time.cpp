@@ -67,6 +67,7 @@ void Time::loadFromFile(ifstream& loadFile)
 	int time;
 	loadFile >> time;
 	extra = time;
+	if (loadFile.fail() || extra < 0) throw (FileFormatError("Error in reading time from save file"));
 }
 
 void Time::changeTime(int newTime) {

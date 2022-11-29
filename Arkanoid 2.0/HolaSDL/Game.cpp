@@ -70,20 +70,41 @@ Game::~Game() {
 }
 void Game::run() {
 
-	uint32_t startTime, frameTime;
-	menuWindow = Menu(textures[Title], textures[Start], textures[Load], WIN_WIDTH, WIN_HEIGHT, BUTTON_HEIGHT, BUTTON_WIDTH, this, timer);
-	startTime = SDL_GetTicks();
-	 
-	while (!exit) { // Bucle del juego
-		handleEvents();
-		frameTime = SDL_GetTicks() - startTime; // Tiempo desde última actualización
-		if (CurrentState == play && frameTime >= FRAME_RATE) {
-			update(); // Actualiza el estado de todos los objetos del juego
-			startTime = SDL_GetTicks();
+	
+	while (!exit)
+	{ 
+		if (CurrentState == menu) {
+			menuWindow = Menu(textures[Title], textures[Start], textures[Load], WIN_WIDTH, WIN_HEIGHT, BUTTON_HEIGHT, BUTTON_WIDTH, this, timer);
+			SDL_Event event;
+			bool click= false;
+			char optionButton = ' ';
+			string file;
+			while (SDL_PollEvent(&event) || !click) {
+				menuWindow.handleEvents(event, click, exit, file, optionButton);
+				render();
+			}
+			if (optionButton == 'n') { cout << "entre";  newGame(); }
+			else if (optionButton == 'l') loadGame(file);
+			timer->changeTime(SDL_GetTicks() / 1000);
+			CurrentState = play;
 		}
-		render(); // Renderiza todos los objetos del juego
+		else {
+			uint32_t startTime, frameTime;
+			startTime = SDL_GetTicks();
+			while (!exit) { // Bucle del juego
+				handleEvents();
+				if (CurrentState != pause) {
+
+					frameTime = SDL_GetTicks() - startTime; // Tiempo desde última actualización
+					if (frameTime >= FRAME_RATE) {
+						update(); // Actualiza el estado de todos los objetos del juego
+						startTime = SDL_GetTicks();
+					}
+					render(); // Renderiza todos los objetos del juego
+				}
+			}
+		}
 	}
-}
 
 void Game::update() 
 {
@@ -144,8 +165,23 @@ void Game::handleEvents() {
 			string file;
 			char optionButton;
 			menuWindow.handleEvents(event, file, optionButton);
-			if (optionButton == 'n')newGame(); 
-			else if (optionButton == 'l') loadGame(file);
+			if (optionButton == 'n') newGame();
+			else if (optionButton == 'l')
+			{
+				try
+				{
+					loadGame(file);
+				}
+				catch (FileFormatError e)
+				{
+					cout << e.what() << endl;
+				}
+				catch (FileNotFoundError e)
+				{
+					cout << e.what() << endl;
+					cout << "We couldn't find a save file with that name so we will start a new game for you";
+					newGame();
+				}
 			
 		}
 		paddle->handleEvents(event);
@@ -269,38 +305,39 @@ void Game:: newGame() {
 }
 void Game::loadGame(string nameFile) {
 	ifstream loadFile(nameFile);
-	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
-		string type;
-		loadFile >> type;
-		if (type == "Level") {
-			int l;
-			loadFile >> l;
-			level = l;
-		}
-		else if (type == "Life") {
-			life->loadFromFile(loadFile);
-		}
-		else if (type == "Time") {
-			timer->loadFromFile(loadFile);
-		}
-		else if (type == "Ball") {
-			ball->loadFromFile(loadFile);
-		}
-		else if (type == "Paddle") {
-			paddle->loadFromFile(loadFile);
-		}
-		else if (type == "BlocksMap") {
-			map->loadFromFile(loadFile);
-		}
-		else if (type == "Reward") {
-			int x, y;
-			loadFile >> x >> y;;
-			Vector2D posAux = Vector2D(x, y);
-			char tipo;
-			loadFile >> tipo;
-			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], tipo, textures[Rewards]->getNumCols(), this));
+	if (loadFile.is_open())
+	{
+		for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
+			string type;
+			loadFile >> type;
+			if (type == "Level") {
+				int l;
+				loadFile >> l;
+				level = l;
+			}
+			else if (type == "Life") {
+				life->loadFromFile(loadFile);
+			}
+			else if (type == "Time") {
+				timer->loadFromFile(loadFile);
+			}
+			else if (type == "Ball") {
+				ball->loadFromFile(loadFile);
+			}
+			else if (type == "Paddle") {
+				paddle->loadFromFile(loadFile);
+			}
+			else if (type == "BlocksMap") {
+				map->loadFromFile(loadFile);
+			}
+			else if (type == "Reward") {
+				Reward* reward = new Reward(Vector2D(0, 0), REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols());
+				reward->loadFromFile(loadFile);
+				gameObjects.push_back(reward);
+			}
 		}
 	}
+	else throw (FileNotFoundError("Error trying to open file: " + nameFile));
 	loadFile.close();
 	CurrentState = play;
 	timer->changeTime(SDL_GetTicks() / 1000);

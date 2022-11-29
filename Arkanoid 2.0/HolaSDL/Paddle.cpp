@@ -69,14 +69,14 @@ Vector2D Paddle::collision(const SDL_Rect& ballRect, const SDL_Rect& result, con
 
 void Paddle::loadFromFile(ifstream& loadFile)
 {
-	string id, info1, info2;
-	int aux1, aux2;
+	double info1, info2;
+	
 	loadFile >> info1 >> info2;
-	aux1 = stoi(info1); aux2 = stoi(info2);
-	pos = Vector2D(aux1, aux2);
+	pos = Vector2D(info1, info2);
+	if (loadFile.fail() || info1 < 0 || info2 < 0) throw (FileFormatError("Error in reading paddle position from save file"));
 	loadFile >> info1 >> info2;
-	aux1 = stoi(info1); aux2 = stoi(info2);
-	h = aux1; w = aux2;
+	h = info1; w = info2;
+	if (loadFile.fail() || h <= 0 || w <= 0) throw (FileFormatError("Error in reading paddle size from save file"));
 }
 
 //Paddle, posx, posy, h, w
