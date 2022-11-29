@@ -29,7 +29,9 @@ void Life::render() const
 	number->renderFrame(destRectNumber, row, col);
 
 }
-
+void Life::resetLife() {
+	lives = 3;
+}
 void Life::update() {
 	switch (lives) {
 	case 0: row = 0; col = 0; break;

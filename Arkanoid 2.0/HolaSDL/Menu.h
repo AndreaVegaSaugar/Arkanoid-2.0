@@ -24,6 +24,6 @@ public:
 	Menu():GameObject(){}
 	Menu(Texture* tTitle, Texture* tStart, Texture* tLoad, int w, int h, int bH, int bW, Game* g, Time* t);
 	virtual void render() const;
-	virtual void handleEvents(SDL_Event event, bool& click, bool& exit, string& file, char& optionButton);
+	virtual void handleEvents(SDL_Event event, string& file, char& optionButton);
 };
 

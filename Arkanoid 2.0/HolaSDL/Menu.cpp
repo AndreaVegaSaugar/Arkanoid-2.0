@@ -21,12 +21,11 @@ void Menu::render() const {
 	
 }
 
-void Menu::handleEvents(SDL_Event event, bool& click, bool& exit, string& file, char& optionButton) {
+void Menu::handleEvents(SDL_Event event, string& file, char& optionButton) {
 	SDL_Point mousePos;
 	SDL_GetMouseState(&mousePos.x, &mousePos.y);
 	if (SDL_PointInRect(&mousePos, &rectStart) && event.type == SDL_MOUSEBUTTONDOWN) {
 		cout << "pulse start";
-		click= true;
 		optionButton = 'n';
 	}
 	if (SDL_PointInRect(&mousePos, &rectLoad) && event.type == SDL_MOUSEBUTTONDOWN) {
@@ -34,7 +33,6 @@ void Menu::handleEvents(SDL_Event event, bool& click, bool& exit, string& file, 
 		try
 		{
 			cin >> file;
-			click = true;
 			optionButton = 'l';
 		}
 		catch (exception)
@@ -42,5 +40,4 @@ void Menu::handleEvents(SDL_Event event, bool& click, bool& exit, string& file, 
 			throw("aaaaaaaaaaaaaa");  // PREGUNTAR EXCEPCIONES EN GENERAL
 		}
 	}
-	if (event.type == SDL_QUIT) exit = true;
 }

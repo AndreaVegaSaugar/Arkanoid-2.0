@@ -48,7 +48,7 @@ private:
 
 	// Booleano de control del juego
 	bool exit = false;
-
+	
 	// Array estatico de tipo estructura para guardar informacion de las texturas
 	Textures texture[NUM_TEXTURES] = { {"../images/ball2.png", 1, 1}, {"../images/paddle2.png", 1, 1}, {"../images/bricks2.png", 2, 3},
 									 {"../images/digits2.jpeg", 3, 4},{"../images/gameover1.png", 1, 1}, {"../images/side2.png", 1, 1},
@@ -90,6 +90,7 @@ public:
 	void loadGame(string nameFile);
 	void newGame();
 	int getWallSize() { return WALL_WIDTH; }
+	void rewardType(char tipo);
 
 protected:
 	void winLevel();
@@ -97,7 +98,6 @@ protected:
 	void restartLevel();
 	void load();
 	void generateRewards(Vector2D posAux);
-	void rewardType(char tipo);
 	void saveToFile(string code);
 };
 
