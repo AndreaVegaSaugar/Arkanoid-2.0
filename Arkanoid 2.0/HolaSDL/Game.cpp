@@ -279,6 +279,8 @@ void Game::rewardType(char tipo) {
 	case 'E': { if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 1.3); else paddle->setWidth(PADDLE_WIDTH); }break;
 	case 'R': { if (life->lives < 9) ++life->lives; }break;
 	case 'S': { if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 0.7); else paddle->setWidth(PADDLE_WIDTH); }break;
+	case 'C': { }break;
+	case 'B': { }break;
 	}
 }
 

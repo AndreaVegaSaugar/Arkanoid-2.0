@@ -10,6 +10,8 @@ Reward::Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int 
 		case 'E': { row = 1; col = 0; }break;
 		case 'R': { row = 4; col = 0; }break;
 		case 'S': { row = 3; col = 0; }break;
+		case 'B': { row = 7; col = 0; }break;
+		case 'C': { row = 2; col = 0; }break;
 	}
 }
 
