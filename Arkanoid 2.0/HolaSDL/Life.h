@@ -11,14 +11,10 @@ public:
 	int lives = 3;
 
 private:
-	Vector2D pos;
+	//Vector2D pos;
 
 	Texture* heart = nullptr;
-	int size = 0;
-
 	Texture* x = nullptr;
-	
-
 	Texture* number = nullptr;
 	
 	int row = 0;

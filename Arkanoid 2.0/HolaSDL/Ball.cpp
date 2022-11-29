@@ -11,7 +11,7 @@ void Ball::update()
 		dir = dir - colVector * (2 * (dir * colVector));
 	}
 	dir.normalize();
-	pos = pos + (dir * 1.5);
+	move();
 
 }
 

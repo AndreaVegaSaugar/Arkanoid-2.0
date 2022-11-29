@@ -1,12 +1,9 @@
 #include "Life.h"
 
-Life::Life(Vector2D p, int s, Texture* t, Texture* n, int l, Texture* x)
+Life::Life(Vector2D p, int s, Texture* t, Texture* n, int l, Texture* x): ArkanoidObject(p, s, s, t)
 {
 	lives = l;
-	pos = p;
 	row = 0; col = 0;
-	size = s;
-
 	//texturas
 	heart = t; number = n; this->x = x;
 }
@@ -14,18 +11,18 @@ void Life::render() const
 {
 	SDL_Rect destRectHeart, destRectNumber, destRectX;
 	
-	destRectHeart.w = size;
-	destRectHeart.h = size;
+	destRectHeart.w = w;
+	destRectHeart.h = h;
 	destRectHeart.x = pos.getX();
 	destRectHeart.y = pos.getY();
 	heart->render(destRectHeart);
 
 	destRectX = destRectHeart;
-	destRectX.x = pos.getX() + size;
+	destRectX.x = pos.getX() + w;
 	x->render(destRectX);
 
 	destRectNumber = destRectHeart;
-	destRectNumber.x = pos.getX() + (size*2);
+	destRectNumber.x = pos.getX() + (w*2);
 	number->renderFrame(destRectNumber, row, col);
 
 }

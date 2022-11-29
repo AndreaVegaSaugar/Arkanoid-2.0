@@ -14,7 +14,7 @@ void Reward::setFilCol()
 	}
 }
 
-Reward::Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int tC, Game* g) : MovingObject(p, h, w, t, d)
+Reward::Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int tC, Game* g, int s) : MovingObject(p, h, w, t, d, s)
 {
 	tipeReward = tipo;
 	totalCol = tC;
@@ -28,7 +28,7 @@ void Reward::render() const
 }
 
 void Reward::update() {
-	pos = pos + dir;
+	move();
 	col = int(((SDL_GetTicks() / 100) % totalCol));
 }
 bool Reward::collides(SDL_Rect ballRect) {

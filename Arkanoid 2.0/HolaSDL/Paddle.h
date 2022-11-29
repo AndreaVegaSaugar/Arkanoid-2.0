@@ -13,11 +13,10 @@ class Paddle : public MovingObject
 private:
 	int rightLimit = 0;
 	int leftLimit = 0;
-	int speed = 0;
 	Game* game = nullptr;
 
 public:
-	Paddle(Vector2D p, int h, int w, Texture* t, Game* g, Vector2D d, int s, int rL, int lL) : MovingObject(p, h, w, t, d), game(g), speed(s), rightLimit(rL), leftLimit(lL) {};
+	Paddle(Vector2D p, int h, int w, Texture* t, Game* g, Vector2D d, int rL, int lL, int s) : MovingObject(p, h, w, t, d, s), game(g), rightLimit(rL), leftLimit(lL) {};
 	virtual void update();
 	virtual void loadFromFile(ifstream& loadFile);
 	virtual void saveToFile(ofstream& saveFile);

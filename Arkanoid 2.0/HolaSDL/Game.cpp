@@ -31,9 +31,9 @@ Game::Game() {
 	topWall = new Wall(Vector2D(0, 0), WALL_WIDTH, WIN_WIDTH, textures[TopWallTx], Vector2D(0, 1));
 
 	//Creamos la bola
-	ball = new Ball(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT / 2), BALL_SIZE, Vector2D(1, -1), textures[BallTx], this);
+	ball = new Ball(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT / 2), BALL_SIZE, Vector2D(1, -1), textures[BallTx], this, 2);
 
-	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, Vector2D(0, 0), 2.7, MAP_WIDTH + WALL_WIDTH, WALL_WIDTH);
+	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, Vector2D(0, 0), MAP_WIDTH + WALL_WIDTH, WALL_WIDTH, 3);
 	//paddle->loadFromFile();
 
 	//Creamos timer
@@ -96,8 +96,10 @@ void Game::update()
 	else if (CurrentState == lose && life->lives > 1) restartLevel();
 	else if (CurrentState == play)
 	{
-		for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
+		for (auto it = gameObjects.begin(); it != gameObjects.end();) {
 			(*it)->update();
+			if (*it == nullptr) it = gameObjects.erase(it);
+			else ++it;
 		}
 	}
 }
@@ -166,7 +168,6 @@ void Game::handleEvents() {
 					cout << "We couldn't find a save file with that name so we will start a new game for you";
 					newGame();
 				}
-
 			}
 		}
 		paddle->handleEvents(event);
@@ -249,25 +250,27 @@ bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 void Game::generateRewards(Vector2D posAux) {
 
 	srand(time(NULL) * _getpid() * rand());
+	gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'B', textures[Rewards]->getNumCols(), this, 1));
+
 	int num = rand() % 3; 
 	if (num == 1) {
-		int num2 = rand() % 400;
-		cout << num2 << endl;
+		int num2 = rand() % 401;
 		if (num2 < 20) {
-			if(level < 2) gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols(), this));
+			if(level < 2) gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols(), this, 1));
 		}
 		else if (num2 < 100) {
-			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'R', textures[Rewards]->getNumCols(), this));
+			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'R', textures[Rewards]->getNumCols(), this, 1));
 			}
 		else if (num2 < 200) {
-			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'S', textures[Rewards]->getNumCols(), this));
+			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'S', textures[Rewards]->getNumCols(), this, 1));
 		}
 		else if (num2 < 300) {
-			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'E', textures[Rewards]->getNumCols(), this));
+			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'E', textures[Rewards]->getNumCols(), this, 1));
 		}
 		else if (num2 < 400) {
-			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'D', textures[Rewards]->getNumCols(), this));
+			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'D', textures[Rewards]->getNumCols(), this, 1));
 		}
+
 	}
 
 }
@@ -278,8 +281,6 @@ void Game::rewardType(char tipo) {
 	case 'E': {  ball->setSize(BALL_SIZE); if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 1.3); else paddle->setWidth(PADDLE_WIDTH); }break;
 	case 'R': { if (life->lives < 9) paddle->setWidth(PADDLE_WIDTH); ball->setSize(BALL_SIZE); ++life->lives; }break;
 	case 'S': {  ball->setSize(BALL_SIZE); if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 0.7); else paddle->setWidth(PADDLE_WIDTH); }break;
-	case 'C': { }break;
-	case 'B': {  }break;
 	case 'D': { if(ball->getSize() == BALL_SIZE) ball->setSize(ball->getRect().w * 1.5); else ball->setSize(BALL_SIZE); }
 	}
 }
@@ -322,7 +323,7 @@ void Game::loadGame(string nameFile) {
 				map->loadFromFile(loadFile);
 			}
 			else if (type == "Reward") {
-				Reward* reward = new Reward(Vector2D(0, 0), REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols(), this);
+				Reward* reward = new Reward(Vector2D(0, 0), REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols(), this, 1);
 				reward->loadFromFile(loadFile);
 				gameObjects.push_back(reward);
 			}

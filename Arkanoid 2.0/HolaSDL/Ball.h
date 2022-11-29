@@ -12,7 +12,7 @@ private:
 	Game* game = nullptr;
 
 public:
-	Ball(Vector2D p, int size, Vector2D d, Texture* t, Game* g) : MovingObject(p, size, size, t, d), game(g) {};
+	Ball(Vector2D p, int size, Vector2D d, Texture* t, Game* g, int s) : MovingObject(p, size, size, t, d, s), game(g) {};
     virtual void update();
 	virtual void loadFromFile(ifstream& loadFile);
 	virtual void saveToFile(ofstream& saveFile);
