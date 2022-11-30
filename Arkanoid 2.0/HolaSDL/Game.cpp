@@ -20,7 +20,7 @@ Game::Game() {
 		try {
 			textures[i] = new Texture(renderer, texture[i].filename, texture[i].rows, texture[i].cols);
 		}
-		catch (string e) {
+		catch (SDLError e) {
 			throw e;
 		}
 	}

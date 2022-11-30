@@ -1,11 +1,1 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (HolaSDL.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Game.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
-C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(15,108): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(19,124): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(260,31): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(286,118): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(288,118): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.cpp(289,112): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  HolaSDL.vcxproj -> C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\bin\Arkanoid 2.0Debug.exe
+﻿

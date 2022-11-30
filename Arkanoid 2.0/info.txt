@@ -1,0 +1,10 @@
+Claudia Zarzuela Amor
+Andrea Vega Saugar
+
+Funcionalidades opcionales:
+	- Hemos incluido un reward extra que cambia el tamaño de la bola
+	- Hemos incluido la opcion de pausar el juego pulsanso la P
+Cosas que no funcionan correctamente:
+	- Creemos que en general todo funcionan correctamente excepto por 
+	ciertas colisiones muy especificas de la pelota con el paddle, pero
+	esto solo ocurre muy raramente.
