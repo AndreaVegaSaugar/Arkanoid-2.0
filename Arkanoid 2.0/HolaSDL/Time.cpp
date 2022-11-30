@@ -60,7 +60,6 @@ void Time::render() const
 void Time::saveToFile(ofstream& saveFile)
 {
 	saveFile << "Time " << deltaTime << endl;
-
 }
 
 // Lee de archivo los datos relevantes del objeto y los modifica

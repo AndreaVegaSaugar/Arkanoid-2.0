@@ -28,7 +28,6 @@ void Menu::handleEvents(SDL_Event event, string& file, char& optionButton) {
 	SDL_Point mousePos;
 	SDL_GetMouseState(&mousePos.x, &mousePos.y);
 	if (SDL_PointInRect(&mousePos, &rectStart) && event.type == SDL_MOUSEBUTTONDOWN) {
-		cout << "pulse start";
 		optionButton = 'n';
 	}
 	if (SDL_PointInRect(&mousePos, &rectLoad) && event.type == SDL_MOUSEBUTTONDOWN) {

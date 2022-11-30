@@ -40,7 +40,6 @@ bool Reward::collides(SDL_Rect ballRect) {
 	if (SDL_IntersectRect(&ballRect, &getRect(), &col)) {
 		game->rewardType(tipeReward);
 		return true;
-
 	}
 	else if (getRect().y + getRect().h >= WIN_HEIGHT) return true;
 	else return false;
