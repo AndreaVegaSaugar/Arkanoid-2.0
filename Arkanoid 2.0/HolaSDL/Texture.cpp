@@ -11,10 +11,10 @@ void Texture::free1() {
 
 void Texture::load(string filename, uint nRows, uint nCols) {
 	SDL_Surface* tempSurface = IMG_Load(filename.c_str());
-	if (tempSurface == nullptr) throw (SDLError("Error loading surface from " + filename));
+	if (tempSurface == nullptr) throw (SDLError(IMG_GetError()));
 	free1();
 	texture = SDL_CreateTextureFromSurface(renderer, tempSurface);
-	if (texture == nullptr) throw (SDLError("Error loading texture from " + filename));
+	if (texture == nullptr) throw (SDLError(SDL_GetError()));
 	numRows = nRows;
 	numCols = nCols;
 	w = tempSurface->w;
