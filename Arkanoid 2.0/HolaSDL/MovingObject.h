@@ -5,7 +5,7 @@ class MovingObject : public ArkanoidObject
 {
 protected:
 	Vector2D dir;
-	int speed;
+	double speed;
 
 public:
 	MovingObject(Vector2D pos, int h, int w, Texture* texture, Vector2D d, int s): ArkanoidObject(pos,h,w,texture), dir(d), speed(s){};
