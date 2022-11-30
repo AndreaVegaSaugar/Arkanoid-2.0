@@ -11,13 +11,16 @@ public:
 	int lives = 3;
 
 private:
-	Vector2D pos;
+	//Vector2D pos;
+
 	Texture* heart = nullptr;
 	Texture* x = nullptr;
 	Texture* number = nullptr;
-	int size = 0;
+	
 	int row = 0;
 	int col = 0;
+
+
 
 public:
 	Life(){}

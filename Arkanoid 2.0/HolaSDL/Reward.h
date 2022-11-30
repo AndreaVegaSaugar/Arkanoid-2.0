@@ -16,7 +16,7 @@ private:
 	Game* game;
 
 public:
-	Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int tC, Game* g);
+	Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int tC, Game* g, int s);
 	virtual void update();
 	virtual void render() const;
 	virtual void loadFromFile(ifstream& loadFile);

@@ -1,7 +1,6 @@
 #include "Reward.h"
 #include "Game.h"
 
-// Ajusta la fila y columna de la textura segun el tipo de reward
 void Reward::setFilCol()
 {
 	switch (tipeReward) {
@@ -13,8 +12,7 @@ void Reward::setFilCol()
 	}
 }
 
-// Constructora de la clase
-Reward::Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int tC, Game* g) : MovingObject(p, h, w, t, d)
+Reward::Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int tC, Game* g, int s) : MovingObject(p, h, w, t, d, s)
 {
 	tipeReward = tipo;
 	totalCol = tC;
@@ -22,19 +20,15 @@ Reward::Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int 
 	setFilCol();
 }
 
-// Renderiza el el reward en pantalla
 void Reward::render() const
 {
 	texture->renderFrame(getRect(), row, col);
 }
 
-// Actualiza la posicion del reward
 void Reward::update() {
-	pos = pos + dir;
+	move();
 	col = int(((SDL_GetTicks() / 100) % totalCol));
 }
-
-// Controla las colisiones del reward
 bool Reward::collides(SDL_Rect ballRect) {
 	SDL_Rect col;
 	if (SDL_IntersectRect(&ballRect, &getRect(), &col)) {
@@ -46,13 +40,10 @@ bool Reward::collides(SDL_Rect ballRect) {
 	else return false;
 }
 
-// Guarda los datos relevantes del objeto
 void Reward::saveToFile(ofstream& saveFile)
 {
 	saveFile << "Reward " << pos.getX() << " " << pos.getY() << " " << tipeReward<< endl;
 }
-
-// Lee de archivo los datos relevantes del objeto y los modifica
 void Reward::loadFromFile(ifstream& loadFile)
 {
 	double x, y;

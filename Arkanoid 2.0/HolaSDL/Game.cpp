@@ -31,9 +31,9 @@ Game::Game() {
 	topWall = new Wall(Vector2D(0, 0), WALL_WIDTH, WIN_WIDTH, textures[TopWallTx], Vector2D(0, 1));
 
 	//Creamos la bola
-	ball = new Ball(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT / 2), BALL_SIZE, Vector2D(1, -1), textures[BallTx], this);
+	ball = new Ball(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT / 2), BALL_SIZE, Vector2D(1, -1), textures[BallTx], this, 2);
 
-	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, Vector2D(0, 0), 2.7, MAP_WIDTH + WALL_WIDTH, WALL_WIDTH);
+	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, Vector2D(0, 0), MAP_WIDTH + WALL_WIDTH, WALL_WIDTH, 2);
 	//paddle->loadFromFile();
 
 	//Creamos timer
@@ -55,24 +55,19 @@ Game::Game() {
 	gameObjects.push_back(ball);
 	gameObjects.push_back(paddle);
 	gameObjects.push_back(map);
-	// Guardamos la ultima posicion de la lista, a partir de la cual todos seran rewards
+
 	rewardIterator = --gameObjects.end(); 
 
 }
-
-//Destructora de la clase
 Game::~Game() {
-	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)
-	{
-		delete* it;
-	}
 	for (uint i = 0; i < NUM_TEXTURES; ++i) delete textures[i];
+	delete ball;
+	delete paddle;
+	delete map;
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }
-
-// Bucle principal del juego, que incluye un manejo basico del tiempo
 void Game::run() {
 
 	while (!exit)
@@ -95,20 +90,20 @@ void Game::run() {
 	}
 }
 
-// Actualiza el estado del juego y todos sus GameObjects segun el estado
 void Game::update() 
 {
 	if (CurrentState == win && level < (NUM_LEVELS - 1)) nextLevel();
 	else if (CurrentState == lose && life->lives > 1) restartLevel();
 	else if (CurrentState == play)
 	{
-		for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
+		for (auto it = gameObjects.begin(); it != gameObjects.end();) {
 			(*it)->update();
+			if (*it == nullptr) it = gameObjects.erase(it);
+			else ++it;
 		}
 	}
 }
 
-// Renderiza todos los GameObjects y texturas correspondientes segun el estado del juego
 void Game::render() {
 	SDL_RenderClear(renderer); 
 
@@ -138,7 +133,6 @@ void Game::render() {
 	SDL_RenderPresent(renderer);
 }
 
-// Controlar los eventos del juego segun el estado de este
 void Game::handleEvents() {
 	SDL_Event event;
 	while (SDL_PollEvent(&event) && !exit) {
@@ -160,30 +154,32 @@ void Game::handleEvents() {
 			if (optionButton == 'n') newGame();
 			else if (optionButton == 'l')
 			{
-				try{
+				try
+				{
 					loadGame(file);
 				}
-				catch (FileFormatError e){
+				catch (FileFormatError e)
+				{
 					cout << e.what() << endl;
 				}
-				catch (FileNotFoundError e){
+				catch (FileNotFoundError e)
+				{
 					cout << e.what() << endl;
 					cout << "We couldn't find a save file with that name so we will start a new game for you";
 					newGame();
 				}
-
 			}
 		}
 		paddle->handleEvents(event);
 	}
 }
 
-// Comprueba si el jugador ha ganado la partida
+
+
 void Game::winLevel() {
 	if (map->getNumBlocks() <= 0) CurrentState = win;
 }
 
-// Reinicia el nivel
 void Game::restartLevel()
 {
 	CurrentState = play;
@@ -191,7 +187,6 @@ void Game::restartLevel()
 	load();
 }
 
-// Cambia al siguiente nivel, resetea los objetos correspondientes y borra los rewards que hubiera en pantalla
 void Game::nextLevel()
 {
 	auto it = rewardIterator;
@@ -212,14 +207,12 @@ void Game::nextLevel()
 	load();
 }
 
-// Reinicia el tamaño y la posicion del paddle y la bola
 void Game::load()
 {
 	ball->restartBall();
 	paddle->restartPaddle();
 }
 
-// Controla las colisiones de los gameObjects
 bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 {
 	Vector2D posAux; char type = ' ';
@@ -254,33 +247,32 @@ bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 	return false;
 }
 
-// Genera los rewards pseudoaleatoriamente
 void Game::generateRewards(Vector2D posAux) {
 
 	srand(time(NULL) * _getpid() * rand());
 	int num = rand() % 3; 
 	if (num == 1) {
-		int num2 = rand() % 400;
+		int num2 = rand() % 401;
 		if (num2 < 20) {
-			if(level < 2) gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols(), this));
+			if(level < 2) gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols(), this, 1));
 		}
 		else if (num2 < 100) {
-			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'R', textures[Rewards]->getNumCols(), this));
+			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'R', textures[Rewards]->getNumCols(), this, 1));
 			}
 		else if (num2 < 200) {
-			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'S', textures[Rewards]->getNumCols(), this));
+			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'S', textures[Rewards]->getNumCols(), this, 1));
 		}
 		else if (num2 < 300) {
-			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'E', textures[Rewards]->getNumCols(), this));
+			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'E', textures[Rewards]->getNumCols(), this, 1));
 		}
 		else if (num2 < 400) {
-			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'D', textures[Rewards]->getNumCols(), this));
+			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'D', textures[Rewards]->getNumCols(), this, 1));
 		}
+
 	}
 
 }
 
-// Aplica el efecto del reward segun su tipo
 void Game::rewardType(char tipo) {
 	switch (tipo) {
 	case 'L': { CurrentState = win; }break;
@@ -291,7 +283,6 @@ void Game::rewardType(char tipo) {
 	}
 }
 
-// Comienza una nueva partida
 void Game:: newGame() {
 	try {
 		map->loadMap(levels[level]);
@@ -302,8 +293,6 @@ void Game:: newGame() {
 	CurrentState = play;
 	timer->changeTime(SDL_GetTicks() / 1000);
 }
-
-// Carga una partida de archivo
 void Game::loadGame(string nameFile) {
 	ifstream loadFile(nameFile);
 	if (loadFile.is_open())
@@ -332,7 +321,7 @@ void Game::loadGame(string nameFile) {
 				map->loadFromFile(loadFile);
 			}
 			else if (type == "Reward") {
-				Reward* reward = new Reward(Vector2D(0, 0), REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols(), this);
+				Reward* reward = new Reward(Vector2D(0, 0), REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'L', textures[Rewards]->getNumCols(), this, 1);
 				reward->loadFromFile(loadFile);
 				gameObjects.push_back(reward);
 			}
@@ -344,7 +333,6 @@ void Game::loadGame(string nameFile) {
 	timer->changeTime(SDL_GetTicks() / 1000);
 }
 
-// Guarda los datos relevantes del Game y los gameObjects en archivo
 void Game::saveToFile(string code) {
 	int cont = 0;
 	ofstream saveFile;

@@ -8,7 +8,7 @@ using namespace std;
 void Paddle::update()
 {
 	if (pos.getX() + w > leftLimit && pos.getX() < rightLimit) {
-		pos = Vector2D(pos.getX() + (dir.getX() * speed), pos.getY());
+		move();
 	}
 
 	if (pos.getX() <= leftLimit) {
