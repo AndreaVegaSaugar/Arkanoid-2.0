@@ -2,6 +2,7 @@
 #include "Paddle.h"
 #include"Game.h"
 #include <iostream>
+
 using namespace std;
 
 // Actualiza la posicion del paddle
@@ -67,7 +68,6 @@ Vector2D Paddle::collision(const SDL_Rect& ballRect, const SDL_Rect& result, con
 
 	colVect.normalize();
 	return colVect;
-
 }
 
 // Lee de archivo los datos relevantes del objeto y los modifica
@@ -87,5 +87,4 @@ void Paddle::loadFromFile(ifstream& loadFile)
 void Paddle::saveToFile(ofstream& saveFile)
 {
 	saveFile << "Paddle " << pos.getX() << " " << pos.getY() << " " << h << " " << w << endl;
-	
 }

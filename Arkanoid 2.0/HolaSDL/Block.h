@@ -4,8 +4,9 @@
 #include "Texture.h"
 #include "ArkanoidObject.h"
 
-
 using namespace std;
+
+// Clase BLOCK, que hereda de ARKANOIDOBJECT
 class Game;
 class Block : public ArkanoidObject
 {
@@ -16,11 +17,16 @@ private:
 	Game* game = nullptr;
 
 public:
+	// Constructora de la clase
 	Block(Vector2D p, int h, int w, int c, Texture* t, Game* g);
+	
+	// Getter
+	int getColor() { return color; };
+
+	// Metodos publicos de la clase
 	virtual void render() const;
 	virtual void loadFromFile(ifstream& loadFile) {};
 	virtual void saveToFile(ofstream& saveFile) {};
-	int getColor() { return color; };
 	void deleteBlock() { color = 0; };
 	SDL_Rect getRect()const;
 };

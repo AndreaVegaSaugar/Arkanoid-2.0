@@ -4,14 +4,14 @@
 
 using namespace std;
 
-// Case WALL
+// Case WALL que hereda de ARKANOIDOBJECT
 class Wall : public ArkanoidObject
 {
 private:
 	Vector2D colVector;
 
 public:
-	// Constructora(s)
+	// Constructoras de la clase
 	Wall() :ArkanoidObject() {};
 	Wall(Vector2D p, int h, int w, Texture* t, Vector2D cVect) : ArkanoidObject(p, h, w, t), colVector(cVect) {};
 

@@ -4,6 +4,7 @@
 #include "Time.h"
 #include "GameObject.h"
 
+// Clase MENU que hereda de GAMEOBJECT
 class Game;
 class Menu: public GameObject
 {
@@ -21,8 +22,11 @@ private:
 
 
 public:
-	Menu():GameObject(){}
+	// Constructoras de la clase
+	Menu() : GameObject(){}
 	Menu(Texture* tTitle, Texture* tStart, Texture* tLoad, int w, int h, int bH, int bW, Game* g, Time* t);
+
+	// Metodos publicos de la clase
 	virtual void render() const;
 	virtual void handleEvents(SDL_Event event, string& file, char& optionButton);
 };

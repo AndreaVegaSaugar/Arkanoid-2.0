@@ -5,6 +5,7 @@
 #include "MovingObject.h"
 using namespace std;
 
+// Clase REWARD que hereda de MOVINGOBJECT
 class Game;
 class Reward : public MovingObject
 {
@@ -16,13 +17,18 @@ private:
 	Game* game;
 
 public:
+	// Constructora de la clase
 	Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int tC, Game* g, int s);
+	
+	// Getters
+	Vector2D getDir() { return dir; }
+	void getTipe(char& c) { c = tipeReward; }
+	
+	// Metodos publicos de la clase
 	virtual void update();
 	virtual void render() const;
 	virtual void loadFromFile(ifstream& loadFile);
 	virtual void saveToFile(ofstream& saveFile);
-	Vector2D getDir() { return dir; }
-	void getTipe(char& c) { c = tipeReward; }
 	bool collides(SDL_Rect ballRect);
 protected:
 	void setFilCol();

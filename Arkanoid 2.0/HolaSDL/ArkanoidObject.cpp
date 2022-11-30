@@ -2,6 +2,7 @@
 
 // Devuelve el rectangulo destino
 SDL_Rect ArkanoidObject::getRect()const {
+
 	SDL_Rect destRect;
 	destRect.w = w;
 	destRect.h = h;

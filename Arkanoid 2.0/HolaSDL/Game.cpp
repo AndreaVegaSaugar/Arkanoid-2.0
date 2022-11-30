@@ -45,7 +45,6 @@ Game::Game() {
 	//Crear mapa vacio
 	map = new BlocksMap(MAP_HEIGHT, MAP_WIDTH, textures[BrickTx], this);
 
-
 	//Insertamos gameObjects a la lista
 	gameObjects.push_back(life);
 	gameObjects.push_back(timer);
@@ -155,30 +154,27 @@ void Game::handleEvents() {
 			if (event.key.keysym.sym == SDLK_p && CurrentState != pause) CurrentState = pause;
 			else if (event.key.keysym.sym == SDLK_p && CurrentState == pause) CurrentState = play;
 		}
-		if (CurrentState == menu) {
+		else if (CurrentState == menu) {
 			string file;
 			char optionButton;
 			menuWindow.handleEvents(event, file, optionButton);
 			if (optionButton == 'n') newGame();
 			else if (optionButton == 'l')
 			{
-				try
-				{
+				try{
 					loadGame(file);
 				}
-				catch (FileFormatError e)
-				{
+				catch (FileFormatError e) {
 					cout << e.what() << endl;
 				}
-				catch (FileNotFoundError e)
-				{
+				catch (FileNotFoundError e) {
 					cout << e.what() << endl;
 					cout << "We couldn't find a save file with that name so we will start a new game for you";
 					newGame();
 				}
 			}
 		}
-		paddle->handleEvents(event);
+		if(CurrentState == play) paddle->handleEvents(event);
 	}
 }
 
@@ -226,7 +222,7 @@ void Game::load()
 // Controla las colisiones de los gameObjects
 bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 {
-	Vector2D posAux; char type = ' ';
+	Vector2D posAux;
 
 	if (topWall->collides((rectBall), colVector)) { canCollide = true; return true; }
 	if (rightWall->collides((rectBall), colVector)) { canCollide = true; return true; }
@@ -270,7 +266,7 @@ void Game::generateRewards(Vector2D posAux) {
 		}
 		else if (num2 < 100) {
 			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'R', textures[Rewards]->getNumCols(), this, 1));
-			}
+		}
 		else if (num2 < 200) {
 			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'S', textures[Rewards]->getNumCols(), this, 1));
 		}
@@ -280,19 +276,17 @@ void Game::generateRewards(Vector2D posAux) {
 		else if (num2 < 400) {
 			gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'D', textures[Rewards]->getNumCols(), this, 1));
 		}
-
 	}
-
 }
 
 // Aplica el efecto del reward segun su tipo
 void Game::rewardType(char tipo) {
 	switch (tipo) {
-	case 'L': { CurrentState = win; }break;
-	case 'E': { ball->setSize(BALL_SIZE); if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 1.3); else paddle->setWidth(PADDLE_WIDTH); }break;
-	case 'R': { if (life->lives < 9) paddle->setWidth(PADDLE_WIDTH); ball->setSize(BALL_SIZE); ++life->lives; }break;
-	case 'S': { ball->setSize(BALL_SIZE); if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 0.7); else paddle->setWidth(PADDLE_WIDTH); }break;
-	case 'D': { paddle->setWidth(PADDLE_WIDTH); if(ball->getSize() == BALL_SIZE) ball->setSize(ball->getRect().w * 1.5); else ball->setSize(BALL_SIZE); }break;
+		case 'L': { CurrentState = win; }break;
+		case 'E': { ball->setSize(BALL_SIZE); if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 1.3); else paddle->setWidth(PADDLE_WIDTH); }break;
+		case 'R': { if (life->lives < 9) paddle->setWidth(PADDLE_WIDTH); ball->setSize(BALL_SIZE); ++life->lives; }break;
+		case 'S': { ball->setSize(BALL_SIZE); if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 0.7); else paddle->setWidth(PADDLE_WIDTH); }break;
+		case 'D': { paddle->setWidth(PADDLE_WIDTH); if(ball->getSize() == BALL_SIZE) ball->setSize(ball->getRect().w * 1.5); else ball->setSize(BALL_SIZE); }break;
 	}
 }
 
