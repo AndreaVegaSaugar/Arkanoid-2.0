@@ -31,7 +31,7 @@ Game::Game() {
 	topWall = new Wall(Vector2D(0, 0), WALL_WIDTH, WIN_WIDTH, textures[TopWallTx], Vector2D(0, 1));
 
 	//Creamos la bola
-	ball = new Ball(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT / 2), BALL_SIZE, Vector2D(1, -1), textures[BallTx], this, 1.5);
+	ball = new Ball(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT / 2), BALL_SIZE, Vector2D(1, -1), textures[BallTx], this, 2);
 
 	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, textures[PaddleTx], this, Vector2D(0, 0), MAP_WIDTH + WALL_WIDTH, WALL_WIDTH, 2);
 	//paddle->loadFromFile();
@@ -250,8 +250,6 @@ bool Game::collides(SDL_Rect rectBall, Vector2D& colVector)
 void Game::generateRewards(Vector2D posAux) {
 
 	srand(time(NULL) * _getpid() * rand());
-	gameObjects.push_back(new Reward(posAux, REWARD_HEIGHT, REWARD_WIDTH, Vector2D(0, 1), textures[Rewards], 'B', textures[Rewards]->getNumCols(), this, 1));
-
 	int num = rand() % 3; 
 	if (num == 1) {
 		int num2 = rand() % 401;
