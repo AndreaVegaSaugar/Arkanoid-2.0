@@ -62,10 +62,11 @@ Game::Game() {
 
 //Destructora de la clase
 Game::~Game() {
+	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)
+	{
+		delete* it;
+	}
 	for (uint i = 0; i < NUM_TEXTURES; ++i) delete textures[i];
-	delete ball;
-	delete paddle;
-	delete map;
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
