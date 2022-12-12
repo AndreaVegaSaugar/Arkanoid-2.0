@@ -20,7 +20,7 @@ protected:
 	Texture* texture = nullptr;
 
 public:
-	//Constructora y destructora uwu ladrame como se hace un metodo virtual mejor
+	//Constructora y destructora 
 	ArkanoidObject() {};
 	ArkanoidObject(Vector2D position, int height, int width, Texture* _texture) : GameObject(), pos(position), h(height), w(width), texture(_texture) {};
 
