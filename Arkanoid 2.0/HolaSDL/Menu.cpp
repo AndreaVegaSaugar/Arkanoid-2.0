@@ -3,7 +3,7 @@
 #include <iostream>
 
 // Constructora de la clase
-Menu::Menu(Texture* tTitle, Texture* tStart, Texture* tLoad, int w, int h, int bH, int bW,  Game* g, Time* t): GameObject() {
+Menu::Menu(Texture* tTitle, Texture* tStart, Texture* tLoad, int w, int h, int bH, int bW,  PlayState* g, Time* t): GameObject() {
 
 	textureTitle = tTitle;
 	textureStart = tStart;
