@@ -7,18 +7,18 @@
 using namespace std;
 
 // Clase BLOCK, que hereda de ARKANOIDOBJECT
-class Game;
+class PlayState;
 class Block : public ArkanoidObject
 {
 private:
 	int color = 0;
 	int row = 0;
 	int col = 0;
-	Game* game = nullptr;
+	PlayState* game = nullptr;
 
 public:
 	// Constructora de la clase
-	Block(Vector2D p, int h, int w, int c, Texture* t, Game* g);
+	Block(Vector2D p, int h, int w, int c, Texture* t, PlayState* g);
 	
 	// Getter
 	int getColor() { return color; };

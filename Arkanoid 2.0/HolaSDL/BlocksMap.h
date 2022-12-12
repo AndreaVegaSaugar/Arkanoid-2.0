@@ -8,7 +8,7 @@
 using namespace std;
 
 // Clase BLOCKSMAP que hereda de ARKANOIDOBJECT
-class Game;
+class PlayState;
 class BlocksMap : public ArkanoidObject
 {
 private:
@@ -17,12 +17,12 @@ private:
 	int cols = 0;
 	int cellW = 0;
 	int cellH = 0;
-	Game* game = 0;
+	PlayState* game = 0;
 
 public:
 	// Constructoras de la clase
 	BlocksMap() {};
-	BlocksMap(int mW, int mH, Texture* t, Game* g) : ArkanoidObject(), gameMap(nullptr), rows(0), cols(0), cellW(0), cellH(0), game(g) { texture = t; h = mH; w = mW; };
+	BlocksMap(int mW, int mH, Texture* t, PlayState* g) : ArkanoidObject(), gameMap(nullptr), rows(0), cols(0), cellW(0), cellH(0), game(g) { texture = t; h = mH; w = mW; };
 	
 	// Destructora de la clase
 	virtual ~BlocksMap();

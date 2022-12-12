@@ -5,7 +5,7 @@
 #include "GameObject.h"
 
 // Clase MENU que hereda de GAMEOBJECT
-class Game;
+class PlayState;
 class Menu: public GameObject
 {
 private:
@@ -17,14 +17,14 @@ private:
 	SDL_Rect rectStart;
 	SDL_Rect rectLoad;
 
-	Game* game = nullptr;
+	PlayState* game = nullptr;
 	Time* timer = nullptr;
 
 
 public:
 	// Constructoras de la clase
 	Menu() : GameObject(){}
-	Menu(Texture* tTitle, Texture* tStart, Texture* tLoad, int w, int h, int bH, int bW, Game* g, Time* t);
+	Menu(Texture* tTitle, Texture* tStart, Texture* tLoad, int w, int h, int bH, int bW, PlayState* g, Time* t);
 
 	// Metodos publicos de la clase
 	virtual void render() const;

@@ -4,7 +4,7 @@
 #include "Texture.h"
 #include "ArkanoidObject.h"
 
-class Game;
+class PlayState;
 class Time: public ArkanoidObject
 {
 private:
@@ -16,11 +16,11 @@ private:
 	int secondsCol_D = 0;
 	int secondsRow_U = 0;
 	int secondsCol_U = 0;
-	Game* game = nullptr;
+	PlayState* game = nullptr;
 
 public:
 	Time(){}
-	Time(Vector2D p, int h, int w, Texture* t, Game* g):ArkanoidObject(p, h, w, t), game(g){}
+	Time(Vector2D p, int h, int w, Texture* t, PlayState* g):ArkanoidObject(p, h, w, t), game(g){}
 
 	void resetTime();
 	virtual void render() const;

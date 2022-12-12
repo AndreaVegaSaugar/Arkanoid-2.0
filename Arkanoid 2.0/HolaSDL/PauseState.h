@@ -1,5 +1,6 @@
 #pragma once
-class PauseState
+#include "MenuGameState.h"
+class PauseState:public MenuGameState
 {
 };
 

@@ -1,6 +1,6 @@
 #include "checkML.h"
 #include "Ball.h"
-#include "Game.h"
+#include "PlayState.h"
 
 // Actualiza la posicion y direccion de la bola teniendo en cuenta sus colisiones
 void Ball::update()

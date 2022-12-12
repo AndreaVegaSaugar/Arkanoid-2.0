@@ -7,15 +7,15 @@
 using namespace std;
 
 // Clase BALL que hereda de MOVINGOBJECT
-class Game;
+class PlayState;
 class Ball : public MovingObject
 {
 private:
-	Game* game = nullptr;
+	PlayState* game = nullptr;
 
 public:
 	// Constructora de la clase
-	Ball(Vector2D p, int size, Vector2D d, Texture* t, Game* g, double s) : MovingObject(p, size, size, t, d, s), game(g) {};
+	Ball(Vector2D p, int size, Vector2D d, Texture* t, PlayState* g, double s) : MovingObject(p, size, size, t, d, s), game(g) {};
 
 	// Metodos publucos de la clase
     virtual void update();

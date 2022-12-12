@@ -1,5 +1,6 @@
 #pragma once
-class EndState
+#include "MenuGameState.h"
+class EndState :public MenuGameState
 {
 };
 

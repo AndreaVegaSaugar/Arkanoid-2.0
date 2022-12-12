@@ -1,7 +1,7 @@
 #include "checkML.h"
 #include "Time.h"
 #include <iostream>
-#include "Game.h"
+#include "PlayState.h"
 
 // Resetea el tiempo
 void Time::resetTime()

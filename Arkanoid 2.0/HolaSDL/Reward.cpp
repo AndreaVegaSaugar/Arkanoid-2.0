@@ -1,5 +1,5 @@
 #include "Reward.h"
-#include "Game.h"
+#include "PlayState.h"
 
 // Asigna frame de la textura segun el tipo de reward
 void Reward::setFilCol()

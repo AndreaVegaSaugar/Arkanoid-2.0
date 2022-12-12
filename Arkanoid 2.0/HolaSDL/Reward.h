@@ -6,7 +6,7 @@
 using namespace std;
 
 // Clase REWARD que hereda de MOVINGOBJECT
-class Game;
+class PlayState;
 class Reward : public MovingObject
 {
 private:
@@ -14,11 +14,11 @@ private:
 	int row = 0;
 	int col = 0;
 	int totalCol = 0;
-	Game* game;
+	PlayState* game;
 
 public:
 	// Constructora de la clase
-	Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int tC, Game* g, int s);
+	Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int tC, PlayState* g, int s);
 	
 	// Getters
 	Vector2D getDir() { return dir; }

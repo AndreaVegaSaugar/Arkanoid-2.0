@@ -25,9 +25,9 @@ const enum TextureNames {
 	GameOverTx = 4, SideWallTx = 5, TopWallTx = 6, YouWinTx = 7, Rewards = 8, Heart = 9, Cross = 10, 
 	Title = 11, Start = 12, Load = 13
 };
-
-// Enumerado de estados de juego
-enum GameStates {play, lose, win, menu, pause};
+//
+//// Enumerado de estados de juego
+//enum GameStates {play, lose, win, menu, pause};
 
 // Estructura que contiene variables para el nombre de las imagenes de la textura y su numero de filas y columnas
 struct Textures
@@ -38,12 +38,12 @@ struct Textures
 };
 
 class Game {
-private:
+public:
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 
-	// Estado actual del juego
-	int CurrentState = menu;
+	//// Estado actual del juego
+	//int CurrentState = menu;
 
 	// Booleano de control del juego
 	bool exit = false;
@@ -55,23 +55,24 @@ private:
 									 {"../images/heart.png", 1, 1} , {"../images/cross.png", 1, 1},  {"../images/Title.png", 1, 1},
 									 {"../images/Start.png", 1,1}, { "../images/Load.png", 1, 1 }};
 
-	string levels[NUM_LEVELS] = { { "level01.txt" }, { "level02.txt" }, { "level03.txt" } };
-	// Lista de todos los GameObjects
-	list<ArkanoidObject*> gameObjects;
-	list<ArkanoidObject*>::iterator rewardIterator;
 	Texture* textures[NUM_TEXTURES];
-	Ball* ball = nullptr;
-	Paddle* paddle = nullptr;
-	Wall* topWall = nullptr;
-	Wall* leftWall = nullptr;
-	Wall* rightWall = nullptr;
-	BlocksMap* map = nullptr;
-	Time* timer = nullptr;
-	Life* life = nullptr;
-	Menu menuWindow;
-	// Ints de control de juego
-	int level = 0;
-	bool canCollide = true;
+	//string levels[NUM_LEVELS] = { { "level01.txt" }, { "level02.txt" }, { "level03.txt" } };
+	//// Lista de todos los GameObjects
+	//list<ArkanoidObject*> gameObjects;
+	//list<ArkanoidObject*>::iterator rewardIterator;
+	//Texture* textures[NUM_TEXTURES];
+	//Ball* ball = nullptr;
+	//Paddle* paddle = nullptr;
+	//Wall* topWall = nullptr;
+	//Wall* leftWall = nullptr;
+	//Wall* rightWall = nullptr;
+	//BlocksMap* map = nullptr;
+	//Time* timer = nullptr;
+	//Life* life = nullptr;
+	//Menu menuWindow;
+	//// Ints de control de juego
+	//int level = 0;
+	//bool canCollide = true;
 
 
 public:
@@ -84,7 +85,7 @@ public:
 	void render();
 	void handleEvents();
 	void update();
-	bool collides(SDL_Rect destRect, Vector2D& colVector);
+	/*bool collides(SDL_Rect destRect, Vector2D& colVector);
 	void loadGame(string nameFile);
 	void newGame();
 	int getWallSize() { return WALL_WIDTH; }
@@ -98,7 +99,7 @@ protected:
 	void restartLevel();
 	void load();
 	void generateRewards(Vector2D posAux);
-	void saveToFile(string code);
+	void saveToFile(string code);*/
 }; 
 
 

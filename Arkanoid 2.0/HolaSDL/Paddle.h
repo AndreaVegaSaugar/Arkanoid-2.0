@@ -8,17 +8,17 @@
 using namespace std;
 
 // Clase PADDLE que hereda de MOVINGOBJECT
-class Game;
+class PlayState;
 class Paddle : public MovingObject
 {
 private:
 	int rightLimit = 0;
 	int leftLimit = 0;
-	Game* game = nullptr;
+	PlayState* game = nullptr;
 
 public:
 	// Constructora de la clase
-	Paddle(Vector2D p, int h, int w, Texture* t, Game* g, Vector2D d, int rL, int lL, double s) : MovingObject(p, h, w, t, d, s), game(g), rightLimit(rL), leftLimit(lL) {};
+	Paddle(Vector2D p, int h, int w, Texture* t, PlayState* g, Vector2D d, int rL, int lL, double s) : MovingObject(p, h, w, t, d, s), game(g), rightLimit(rL), leftLimit(lL) {};
 	
 	// Getter
 	int getWidth() { return w; };

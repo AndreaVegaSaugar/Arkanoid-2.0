@@ -25,8 +25,8 @@ public:
 	ArkanoidObject(Vector2D position, int height, int width, Texture* _texture) : GameObject(), pos(position), h(height), w(width), texture(_texture) {};
 
 	// Métodos
-	virtual void loadFromFile(ifstream& loadFile) = 0;
-	virtual void saveToFile(ofstream& saveFile) = 0;
+	virtual void loadFromFile(ifstream& loadFile) {};
+	virtual void saveToFile(ofstream& saveFile) {};
 	virtual void render() const;
 	
 	// Destructora de la clase

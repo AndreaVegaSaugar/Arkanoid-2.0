@@ -1,5 +1,5 @@
 #include "Menu.h"
-#include "Game.h"
+#include "PlayState.h"
 #include <iostream>
 
 // Constructora de la clase

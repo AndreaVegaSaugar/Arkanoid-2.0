@@ -1,6 +1,6 @@
 #include "checkML.h"
 #include "BlocksMap.h"
-#include "Game.h"
+#include "PlayState.h"
 #include <iostream>
 
 using namespace std;
