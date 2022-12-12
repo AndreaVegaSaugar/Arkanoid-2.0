@@ -79,10 +79,12 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="GameStateMachine.cpp" />
     <ClCompile Include="Life.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="MovingObject.cpp" />
     <ClCompile Include="Paddle.cpp" />
     <ClCompile Include="PauseState.cpp" />
@@ -106,9 +108,11 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="GameStateMachine.h" />
     <ClInclude Include="Life.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuButton.h" />
     <ClInclude Include="MovingObject.h" />
     <ClInclude Include="Paddle.h" />
     <ClInclude Include="PauseState.h" />
