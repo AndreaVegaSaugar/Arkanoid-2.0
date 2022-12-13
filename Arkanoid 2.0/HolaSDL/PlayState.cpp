@@ -2,7 +2,6 @@
 const string PlayState::s_playID = "PLAY";
 PlayState::PlayState():GameState(){
 	//Creamos las paredes
-	leftWall = new Wall(Vector2D(0, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(1, 0));
 	rightWall = new Wall(Vector2D(WIN_WIDTH - WALL_WIDTH, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(-1, 0));
 	topWall = new Wall(Vector2D(0, 0), WALL_WIDTH, WIN_WIDTH, game->textures[TopWallTx], Vector2D(0, 1));
 
@@ -24,9 +23,9 @@ PlayState::PlayState():GameState(){
 	//Insertamos gameObjects a la lista
 	gameObjects.push_back(life);
 	gameObjects.push_back(timer);
-	gameObjects.push_back(rightWall);
-	gameObjects.push_back(leftWall);
-	gameObjects.push_back(topWall);
+	gameObjects.push_back(new Wall(Vector2D(WIN_WIDTH - WALL_WIDTH, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(-1, 0)));
+	gameObjects.push_back(new Wall(Vector2D(0, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(1, 0)));
+	gameObjects.push_back(new Wall(Vector2D(0, 0), WALL_WIDTH, WIN_WIDTH, game->textures[TopWallTx], Vector2D(0, 1)));
 	gameObjects.push_back(ball);
 	gameObjects.push_back(paddle);
 	gameObjects.push_back(map);
