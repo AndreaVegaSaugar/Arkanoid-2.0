@@ -63,7 +63,6 @@ public:
 	Texture* textures[NUM_TEXTURES];
 
 	// Estado actual del juego
-	int CurrentState = MENU;
 	GameStateMachine* gameStateMachine = nullptr;
 
 public:
@@ -72,6 +71,9 @@ public:
 	~Game();
 
 	void run();
+	void render() const;
+	void update();
+	GameStateMachine* getStateMachine(){ return gameStateMachine; }
 }; 
 
 

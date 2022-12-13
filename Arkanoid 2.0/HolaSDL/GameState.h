@@ -2,6 +2,10 @@
 #include <list>
 #include "ArkanoidObject.h"
 #include "Game.h"
+#include "PauseState.h"
+#include "PlayState.h"
+#include "EndState.h"
+#include "MainMenuState.h"
 using namespace std;
 
 class GameState

@@ -1,34 +1,15 @@
 #include "PlayState.h"
 const string PlayState::s_playID = "PLAY";
-PlayState::PlayState():GameState(){
-	//Creamos las paredes
-	rightWall = new Wall(Vector2D(WIN_WIDTH - WALL_WIDTH, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(-1, 0));
-	topWall = new Wall(Vector2D(0, 0), WALL_WIDTH, WIN_WIDTH, game->textures[TopWallTx], Vector2D(0, 1));
-
-	//Creamos la bola
-	ball = new Ball(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT / 2), BALL_SIZE, Vector2D(1, -1), game->textures[BallTx], this, 2);
-
-	paddle = new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, game->textures[PaddleTx], this, Vector2D(0, 0), MAP_WIDTH + WALL_WIDTH, WALL_WIDTH, 2);
-	//paddle->loadFromFile();
-
-	//Creamos timer
-	timer = new Time(Vector2D(WALL_WIDTH, WIN_HEIGHT - 50), TIME_HEIGHT, TIME_WIDTH, game->textures[NumsTx], this);
-
-	//Creamos vidas
-	life = new Life(Vector2D(UI_POS_X, WIN_HEIGHT - 50), UI_SIZE, game->textures[Heart], game->textures[NumsTx], NUM_LIVES, game->textures[Cross]);
-
-	//Crear mapa vacio
-	map = new BlocksMap(MAP_HEIGHT, MAP_WIDTH, game->textures[BrickTx], this);
-
+PlayState::PlayState():GameState(game){
 	//Insertamos gameObjects a la lista
-	gameObjects.push_back(life);
-	gameObjects.push_back(timer);
+	gameObjects.push_back(new Life(Vector2D(UI_POS_X, WIN_HEIGHT - 50), UI_SIZE, game->textures[Heart], game->textures[NumsTx], NUM_LIVES, game->textures[Cross]));
+	gameObjects.push_back(new Time(Vector2D(WALL_WIDTH, WIN_HEIGHT - 50), TIME_HEIGHT, TIME_WIDTH, game->textures[NumsTx], this));
 	gameObjects.push_back(new Wall(Vector2D(WIN_WIDTH - WALL_WIDTH, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(-1, 0)));
 	gameObjects.push_back(new Wall(Vector2D(0, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(1, 0)));
 	gameObjects.push_back(new Wall(Vector2D(0, 0), WALL_WIDTH, WIN_WIDTH, game->textures[TopWallTx], Vector2D(0, 1)));
-	gameObjects.push_back(ball);
-	gameObjects.push_back(paddle);
-	gameObjects.push_back(map);
+	gameObjects.push_back(new Ball(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT / 2), BALL_SIZE, Vector2D(1, -1), game->textures[BallTx], this, 2));
+	gameObjects.push_back(new Paddle(Vector2D((double)WIN_WIDTH / 2, (double)WIN_HEIGHT - 100), PADDLE_HEIGHT, PADDLE_WIDTH, game->textures[PaddleTx], this, Vector2D(0, 0), MAP_WIDTH + WALL_WIDTH, WALL_WIDTH, 2));
+	gameObjects.push_back(new BlocksMap(MAP_HEIGHT, MAP_WIDTH, game->textures[BrickTx], this));
 
 	rewardIterator = --gameObjects.end();
 }
@@ -70,9 +51,6 @@ void PlayState::render() const{
 		rect.w = WIN_WIDTH; rect.h = WIN_HEIGHT;
 		game->textures[GameOverTx]->render(rect);
 	}
-	else if (CurrentState == menu) {
-		menuWindow.render();
-	}
 	else
 	{
 		for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
@@ -86,17 +64,16 @@ void PlayState::handleEvents() {
 	SDL_Event event;
 	while (SDL_PollEvent(&event) && !exit) {
 		if (event.type == SDL_QUIT) game->exit = true;
-		if ((CurrentState == play || CurrentState == pause) && event.type == SDL_KEYDOWN) {
+		if ((CurrentState == play ) && event.type == SDL_KEYDOWN) {
 			if (event.key.keysym.sym == SDLK_s) {
 				string saveCode;
 				cout << "Introduce the code to save game: ";
 				cin >> saveCode;
 				saveToFile(saveCode);
 			}
-			if (event.key.keysym.sym == SDLK_p && CurrentState != pause) CurrentState = pause;
-			else if (event.key.keysym.sym == SDLK_p && CurrentState == pause) CurrentState = play;
+			if (event.key.keysym.sym == SDLK_p) game->gameStateMachine->changeState(new PauseState());
 		}
-		else if (CurrentState == menu) {
+		/*else if (CurrentState == menu) {
 			string file;
 			char optionButton;
 			menuWindow.handleEvents(event, file, optionButton);
@@ -115,7 +92,7 @@ void PlayState::handleEvents() {
 					newGame();
 				}
 			}
-		}
+		}*/
 		if (CurrentState == play) paddle->handleEvents(event);
 	}
 }

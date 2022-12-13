@@ -44,8 +44,16 @@ void Game::run()
 		if (gameStateMachine->currentState() != nullptr) {
 			startTime = SDL_GetTicks();
 			gameStateMachine->currentState()->handleEvents();
-			gameStateMachine->currentState()->render();
-			gameStateMachine->currentState()->update();
 		}
 	}
+}
+void Game::render() const
+{
+	SDL_RenderClear(renderer);
+	gameStateMachine->currentState()->render();
+	SDL_RenderPresent(renderer);
+}
+void Game::update()
+{
+	gameStateMachine->currentState()->update();
 }

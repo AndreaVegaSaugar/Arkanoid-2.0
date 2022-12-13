@@ -8,5 +8,6 @@ public:
 	virtual void update();
 	virtual void render() const;
 	virtual string getStateID() const { return s_menuID; }
+	//virtual void handleEvents();
 };
 

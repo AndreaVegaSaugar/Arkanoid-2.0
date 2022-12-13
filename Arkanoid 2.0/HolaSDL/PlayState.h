@@ -10,6 +10,11 @@
 
 class PlayState :public GameState
 {
+	enum States {
+		win = 0,
+		lose = 1,
+		play = 2,
+	};
 private:
 
 	string levels[NUM_LEVELS] = { { "level01.txt" }, { "level02.txt" }, { "level03.txt" } };
@@ -27,7 +32,7 @@ private:
 	// Ints de control de juego
 	int level = 0;
 	bool canCollide = true;
-
+	States CurrentState = play;
 
 	bool collides(SDL_Rect destRect, Vector2D& colVector);
 	void loadGame(string nameFile);
@@ -44,12 +49,14 @@ protected:
 	virtual void render() const;
 	virtual void handleEvents();
 	virtual void update();
+	virtual string getStateID() const { return s_playID; }
+	
+	
 	void winLevel();
 	void nextLevel();
 	void restartLevel();
 	void load();
 	void generateRewards(Vector2D posAux);
 	void saveToFile(string code);
-	virtual string getStateID() const { return s_playID; }
 };
 
