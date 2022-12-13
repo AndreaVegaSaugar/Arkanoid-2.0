@@ -1,5 +1,6 @@
 #pragma once
 #include "GameState.h"
+#include "MainMenuState.h"
 #include <stack>
 
 using namespace std;
@@ -9,12 +10,14 @@ private:
 	stack<GameState*> gameStateStack;
 
 public: 
-	void currentState();
-	void pushState();
-	void changeState();
+	GameState* currentState() {
+		if (!gameStateStack.empty()) return gameStateStack.top();
+		else return nullptr;
+	}
+	void pushState(GameState* pState);
+	void changeState(GameState* pState);
 	void popState();
 
-	/*void update();
-	void render();*/
+	GameStateMachine();
 };
 

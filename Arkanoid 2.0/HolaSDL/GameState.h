@@ -3,16 +3,18 @@
 #include "ArkanoidObject.h"
 #include "Game.h"
 using namespace std;
-//class Game;
+
 class GameState
 {
 protected:
-	list<ArkanoidObject*> arkanoidObjectList;
+	list<GameObject*> gameObjects;
 	Game* game;
+
 public:
-	GameState();
-	void update();
-	void render() const;
-	void handleEvents() const;
+	GameState(Game* g) : game(g) {}
+	virtual void update() = 0;
+	virtual void render() const = 0;
+	virtual void handleEvents() const = 0;
+	virtual string getStateID() const = 0;
 };
 

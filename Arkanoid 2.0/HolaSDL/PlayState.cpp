@@ -1,5 +1,5 @@
 #include "PlayState.h"
-
+const string PlayState::s_playID = "PLAY";
 PlayState::PlayState():GameState(){
 	//Creamos las paredes
 	leftWall = new Wall(Vector2D(0, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(1, 0));
@@ -55,7 +55,7 @@ void PlayState::update()
 }
 
 // Renderiza todos los GameObjects y texturas correspondientes segun el estado del juego
-void PlayState::render() {
+void PlayState::render() const{
 
 	if (CurrentState == win && level >= (NUM_LEVELS - 1))
 	{

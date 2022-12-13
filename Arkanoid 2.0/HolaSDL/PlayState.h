@@ -8,18 +8,12 @@
 #include "Life.h"
 #include "Menu.h"
 
-// Enumerado de estados de juego
-enum GameStates { play, lose, win, menu, pause };
 class PlayState :public GameState
 {
 private:
 
-	// Estado actual del juego
-	int CurrentState = menu;
-
 	string levels[NUM_LEVELS] = { { "level01.txt" }, { "level02.txt" }, { "level03.txt" } };
 	// Lista de todos los GameObjects
-	list<GameObject*> gameObjects;
 	list<GameObject*>::iterator rewardIterator;
 	Ball* ball = nullptr;
 	Paddle* paddle = nullptr;
@@ -29,7 +23,7 @@ private:
 	BlocksMap* map = nullptr;
 	Time* timer = nullptr;
 	Life* life = nullptr;
-	Menu menuWindow;
+	//Menu menuWindow;
 	// Ints de control de juego
 	int level = 0;
 	bool canCollide = true;
@@ -40,20 +34,22 @@ private:
 	void newGame();
 	int getWallSize() { return WALL_WIDTH; }
 	void rewardType(char tipo);
-	void timeLimit() { CurrentState = lose; life->lives = 0; }
+	//void timeLimit() { CurrentState = lose; life->lives = 0; }
 	PlayState();
 	~PlayState();
+	static const string s_playID;
+
 
 protected:
-	void run();
-	void render();
-	void handleEvents();
-	void update();
+	virtual void render() const;
+	virtual void handleEvents();
+	virtual void update();
 	void winLevel();
 	void nextLevel();
 	void restartLevel();
 	void load();
 	void generateRewards(Vector2D posAux);
 	void saveToFile(string code);
+	virtual string getStateID() const { return s_playID; }
 };
 
