@@ -1,1 +1,299 @@
-﻿
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: El directorio intermedio (Debug\) contiene archivos compartidos de otro proyecto (HolaSDL.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
+  Ball.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(13,15): error C2614: 'PauseState': inicialización de miembro no válida: 'MenuGameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\EndState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(8,1): error C2504: 'GameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(16,19): error C2614: 'MenuGameState': inicialización de miembro no válida: 'GameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,8): error C2065: 'GameState': identificador no declarado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,18): error C2059: error de sintaxis: '>'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,28): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(17,17): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(18,19): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.cpp(9,5): error C2248: 'PlayState::collides': no se puede obtener acceso al miembro private miembro declarado en la clase 'PlayState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(40): message : vea la declaración de 'PlayState::collides'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(14): message : vea la declaración de 'PlayState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.cpp(31,6): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.cpp(31,17): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+  Block.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(13,15): error C2614: 'PauseState': inicialización de miembro no válida: 'MenuGameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\EndState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(8,1): error C2504: 'GameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(16,19): error C2614: 'MenuGameState': inicialización de miembro no válida: 'GameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,8): error C2065: 'GameState': identificador no declarado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,18): error C2059: error de sintaxis: '>'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,28): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(17,17): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(18,19): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(8,68): error C2511: 'Block::Block(Vector2D,int,int,int,Texture *,Game *)': la función miembro sobrecargada no se ha encontrado en 'Block'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(11): message : vea la declaración de 'Block'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(9,1): error C2550: 'Block::{ctor}': las listas de inicializadores de constructor solo se permiten en las definiciones de constructor
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(10,2): error C2597: referencia no válida a miembro no static 'Block::color'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(14): message : vea la declaración de 'Block::color'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(11,2): error C2597: referencia no válida a miembro no static 'Block::game'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(17): message : vea la declaración de 'Block::game'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(13,10): error C2597: referencia no válida a miembro no static 'Block::color'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(14): message : vea la declaración de 'Block::color'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(13,17): error C2450: una expresión switch de tipo "unknown" no es válida
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(13,10): message : Se requiere una expresión de integral
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(14,12): error C2597: referencia no válida a miembro no static 'Block::row'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(15): message : vea la declaración de 'Block::row'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(14,21): error C2597: referencia no válida a miembro no static 'Block::col'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(16): message : vea la declaración de 'Block::col'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(15,12): error C2597: referencia no válida a miembro no static 'Block::row'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(15): message : vea la declaración de 'Block::row'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(15,21): error C2597: referencia no válida a miembro no static 'Block::col'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(16): message : vea la declaración de 'Block::col'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(16,12): error C2597: referencia no válida a miembro no static 'Block::row'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(15): message : vea la declaración de 'Block::row'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(16,21): error C2597: referencia no válida a miembro no static 'Block::col'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(16): message : vea la declaración de 'Block::col'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(17,12): error C2597: referencia no válida a miembro no static 'Block::row'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(15): message : vea la declaración de 'Block::row'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(17,21): error C2597: referencia no válida a miembro no static 'Block::col'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(16): message : vea la declaración de 'Block::col'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(18,12): error C2597: referencia no válida a miembro no static 'Block::row'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(15): message : vea la declaración de 'Block::row'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(18,21): error C2597: referencia no válida a miembro no static 'Block::col'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(16): message : vea la declaración de 'Block::col'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(19,12): error C2597: referencia no válida a miembro no static 'Block::row'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(15): message : vea la declaración de 'Block::row'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(19,21): error C2597: referencia no válida a miembro no static 'Block::col'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(16): message : vea la declaración de 'Block::col'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(35,52): error C2248: 'PlayState::getWallSize': no se puede obtener acceso al miembro private miembro declarado en la clase 'PlayState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(43): message : vea la declaración de 'PlayState::getWallSize'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(14): message : vea la declaración de 'PlayState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(35,32): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(36,52): error C2248: 'PlayState::getWallSize': no se puede obtener acceso al miembro private miembro declarado en la clase 'PlayState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(43): message : vea la declaración de 'PlayState::getWallSize'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(14): message : vea la declaración de 'PlayState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(36,32): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+  BlocksMap.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(13,15): error C2614: 'PauseState': inicialización de miembro no válida: 'MenuGameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\EndState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(8,1): error C2504: 'GameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(16,19): error C2614: 'MenuGameState': inicialización de miembro no válida: 'GameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,8): error C2065: 'GameState': identificador no declarado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,18): error C2059: error de sintaxis: '>'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,28): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(17,17): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(18,19): error C2061: error de sintaxis: identificador 'GameState'
+  EndState.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MainMenuState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,8): error C2065: 'GameState': identificador no declarado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,18): error C2059: error de sintaxis: '>'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,28): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(17,17): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(18,19): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(13,15): error C2614: 'PauseState': inicialización de miembro no válida: 'MenuGameState' no es una base o miembro
+  Game.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameState.h(11,6): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameState.h(11,6): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameState.h(11,12): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(13,15): error C2614: 'PauseState': inicialización de miembro no válida: 'MenuGameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\EndState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+  GameState.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(13,15): error C2614: 'PauseState': inicialización de miembro no válida: 'MenuGameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\EndState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(15,1): error C2504: 'GameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(8,1): error C2504: 'GameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(16,19): error C2614: 'MenuGameState': inicialización de miembro no válida: 'GameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,8): error C2065: 'GameState': identificador no declarado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,18): error C2059: error de sintaxis: '>'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,28): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(17,17): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(18,19): error C2061: error de sintaxis: identificador 'GameState'
+  GameStateMachine.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(66,18): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(66,18): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(66,46): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(76,18): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(76,18): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(76,37): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(13,15): error C2614: 'PauseState': inicialización de miembro no válida: 'MenuGameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\EndState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+  main.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameState.h(11,6): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameState.h(11,6): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameState.h(11,12): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(13,15): error C2614: 'PauseState': inicialización de miembro no válida: 'MenuGameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\EndState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+  MainMenuState.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,8): error C2065: 'GameState': identificador no declarado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,18): error C2059: error de sintaxis: '>'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,28): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(17,17): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(18,19): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(13,15): error C2614: 'PauseState': inicialización de miembro no válida: 'MenuGameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\EndState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+  Menu.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(13,15): error C2614: 'PauseState': inicialización de miembro no válida: 'MenuGameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\EndState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(8,1): error C2504: 'GameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(16,19): error C2614: 'MenuGameState': inicialización de miembro no válida: 'GameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,8): error C2065: 'GameState': identificador no declarado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,18): error C2059: error de sintaxis: '>'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,28): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(17,17): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(18,19): error C2061: error de sintaxis: identificador 'GameState'
+  MenuGameState.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MainMenuState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,8): error C2065: 'GameState': identificador no declarado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,18): error C2059: error de sintaxis: '>'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,28): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(17,17): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(18,19): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(13,15): error C2614: 'PauseState': inicialización de miembro no válida: 'MenuGameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\EndState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+  Paddle.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(13,15): error C2614: 'PauseState': inicialización de miembro no válida: 'MenuGameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\EndState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(8,1): error C2504: 'GameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(16,19): error C2614: 'MenuGameState': inicialización de miembro no válida: 'GameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,8): error C2065: 'GameState': identificador no declarado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,18): error C2059: error de sintaxis: '>'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,28): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(17,17): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(18,19): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.cpp(56,22): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.cpp(57,22): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.cpp(82,6): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.cpp(82,17): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+  PauseState.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MainMenuState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,8): error C2065: 'GameState': identificador no declarado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,18): error C2059: error de sintaxis: '>'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,28): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(17,17): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(18,19): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\EndState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+  PlayState.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(13,15): error C2614: 'PauseState': inicialización de miembro no válida: 'MenuGameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\EndState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(8,1): error C2504: 'GameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(16,19): error C2614: 'MenuGameState': inicialización de miembro no válida: 'GameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,8): error C2065: 'GameState': identificador no declarado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,18): error C2059: error de sintaxis: '>'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,28): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(17,17): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(18,19): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.cpp(65,34): warning C4551: la llamada a la función no tiene lista de argumentos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.cpp(74,92): error C2660: 'GameStateMachine::changeState': la función no acepta 1 argumentos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(18,7): message : vea la declaración de 'GameStateMachine::changeState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.cpp(179,31): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.cpp(205,117): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.cpp(207,117): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.cpp(208,112): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+  Reward.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(13,15): error C2614: 'PauseState': inicialización de miembro no válida: 'MenuGameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\EndState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(8,1): error C2504: 'GameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(16,19): error C2614: 'MenuGameState': inicialización de miembro no válida: 'GameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,8): error C2065: 'GameState': identificador no declarado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,18): error C2059: error de sintaxis: '>'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,28): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(17,17): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(18,19): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.cpp(17,101): error C2511: 'Reward::Reward(Vector2D,int,int,Vector2D,Texture *,char,int,Game *,int)': la función miembro sobrecargada no se ha encontrado en 'Reward'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.h(10): message : vea la declaración de 'Reward'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.cpp(18,1): error C2550: 'Reward::{ctor}': las listas de inicializadores de constructor solo se permiten en las definiciones de constructor
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.cpp(19,2): error C2597: referencia no válida a miembro no static 'Reward::tipeReward'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.h(13): message : vea la declaración de 'Reward::tipeReward'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.cpp(20,2): error C2597: referencia no válida a miembro no static 'Reward::totalCol'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.h(16): message : vea la declaración de 'Reward::totalCol'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.cpp(21,2): error C2597: referencia no válida a miembro no static 'Reward::game'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.h(17): message : vea la declaración de 'Reward::game'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.cpp(22,2): error C2352: 'Reward::setFilCol': llamada no válida de función miembro no estática
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.cpp(5): message : vea la declaración de 'Reward::setFilCol'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.cpp(41,30): error C2248: 'PlayState::rewardType': no se puede obtener acceso al miembro private miembro declarado en la clase 'PlayState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(44): message : vea la declaración de 'PlayState::rewardType'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(14): message : vea la declaración de 'PlayState'
+  Time.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PauseState.h(13,15): error C2614: 'PauseState': inicialización de miembro no válida: 'MenuGameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\EndState.h(4,1): error C2504: 'MenuGameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(8,1): error C2504: 'GameState': clase base sin definir
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\MenuGameState.h(16,19): error C2614: 'MenuGameState': inicialización de miembro no válida: 'GameState' no es una base o miembro
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,8): error C2065: 'GameState': identificador no declarado
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(10,18): error C2059: error de sintaxis: '>'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(13,28): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(17,17): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameStateMachine.h(18,19): error C2061: error de sintaxis: identificador 'GameState'
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.cpp(21,30): error C2039: "timeLimit": no es un miembro de "PlayState"
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(14): message : vea la declaración de 'PlayState'
+  Generando código...

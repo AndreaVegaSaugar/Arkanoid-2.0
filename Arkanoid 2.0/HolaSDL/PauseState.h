@@ -9,5 +9,8 @@ public:
 	virtual void render() const {};
 	virtual void handleEvents() {};
 	virtual string getStateID() const { return s_pauseID; }
+
+	PauseState():MenuGameState() {};
+	~PauseState() {};
 };
 

@@ -1,6 +1,6 @@
 #include "PlayState.h"
 const string PlayState::s_playID = "PLAY";
-PlayState::PlayState():GameState(game){
+PlayState::PlayState():GameState(){
 	//Insertamos gameObjects a la lista
 	gameObjects.push_back(new Life(Vector2D(UI_POS_X, WIN_HEIGHT - 50), UI_SIZE, game->textures[Heart], game->textures[NumsTx], NUM_LIVES, game->textures[Cross]));
 	gameObjects.push_back(new Time(Vector2D(WALL_WIDTH, WIN_HEIGHT - 50), TIME_HEIGHT, TIME_WIDTH, game->textures[NumsTx], this));

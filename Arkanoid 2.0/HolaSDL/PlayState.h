@@ -7,6 +7,9 @@
 #include "Time.h"
 #include "Life.h"
 #include "Menu.h"
+#include "PauseState.h"
+#include "EndState.h"
+#include "MainMenuState.h"
 
 class PlayState :public GameState
 {
