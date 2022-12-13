@@ -10,9 +10,10 @@ protected:
 	list<ArkanoidObject*> arkanoidObjectList;
 	Game* game;
 public:
-	GameState();
-	void update();
-	void render() const;
-	void handleEvents() const;
+	GameState(Game* g) : game(g) {};
+	virtual void update() = 0;
+	virtual void render() const = 0;
+	virtual void handleEvents() const = 0;
+	virtual string getStateID() const = 0;
 };
 

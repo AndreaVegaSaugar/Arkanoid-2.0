@@ -8,7 +8,7 @@
 #include "SDLError.h"
 
 //Constantes del juego
-static const uint NUM_TEXTURES = 14;
+static const uint NUM_TEXTURES = 19;
 static const uint WIN_WIDTH = 800;
 static const uint WIN_HEIGHT = 600;
 static const uint WALL_WIDTH = 14;
@@ -26,18 +26,28 @@ static const uint REWARD_HEIGHT = 20;
 static const uint REWARD_WIDTH = 40;
 static const uint UI_POS_X = WIN_WIDTH - WALL_WIDTH - 80;
 static const uint UI_SIZE = 25;
-static const uint BUTTON_WIDTH = 300;
-static const uint BUTTON_HEIGHT = 130;
+static const uint BUTTON_WIDTH = 150;
+static const uint BUTTON_HEIGHT = 30;
 
 // Definicion clase padre GAMEOBJECT 
 class GameObject
 {
+protected:
+	// Argumentos de la clase
+	Vector2D pos;
+	int h = 0;
+	int w = 0;
+	Texture* texture = nullptr;
+
 public:
- 
+	//GameObject() {};
+	GameObject(Vector2D position, int height, int width, Texture* _texture) : pos(position), h(height), w(width), texture(_texture) {};
 	virtual void render()const = 0;
 	virtual void update() {};
 	void handleEvent()const {};
 	virtual void loadFromFile(ifstream& loadFile) = 0;
 	virtual void saveToFile(ofstream& saveFile) = 0;
+	
+	SDL_Rect getRect()const;
 };
 
