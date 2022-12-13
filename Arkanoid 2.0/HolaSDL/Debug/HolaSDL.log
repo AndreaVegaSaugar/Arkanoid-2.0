@@ -1,1 +1,292 @@
-﻿
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (HolaSDL.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  ArkanoidObject.cpp
+  Ball.cpp
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Wall.h(15,24): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(24,11): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(25,70): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.h(22,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.h(24,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(27,2): warning C4091: 'static ': ignored on left of 'const TextureNames' when no variable is declared
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.cpp(9,5): error C2248: 'PlayState::collides': cannot access private member declared in class 'PlayState'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(41): message : see declaration of 'PlayState::collides'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(13): message : see declaration of 'PlayState'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.cpp(31,6): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.cpp(31,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Block.cpp
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Wall.h(15,24): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(24,11): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(25,70): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.h(22,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.h(24,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(27,2): warning C4091: 'static ': ignored on left of 'const TextureNames' when no variable is declared
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(8,68): error C2511: 'Block::Block(Vector2D,int,int,int,Texture *,Game *)': overloaded member function not found in 'Block'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(11): message : see declaration of 'Block'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(9,1): error C2550: 'Block::{ctor}': constructor initializer lists are only allowed on constructor definitions
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(10,2): error C2597: illegal reference to non-static member 'Block::color'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(14): message : see declaration of 'Block::color'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(11,2): error C2597: illegal reference to non-static member 'Block::game'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(17): message : see declaration of 'Block::game'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(13,10): error C2597: illegal reference to non-static member 'Block::color'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(14): message : see declaration of 'Block::color'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(13,17): error C2450: a switch expression of type 'unknown' is not valid
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(13,10): message : Integral expression required
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(14,12): error C2597: illegal reference to non-static member 'Block::row'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(15): message : see declaration of 'Block::row'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(14,21): error C2597: illegal reference to non-static member 'Block::col'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(16): message : see declaration of 'Block::col'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(15,12): error C2597: illegal reference to non-static member 'Block::row'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(15): message : see declaration of 'Block::row'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(15,21): error C2597: illegal reference to non-static member 'Block::col'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(16): message : see declaration of 'Block::col'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(16,12): error C2597: illegal reference to non-static member 'Block::row'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(15): message : see declaration of 'Block::row'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(16,21): error C2597: illegal reference to non-static member 'Block::col'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(16): message : see declaration of 'Block::col'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(17,12): error C2597: illegal reference to non-static member 'Block::row'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(15): message : see declaration of 'Block::row'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(17,21): error C2597: illegal reference to non-static member 'Block::col'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(16): message : see declaration of 'Block::col'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(18,12): error C2597: illegal reference to non-static member 'Block::row'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(15): message : see declaration of 'Block::row'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(18,21): error C2597: illegal reference to non-static member 'Block::col'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(16): message : see declaration of 'Block::col'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(19,12): error C2597: illegal reference to non-static member 'Block::row'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(15): message : see declaration of 'Block::row'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(19,21): error C2597: illegal reference to non-static member 'Block::col'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.h(16): message : see declaration of 'Block::col'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(35,52): error C2248: 'PlayState::getWallSize': cannot access private member declared in class 'PlayState'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(44): message : see declaration of 'PlayState::getWallSize'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(13): message : see declaration of 'PlayState'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(35,32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(36,52): error C2248: 'PlayState::getWallSize': cannot access private member declared in class 'PlayState'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(44): message : see declaration of 'PlayState::getWallSize'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(13): message : see declaration of 'PlayState'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Block.cpp(36,32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  BlocksMap.cpp
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(24,11): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(25,70): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Wall.h(15,24): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.h(22,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.h(24,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(27,2): warning C4091: 'static ': ignored on left of 'const TextureNames' when no variable is declared
+  EndState.cpp
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Wall.h(15,24): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(24,11): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(25,70): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.h(22,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.h(24,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(27,2): warning C4091: 'static ': ignored on left of 'const TextureNames' when no variable is declared
+  FileFormatError.cpp
+  Game.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Wall.h(15,24): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(24,11): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(25,70): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.h(22,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.h(24,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(27,2): warning C4091: 'static ': ignored on left of 'const TextureNames' when no variable is declared
+  GameObject.cpp
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameObject.cpp(8,23): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\GameObject.cpp(9,23): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  GameState.cpp
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Wall.h(15,24): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(24,11): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(25,70): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.h(22,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.h(24,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(27,2): warning C4091: 'static ': ignored on left of 'const TextureNames' when no variable is declared
+  GameStateMachine.cpp
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Wall.h(15,24): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(24,11): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(25,70): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.h(22,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.h(24,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(27,2): warning C4091: 'static ': ignored on left of 'const TextureNames' when no variable is declared
+  Life.cpp
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.h(24,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.cpp(19,28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.cpp(20,28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.cpp(24,27): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.cpp(28,32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  main.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Wall.h(15,24): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(24,11): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(25,70): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.h(22,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.h(24,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(27,2): warning C4091: 'static ': ignored on left of 'const TextureNames' when no variable is declared
+  MainMenuState.cpp
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Wall.h(15,24): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(24,11): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(25,70): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.h(22,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.h(24,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(27,2): warning C4091: 'static ': ignored on left of 'const TextureNames' when no variable is declared
+  Menu.cpp
+  MenuButton.cpp
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Wall.h(15,24): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(24,11): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(25,70): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.h(22,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.h(24,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(27,2): warning C4091: 'static ': ignored on left of 'const TextureNames' when no variable is declared
+  MenuGameState.cpp
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Wall.h(15,24): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(24,11): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(25,70): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.h(22,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.h(24,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(27,2): warning C4091: 'static ': ignored on left of 'const TextureNames' when no variable is declared
+  MovingObject.cpp
+  Paddle.cpp
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Wall.h(15,24): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(24,11): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(25,70): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.h(22,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.h(24,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(27,2): warning C4091: 'static ': ignored on left of 'const TextureNames' when no variable is declared
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.cpp(56,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.cpp(57,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.cpp(82,6): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.cpp(82,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  PauseState.cpp
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Wall.h(15,24): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(24,11): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(25,70): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.h(22,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.h(24,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(27,2): warning C4091: 'static ': ignored on left of 'const TextureNames' when no variable is declared
+  PlayState.cpp
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Wall.h(15,24): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(24,11): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(25,70): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.h(22,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.h(24,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(27,2): warning C4091: 'static ': ignored on left of 'const TextureNames' when no variable is declared
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.cpp(75,3): error C2065: 'menuWindow': undeclared identifier
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.cpp(88,34): warning C4551: function call missing argument list
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.cpp(103,4): error C2065: 'menuWindow': undeclared identifier
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.cpp(203,31): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.cpp(229,117): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.cpp(231,117): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.cpp(232,112): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  Compiling...
+  Reward.cpp
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Wall.h(15,24): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(24,11): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(25,70): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.h(22,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.h(24,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(27,2): warning C4091: 'static ': ignored on left of 'const TextureNames' when no variable is declared
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.cpp(17,101): error C2511: 'Reward::Reward(Vector2D,int,int,Vector2D,Texture *,char,int,Game *,int)': overloaded member function not found in 'Reward'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.h(10): message : see declaration of 'Reward'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.cpp(18,1): error C2550: 'Reward::{ctor}': constructor initializer lists are only allowed on constructor definitions
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.cpp(19,2): error C2597: illegal reference to non-static member 'Reward::tipeReward'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.h(13): message : see declaration of 'Reward::tipeReward'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.cpp(20,2): error C2597: illegal reference to non-static member 'Reward::totalCol'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.h(16): message : see declaration of 'Reward::totalCol'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.cpp(21,2): error C2597: illegal reference to non-static member 'Reward::game'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.h(17): message : see declaration of 'Reward::game'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.cpp(22,2): error C2352: 'Reward::setFilCol': illegal call of non-static member function
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.cpp(5): message : see declaration of 'Reward::setFilCol'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Reward.cpp(41,30): error C2248: 'PlayState::rewardType': cannot access private member declared in class 'PlayState'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(45): message : see declaration of 'PlayState::rewardType'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(13): message : see declaration of 'PlayState'
+  Time.cpp
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.h(22,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Wall.h(15,24): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(24,11): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\BlocksMap.h(25,70): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Life.h(24,6): error C2512: 'ArkanoidObject': no appropriate default constructor available
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\ArkanoidObject.h(13,7): message : see declaration of 'ArkanoidObject'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(27,2): warning C4091: 'static ': ignored on left of 'const TextureNames' when no variable is declared
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Time.cpp(21,40): error C2248: 'PlayState::timeLimit': cannot access private member declared in class 'PlayState'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(46): message : see declaration of 'PlayState::timeLimit'
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.h(13): message : see declaration of 'PlayState'
+  Wall.cpp
+C:\Users\witiz\Desktop\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Wall.h(15,24): error C2512: 'ArkanoidObject::ArkanoidObject': no appropriate default constructor available
+  Generating Code...

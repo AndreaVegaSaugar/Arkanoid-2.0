@@ -1,6 +1,6 @@
 #include "PlayState.h"
 
-PlayState::PlayState():GameState(){
+PlayState::PlayState(Game* game, string _playID) : GameState(game), ID(_playID) {
 	//Creamos las paredes
 	leftWall = new Wall(Vector2D(0, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(1, 0));
 	rightWall = new Wall(Vector2D(WIN_WIDTH - WALL_WIDTH, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(-1, 0));

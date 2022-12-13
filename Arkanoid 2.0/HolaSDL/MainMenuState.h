@@ -8,7 +8,7 @@ private:
 	MenuButton* exit = nullptr;
 
 public:
-	MainMenuState(Game* game, string _menuID, Texture* t, Vector2D p, int w, int h, MenuButton* sB, MenuButton* lB, MenuButton* eB);
+	MainMenuState(Game* game, string _menuID, Texture* t, Vector2D p, int w, int h, MenuButton* sB, MenuButton* lB, MenuButton* eB) : MenuGameState(game, _menuID, t, p, w, h), start(sB), load(lB), exit(eB) {};
 	void update();
 	void render();
 	void handleEvents();

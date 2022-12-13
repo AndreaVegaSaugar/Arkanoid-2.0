@@ -16,6 +16,7 @@ private:
 
 	// Estado actual del juego
 	int CurrentState = menu;
+	string ID = "PLAY";
 
 	string levels[NUM_LEVELS] = { { "level01.txt" }, { "level02.txt" }, { "level03.txt" } };
 	// Lista de todos los GameObjects
@@ -29,20 +30,20 @@ private:
 	BlocksMap* map = nullptr;
 	Time* timer = nullptr;
 	Life* life = nullptr;
-	Menu menuWindow;
+	//Menu menuWindow;
 	// Ints de control de juego
 	int level = 0;
 	bool canCollide = true;
 
 
+	PlayState(Game* game, string _playID);
+	~PlayState();
 	bool collides(SDL_Rect destRect, Vector2D& colVector);
 	void loadGame(string nameFile);
 	void newGame();
 	int getWallSize() { return WALL_WIDTH; }
 	void rewardType(char tipo);
 	void timeLimit() { CurrentState = lose; life->lives = 0; }
-	PlayState();
-	~PlayState();
 
 protected:
 	void run();
