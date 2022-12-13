@@ -37,16 +37,16 @@ private:
 	bool canCollide = true;
 	States CurrentState = play;
 
+	PlayState(Game* game, string _playID);
+	~PlayState();
 	bool collides(SDL_Rect destRect, Vector2D& colVector);
 	void loadGame(string nameFile);
 	void newGame();
 	int getWallSize() { return WALL_WIDTH; }
 	void rewardType(char tipo);
-	//void timeLimit() { CurrentState = lose; life->lives = 0; }
+	void timeLimit() { CurrentState = lose; life->lives = 0; }
 	PlayState();
 	~PlayState();
-	static const string s_playID;
-
 
 protected:
 	virtual void render() const;

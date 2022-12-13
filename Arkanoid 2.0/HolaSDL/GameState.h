@@ -11,7 +11,7 @@ protected:
 	Game* game;
 
 public:
-	GameState() {}
+	GameState(Game* g) : game(g) {}
 	virtual void update() = 0;
 	virtual void render() const = 0;
 	virtual void handleEvents() = 0;

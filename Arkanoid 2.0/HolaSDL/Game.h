@@ -28,10 +28,10 @@ enum GameStates {
 };
 
 // Enumerado con el nombre de las texturas del juego
-const enum TextureNames {
+static const enum TextureNames {
 	BallTx = 0, PaddleTx = 1, BrickTx = 2, NumsTx = 3,
 	GameOverTx = 4, SideWallTx = 5, TopWallTx = 6, YouWinTx = 7, Rewards = 8, Heart = 9, Cross = 10, 
-	Title = 11, Start = 12, Load = 13
+	Title = 11, Start = 12, Load = 13, Play = 14, Exit = 15, Main = 16, Resume = 17, Restart = 18
 };
 
 // Estructura que contiene variables para el nombre de las imagenes de la textura y su numero de filas y columnas
@@ -58,7 +58,9 @@ public:
 									 {"../images/digits2.jpeg", 3, 4},{"../images/gameover1.png", 1, 1}, {"../images/side2.png", 1, 1},
 									 {"../images/topside.png", 1, 1}, {"../images/youwin.png", 1, 1} , {"../images/rewards.png", 10, 8},
 									 {"../images/heart.png", 1, 1} , {"../images/cross.png", 1, 1},  {"../images/Title.png", 1, 1},
-									 {"../images/Start.png", 1,1}, { "../images/Load.png", 1, 1 }};
+									 {"../images/Start.png", 1,1}, { "../images/Load.png", 1, 1 }, { "../images/play.png", 1, 3 }, 
+									 { "../images/exit.png", 1, 3 }, { "../images/main.png", 1, 3 }, { "../images/resume.png", 1, 3 },
+									 { "../images/restart.png", 1, 3 } };
 
 	Texture* textures[NUM_TEXTURES];
 
@@ -73,7 +75,7 @@ public:
 	void run();
 	void render() const;
 	void update();
-	GameStateMachine* getStateMachine(){ return gameStateMachine; }
+	GameStateMachine* getStateMachine() { return gameStateMachine; }
 }; 
 
 

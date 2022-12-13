@@ -2,9 +2,19 @@
 #include "MenuGameState.h"
 class MainMenuState: public MenuGameState
 {
+private:
+	MenuButton* start = nullptr;
+	MenuButton* load = nullptr;
+	MenuButton* exit = nullptr;
+
 public:
-	virtual void update();
-	virtual void render() const;
-	virtual void handleEvents() {};
+	MainMenuState(Game* game, string _menuID, Texture* t, Vector2D p, int w, int h, MenuButton* sB, MenuButton* lB, MenuButton* eB) : MenuGameState(game, _menuID, t, p, w, h), start(sB), load(lB), exit(eB) {};
+	void update();
+	void render() const;
+	void handleEvents();
+
+	static void startGame(Game* game);
+	static void loadGame(Game* game);
+	static void exitGame(Game* game);
 };
 

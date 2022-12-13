@@ -1,10 +1,6 @@
 #include "MenuGameState.h"
 const string MenuGameState::s_menuID = "MENU";
-void MenuGameState::update()
+MenuGameState::MenuGameState(Game* game, string _menuID, Texture* t, Vector2D p, int w, int h) : GameState(game), s_menuID(_menuID), textureB(t), posB(p), widthB(w), heightB(h)
 {
-	// nothing for now
-}
-void MenuGameState::render() const
-{
-	// nothing for now
+	rectB.x = 0; rectB.y = 0; rectB.w = w; rectB.h = h; // rectB.x = p.getX(); rectB.y = p.getY(); ??
 }
