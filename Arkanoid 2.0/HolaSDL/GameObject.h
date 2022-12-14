@@ -45,8 +45,8 @@ public:
 	virtual void render()const = 0;
 	virtual void update() {};
 	void handleEvent()const {};
-	virtual void loadFromFile(ifstream& loadFile) = 0;
-	virtual void saveToFile(ofstream& saveFile) = 0;
+	//virtual void loadFromFile(ifstream& loadFile) = 0;
+	//virtual void saveToFile(ofstream& saveFile) = 0;
 	
 	SDL_Rect getRect()const;
 };
