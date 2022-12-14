@@ -40,9 +40,9 @@ void Game::run()
 {
 	while (!exit)
 	{
-		render();
-		update();
 		handleEvents();
+		update();
+		render();
 	}
 }
 
