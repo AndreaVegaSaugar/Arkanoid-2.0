@@ -9,12 +9,13 @@ class MenuButton : public GameObject
 {
 private:
 	CallBack* function;
+	void (*callback) ();
 	SDL_Rect buttonRect;
 	int row = 0;
 	int col = 0;
 
 public:
-	MenuButton(Vector2D position, int height, int width, Texture* _texture, SDL_Rect bR, CallBack* funct, int r, int c) : GameObject(position, height, width, _texture), buttonRect(bR), function(funct), row(r), col(c) {};
+	MenuButton(Vector2D position, int height, int width, Texture* _texture, SDL_Rect bR, void (*callback) (), int r, int c) : GameObject(position, height, width, _texture), buttonRect(bR), callback(callback), row(r), col(c) {};
 	void render() const;
 	void handleEvents() const;
 };

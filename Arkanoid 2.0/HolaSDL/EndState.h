@@ -1,18 +1,14 @@
 #pragma once
 #include "MenuGameState.h"
+#include "PauseState.h"
+#include "PlayState.h"
+#include "MainMenuState.h"
+#include "Game.h"
 class EndState : public MenuGameState
 {
-private:
-	MenuButton* MainMenu;
-	MenuButton* exit;
-
 public:
-	EndState(Game* game, string _menuID, Texture* t, Vector2D p, int w, int h, MenuButton* mB, MenuButton* eB) : MenuGameState(game, _menuID, t, p, w, h), MainMenu(mB), exit(eB) {};
-	void update();
-	void render();
-	void handleEvents();
-
-	static void goToMainMenu(Game* game);
-	static void exitGame(Game* game);
+	EndState(Game* game) : MenuGameState(game) {};
+	void goToMainMenu(Game* game);
+	void exitGame(Game* game);
 };
 

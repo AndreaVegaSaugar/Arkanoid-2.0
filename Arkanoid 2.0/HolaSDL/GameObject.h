@@ -40,7 +40,7 @@ protected:
 	Texture* texture = nullptr;
 
 public:
-	//GameObject() {};
+	GameObject() {};
 	GameObject(Vector2D position, int height, int width, Texture* _texture) : pos(position), h(height), w(width), texture(_texture) {};
 	virtual void render()const = 0;
 	virtual void update() {};

@@ -1,7 +1,5 @@
 #include "PlayState.h"
-
-PlayState::PlayState(Game* game, string _playID) : GameState(game), ID(_playID) {
-	//Creamos las paredes
+PlayState::PlayState(Game* game):GameState(game){//Creamos las paredes
 	leftWall = new Wall(Vector2D(0, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(1, 0));
 	rightWall = new Wall(Vector2D(WIN_WIDTH - WALL_WIDTH, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(-1, 0));
 	topWall = new Wall(Vector2D(0, 0), WALL_WIDTH, WIN_WIDTH, game->textures[TopWallTx], Vector2D(0, 1));
@@ -55,7 +53,7 @@ void PlayState::update()
 }
 
 // Renderiza todos los GameObjects y texturas correspondientes segun el estado del juego
-void PlayState::render() {
+void PlayState::render() const{
 
 	if (CurrentState == win && level >= (NUM_LEVELS - 1))
 	{
@@ -71,9 +69,6 @@ void PlayState::render() {
 		rect.w = WIN_WIDTH; rect.h = WIN_HEIGHT;
 		game->textures[GameOverTx]->render(rect);
 	}
-	else if (CurrentState == menu) {
-		menuWindow.render();
-	}
 	else
 	{
 		for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
@@ -87,17 +82,16 @@ void PlayState::handleEvents() {
 	SDL_Event event;
 	while (SDL_PollEvent(&event) && !exit) {
 		if (event.type == SDL_QUIT) game->exit = true;
-		if ((CurrentState == play || CurrentState == pause) && event.type == SDL_KEYDOWN) {
+		if ((CurrentState == play ) && event.type == SDL_KEYDOWN) {
 			if (event.key.keysym.sym == SDLK_s) {
 				string saveCode;
 				cout << "Introduce the code to save game: ";
 				cin >> saveCode;
 				saveToFile(saveCode);
 			}
-			if (event.key.keysym.sym == SDLK_p && CurrentState != pause) CurrentState = pause;
-			else if (event.key.keysym.sym == SDLK_p && CurrentState == pause) CurrentState = play;
+			if (event.key.keysym.sym == SDLK_p) game->gameStateMachine->changeState(new PauseState(game));
 		}
-		else if (CurrentState == menu) {
+		/*else if (CurrentState == menu) {
 			string file;
 			char optionButton;
 			menuWindow.handleEvents(event, file, optionButton);
@@ -116,7 +110,7 @@ void PlayState::handleEvents() {
 					newGame();
 				}
 			}
-		}
+		}*/
 		if (CurrentState == play) paddle->handleEvents(event);
 	}
 }

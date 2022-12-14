@@ -1,19 +1,19 @@
 #pragma once
 #include <list>
-#include "ArkanoidObject.h"
-#include "Game.h"
+#include "GameObject.h"
+#include "Texture.h"
+#include "Vector2D.h"
 using namespace std;
-//class Game;
+class Game;
 class GameState
 {
 protected:
-	list<ArkanoidObject*> arkanoidObjectList;
+	list<GameObject*> gameObjects;
 	Game* game;
+	GameState(Game* g): game(g) {}
 public:
-	GameState(Game* g) : game(g) {};
-	virtual void update() = 0;
-	virtual void render() const = 0;
-	virtual void handleEvents() const = 0;
-	virtual string getStateID() const = 0;
+	virtual void update() {};
+	virtual void render() const {};
+	virtual void handleEvents() {};
 };
 

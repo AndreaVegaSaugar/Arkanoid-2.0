@@ -1,23 +1,22 @@
 #pragma once
 #include <SDL_image.h>
 #include "checkML.h"
-#include "Texture.h"
-#include "Ball.h"
-#include "Paddle.h"
-#include "Wall.h"
-#include "BlocksMap.h"
-#include "Vector2D.h"
-#include "Reward.h"
-#include "Time.h"
 #include <string>
 #include <list>
-#include "Life.h"
-#include "Menu.h"
+#include "GameStateMachine.h"
+#include "MainMenuState.h"
 
 using namespace std;
 
 using uint = unsigned int;
 
+//Enumerado de estados del juego
+enum GameStates { 
+	PLAY = 0,
+	PAUSE = 1,
+	END = 2,
+	MENU = 3
+};
 
 // Enumerado con el nombre de las texturas del juego
 static const enum TextureNames {
@@ -25,9 +24,6 @@ static const enum TextureNames {
 	GameOverTx = 4, SideWallTx = 5, TopWallTx = 6, YouWinTx = 7, Rewards = 8, Heart = 9, Cross = 10, 
 	Title = 11, Start = 12, Load = 13, Play = 14, Exit = 15, Main = 16, Resume = 17, Restart = 18
 };
-//
-//// Enumerado de estados de juego
-//enum GameStates {play, lose, win, menu, pause};
 
 // Estructura que contiene variables para el nombre de las imagenes de la textura y su numero de filas y columnas
 struct Textures
@@ -58,52 +54,20 @@ public:
 									 { "../images/restart.png", 1, 3 } };
 
 	Texture* textures[NUM_TEXTURES];
-	//string levels[NUM_LEVELS] = { { "level01.txt" }, { "level02.txt" }, { "level03.txt" } };
-	//// Lista de todos los GameObjects
-	//list<ArkanoidObject*> gameObjects;
-	//list<ArkanoidObject*>::iterator rewardIterator;
-	//Texture* textures[NUM_TEXTURES];
-	//Ball* ball = nullptr;
-	//Paddle* paddle = nullptr;
-	//Wall* topWall = nullptr;
-	//Wall* leftWall = nullptr;
-	//Wall* rightWall = nullptr;
-	//BlocksMap* map = nullptr;
-	//Time* timer = nullptr;
-	//Life* life = nullptr;
-	//Menu menuWindow;
-	//// Ints de control de juego
-	//int level = 0;
-	//bool canCollide = true;
 
+	// Estado actual del juego
+	GameStateMachine* gameStateMachine = nullptr;
 
 public:
 	//Constructuctora y destructora de Game
 	Game();
 	~Game();
 
-	// Metodos publicos de la clase
 	void run();
-	void render();
-	void handleEvents();
+	void render() const;
 	void update();
-
-	Texture* getTexture(int tx) { return textures[tx]; }
-	/*bool collides(SDL_Rect destRect, Vector2D& colVector);
-	void loadGame(string nameFile);
-	void newGame();
-	int getWallSize() { return WALL_WIDTH; }
-	void rewardType(char tipo);
-	void timeLimit() { CurrentState = lose; life->lives = 0; }
-	
-
-protected:
-	void winLevel();
-	void nextLevel();
-	void restartLevel();
-	void load();
-	void generateRewards(Vector2D posAux);
-	void saveToFile(string code);*/
+	void handleEvents();
+	GameStateMachine* getStateMachine() { return gameStateMachine; }
 }; 
 
 

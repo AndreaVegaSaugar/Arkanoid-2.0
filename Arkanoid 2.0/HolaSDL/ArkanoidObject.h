@@ -14,7 +14,7 @@ class ArkanoidObject : public GameObject
 {
 public:
 	//Constructora y destructora 
-	//ArkanoidObject() {};
+	ArkanoidObject():GameObject() {};
 	ArkanoidObject(Vector2D position, int height, int width, Texture* _texture) : GameObject(position, height, width, _texture) {};
 
 	// Métodos
