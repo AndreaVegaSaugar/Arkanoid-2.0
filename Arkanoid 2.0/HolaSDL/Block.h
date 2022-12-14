@@ -16,7 +16,7 @@ private:
 	int col = 0;
 	PlayState* game = nullptr;
 
-public:
+public: //no se si esto deberia ser protected
 	// Constructora de la clase
 	Block(Vector2D p, int h, int w, int c, Texture* t, PlayState* g);
 	

@@ -25,6 +25,7 @@ Game::Game() {
 		}
 	}
 	gameStateMachine = new GameStateMachine();
+	gameStateMachine->pushState(new MainMenuState(this));
 }
 
 //Destructora de la clase
@@ -35,25 +36,28 @@ Game::~Game() {
 	SDL_Quit();
 }
 
-// Bucle principal del juego, que incluye un manejo basico del tiempo
 void Game::run()
 {
-	uint32_t startTime, frameTime;
 	while (!exit)
 	{
-		if (gameStateMachine->currentState() != nullptr) {
-			startTime = SDL_GetTicks();
-			gameStateMachine->currentState()->handleEvents();
-		}
+		render();
+		update();
+		handleEvents();
 	}
 }
+
 void Game::render() const
 {
 	SDL_RenderClear(renderer);
 	gameStateMachine->currentState()->render();
 	SDL_RenderPresent(renderer);
 }
+
 void Game::update()
 {
 	gameStateMachine->currentState()->update();
+}
+
+void Game::handleEvents() {
+	gameStateMachine->currentState()->handleEvents();
 }

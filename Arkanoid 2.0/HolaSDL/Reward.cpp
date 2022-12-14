@@ -14,7 +14,7 @@ void Reward::setFilCol()
 }
 
 // Constructora de la clase
-Reward::Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int tC, Game* g, int s) : MovingObject(p, h, w, t, d, s)
+Reward::Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int tC, PlayState* g, int s) : MovingObject(p, h, w, t, d, s)
 {
 	tipeReward = tipo;
 	totalCol = tC;

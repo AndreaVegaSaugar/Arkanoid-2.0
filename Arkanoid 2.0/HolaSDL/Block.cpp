@@ -5,7 +5,7 @@
 using namespace std;
 
 // Constructora de la clase
-Block::Block(Vector2D p, int h, int w, int c, Texture* t, Game* g) : ArkanoidObject(p, h, w, t)
+Block::Block(Vector2D p, int h, int w, int c, Texture* t, PlayState* g) : ArkanoidObject(p, h, w, t)
 {
 	color = c;
 	game = g;
@@ -13,7 +13,7 @@ Block::Block(Vector2D p, int h, int w, int c, Texture* t, Game* g) : ArkanoidObj
 	switch (color) {
 	case 1: { row = 0; col = 0; }break;
 	case 2: { row = 0; col = 1; }break;
-	case 3: { row = 0; col = 2; }break;
+	case 3: { row = 0; col = 2; }break;  
 	case 4: { row = 1; col = 0; }break;
 	case 5: { row = 1; col = 1; }break;
 	case 6: { row = 1; col = 2; }break;

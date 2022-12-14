@@ -1,19 +1,10 @@
 #pragma once
 #include <SDL_image.h>
 #include "checkML.h"
-#include "Texture.h"
-#include "Ball.h"
-#include "Paddle.h"
-#include "Wall.h"
-#include "BlocksMap.h"
-#include "Vector2D.h"
-#include "Reward.h"
-#include "Time.h"
 #include <string>
 #include <list>
-#include "Life.h"
-#include "Menu.h"
 #include "GameStateMachine.h"
+#include "MainMenuState.h"
 
 using namespace std;
 
@@ -75,6 +66,7 @@ public:
 	void run();
 	void render() const;
 	void update();
+	void handleEvents();
 	GameStateMachine* getStateMachine() { return gameStateMachine; }
 }; 
 

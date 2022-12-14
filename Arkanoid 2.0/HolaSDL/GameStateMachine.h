@@ -1,9 +1,8 @@
 #pragma once
-#include "GameState.h"
-#include "MainMenuState.h"
 #include <stack>
 
 using namespace std;
+class GameState;
 class GameStateMachine
 {
 private:
@@ -17,7 +16,5 @@ public:
 	void pushState(GameState* pState);
 	void changeState(GameState* pState);
 	void popState();
-
-	GameStateMachine();
 };
 

@@ -1,5 +1,5 @@
 #include "MainMenuState.h"
-
+#include "Game.h"/*
 void MainMenuState::update()
 {
 
@@ -16,7 +16,7 @@ void MainMenuState::render()
 void MainMenuState::handleEvents()
 {
 
-}
+}*/
 
 void MainMenuState::startGame(Game* game)
 {

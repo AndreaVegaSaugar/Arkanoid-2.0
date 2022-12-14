@@ -10,6 +10,8 @@
 #include "PauseState.h"
 #include "EndState.h"
 #include "MainMenuState.h"
+#include "Reward.h"
+#include "Game.h"
 
 class PlayState :public GameState
 {
@@ -22,6 +24,8 @@ private:
 
 	string levels[NUM_LEVELS] = { { "level01.txt" }, { "level02.txt" }, { "level03.txt" } };
 	// Lista de todos los GameObjects
+	//Menu menuWindow;
+	// Ints de control de juego
 	list<GameObject*>::iterator rewardIterator;
 	Ball* ball = nullptr;
 	Paddle* paddle = nullptr;
@@ -31,28 +35,24 @@ private:
 	BlocksMap* map = nullptr;
 	Time* timer = nullptr;
 	Life* life = nullptr;
-	//Menu menuWindow;
-	// Ints de control de juego
 	int level = 0;
 	bool canCollide = true;
 	States CurrentState = play;
-
-	PlayState(Game* game, string _playID);
+	string playID;
+	PlayState(Game* game);
 	~PlayState();
+
+public://No se si tiene que ser protected
 	bool collides(SDL_Rect destRect, Vector2D& colVector);
 	void loadGame(string nameFile);
 	void newGame();
-	int getWallSize() { return WALL_WIDTH; }
 	void rewardType(char tipo);
 	void timeLimit() { CurrentState = lose; life->lives = 0; }
-	PlayState();
-	~PlayState();
-
-protected:
 	virtual void render() const;
 	virtual void handleEvents();
 	virtual void update();
-	virtual string getStateID() const { return s_playID; }
+	//virtual string getStateID() const { return playID; }
+	int getWallSize() { return WALL_WIDTH; }
 	
 	
 	void winLevel();
