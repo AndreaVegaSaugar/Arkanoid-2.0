@@ -1,4 +1,5 @@
 #include "PlayState.h"
+
 PlayState::PlayState(Game* game):GameState(game){//Creamos las paredes
 	leftWall = new Wall(Vector2D(0, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(1, 0));
 	rightWall = new Wall(Vector2D(WIN_WIDTH - WALL_WIDTH, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(-1, 0));
@@ -40,7 +41,7 @@ PlayState::~PlayState() {
 // Actualiza el estado del juego y todos sus GameObjects segun el estado
 void PlayState::update()
 {
-	if (CurrentState == win && level < (NUM_LEVELS - 1)) nextLevel();
+	/*if (CurrentState == win && level < (NUM_LEVELS - 1)) nextLevel();
 	else if (CurrentState == lose && life->lives > 1) restartLevel();
 	else if (CurrentState == play)
 	{
@@ -49,7 +50,7 @@ void PlayState::update()
 			if (*it == nullptr) it = gameObjects.erase(it);
 			else ++it;
 		}
-	}
+	}*/
 }
 
 // Renderiza todos los GameObjects y texturas correspondientes segun el estado del juego
