@@ -2,5 +2,11 @@
 
 MenuGameState::MenuGameState(Game* game): GameState(game)
 {
-	//rectB.x = 0; rectB.y = 0; rectB.w = w; rectB.h = h; // rectB.x = p.getX(); rectB.y = p.getY(); ??
+	rectBack.x = 0; rectBack.y = 0; rectBack.w = WIN_WIDTH; rectBack.h = WIN_HEIGHT;
+}
+
+void MenuGameState::render() const {
+	// Si falla el pause poner if de si backgroud es igual a null
+	background->render(rectBack);
+	GameState::render();
 }

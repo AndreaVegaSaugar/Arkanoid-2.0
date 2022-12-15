@@ -9,7 +9,6 @@
 using namespace std;
 
 using uint = unsigned int;
-
 //Enumerado de estados del juego
 enum GameStates { 
 	PLAY = 0,
@@ -34,10 +33,10 @@ struct Textures
 };
 
 class Game {
-public:
+private:
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
-
+public:
 	//// Estado actual del juego
 	//int CurrentState = menu;
 
@@ -68,6 +67,7 @@ public:
 	void update();
 	void handleEvents();
 	GameStateMachine* getStateMachine() { return gameStateMachine; }
+	Texture* getTexture(int tx) { return textures[tx]; }
 }; 
 
 

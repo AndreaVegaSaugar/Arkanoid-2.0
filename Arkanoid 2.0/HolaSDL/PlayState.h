@@ -39,10 +39,10 @@ private:
 	bool canCollide = true;
 	States CurrentState = play;
 	string playID;
-	PlayState(Game* game);
-	~PlayState();
 
 public://No se si tiene que ser protected
+	PlayState(Game* game);
+	~PlayState();
 	bool collides(SDL_Rect destRect, Vector2D& colVector);
 	void loadGame(string nameFile);
 	void newGame();
