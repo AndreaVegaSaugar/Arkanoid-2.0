@@ -7,8 +7,8 @@
 class EndState : public MenuGameState
 {
 public:
-	EndState(Game* game) : MenuGameState(game) {};
-	void goToMainMenu(Game* game);
-	void exitGame(Game* game);
+	EndState(Game* game);
+	static void goToMainMenu(Game* game);
+	static void exitGame(Game* game);
 };
 

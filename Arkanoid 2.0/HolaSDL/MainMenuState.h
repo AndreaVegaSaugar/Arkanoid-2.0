@@ -11,11 +11,12 @@ private:
 	//MenuButton* load = nullptr;
 	//MenuButton* exit = nullptr;
 
-public:
-	MainMenuState(Game* game): MenuGameState(game){};
 
-	static void startGame(Game* game);
-	static void loadGame(Game* game);
-	static void exitGame(Game* game);
+public:
+	MainMenuState(Game* game);
+
+	static void startGame(Game* g);
+	static void loadGame(Game* g);
+	static void exitGame(Game* g);
 };
 

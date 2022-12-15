@@ -14,8 +14,8 @@ private:
 public:
 	PauseState(Game* game) : MenuGameState(game){};
 
-	static void resumeGame(Game* game);
-	static void saveGame(Game* game);
-	static void goToMainMenu(Game* game);
+	static void resumeGame(Game* game) {};
+	static void saveGame(Game* game){};
+	static void goToMainMenu(Game* game) {};
 };
 
