@@ -11,8 +11,8 @@
 #include "EndState.h"
 #include "MainMenuState.h"
 #include "Reward.h"
-#include "Game.h"
 
+class Game;
 class PlayState :public GameState
 {
 	enum States {
@@ -48,9 +48,6 @@ public://No se si tiene que ser protected
 	void newGame();
 	void rewardType(char tipo);
 	void timeLimit() { CurrentState = lose; life->lives = 0; }
-	virtual void render() const;
-	virtual void handleEvents();
-	virtual void update();
 	//virtual string getStateID() const { return playID; }
 	int getWallSize() { return WALL_WIDTH; }
 	

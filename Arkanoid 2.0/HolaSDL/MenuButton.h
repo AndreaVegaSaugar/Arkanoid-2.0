@@ -13,7 +13,7 @@ private:
 public:
 	MenuButton(Game* _game, Vector2D position, int height, int width, Texture* _texture, void(*_callback) (Game* game));
 	void render() const;
-	void handleEvent() const;
+	void handleEvent();
 	
 };
 

@@ -16,7 +16,7 @@ void MenuButton::render() const
 	texture->renderFrame(getRect(), row, col);
 }
 
-void MenuButton::handleEvent() const
+void MenuButton::handleEvent()
 {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {  // no estoy segura de este while, maybe hay que pasarle un evento como al del menu

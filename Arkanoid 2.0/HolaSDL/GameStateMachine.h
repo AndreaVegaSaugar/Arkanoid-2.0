@@ -7,10 +7,11 @@ class GameStateMachine
 {
 private:
 	stack<GameState*> gameStateStack;
+	GameState* current = nullptr;
 
 public: 
 	GameState* currentState() {
-		if (!gameStateStack.empty()) return gameStateStack.top();
+		if (!gameStateStack.empty()) return current;
 		else return nullptr;
 	}
 	void pushState(GameState* pState);

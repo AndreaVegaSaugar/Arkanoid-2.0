@@ -1,5 +1,5 @@
 #include "MainMenuState.h"
-#include "Game.h"
+
 MainMenuState::MainMenuState(Game* game) :MenuGameState(game) {
 	gameObjects.push_back(new MenuButton(game, Vector2D(100, 170), 50, 50, game->getTexture(Load), loadGame));
 	gameObjects.push_back(new MenuButton(game, Vector2D(100, 100), 50, 50, game->getTexture(Play), startGame));

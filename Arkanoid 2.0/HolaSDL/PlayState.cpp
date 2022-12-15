@@ -1,4 +1,5 @@
 #include "PlayState.h"
+#include "Game.h"
 
 PlayState::PlayState(Game* game):GameState(game){//Creamos las paredes
 	leftWall = new Wall(Vector2D(0, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(1, 0));
@@ -31,88 +32,12 @@ PlayState::PlayState(Game* game):GameState(game){//Creamos las paredes
 	gameObjects.push_back(map);
 
 	rewardIterator = --gameObjects.end();
+	map->loadMap(levels[level]);
 }
 PlayState::~PlayState() {
 	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)
 	{
 		delete* it;
-	}
-}
-// Actualiza el estado del juego y todos sus GameObjects segun el estado
-void PlayState::update()
-{
-	/*if (CurrentState == win && level < (NUM_LEVELS - 1)) nextLevel();
-	else if (CurrentState == lose && life->lives > 1) restartLevel();
-	else if (CurrentState == play)
-	{
-		for (auto it = gameObjects.begin(); it != gameObjects.end();) {
-			(*it)->update();
-			if (*it == nullptr) it = gameObjects.erase(it);
-			else ++it;
-		}
-	}*/
-}
-
-// Renderiza todos los GameObjects y texturas correspondientes segun el estado del juego
-void PlayState::render() const{
-
-	if (CurrentState == win && level >= (NUM_LEVELS - 1))
-	{
-		SDL_Rect rect;
-		rect.x = 0; rect.y = 0;
-		rect.w = WIN_WIDTH; rect.h = WIN_HEIGHT;
-		game->textures[YouWinTx]->render(rect);
-	}
-	else if (CurrentState == lose && life->lives <= 1)
-	{
-		SDL_Rect rect;
-		rect.x = 0; rect.y = 0;
-		rect.w = WIN_WIDTH; rect.h = WIN_HEIGHT;
-		game->textures[GameOverTx]->render(rect);
-	}
-	else
-	{
-		for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
-			(*it)->render();
-		}
-	}
-}
-
-// Controlar los eventos del juego segun el estado de este
-void PlayState::handleEvents() {
-	SDL_Event event;
-	while (SDL_PollEvent(&event) && !exit) {
-		if (event.type == SDL_QUIT) game->exit = true;
-		if ((CurrentState == play ) && event.type == SDL_KEYDOWN) {
-			if (event.key.keysym.sym == SDLK_s) {
-				string saveCode;
-				cout << "Introduce the code to save game: ";
-				cin >> saveCode;
-				saveToFile(saveCode);
-			}
-			if (event.key.keysym.sym == SDLK_p) game->gameStateMachine->changeState(new PauseState(game));
-		}
-		/*else if (CurrentState == menu) {
-			string file;
-			char optionButton;
-			menuWindow.handleEvents(event, file, optionButton);
-			if (optionButton == 'n') newGame();
-			else if (optionButton == 'l')
-			{
-				try {
-					loadGame(file);
-				}
-				catch (FileFormatError e) {
-					cout << e.what() << endl;
-				}
-				catch (FileNotFoundError e) {
-					cout << e.what() << endl;
-					cout << "We couldn't find a save file with that name so we will start a new game for you";
-					newGame();
-				}
-			}
-		}*/
-		if (CurrentState == play) paddle->handleEvents(event);
 	}
 }
 

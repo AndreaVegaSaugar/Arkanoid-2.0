@@ -25,7 +25,7 @@ Game::Game() {
 		}
 	}
 	gameStateMachine = new GameStateMachine();
-	gameStateMachine->pushState(new MainMenuState(this));
+	gameStateMachine->pushState(new PlayState(this));
 }
 
 //Destructora de la clase
@@ -38,10 +38,16 @@ Game::~Game() {
 
 void Game::run()
 {
+	uint32_t startTime, frameTime;
+	startTime = SDL_GetTicks();
 	while (!exit)
 	{
 		handleEvents();
-		update();
+		frameTime = SDL_GetTicks() - startTime;
+		if (frameTime >= FRAME_RATE) {
+			update();
+			startTime = SDL_GetTicks();
+		}
 		render();
 	}
 }

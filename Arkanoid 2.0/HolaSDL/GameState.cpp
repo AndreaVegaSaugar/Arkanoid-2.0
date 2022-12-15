@@ -16,6 +16,7 @@ void GameState::render() const {
 };
 
 void GameState::handleEvents() {
+
 	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
 		(*it)->handleEvent();
 	}
