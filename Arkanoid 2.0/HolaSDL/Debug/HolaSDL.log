@@ -1,3 +1,10 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: El directorio intermedio (Debug\) contiene archivos compartidos de otro proyecto (HolaSDL.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
-  MenuGameState.cpp
+  PlayState.cpp
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Ball.h(18,113): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Paddle.h(21,129): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\Game.h(25,2): warning C4091: 'static ': se ha omitido a la izquierda de 'const TextureNames' cuando no hay ninguna variable declarada
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.cpp(122,31): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.cpp(148,117): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.cpp(150,117): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\HolaSDL\PlayState.cpp(151,112): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
   HolaSDL.vcxproj -> C:\Users\claud\OneDrive\Documentos\Arkanoid-2.0\Arkanoid 2.0\bin\Arkanoid 2.0Debug.exe

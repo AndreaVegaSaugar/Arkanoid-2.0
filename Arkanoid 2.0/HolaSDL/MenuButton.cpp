@@ -16,18 +16,15 @@ void MenuButton::render() const
 	texture->renderFrame(getRect(), row, col);
 }
 
-void MenuButton::handleEvent() const
+void MenuButton::handleEvent(SDL_Event event)
 {
-	SDL_Event event;
-	while (SDL_PollEvent(&event)) {  // no estoy segura de este while, maybe hay que pasarle un evento como al del menu
-		SDL_Point mousePos;
-		SDL_GetMouseState(&mousePos.x, &mousePos.y);
-		if (SDL_PointInRect(&mousePos, &getRect())) {
-			// cambiar fila de la textura, not sure porque es un metodo const
-			if (event.type == SDL_MOUSEBUTTONDOWN) {
-				callback(g);
-			}
-			
+	SDL_Point mousePos;
+	SDL_GetMouseState(&mousePos.x, &mousePos.y);
+	if (SDL_PointInRect(&mousePos, &getRect())) {
+		// cambiar fila de la textura, not sure porque es un metodo const
+		if (event.type == SDL_MOUSEBUTTONDOWN) {
+			callback(g);
 		}
+			
 	}
 }

@@ -59,5 +59,10 @@ void Game::update()
 }
 
 void Game::handleEvents() {
-	gameStateMachine->currentState()->handleEvents();
+	SDL_Event event;
+	while (SDL_PollEvent(&event) && !exit) {
+		gameStateMachine->currentState()->handleEvent(event);
+		if (event.type == SDL_QUIT)
+			exit = true;
+	}
 }

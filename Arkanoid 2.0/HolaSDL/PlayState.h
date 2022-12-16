@@ -48,9 +48,7 @@ public://No se si tiene que ser protected
 	void newGame();
 	void rewardType(char tipo);
 	void timeLimit() { CurrentState = lose; life->lives = 0; }
-	virtual void render() const;
-	virtual void handleEvents();
-	virtual void update();
+	virtual void render() const {};
 	//virtual string getStateID() const { return playID; }
 	int getWallSize() { return WALL_WIDTH; }
 	

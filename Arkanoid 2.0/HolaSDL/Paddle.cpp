@@ -21,7 +21,7 @@ void Paddle::update()
 }
 
 // Controla el input del teclado para el movimiento del paddle
-void Paddle::handleEvents(SDL_Event event) // cambiar a singular
+void Paddle::handleEvent(SDL_Event event) // cambiar a singular
 {
 	if (event.type == SDL_KEYDOWN) {
 		if (event.key.keysym.sym == SDLK_LEFT) dir = Vector2D(-1, 0);

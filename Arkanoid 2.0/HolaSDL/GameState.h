@@ -15,6 +15,6 @@ protected:
 public:
 	virtual void update();
 	virtual void render() const;
-	virtual void handleEvents();
+	virtual void handleEvent(SDL_Event event);
 };
 
