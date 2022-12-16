@@ -38,10 +38,16 @@ Game::~Game() {
 
 void Game::run()
 {
+	uint32_t startTime, frameTime;
+	startTime = SDL_GetTicks();
 	while (!exit)
 	{
 		handleEvents();
-		update();
+		frameTime = SDL_GetTicks() - startTime;
+		if (frameTime >= FRAME_RATE) {
+			update();
+			startTime = SDL_GetTicks();
+		}
 		render();
 	}
 }
