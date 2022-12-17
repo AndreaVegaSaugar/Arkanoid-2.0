@@ -1,7 +1,7 @@
 #pragma once
 using uint = unsigned int;
 //Constantes del juego
-const uint NUM_TEXTURES = 19;
+const uint NUM_TEXTURES = 20;
 const uint WIN_WIDTH = 800;
 const uint WIN_HEIGHT = 600;
 const uint WALL_WIDTH = 14;
