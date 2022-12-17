@@ -15,11 +15,12 @@
 
 class PlayState :public GameState
 {
+	
 private:
 
 	string levels[NUM_LEVELS] = { { "level01.txt" }, { "level02.txt" }, { "level03.txt" } };
 	// Lista de todos los GameObjects
-	//Menu menuWindow;
+
 	// Ints de control de juego
 	list<GameObject*>::iterator rewardIterator;
 	Ball* ball = nullptr;
@@ -49,8 +50,6 @@ public://No se si tiene que ser protected
 	void ballSize();
 	void extraLives();
 	void update();
-	void handleEvent(SDL_Event event);
-	
 	void winLevel();
 	void nextLevel();
 	void restartLevel();

@@ -36,24 +36,15 @@ PlayState::PlayState(Game* game, string current):GameState(game){//Creamos las p
 	if (current == " ") newGame();
 	else loadGame(current);
 }
-
 PlayState::~PlayState() {
 	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)
 	{
 		delete* it;
 	}
 }
-
-void PlayState::update() {
+void PlayState::update() { //462, 100
 	if (erased) nextLevel();
 	GameState::update();
-}
-
-void PlayState::handleEvent(SDL_Event event) {
-	GameState::handleEvent(event);
-	if (event.type == SDL_KEYDOWN) {
-		if (event.key.keysym.sym == SDLK_ESCAPE) game->gameStateMachine->pushState(new PauseState(game));
-	}
 }
 
 // Comprueba si el jugador ha ganado la partida
@@ -68,7 +59,15 @@ void PlayState::winLevel() {
 void PlayState::restartLevel()
 {
 	--life->lives;
-	if(life->lives <= 0)  game->gameStateMachine->changeState(new EndState(game));
+	auto it = rewardIterator;
+	++it;
+	for (; it != gameObjects.end();) {
+		delete* it;
+		*it = nullptr;
+		it = gameObjects.erase(it);
+	}
+	rewardIterator = --gameObjects.end();
+	if(life->lives <= 0)  game->gameStateMachine->changeState(new EndState(game, 'l'));
 	else load();
 }
 
@@ -78,25 +77,21 @@ void PlayState::nextLevel()
 	if (level < (NUM_LEVELS - 1)) {
 		auto it = rewardIterator;
 		for (; it != gameObjects.end();) {
-			//if (*it == nullptr) it = gameObjects.erase(it);
-			//else {
-				delete* it;
-				*it = nullptr;
-				it = gameObjects.erase(it);
-			//}
+			delete* it;
+			*it = nullptr;
+			it = gameObjects.erase(it);
 		}
-
 		life->resetLife();
 		++level;
 		timer->resetTime();
 		map = new BlocksMap(MAP_HEIGHT, MAP_WIDTH, game->textures[BrickTx], this);
 		gameObjects.push_back(map);
-		rewardIterator = --gameObjects.end();
 		map->loadMap(levels[level]);
+		rewardIterator = --gameObjects.end();
 		load();
 		erased = false;
 	}
-	else game->gameStateMachine->changeState(new EndState(game));
+	else game->gameStateMachine->changeState(new EndState(game, 'w'));
 }
 
 // Reinicia el tamaño y la posicion del paddle y la bola
@@ -244,6 +239,7 @@ void PlayState::destroyReward(Reward* _reward) {
 				delete* it;
 				*it = nullptr;
 				found = true;
+
 			}
 		}
 		else ++it;
