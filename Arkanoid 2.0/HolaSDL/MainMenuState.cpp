@@ -8,14 +8,27 @@ MainMenuState::MainMenuState(Game* game) :MenuGameState(game) {
 }
 
  void MainMenuState::startGame(Game* g) {
-	 cout << "StartGame" << endl;
-     g->gameStateMachine->changeState(new PlayState(g));
+     g->gameStateMachine->changeState(new PlayState(g, " "));
 };
 
  void MainMenuState::loadGame(Game* g) {
-	 cout << "LoadGame" << endl;
+	 string file;
+	 cout << "Introduce code of your last game: ";
+	 cin >> file;
+	 try {
+		 g->gameStateMachine->changeState(new PlayState(g, file));
+	 }
+	 catch (FileFormatError e) {
+		 cout << e.what() << endl;
+	 }
+	 catch (FileNotFoundError e) {
+		 cout << e.what() << endl;
+		 cout << "We couldn't find a save file with that name so we will start a new game for you";
+	     g->gameStateMachine->changeState(new PlayState(g, " "));
+	 }
+	
  }
 
  void MainMenuState::exitGame(Game* g) {
-	 cout << "ExitGame" << endl;
+	 g->exitGame();
  }

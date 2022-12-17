@@ -1,6 +1,7 @@
 #include "PlayState.h"
 
-PlayState::PlayState(Game* game):GameState(game){//Creamos las paredes
+PlayState::PlayState(Game* game, string current):GameState(game){//Creamos las paredes
+	//Creamos paredes
 	leftWall = new Wall(Vector2D(0, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(1, 0));
 	rightWall = new Wall(Vector2D(WIN_WIDTH - WALL_WIDTH, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(-1, 0));
 	topWall = new Wall(Vector2D(0, 0), WALL_WIDTH, WIN_WIDTH, game->textures[TopWallTx], Vector2D(0, 1));
@@ -31,7 +32,8 @@ PlayState::PlayState(Game* game):GameState(game){//Creamos las paredes
 	gameObjects.push_back(map);
 
 	rewardIterator = --gameObjects.end();
-	map->loadMap(levels[level]);
+	if (current == " ") newGame();
+	else loadGame(current);
 }
 PlayState::~PlayState() {
 	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)
@@ -39,39 +41,52 @@ PlayState::~PlayState() {
 		delete* it;
 	}
 }
+void PlayState::update() {
+	if (erased) nextLevel();
+	GameState::update();
+}
 
 // Comprueba si el jugador ha ganado la partida
 void PlayState::winLevel() {
-	if (map->getNumBlocks() <= 0) CurrentState = win;
+	if (map->getNumBlocks() <= 0) {
+		erased = true;
+		nextLevel();
+	}
 }
 
 // Reinicia el nivel
 void PlayState::restartLevel()
 {
-	CurrentState = play;
 	--life->lives;
-	load();
+	if(life->lives <= 0)  game->gameStateMachine->changeState(new EndState(game));
+	else load();
 }
 
 // Cambia al siguiente nivel, resetea los objetos correspondientes y borra los rewards que hubiera en pantalla
 void PlayState::nextLevel()
 {
-	auto it = rewardIterator;
-	for (; it != gameObjects.end();) {
-		delete* it;
-		*it = nullptr;
-		it = gameObjects.erase(it);
-	}
+	if (level < (NUM_LEVELS - 1)) {
+		auto it = rewardIterator;
+		for (; it != gameObjects.end();) {
+			//if (*it == nullptr) it = gameObjects.erase(it);
+			//else {
+				delete* it;
+				*it = nullptr;
+				it = gameObjects.erase(it);
+			//}
+		}
 
-	CurrentState = play;
-	life->resetLife();
-	++level;
-	timer->resetTime();
-	map = new BlocksMap(MAP_HEIGHT, MAP_WIDTH, game->textures[BrickTx], this);
-	gameObjects.push_back(map);
-	rewardIterator = --gameObjects.end();
-	map->loadMap(levels[level]);
-	load();
+		life->resetLife();
+		++level;
+		timer->resetTime();
+		map = new BlocksMap(MAP_HEIGHT, MAP_WIDTH, game->textures[BrickTx], this);
+		gameObjects.push_back(map);
+		rewardIterator = --gameObjects.end();
+		map->loadMap(levels[level]);
+		load();
+		erased = false;
+	}
+	else game->gameStateMachine->changeState(new EndState(game));
 }
 
 // Reinicia el tamaño y la posicion del paddle y la bola
@@ -100,22 +115,14 @@ bool PlayState::collides(SDL_Rect rectBall, Vector2D& colVector)
 		winLevel();
 		return true;
 	}
-	if (rectBall.y + rectBall.h >= WIN_HEIGHT) CurrentState = lose;
 
-	auto it = rewardIterator;
-	++it;
-	for (; it != gameObjects.end();) {
-		Reward* reward = static_cast<Reward*>(*it);
-		if (reward->collides(paddle->getRect())) {
-			delete* it;
-			*it = nullptr;
-			it = gameObjects.erase(it);
-		}
-		else ++it;
-	}
+	if (rectBall.y + rectBall.h >= WIN_HEIGHT) restartLevel();
+
 	return false;
 }
-
+bool PlayState::collideReward(SDL_Rect rectReward) {
+	return paddle->collides((rectReward), Vector2D(0, 0), Vector2D(0, 0));
+}
 // Genera los rewards pseudoaleatoriamente
 void PlayState::generateRewards(Vector2D posAux) {
 
@@ -141,16 +148,6 @@ void PlayState::generateRewards(Vector2D posAux) {
 	}
 }
 
-// Aplica el efecto del reward segun su tipo
-void PlayState::rewardType(char tipo) {
-	switch (tipo) {
-	case 'L': { CurrentState = win; }break;
-	case 'E': { ball->setSize(BALL_SIZE); if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 1.3); else paddle->setWidth(PADDLE_WIDTH); }break;
-	case 'R': { if (life->lives < 9) paddle->setWidth(PADDLE_WIDTH); ball->setSize(BALL_SIZE); ++life->lives; }break;
-	case 'S': { ball->setSize(BALL_SIZE); if (paddle->getWidth() == PADDLE_WIDTH) paddle->setWidth(paddle->getRect().w * 0.7); else paddle->setWidth(PADDLE_WIDTH); }break;
-	case 'D': { paddle->setWidth(PADDLE_WIDTH); if (ball->getSize() == BALL_SIZE) ball->setSize(ball->getRect().w * 1.5); else ball->setSize(BALL_SIZE); }break;
-	}
-}
 
 // Comienza una nueva partida
 void PlayState::newGame() {
@@ -160,7 +157,6 @@ void PlayState::newGame() {
 	catch (string e) {
 		throw e;
 	}
-	CurrentState = play;
 	timer->changeTime(SDL_GetTicks() / 1000);
 }
 
@@ -201,7 +197,6 @@ void PlayState::loadGame(string nameFile) {
 	}
 	else throw (FileNotFoundError("Error trying to open file: " + nameFile));
 	loadFile.close();
-	CurrentState = play;
 	timer->changeTime(SDL_GetTicks() / 1000);
 }
 
@@ -225,4 +220,48 @@ void PlayState::saveToFile(string code) {
 		(*it)->saveToFile(saveFile);
 	}
 	saveFile.close();
+}
+
+void PlayState::destroyReward(Reward* _reward) {
+	auto it = rewardIterator;
+	bool found = false;
+	++it;
+	while ( it != gameObjects.end() && !found) {
+		Reward* reward = static_cast<Reward*>(*it);
+		if (reward == _reward) {
+			if (*it != nullptr)
+			{
+				delete* it;
+				*it = nullptr;
+				//it = gameObjects.erase(it);
+				found = true;
+
+			}
+		}
+		else ++it;
+	}
+
+}
+
+void PlayState::paddleSize(char c) {
+	ball->setSize(BALL_SIZE); 
+	if (paddle->getWidth() == PADDLE_WIDTH) {
+		if(c == 'e')paddle->setWidth(paddle->getRect().w * 1.3);
+		else paddle->setWidth(paddle->getRect().w * 0.7);
+	}
+	else paddle->setWidth(PADDLE_WIDTH);
+}
+
+void PlayState::ballSize() {
+	paddle->setWidth(PADDLE_WIDTH); 
+	if (ball->getSize() == BALL_SIZE) ball->setSize(ball->getRect().w * 1.5); 
+	else ball->setSize(BALL_SIZE);
+}
+
+void PlayState::extraLives() {
+	if (life->lives < 9) {
+		paddle->setWidth(PADDLE_WIDTH); 
+		ball->setSize(BALL_SIZE);
+		++life->lives;
+	}
 }

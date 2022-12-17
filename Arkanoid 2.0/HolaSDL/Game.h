@@ -66,6 +66,7 @@ public:
 	void render() const;
 	void update();
 	void handleEvents();
+	void exitGame() {exit = true;}
 	GameStateMachine* getStateMachine() { return gameStateMachine; }
 	Texture* getTexture(int tx) { return textures[tx]; }
 }; 

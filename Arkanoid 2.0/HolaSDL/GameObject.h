@@ -27,5 +27,6 @@ public:
 	virtual void loadFromFile(ifstream& loadFile){}
 	virtual void saveToFile(ofstream& saveFile) {};
 	SDL_Rect getRect()const;
+	virtual ~GameObject() {};
 };
 

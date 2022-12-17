@@ -41,15 +41,20 @@ private:
 	string playID;
 
 public://No se si tiene que ser protected
-	PlayState(Game* game);
+	bool erased = false;
+	PlayState(Game* game, string current);
 	~PlayState();
 	bool collides(SDL_Rect destRect, Vector2D& colVector);
+	bool collideReward(SDL_Rect destRect);
+	void destroyReward(Reward* reward);
 	void loadGame(string nameFile);
 	void newGame();
-	void rewardType(char tipo);
 	void timeLimit() { CurrentState = lose; life->lives = 0; }
 	int getWallSize() { return WALL_WIDTH; }
-	
+	void paddleSize(char c);
+	void ballSize();
+	void extraLives();
+	void update();
 	
 	void winLevel();
 	void nextLevel();
