@@ -15,9 +15,8 @@ void GameState::render() const {
 	}
 };
 
-void GameState::handleEvents() {
-
+void GameState::handleEvent(SDL_Event event) {
 	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
-		(*it)->handleEvent();
+		(*it)->handleEvent(event);
 	}
 };

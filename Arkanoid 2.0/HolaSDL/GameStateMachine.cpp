@@ -16,7 +16,8 @@ void GameStateMachine::changeState(GameState* pState) {
 	current = pState;
 	if (!gameStateStack.empty()) {
 		//if (gameStateStack.top()->getStateID() == pState->getStateID()) return;
-		delete gameStateStack.top();
+		//delete gameStateStack.top();
+		// en vez de delete hacer lo de la lista de etados por borrar
 		gameStateStack.pop();
 	}
 	pushState(pState);

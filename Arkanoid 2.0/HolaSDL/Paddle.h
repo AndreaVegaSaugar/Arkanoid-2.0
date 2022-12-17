@@ -27,7 +27,7 @@ public:
 	virtual void update();
 	virtual void loadFromFile(ifstream& loadFile);
 	virtual void saveToFile(ofstream& saveFile);
-	void handleEvent();
+	void handleEvent(SDL_Event event);
 	bool collides(SDL_Rect ballRect, Vector2D& collisionVector, const Vector2D& dir);
 	void setPos(Vector2D p) { pos = p; };
 	void setWidth(int width) { w = width; };

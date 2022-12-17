@@ -8,7 +8,6 @@ class GameStateMachine
 private:
 	stack<GameState*> gameStateStack;
 	GameState* current = nullptr;
-
 public: 
 	GameState* currentState() {
 		if (!gameStateStack.empty()) return current;
