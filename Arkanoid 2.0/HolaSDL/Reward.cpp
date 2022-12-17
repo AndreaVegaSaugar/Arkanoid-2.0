@@ -28,23 +28,6 @@ void Reward::render() const
 	texture->renderFrame(getRect(), row, col);
 }
 
-// Actualiza la posicion y la animacion de los rewards
-void Reward::update() {
-	move();
-	col = int(((SDL_GetTicks() / 100) % totalCol));
-}
-
-// Controla las colisiones de los rewards
-bool Reward::collides(SDL_Rect ballRect) {
-	SDL_Rect col;
-	if (SDL_IntersectRect(&ballRect, &getRect(), &col)) {
-		game->rewardType(tipeReward);
-		return true;
-	}
-	else if (getRect().y + getRect().h >= WIN_HEIGHT) return true;
-	else return false;
-}
-
 // Guarda los datos relevantes del objeto
 void Reward::saveToFile(ofstream& saveFile)
 {
@@ -63,4 +46,33 @@ void Reward::loadFromFile(ifstream& loadFile)
 	tipeReward = tipo;
 	if (loadFile.fail() || tipo == ' ') throw (FileFormatError("Error in reading reward type from save file"));
 	setFilCol();
+}
+
+// Aplica el efecto del reward segun su tipos
+void Reward::rewardType() {
+	switch (tipeReward) {
+	case 'L': {game->erased = true; }break;
+	case 'E': {game->paddleSize('e'); }break;
+	case 'R': { game->extraLives(); }break;
+	case 'S': { game->paddleSize('s'); }break;
+	case 'D': { game->ballSize(); }break;
+	}
+}
+
+// Controla las colisiones de los rewards
+bool Reward::collides() {
+	if (game->collideReward(getRect()))
+	{
+		rewardType();
+		return true;
+	}
+	else if (getRect().y + getRect().h >= WIN_HEIGHT) return true;
+	else return false;
+}
+// Actualiza la posicion y la animacion de los rewards
+void Reward::update()
+{
+	move();
+	col = int(((SDL_GetTicks() / 100) % totalCol));
+	if(collides() && tipeReward != 'L') game->destroyReward(this);
 }

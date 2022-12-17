@@ -33,12 +33,12 @@ void Paddle::handleEvent(SDL_Event event) // cambiar a singular
 }
 
 // Controla las colisiones del paddle
-bool Paddle::collides(SDL_Rect ballRect, Vector2D& collisionVector, const Vector2D& dir) {
+bool Paddle::collides(SDL_Rect Rect, Vector2D& collisionVector, const Vector2D& dir) {
 	SDL_Rect result;
 	bool collide = false;
 	
-	if (SDL_IntersectRect(&ballRect, &getRect(), &result)) {
-		collisionVector = collision(ballRect, result, dir);
+	if (SDL_IntersectRect(&Rect, &getRect(), &result)) {
+		collisionVector = collision(Rect, result, dir);
 		collisionVector.normalize();
 		collide = true;
 	}

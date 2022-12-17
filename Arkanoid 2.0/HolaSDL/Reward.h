@@ -15,6 +15,7 @@ private:
 	int col = 0;
 	int totalCol = 0;
 	PlayState* game;
+	void rewardType();
 
 public:
 	// Constructora de la clase
@@ -29,7 +30,7 @@ public:
 	virtual void render() const;
 	virtual void loadFromFile(ifstream& loadFile);
 	virtual void saveToFile(ofstream& saveFile);
-	bool collides(SDL_Rect ballRect);
+	bool collides();
 protected:
 	void setFilCol();
 };
