@@ -6,12 +6,6 @@
 class Game;
 class MainMenuState: public MenuGameState
 {
-private:
-	//MenuButton* start = nullptr;
-	//MenuButton* load = nullptr;
-	//MenuButton* exit = nullptr;
-
-
 public:
 	MainMenuState(Game* game);
 

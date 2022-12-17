@@ -15,16 +15,12 @@
 
 class PlayState :public GameState
 {
-	enum States {
-		win = 0,
-		lose = 1,
-		play = 2,
-	};
+	
 private:
 
 	string levels[NUM_LEVELS] = { { "level01.txt" }, { "level02.txt" }, { "level03.txt" } };
 	// Lista de todos los GameObjects
-	//Menu menuWindow;
+
 	// Ints de control de juego
 	list<GameObject*>::iterator rewardIterator;
 	Ball* ball = nullptr;
@@ -37,7 +33,6 @@ private:
 	Life* life = nullptr;
 	int level = 0;
 	bool canCollide = true;
-	States CurrentState = play;
 	string playID;
 
 public://No se si tiene que ser protected
@@ -49,13 +44,12 @@ public://No se si tiene que ser protected
 	void destroyReward(Reward* reward);
 	void loadGame(string nameFile);
 	void newGame();
-	void timeLimit() { CurrentState = lose; life->lives = 0; }
+	void timeLimit() { life->lives = 0; }
 	int getWallSize() { return WALL_WIDTH; }
 	void paddleSize(char c);
 	void ballSize();
 	void extraLives();
 	void update();
-	
 	void winLevel();
 	void nextLevel();
 	void restartLevel();

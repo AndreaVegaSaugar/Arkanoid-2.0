@@ -6,8 +6,10 @@
 #include "Game.h"
 class EndState : public MenuGameState
 {
+private:
+
 public:
-	EndState(Game* game);
+	EndState(Game* game, char c);
 	static void goToMainMenu(Game* game);
 	static void exitGame(Game* game);
 };
