@@ -25,7 +25,7 @@ Game::Game() {
 		}
 	}
 	gameStateMachine = new GameStateMachine();
-	gameStateMachine->pushState(new PlayState(this));
+	gameStateMachine->pushState(new MainMenuState(this));
 }
 
 //Destructora de la clase
@@ -50,6 +50,7 @@ void Game::run()
 		}
 		render();
 	}
+	gameStateMachine->deleteStates();
 }
 
 void Game::render() const

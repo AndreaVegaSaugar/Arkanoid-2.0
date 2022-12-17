@@ -1,12 +1,15 @@
 #pragma once
 #include <stack>
+#include <list>
 
 using namespace std;
+
 class GameState;
 class GameStateMachine
 {
 private:
 	stack<GameState*> gameStateStack;
+	list<GameState*> statesToDelete;
 	GameState* current = nullptr;
 public: 
 	GameState* currentState() {
@@ -16,5 +19,6 @@ public:
 	void pushState(GameState* pState);
 	void changeState(GameState* pState);
 	void popState();
+	void deleteStates();
 };
 
