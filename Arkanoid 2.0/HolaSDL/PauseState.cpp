@@ -1,9 +1,9 @@
 #include "PauseState.h"
 
 PauseState::PauseState(Game* game) : MenuGameState(game) {
-	gameObjects.push_back(new MenuButton(game, Vector2D(100, 170), 50, 50, game->getTexture(Resume), resumeGame));
-	gameObjects.push_back(new MenuButton(game, Vector2D(100, 100), 50, 50, game->getTexture(Heart), saveGame));
-	gameObjects.push_back(new MenuButton(game, Vector2D(100, 240), 50, 50, game->getTexture(Exit), goToMainMenu));
+	gameObjects.push_back(new MenuButton(game, Vector2D(WIN_WIDTH / 2 - 90, WIN_HEIGHT / 2 - 110), 100, 150, game->getTexture(Resume), resumeGame));
+	gameObjects.push_back(new MenuButton(game, Vector2D(WIN_WIDTH / 2 - 90, WIN_HEIGHT / 2), 100, 150, game->getTexture(Save), saveGame));
+	gameObjects.push_back(new MenuButton(game, Vector2D(WIN_WIDTH / 2 - 90, WIN_HEIGHT / 2 + 110), 100, 150, game->getTexture(Main), goToMainMenu));
 }
 
 void PauseState::resumeGame(Game* game) {

@@ -56,5 +56,6 @@ public://No se si tiene que ser protected
 	void load();
 	void generateRewards(Vector2D posAux);
 	void saveToFile(string code);
+	void handleEvent(SDL_Event event);
 };
 

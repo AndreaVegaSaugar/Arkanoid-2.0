@@ -22,7 +22,7 @@ enum GameStates {
 static const enum TextureNames {
 	BallTx = 0, PaddleTx = 1, BrickTx = 2, NumsTx = 3,
 	GameOverTx = 4, SideWallTx = 5, TopWallTx = 6, YouWinTx = 7, Rewards = 8, Heart = 9, Cross = 10, 
-	Title = 11, Start = 12, Load = 13, Exit = 15, Main = 16, Resume = 17, Restart = 18, Save = 19
+	Title = 11, Start = 12, Load = 13, Exit = 14, Main = 15, Resume = 16, Restart = 17, Save = 18
 };
 
 // Estructura que contiene variables para el nombre de las imagenes de la textura y su numero de filas y columnas

@@ -20,5 +20,7 @@ public:
 	void changeState(GameState* pState);
 	void popState();
 	void deleteStates();
+
+	void save();
 };
 

@@ -31,3 +31,6 @@ void GameStateMachine::deleteStates() {
 		delete (*it);
 	}
 }
+void GameStateMachine::save() {
+
+}

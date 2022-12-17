@@ -42,7 +42,13 @@ PlayState::~PlayState() {
 		delete* it;
 	}
 }
-void PlayState::update() { //462, 100
+void PlayState::handleEvent(SDL_Event event) {
+	GameState::handleEvent(event);
+	if (event.type == SDL_KEYDOWN) {
+		if (event.key.keysym.sym == SDLK_ESCAPE) game->gameStateMachine->pushState(new PauseState(game));
+	}
+}
+void PlayState::update() { 
 	if (erased) nextLevel();
 	GameState::update();
 }
