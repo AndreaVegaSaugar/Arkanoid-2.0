@@ -50,6 +50,7 @@ void Game::run()
 		}
 		render();
 	}
+	gameStateMachine->deleteStates();
 }
 
 void Game::render() const

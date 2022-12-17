@@ -4,7 +4,8 @@
 #include <string>
 #include <list>
 #include "GameStateMachine.h"
-#include "MainMenuState.h"
+//#include "MainMenuState.h"
+#include "PlayState.h"
 
 using namespace std;
 

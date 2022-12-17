@@ -1,11 +1,12 @@
 #pragma once
 #include "MenuGameState.h"
-#include "Game.h"
 #include "PlayState.h"
 #include "EndState.h"
 #include "MainMenuState.h"
+#include "Game.h"
 class PauseState : public MenuGameState {
 private:
+
 	//MenuButton* resume = nullptr;
 	//MenuButton* save = nullptr;
 	//MenuButton* MainMenu = nullptr;

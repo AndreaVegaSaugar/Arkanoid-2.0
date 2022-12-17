@@ -3,7 +3,7 @@
 #include "PauseState.h"
 #include "PlayState.h"
 #include "EndState.h"
-class Game;
+#include "Game.h"
 class MainMenuState: public MenuGameState
 {
 public:

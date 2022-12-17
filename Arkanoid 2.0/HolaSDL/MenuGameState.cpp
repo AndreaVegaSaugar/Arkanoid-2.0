@@ -6,7 +6,7 @@ MenuGameState::MenuGameState(Game* game): GameState(game)
 }
 
 void MenuGameState::render() const {
-	// Si falla el pause poner if de si backgroud es igual a null
+	// Si falla el pause poner if de si background es igual a null
 	background->render(rectBack);
 	GameState::render();
 }

@@ -1,4 +1,5 @@
 #include "PlayState.h"
+#include "Game.h"
 
 PlayState::PlayState(Game* game, string current):GameState(game){//Creamos las paredes
 	//Creamos paredes
