@@ -7,7 +7,8 @@ void GameStateMachine::pushState(GameState* pState) {
 
 void GameStateMachine::popState() {
 	if (!gameStateStack.empty()) {
-		delete gameStateStack.top();
+		//delete gameStateStack.top();
+		statesToDelete.push_back(gameStateStack.top());
 		gameStateStack.pop();
 	}
 }

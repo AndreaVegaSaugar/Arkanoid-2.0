@@ -7,7 +7,7 @@ PauseState::PauseState(Game* game) : MenuGameState(game) {
 }
 
 void PauseState::resumeGame(Game* game) {
-	cout << "Resume";
+	game->gameStateMachine->popState();
 }
 
 void PauseState::saveGame(Game* game) {
@@ -15,5 +15,5 @@ void PauseState::saveGame(Game* game) {
 }
 
 void PauseState::goToMainMenu(Game* game) {
-	cout << "MainMenu";
+	game->gameStateMachine->changeState(new MainMenuState(game));
 }

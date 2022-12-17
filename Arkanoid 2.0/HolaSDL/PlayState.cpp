@@ -36,15 +36,24 @@ PlayState::PlayState(Game* game, string current):GameState(game){//Creamos las p
 	if (current == " ") newGame();
 	else loadGame(current);
 }
+
 PlayState::~PlayState() {
 	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)
 	{
 		delete* it;
 	}
 }
+
 void PlayState::update() {
 	if (erased) nextLevel();
 	GameState::update();
+}
+
+void PlayState::handleEvent(SDL_Event event) {
+	GameState::handleEvent(event);
+	if (event.type == SDL_KEYDOWN) {
+		if (event.key.keysym.sym == SDLK_ESCAPE) game->gameStateMachine->pushState(new PauseState(game));
+	}
 }
 
 // Comprueba si el jugador ha ganado la partida
@@ -234,9 +243,7 @@ void PlayState::destroyReward(Reward* _reward) {
 			{
 				delete* it;
 				*it = nullptr;
-				//it = gameObjects.erase(it);
 				found = true;
-
 			}
 		}
 		else ++it;
