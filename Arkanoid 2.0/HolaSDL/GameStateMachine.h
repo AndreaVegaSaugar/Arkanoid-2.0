@@ -10,18 +10,16 @@ class GameStateMachine
 private:
 	stack<GameState*> gameStateStack;
 	list<GameState*> statesToDelete;
-	GameState* current = nullptr;
 public: 
 	GameState* currentState() {
-		if (!gameStateStack.empty()) return current;
+		if (!gameStateStack.empty()) return gameStateStack.top();
 		else return nullptr;
 	}
 	void pushState(GameState* pState);
 	void changeState(GameState* pState);
 	void popState();
-	void deleteStates();
 
-	/*void save(const string &code);
-	void load(string code);*/
+	//void deleteStates();
+
 };
 

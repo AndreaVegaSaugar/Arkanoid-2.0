@@ -19,9 +19,6 @@ class PlayState :public GameState
 private:
 
 	string levels[NUM_LEVELS] = { { "level01.txt" }, { "level02.txt" }, { "level03.txt" } };
-	// Lista de todos los GameObjects
-
-	// Ints de control de juego
 	list<GameObject*>::iterator rewardIterator;
 	Ball* ball = nullptr;
 	Paddle* paddle = nullptr;
@@ -33,16 +30,16 @@ private:
 	Life* life = nullptr;
 	int level = 0;
 	bool canCollide = true;
-	string playID;
-	bool erased = false;
+	static const string playID;
 
 public://No se si tiene que ser protected
+	bool erased = false;
 	PlayState(Game* game, string current);
 	~PlayState();
-	void setErased(bool e) { erased = e; };
 	bool collides(SDL_Rect destRect, Vector2D& colVector);
 	bool collideReward(SDL_Rect destRect);
-	void destroyReward(Reward* reward);
+	void destroyReward();
+	void prepareRewardToErase();
 	void loadGame(string nameFile);
 	void newGame();
 	void timeLimit() { life->lives = 0; }
@@ -51,12 +48,13 @@ public://No se si tiene que ser protected
 	void ballSize();
 	void extraLives();
 	void update();
-	void handleEvent(SDL_Event event);
 	void winLevel();
 	void nextLevel();
 	void restartLevel();
 	void load();
 	void generateRewards(Vector2D posAux);
 	void saveToFile(string code);
+	void handleEvent(SDL_Event event);
+	virtual string getStateID() const { return playID; }
 };
 

@@ -20,6 +20,7 @@ private:
 public:
 	// Constructora de la clase
 	Reward(Vector2D p, int h, int w, Vector2D d, Texture* t, char tipo, int tC, PlayState* g, int s);
+	bool erased = false;
 	
 	// Getters
 	Vector2D getDir() { return dir; }
@@ -31,6 +32,7 @@ public:
 	virtual void loadFromFile(ifstream& loadFile);
 	virtual void saveToFile(ofstream& saveFile);
 	bool collides();
+	
 protected:
 	void setFilCol();
 };

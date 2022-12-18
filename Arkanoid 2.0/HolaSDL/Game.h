@@ -22,7 +22,7 @@ enum GameStates {
 static const enum TextureNames {
 	BallTx = 0, PaddleTx = 1, BrickTx = 2, NumsTx = 3,
 	GameOverTx = 4, SideWallTx = 5, TopWallTx = 6, YouWinTx = 7, Rewards = 8, Heart = 9, Cross = 10, 
-	Title = 11, Start = 12, Load = 13, Exit = 14, Main = 15, Resume = 16, Restart = 17, Save = 18, Pause = 19 
+	Title = 11, Start = 12, Load = 13, Exit = 14, Main = 15, Resume = 16, Restart = 17, Save = 18, Pause = 19
 };
 
 // Estructura que contiene variables para el nombre de las imagenes de la textura y su numero de filas y columnas
@@ -51,7 +51,7 @@ public:
 									 {"../images/heart.png", 1, 1} , {"../images/cross.png", 1, 1},  {"../images/Title.png", 1, 1},
 									 {"../images/start.png", 1, 2}, { "../images/load.png", 1, 2 }, { "../images/exit.png", 1, 2 },
 									 { "../images/mainmenu.png", 1, 2 }, { "../images/resume.png", 1, 2 }, { "../images/restart.png", 1, 2 }, 
-									 { "../images/save.png", 1, 2}, { "../images/pause.png", 1, 1} };
+									 { "../images/save.png", 1, 2},  { "../images/pause.png", 1, 1} };
 
 	Texture* textures[NUM_TEXTURES];
 
