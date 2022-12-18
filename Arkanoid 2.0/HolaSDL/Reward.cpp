@@ -51,7 +51,7 @@ void Reward::loadFromFile(ifstream& loadFile)
 // Aplica el efecto del reward segun su tipos
 void Reward::rewardType() {
 	switch (tipeReward) {
-	case 'L': {game->erased = true; }break;
+	case 'L': {game->setErased(true); }break;
 	case 'E': {game->paddleSize('e'); }break;
 	case 'R': { game->extraLives(); }break;
 	case 'S': { game->paddleSize('s'); }break;

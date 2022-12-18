@@ -34,11 +34,12 @@ private:
 	int level = 0;
 	bool canCollide = true;
 	string playID;
+	bool erased = false;
 
 public://No se si tiene que ser protected
-	bool erased = false;
 	PlayState(Game* game, string current);
 	~PlayState();
+	void setErased(bool e) { erased = e; };
 	bool collides(SDL_Rect destRect, Vector2D& colVector);
 	bool collideReward(SDL_Rect destRect);
 	void destroyReward(Reward* reward);
@@ -50,6 +51,7 @@ public://No se si tiene que ser protected
 	void ballSize();
 	void extraLives();
 	void update();
+	void handleEvent(SDL_Event event);
 	void winLevel();
 	void nextLevel();
 	void restartLevel();

@@ -47,6 +47,13 @@ void PlayState::update() { //462, 100
 	GameState::update();
 }
 
+void PlayState::handleEvent(SDL_Event event) {
+	GameState::handleEvent(event);
+	if (event.type == SDL_KEYDOWN) {
+		if (event.key.keysym.sym == SDLK_ESCAPE) game->gameStateMachine->pushState(new PauseState(game));
+	}
+}
+
 // Comprueba si el jugador ha ganado la partida
 void PlayState::winLevel() {
 	if (map->getNumBlocks() <= 0) {

@@ -10,6 +10,7 @@ void GameStateMachine::popState() {
 		//delete gameStateStack.top();
 		statesToDelete.push_back(gameStateStack.top());
 		gameStateStack.pop();
+		current = gameStateStack.top();
 	}
 }
 
@@ -31,3 +32,16 @@ void GameStateMachine::deleteStates() {
 		delete (*it);
 	}
 }
+
+//void GameStateMachine::save(const string &code) {
+//	gameStateStack.pop();
+//	
+//	game->gameStateMachine->pushState(new PauseState(game));
+//}
+//
+//void GameStateMachine::load() {
+//	PlayState* a = game->gameStateMachine->currentState();
+//	game->gameStateMachine->popState();
+//	a->saveToFile(code);
+//	game->gameStateMachine->pushState(new PauseState(game));
+//}
