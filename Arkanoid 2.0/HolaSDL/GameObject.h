@@ -18,15 +18,18 @@ protected:
 	Texture* texture = nullptr;
 
 public:
+
+	// Constructoras y destructora de la clase
 	GameObject() {};
 	GameObject(Vector2D position, int height, int width, Texture* _texture) : pos(position), h(height), w(width), texture(_texture) {};
+	virtual ~GameObject() {};
+
+	// Metodos publicos de la clase
 	virtual void render()const = 0;
 	virtual void update() {};
 	virtual void handleEvent(SDL_Event event){};
-	
-	virtual void loadFromFile(ifstream& loadFile){}
-	virtual void saveToFile(ofstream& saveFile) {};
+
+	// Getters
 	SDL_Rect getRect()const;
-	virtual ~GameObject() {};
 };
 

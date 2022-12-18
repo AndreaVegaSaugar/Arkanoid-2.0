@@ -84,7 +84,6 @@
     <ClCompile Include="Life.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
-    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="MenuGameState.cpp" />
     <ClCompile Include="MovingObject.cpp" />
@@ -114,7 +113,6 @@
     <ClInclude Include="GameStateMachine.h" />
     <ClInclude Include="Life.h" />
     <ClInclude Include="MainMenuState.h" />
-    <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="MenuGameState.h" />
     <ClInclude Include="MovingObject.h" />

@@ -1,6 +1,7 @@
 #include "MenuButton.h"
 #include "Game.h"
 
+// Constructora de la clase, que asigna la funcion que realizara el boton segun el metdo callback que recibe
 MenuButton:: MenuButton(Game* _game,Vector2D position, int height, int width, Texture* _texture, void(*_callback) (Game* game)) :
 	GameObject(position, height, width, _texture) {
 	pos = position;
@@ -11,11 +12,13 @@ MenuButton:: MenuButton(Game* _game,Vector2D position, int height, int width, Te
 	g = _game;
 }
 
+// Renderiza el boton en pantalla segun su estado (pulsado / no pulsado)
 void MenuButton::render() const
 {
 	 texture->renderFrame(getRect(), 0, current);
 }
 
+// Cambia el estado del boton si el raton pasa por encima y llama a su metodo callback si es pulsado
 void MenuButton::handleEvent(SDL_Event event)
 {
 	SDL_Point mousePos;

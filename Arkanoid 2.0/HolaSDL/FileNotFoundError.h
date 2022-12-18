@@ -1,6 +1,7 @@
 #pragma once
 #include "ArkanoidError.h"
 
+// Clase FILENOTFOUNDERROR que hereda de ARKANOIDERROR
 class FileNotFoundError : public ArkanoidError
 {
 public:

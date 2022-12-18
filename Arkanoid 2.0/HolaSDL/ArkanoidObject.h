@@ -19,9 +19,9 @@ public:
 
 	// Métodos
 	virtual void render() const;
+	virtual void loadFromFile(ifstream& loadFile) {}
+	virtual void saveToFile(ofstream& saveFile) {};
 	
 	// Destructora de la clase
 	virtual ~ArkanoidObject() {};
-
-	//SDL_Rect getRect()const ;
 };

@@ -1,6 +1,7 @@
 #pragma once
 #include "ArkanoidError.h"
 
+// Clase FILEFORMATERROR que hereda de ARKANOIDERROR
 class FileFormatError : public ArkanoidError
 {
 public:

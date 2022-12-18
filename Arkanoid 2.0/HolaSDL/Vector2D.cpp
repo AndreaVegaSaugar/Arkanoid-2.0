@@ -1,6 +1,8 @@
 #include "checkML.h"
 #include "Vector2D.h"
 
+// Clase proporcionada en los apuntes
+
 using namespace std;
 
 double Vector2D::module()

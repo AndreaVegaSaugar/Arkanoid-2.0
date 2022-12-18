@@ -4,7 +4,6 @@
 #include <string>
 #include <list>
 #include "GameStateMachine.h"
-//#include "MainMenuState.h"
 #include "PlayState.h"
 
 using namespace std;
@@ -63,11 +62,14 @@ public:
 	Game();
 	~Game();
 
+	// Metodos publicos de la clase
 	void run();
 	void render() const;
 	void update();
 	void handleEvents();
 	void exitGame() {exit = true;}
+
+	// Getters
 	GameStateMachine* getStateMachine() { return gameStateMachine; }
 	Texture* getTexture(int tx) { return textures[tx]; }
 }; 
