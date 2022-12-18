@@ -90,19 +90,19 @@ int BlocksMap::getNumBlocks()
 // Controla las colisiones del mapa
 bool BlocksMap::collides(SDL_Rect ballRect, Vector2D& collisionVector, const Vector2D dir, Vector2D& pos)
 {
-	bool collide = false;
+	bool collide = false; // Booleano auxiliar que detiene la busqueda al encontrar el bloque colisionado
 	int n = 0;
-	SDL_Rect result;
+	SDL_Rect result; // SDL_Rect de colision entre la bola y el bloque
 	while (n < rows && !collide) {
 		int m = 0;
 		while (m < cols && !collide) {
 			if ((gameMap[n][m] != nullptr) && SDL_IntersectRect(&gameMap[n][m]->getRect(), &ballRect, &result))
 			{				
-				pos = Vector2D(gameMap[n][m]->getRect().x, gameMap[n][m]->getRect().y);
-				collisionVector = collision(result, ballRect, gameMap[n][m], dir);
+				pos = Vector2D(gameMap[n][m]->getRect().x, gameMap[n][m]->getRect().y); // Posicion en la que se podra generar un reward
+				collisionVector = collision(result, ballRect, gameMap[n][m], dir); // Nuevo vector de colision que se enviara a la bola
 				collide = true;
-				delete gameMap[n][m];
-				gameMap[n][m] = nullptr;
+				delete gameMap[n][m]; 
+				gameMap[n][m] = nullptr; // Borramos el bloque
 			}
 			++m;
 		}

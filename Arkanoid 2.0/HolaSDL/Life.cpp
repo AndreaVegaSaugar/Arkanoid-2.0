@@ -18,15 +18,15 @@ void Life::render() const
 	destRectHeart.h = h;
 	destRectHeart.x = pos.getX();
 	destRectHeart.y = pos.getY();
-	heart->render(destRectHeart);
+	heart->render(destRectHeart); // Renderiza el corazon
 
 	destRectX = destRectHeart;
 	destRectX.x = pos.getX() + w;
-	x->render(destRectX);
+	x->render(destRectX); // Renderiza la equis
 
 	destRectNumber = destRectHeart;
 	destRectNumber.x = pos.getX() + (w*2);
-	number->renderFrame(destRectNumber, row, col);
+	number->renderFrame(destRectNumber, row, col); // Renderiza el numero de vidas
 
 }
 
@@ -35,7 +35,7 @@ void Life::resetLife() {
 	lives = 3;
 }
 
-// Actualiza el numero de vidas en pantalla
+// Actualiza el numero de vidas en pantalla cambiando la fila y la columna de la textura
 void Life::update() {
 	switch (lives) {
 	case 0: row = 0; col = 0; break;

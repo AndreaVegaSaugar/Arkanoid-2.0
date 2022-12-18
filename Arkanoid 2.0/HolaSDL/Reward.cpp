@@ -51,7 +51,7 @@ void Reward::loadFromFile(ifstream& loadFile)
 // Aplica el efecto del reward segun su tipos
 void Reward::rewardType() {
 	switch (tipeReward) {
-	case 'L': {game->erased = true; 
+	case 'L': {game->setErased(true);
 
 		cout << "cambiando nivel" << endl; }break;
 	case 'E': {game->paddleSize('e'); }break;
@@ -71,10 +71,11 @@ bool Reward::collides() {
 	else if (getRect().y + getRect().h >= WIN_HEIGHT) return true;
 	else return false;
 }
-// Actualiza la posicion y la animacion de los rewards
+
+// Actualiza la posicion y la animacion de los rewards y en caso de que choquen se pone su booleano de eliminacion a true
 void Reward::update()
 {
 	move();
 	col = int(((SDL_GetTicks() / 100) % totalCol));
-	if(collides()) erased = true; //&& tipeReward != 'L'
+	if(collides()) erased = true;
 }

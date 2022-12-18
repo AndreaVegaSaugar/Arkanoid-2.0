@@ -1,6 +1,10 @@
 ﻿#include "PlayState.h"
 #include "Game.h"
+
+// Identificador de clase de estado
 const string PlayState::playID = "PLAY";
+
+// Constructora de la clase, que inizializa todos los elementos del juego
 PlayState::PlayState(Game* game, string current):GameState(game){//Creamos las paredes
 	//Creamos paredes
 	leftWall = new Wall(Vector2D(0, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(1, 0));
@@ -32,30 +36,24 @@ PlayState::PlayState(Game* game, string current):GameState(game){//Creamos las p
 	gameObjects.push_back(paddle);
 	gameObjects.push_back(map);
 
-	rewardIterator = --gameObjects.end();
+	rewardIterator = --gameObjects.end(); // Nos guardamos un iterador que apunte al ultimo elemento de la lista, a partir del cual todos seran rewards
 	if (current == " ") newGame();
 	else loadGame(current);
 }
-PlayState::~PlayState() {
-	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)
-	{
-		delete* it;
+
+// Llama al metodo del padre y controla si se pulsa el escape para cambiar al estado de pausa
+void PlayState::handleEvent(SDL_Event event) {
+	GameState::handleEvent(event);
+	if (event.type == SDL_KEYDOWN) {
+		if (event.key.keysym.sym == SDLK_ESCAPE) game->gameStateMachine->pushState(new PauseState(game));
 	}
 }
 
+// Comprueba si tiene que pasar de nivel, destruye los rewards y llama al metodo del padre
 void PlayState::update() { 
 	if (erased) nextLevel();
 	destroyReward();
 	GameState::update();
-}
-
-void PlayState::handleEvent(SDL_Event event) {
-	GameState::handleEvent(event);
-	if (event.type == SDL_KEYDOWN) {
-		if (event.key.keysym.sym == SDLK_ESCAPE) {
-			game->gameStateMachine->pushState(new PauseState(game));
-		}
-	}
 }
 
 // Comprueba si el jugador ha ganado la partida
@@ -70,16 +68,19 @@ void PlayState::winLevel() {
 void PlayState::restartLevel()
 {
 	--life->lives;
+	// Borrar rewards
 	prepareRewardToErase();
 	destroyReward();
+
 	rewardIterator = --gameObjects.end();
-	if (life->lives <= 0) {
+	if (life->lives <= 0) { // Comprueba el numero de vidas y si es igual o menor que cero llama al End State y le indica que es un Game Over mediante un char
 		game->gameStateMachine->currentState()->deleteState();
 		game->gameStateMachine->changeState(new EndState(game, 'l'));
 	}
 	else load();
 }
 
+// Activa el booleano de los rewards que indica que tienen que borrados
 void PlayState::prepareRewardToErase() {
 	auto it = rewardIterator;
 	++it;
@@ -87,18 +88,24 @@ void PlayState::prepareRewardToErase() {
 		dynamic_cast<Reward*>(*it)->erased = true;
 	}
 }
+
 // Cambia al siguiente nivel, resetea los objetos correspondientes y borra los rewards que hubiera en pantalla
 void PlayState::nextLevel()
 {
-	if (level < (NUM_LEVELS - 1)) {
-		//borrar rewards
+	if (level < (NUM_LEVELS - 1)) { // Comprueba el numero del nivel, si es igual a tres llama al End State y le indica que es un Win mediante un char
+		// Borrar rewards
 		prepareRewardToErase();
 		destroyReward();
-		//borrar mapa 
-		gameObjects.erase(--gameObjects.end());
+		// Borrar mapa 
+		auto it = --gameObjects.end();
+		delete* it;
+		*it = nullptr;
+		gameObjects.erase(it);
+		// Resetea la vida y el timer
 		life->resetLife();
 		++level;
 		timer->resetTime();
+		// Carga el nuevo mapa
 		map = new BlocksMap(MAP_HEIGHT, MAP_WIDTH, game->textures[BrickTx], this);
 		gameObjects.push_back(map);
 		map->loadMap(levels[level]);
@@ -119,33 +126,38 @@ void PlayState::load()
 	paddle->restartPaddle();
 }
 
-// Controla las colisiones de los gameObjects
+// Controla las colisiones de la bola con el resto de GameObjects
 bool PlayState::collides(SDL_Rect rectBall, Vector2D& colVector)
 {
 	Vector2D posAux;
-
+	// Colisiones con las paredes
 	if (topWall->collides((rectBall), colVector)) { canCollide = true; return true; }
 	if (rightWall->collides((rectBall), colVector)) { canCollide = true; return true; }
 	if (leftWall->collides((rectBall), colVector)) { canCollide = true; return true; }
 
+	// Colisiones con la paddle
 	if (canCollide) {
 		if (paddle->collides((rectBall), colVector, ball->getDir())) { canCollide = false;  return true; }
 	}
 
+	// Colisiones con el mapa
 	if (map->collides((rectBall), colVector, ball->getDir(), posAux)) {
 		canCollide = true;
-		generateRewards(posAux);
-		winLevel();
+		generateRewards(posAux); // Genera rewards pseudoaleatoriamente
+		winLevel(); // Comprueba si ha roto todos los bloques del nivel
 		return true;
 	}
 
-	if (rectBall.y + rectBall.h >= WIN_HEIGHT) restartLevel();
+	if (rectBall.y + rectBall.h >= WIN_HEIGHT) restartLevel(); // Comprueba que la pelota no caiga por la parte inferior, y si lo hace restartea el nivel
 
 	return false;
 }
+
+// Controla las colisiones de los rewards con la paddle
 bool PlayState::collideReward(SDL_Rect rectReward) {
 	return paddle->collides((rectReward), Vector2D(0, 0), Vector2D(0, 0));
 }
+
 // Genera los rewards pseudoaleatoriamente
 void PlayState::generateRewards(Vector2D posAux) {
 	srand(time(NULL) * _getpid() * rand());
@@ -232,7 +244,7 @@ void PlayState::saveToFile(string code) {
 	auto aux = rewardIterator;
 	++aux;
 	for (auto it = gameObjects.begin(); it != aux; ++it) {
-		(*it)->saveToFile(saveFile);
+		dynamic_cast<ArkanoidObject*> (*it)->saveToFile(saveFile);
 		++cont;
 	}
 
@@ -240,11 +252,12 @@ void PlayState::saveToFile(string code) {
 	auto it = rewardIterator;
 	++it;
 	for (; it != gameObjects.end(); ++it) {
-		(*it)->saveToFile(saveFile);
+		dynamic_cast<ArkanoidObject*> (*it)->saveToFile(saveFile);
 	}
 	saveFile.close();
 }
 
+// Borra los rewards si tienen el booleano a true
 void PlayState::destroyReward() {
 	auto it = rewardIterator;
 	++it;
@@ -256,10 +269,9 @@ void PlayState::destroyReward() {
 		}
 		else ++it;
 	}
-	
 }
 
-
+// Se llama desde la clase reward y cambia el tamanyo de la paddle segun un char
 void PlayState::paddleSize(char c) {
 	ball->setSize(BALL_SIZE); 
 	if (paddle->getWidth() == PADDLE_WIDTH) {
@@ -269,12 +281,14 @@ void PlayState::paddleSize(char c) {
 	else paddle->setWidth(PADDLE_WIDTH);
 }
 
+// Se llama desde la clase reward y cambia el tamanyo de la bola
 void PlayState::ballSize() {
 	paddle->setWidth(PADDLE_WIDTH); 
 	if (ball->getSize() == BALL_SIZE) ball->setSize(ball->getRect().w * 1.5); 
 	else ball->setSize(BALL_SIZE);
 }
 
+// Se llama desde la clase reward y suma vidas extra (nunca mas de 9)
 void PlayState::extraLives() {
 	if (life->lives < 9) {
 		paddle->setWidth(PADDLE_WIDTH); 

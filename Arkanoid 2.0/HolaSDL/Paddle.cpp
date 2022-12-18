@@ -21,14 +21,14 @@ void Paddle::update()
 }
 
 // Controla el input del teclado para el movimiento del paddle
-void Paddle::handleEvent(SDL_Event event) // cambiar a singular
+void Paddle::handleEvent(SDL_Event event)
 {
 	if (event.type == SDL_KEYDOWN) {
 		if (event.key.keysym.sym == SDLK_LEFT) dir = Vector2D(-1, 0);
 		else if (event.key.keysym.sym == SDLK_RIGHT)dir = Vector2D(1, 0);
 	}
 	else {
-		dir = Vector2D(0, 0);
+		dir = Vector2D(0, 0); // Si no se esta pulsando ningna tecla la paddle se queda quieta
 	}
 }
 

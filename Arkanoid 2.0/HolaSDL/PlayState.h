@@ -6,16 +6,16 @@
 #include "BlocksMap.h"
 #include "Time.h"
 #include "Life.h"
-#include "Menu.h"
 #include "PauseState.h"
 #include "EndState.h"
 #include "MainMenuState.h"
 #include "Reward.h"
 #include "Game.h"
+#include "checkML.h"
 
+// Clase PLAYSTATE que hereda de GAMESTATE
 class PlayState :public GameState
 {
-	
 private:
 
 	string levels[NUM_LEVELS] = { { "level01.txt" }, { "level02.txt" }, { "level03.txt" } };
@@ -31,11 +31,15 @@ private:
 	int level = 0;
 	bool canCollide = true;
 	static const string playID;
-
-public://No se si tiene que ser protected
 	bool erased = false;
+
+public:
+
+	// Constructora de la clase
 	PlayState(Game* game, string current);
-	~PlayState();
+
+	// Metodos publicos de la clase
+	void setErased(bool e) { erased = e; };
 	bool collides(SDL_Rect destRect, Vector2D& colVector);
 	bool collideReward(SDL_Rect destRect);
 	void destroyReward();
@@ -43,7 +47,6 @@ public://No se si tiene que ser protected
 	void loadGame(string nameFile);
 	void newGame();
 	void timeLimit() { life->lives = 0; }
-	int getWallSize() { return WALL_WIDTH; }
 	void paddleSize(char c);
 	void ballSize();
 	void extraLives();
@@ -55,6 +58,9 @@ public://No se si tiene que ser protected
 	void generateRewards(Vector2D posAux);
 	void saveToFile(string code);
 	void handleEvent(SDL_Event event);
+
+	// Getters
+	int getWallSize() { return WALL_WIDTH; }
 	virtual string getStateID() const { return playID; }
 };
 

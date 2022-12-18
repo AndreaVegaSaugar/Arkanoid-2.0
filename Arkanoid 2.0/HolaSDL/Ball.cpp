@@ -5,15 +5,14 @@
 // Actualiza la posicion y direccion de la bola teniendo en cuenta sus colisiones
 void Ball::update()
 {
-	Vector2D colVector;
+	Vector2D colVector; // Declaracion vector de colision que enviaremos al game
 	if (game->collides(getRect(), colVector))
 	{
-		colVector.normalize();
+		colVector.normalize(); 
 		dir = dir - colVector * (2 * (dir * colVector));
 	}
-	dir.normalize();
-	move();
-
+	dir.normalize(); // Normalizamos vector para mantener la velocidad de la bola constante
+	move(); 
 }
 
 // Lee de archivo los datos relevantes del objeto y los modifica

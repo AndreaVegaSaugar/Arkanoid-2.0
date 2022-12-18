@@ -26,7 +26,7 @@ void Time::update()
 	render(); 
 }
 
-// Convierte en segundos
+// Asigna una fila y columna de la textura segun los segundos
 void Time::convertSeconds(int sec, int& row, int& col) {
 	switch (sec) {
 	case 0: {row = 0; col = 0; }break;

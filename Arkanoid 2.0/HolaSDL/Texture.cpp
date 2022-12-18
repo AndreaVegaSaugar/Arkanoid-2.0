@@ -1,6 +1,8 @@
 #include "Texture.h"
 #include <iostream>
 
+// Clase proporcionada en los apuntes
+
 using namespace std;
 
 void Texture::free1() {

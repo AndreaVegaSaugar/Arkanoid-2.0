@@ -10,7 +10,7 @@ Block::Block(Vector2D p, int h, int w, int c, Texture* t, PlayState* g) : Arkano
 	color = c;
 	game = g;
 
-	switch (color) {
+	switch (color) { // Ajustamos la fila y columna de la textura segun el color del bloque
 	case 1: { row = 0; col = 0; }break;
 	case 2: { row = 0; col = 1; }break;
 	case 3: { row = 0; col = 2; }break;  

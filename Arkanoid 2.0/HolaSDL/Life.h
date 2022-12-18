@@ -4,7 +4,7 @@
 #include "Texture.h"
 #include "ArkanoidObject.h"
 
-// Clase VIDA que hereda de ARKANOIDOBJECT
+// Clase LIFE que hereda de ARKANOIDOBJECT
 class Life :public ArkanoidObject
 {
 public: 
