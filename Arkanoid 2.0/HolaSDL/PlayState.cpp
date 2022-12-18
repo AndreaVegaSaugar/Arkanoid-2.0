@@ -1,6 +1,6 @@
-#include "PlayState.h"
+﻿#include "PlayState.h"
 #include "Game.h"
-
+const string PlayState::playID = "PLAY";
 PlayState::PlayState(Game* game, string current):GameState(game){//Creamos las paredes
 	//Creamos paredes
 	leftWall = new Wall(Vector2D(0, WALL_WIDTH), WIN_HEIGHT, WALL_WIDTH, game->textures[SideWallTx], Vector2D(1, 0));
@@ -50,6 +50,7 @@ void PlayState::handleEvent(SDL_Event event) {
 }
 void PlayState::update() { 
 	if (erased) nextLevel();
+	destroyReward();
 	GameState::update();
 }
 
@@ -65,28 +66,32 @@ void PlayState::winLevel() {
 void PlayState::restartLevel()
 {
 	--life->lives;
-	auto it = rewardIterator;
-	++it;
-	for (; it != gameObjects.end();) {
-		delete* it;
-		*it = nullptr;
-		it = gameObjects.erase(it);
-	}
+	prepareRewardToErase();
+	destroyReward();
 	rewardIterator = --gameObjects.end();
-	if(life->lives <= 0)  game->gameStateMachine->changeState(new EndState(game, 'l'));
+	if (life->lives <= 0) {
+		game->gameStateMachine->currentState()->deleteState();
+		game->gameStateMachine->changeState(new EndState(game, 'l'));
+	}
 	else load();
 }
 
+void PlayState::prepareRewardToErase() {
+	auto it = rewardIterator;
+	++it;
+	for (; it != gameObjects.end(); ++it) {
+		dynamic_cast<Reward*>(*it)->erased = true;
+	}
+}
 // Cambia al siguiente nivel, resetea los objetos correspondientes y borra los rewards que hubiera en pantalla
 void PlayState::nextLevel()
 {
 	if (level < (NUM_LEVELS - 1)) {
-		auto it = rewardIterator;
-		for (; it != gameObjects.end();) {
-			delete* it;
-			*it = nullptr;
-			it = gameObjects.erase(it);
-		}
+		//borrar rewards
+		prepareRewardToErase();
+		destroyReward();
+		//borrar mapa 
+		gameObjects.erase(--gameObjects.end());
 		life->resetLife();
 		++level;
 		timer->resetTime();
@@ -97,10 +102,13 @@ void PlayState::nextLevel()
 		load();
 		erased = false;
 	}
-	else game->gameStateMachine->changeState(new EndState(game, 'w'));
+	else {
+		game->gameStateMachine->currentState()->deleteState();
+		game->gameStateMachine->changeState(new EndState(game, 'w'));
+	}
 }
 
-// Reinicia el tama�o y la posicion del paddle y la bola
+// Reinicia el tamaño y la posicion del paddle y la bola
 void PlayState::load()
 {
 	ball->restartBall();
@@ -136,7 +144,6 @@ bool PlayState::collideReward(SDL_Rect rectReward) {
 }
 // Genera los rewards pseudoaleatoriamente
 void PlayState::generateRewards(Vector2D posAux) {
-
 	srand(time(NULL) * _getpid() * rand());
 	int num = rand() % 3;
 	if (num == 1) {
@@ -213,6 +220,7 @@ void PlayState::loadGame(string nameFile) {
 
 // Guarda los datos relevantes del Game y los gameObjects en archivo
 void PlayState::saveToFile(string code) {
+
 	int cont = 0;
 	ofstream saveFile;
 	saveFile.open(code);
@@ -233,25 +241,20 @@ void PlayState::saveToFile(string code) {
 	saveFile.close();
 }
 
-void PlayState::destroyReward(Reward* _reward) {
+void PlayState::destroyReward() {
 	auto it = rewardIterator;
-	bool found = false;
 	++it;
-	while ( it != gameObjects.end() && !found) {
-		Reward* reward = static_cast<Reward*>(*it);
-		if (reward == _reward) {
-			if (*it != nullptr)
-			{
-				delete* it;
-				*it = nullptr;
-				found = true;
-
-			}
+	for (; it != gameObjects.end();) {
+		if (dynamic_cast<Reward*>(*it)->erased) {
+			GameObject* rewardErased = *it;
+			it = gameObjects.erase(it); 
+			delete rewardErased; 
 		}
 		else ++it;
 	}
-
+	
 }
+
 
 void PlayState::paddleSize(char c) {
 	ball->setSize(BALL_SIZE); 

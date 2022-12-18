@@ -51,7 +51,9 @@ void Reward::loadFromFile(ifstream& loadFile)
 // Aplica el efecto del reward segun su tipos
 void Reward::rewardType() {
 	switch (tipeReward) {
-	case 'L': {game->erased = true; }break;
+	case 'L': {game->erased = true; 
+
+		cout << "cambiando nivel" << endl; }break;
 	case 'E': {game->paddleSize('e'); }break;
 	case 'R': { game->extraLives(); }break;
 	case 'S': { game->paddleSize('s'); }break;
@@ -74,5 +76,5 @@ void Reward::update()
 {
 	move();
 	col = int(((SDL_GetTicks() / 100) % totalCol));
-	if(collides() && tipeReward != 'L') game->destroyReward(this);
+	if(collides()) erased = true; //&& tipeReward != 'L'
 }

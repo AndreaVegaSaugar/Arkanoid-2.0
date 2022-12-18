@@ -6,17 +6,13 @@
 #include "Game.h"
 class PauseState : public MenuGameState {
 private:
-
-	//MenuButton* resume = nullptr;
-	//MenuButton* save = nullptr;
-	//MenuButton* MainMenu = nullptr;
-	static const string s_pauseID;
+	static const string pauseID;
 
 public:
 	PauseState(Game* game);
-
 	static void resumeGame(Game* game);
 	static void saveGame(Game* game);
 	static void goToMainMenu(Game* game);
+	virtual string getStateID() const { return pauseID; }
 };
 

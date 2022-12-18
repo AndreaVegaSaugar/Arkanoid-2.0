@@ -13,6 +13,7 @@ Game::Game() {
 		WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if (window == nullptr || renderer == nullptr) throw (SDLError(SDL_GetError()));
+	ShowWindow(GetConsoleWindow(), SW_MINIMIZE);
 
 	//Nos creamos las texturas
 	for (uint i = 0; i < NUM_TEXTURES; ++i)
@@ -50,7 +51,7 @@ void Game::run()
 		}
 		render();
 	}
-	gameStateMachine->deleteStates();
+	//gameStateMachine->deleteStates();
 }
 
 void Game::render() const

@@ -1,22 +1,35 @@
 #include "GameState.h"
 #include "Game.h"
 void GameState:: update() {
-	for (auto it = gameObjects.begin(); it != gameObjects.end();) {
-		(*it)->update();
-		if (*it == nullptr) it = gameObjects.erase(it);
-		else ++it;
-	}
+			
+		for (auto it = gameObjects.begin(); it != gameObjects.end() && !deleted;) {
+				(*it)->update();
+				if (!deleted) ++it;
+				else return;
+				//++it;
+		}
+			
 };
 
 void GameState::render() const {
-	 
-	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
-		(*it)->render();
-	}
+			
+		for (auto it = gameObjects.begin(); it != gameObjects.end() && !deleted;) {
+				(*it)->render();
+				if (!deleted) ++it;
+				else return;
+				//++it;
+		}
+			
 };
 
 void GameState::handleEvent(SDL_Event event) {
-	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it) {
-		(*it)->handleEvent(event);
+		
+	for (auto it = gameObjects.begin(); it != gameObjects.end() && !deleted;) {
+			(*it)->handleEvent(event);
+			 if (!deleted) ++it;
+			 else return;
+			 //++it;
 	}
+		
 };
+
