@@ -9,8 +9,8 @@ class GameStateMachine
 {
 private:
 	stack<GameState*> gameStateStack;
-	list<GameState*> statesToDelete;
 public: 
+	~GameStateMachine();
 	GameState* currentState() {
 		if (!gameStateStack.empty()) return gameStateStack.top();
 		else return nullptr;

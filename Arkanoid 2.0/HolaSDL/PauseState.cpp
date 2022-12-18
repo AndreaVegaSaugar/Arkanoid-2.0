@@ -21,8 +21,6 @@ void PauseState::saveGame(Game* game) {
 	game->gameStateMachine->popState();
 	PlayState* play = static_cast<PlayState*>(game->gameStateMachine->currentState());
 	play->saveToFile(code);
-	game->gameStateMachine->pushState(new PauseState(game));
-	
 }
 
 void PauseState::goToMainMenu(Game* game) {

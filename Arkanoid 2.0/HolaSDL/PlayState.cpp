@@ -42,12 +42,7 @@ PlayState::~PlayState() {
 		delete* it;
 	}
 }
-void PlayState::handleEvent(SDL_Event event) {
-	GameState::handleEvent(event);
-	if (event.type == SDL_KEYDOWN) {
-		if (event.key.keysym.sym == SDLK_ESCAPE) game->gameStateMachine->pushState(new PauseState(game));
-	}
-}
+
 void PlayState::update() { 
 	if (erased) nextLevel();
 	destroyReward();
@@ -57,7 +52,9 @@ void PlayState::update() {
 void PlayState::handleEvent(SDL_Event event) {
 	GameState::handleEvent(event);
 	if (event.type == SDL_KEYDOWN) {
-		if (event.key.keysym.sym == SDLK_ESCAPE) game->gameStateMachine->pushState(new PauseState(game));
+		if (event.key.keysym.sym == SDLK_ESCAPE) {
+			game->gameStateMachine->pushState(new PauseState(game));
+		}
 	}
 }
 

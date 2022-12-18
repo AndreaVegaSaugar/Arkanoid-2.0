@@ -4,6 +4,7 @@
 GameStateMachine:: ~GameStateMachine() {
 
 }
+
 void GameStateMachine::pushState(GameState* pState) {
 	gameStateStack.push(pState);
 }
